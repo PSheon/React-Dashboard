@@ -1,0 +1,82 @@
+.apexcharts-canvas.apexcharts-theme-dark {
+	background-color: #212744 !important;
+}
+.apexcharts-tooltip.apexcharts-theme-dark {
+	background-color: #212744 !important;
+}
+
+.apexcharts-canvas .apexcharts-gridlines-horizontal .apexcharts-gridline {
+	stroke: #414561;
+}
+.apexcharts-canvas .apexcharts-tooltip.light,
+.apexcharts-canvas .apexcharts-yaxistooltip,
+.apexcharts-canvas .apexcharts-xaxistooltip,
+.apexcharts-canvas .apexcharts-tooltip {
+	background-color: #212744;
+	border-color: #262c49;
+}
+.apexcharts-canvas .apexcharts-tooltip.light .apexcharts-tooltip-title,
+.apexcharts-canvas .apexcharts-yaxistooltip .apexcharts-tooltip-title,
+.apexcharts-canvas .apexcharts-xaxistooltip .apexcharts-tooltip-title,
+.apexcharts-canvas .apexcharts-tooltip .apexcharts-tooltip-title,
+.apexcharts-canvas .apexcharts-tooltip.light .apexcharts-tooltip-text,
+.apexcharts-canvas .apexcharts-yaxistooltip .apexcharts-tooltip-text,
+.apexcharts-canvas .apexcharts-xaxistooltip .apexcharts-tooltip-text,
+.apexcharts-canvas .apexcharts-tooltip .apexcharts-tooltip-text {
+	background-color: #212744;
+	color: #c2c6dc;
+}
+.apexcharts-canvas .apexcharts-tooltip.dark .apexcharts-tooltip-text .apexcharts-tooltip-text-label,
+.apexcharts-canvas .apexcharts-tooltip.dark .apexcharts-tooltip-text .apexcharts-tooltip-text-value {
+	background-color: #212744;
+	border-color: #262c49;
+	color: #fff;
+}
+.apexcharts-canvas .apexcharts-xaxistooltip-bottom:before {
+	border-bottom-color: transparent;
+}
+.apexcharts-canvas .apexcharts-xaxistooltip-bottom:after {
+	border-bottom-color: #262c49;
+}
+.apexcharts-canvas .apexcharts-yaxistooltip-left:before {
+	border-left-color: transparent;
+}
+.apexcharts-canvas .apexcharts-yaxistooltip-left:after {
+	border-left-color: #262c49;
+}
+.apexcharts-canvas text {
+	fill: #fff !important;
+}
+.apexcharts-canvas .apexcharts-legend-series .apexcharts-legend-text {
+	color: #c2c6dc !important;
+}
+.apexcharts-canvas .apexcharts-radialbar-track path {
+	stroke: #262c49;
+}
+.apexcharts-canvas .apexcharts-inner polygon {
+	stroke: #212744 !important;
+	fill: #262c49 !important;
+}
+.apexcharts-canvas .apexcharts-inner rect {
+	fill: #10163a;
+}
+.apexcharts-canvas .apexcharts-pie-series path {
+	stroke: #262c49;
+}
+.apexcharts-canvas .apexcharts-menu {
+	background-color: #262c49;
+	border: 0;
+}
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-zoom-in-icon:hover svg,
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-zoom-out-icon:hover svg,
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-zoom-icon:hover svg,
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-menu-icon:hover svg,
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-reset-zoom-icon:hover svg {
+	fill: #c2c6dc;
+}
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-menu-item {
+	color: #c2c6dc;
+}
+.apexcharts-canvas .apexcharts-toolbar .apexcharts-menu-item:hover {
+	background-color: #10163a;
+}
