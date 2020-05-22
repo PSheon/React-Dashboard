@@ -70,7 +70,7 @@ function isUrlInChildren(parent, url) {
 }
 
 function FuseNavVerticalCollapse(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
 	const { item, nestedLevel } = props;
 	const classes = useStyles({

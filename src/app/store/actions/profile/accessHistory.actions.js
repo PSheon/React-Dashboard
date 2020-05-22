@@ -2,8 +2,9 @@ import axios from 'axios';
 
 import * as FuseActions from 'app/store/actions/fuse';
 
-export const SET_ME_ACCESS_HISTORY_LOADING = '[ME] SET ACCESS HISTORY LOADING';
-export const SET_ME_ACCESS_HISTORY = '[ME] SET ACCESS HISTORY';
+export const SET_ME_ACCESS_HISTORY_LOADING = '[PROFILE] SET ME ACCESS HISTORY LOADING';
+export const SET_ME_ACCESS_HISTORY = '[PROFILE] SET ME ACCESS HISTORY DATA';
+export const RESET_ME_ACCESS_HISTORY = '[PROFILE] SET ME ACCESS HISTORY DATA';
 
 export function setAccessHistory() {
 	return dispatch => {

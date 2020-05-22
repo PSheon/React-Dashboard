@@ -19,17 +19,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { XCircle, Meh, Smile, Mail, Eye, EyeOff } from 'react-feather';
 
-import * as authActions from 'app/auth/store/actions';
+import * as AuthActions from 'app/store/actions/auth';
 import { isMemberIdFormValid, isEmailFormValid, isPasswordFormValid, isConfirmPasswordFormValid } from 'utils';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		// background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
-		// 	theme.palette.primary.dark,
-		// 	0.5
-		// )} 100%)`,
 		background: 'url(assets/images/auth/money-tool.png)',
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
@@ -42,7 +38,6 @@ function RegisterPage() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const REGISTER_STATE = useSelector(({ auth }) => auth.register);
-	const [alertOpen, setAlertOpen] = useState(true);
 	const [showPassword, setShowPassword] = useState(false);
 
 	const { form, handleChange } = useForm({
@@ -69,7 +64,7 @@ function RegisterPage() {
 	function handleSubmit(ev) {
 		ev.preventDefault();
 
-		dispatch(authActions.submitRegister(form));
+		dispatch(AuthActions.submitRegister(form));
 	}
 
 	return (
@@ -119,27 +114,29 @@ function RegisterPage() {
 						</div>
 
 						{/* Alert */}
-						<Grow in={alertOpen}>
-							<Alert
-								className={clsx(!alertOpen && 'hidden', 'mb-20 rounded-16 w-full')}
-								severity="error"
-								action={
-									<IconButton
-										aria-label="關閉"
-										className="p-12 mr-4"
-										color="inherit"
-										size="small"
-										onClick={() => {
-											setAlertOpen(false);
-										}}
-									>
-										<XCircle size={18} />
-									</IconButton>
-								}
-							>
-								Close me!
-							</Alert>
-						</Grow>
+						{!!REGISTER_STATE.error.global && (
+							<Grow in={!!REGISTER_STATE.error.global}>
+								<Alert
+									className="mb-20 rounded-16 w-full"
+									severity="error"
+									action={
+										<IconButton
+											aria-label="close"
+											className="p-12 mr-4"
+											color="inherit"
+											size="small"
+											onClick={() => {
+												dispatch(AuthActions.resetRegisterAlert());
+											}}
+										>
+											<XCircle size={18} />
+										</IconButton>
+									}
+								>
+									{REGISTER_STATE.error.global}
+								</Alert>
+							</Grow>
+						)}
 
 						<form
 							name="registerForm"
@@ -156,7 +153,9 @@ function RegisterPage() {
 								onChange={handleChange}
 								error={!isMemberIdFormValid(form.memberId)}
 								helperText={
-									!isMemberIdFormValid(form.memberId) && (
+									isMemberIdFormValid(form.memberId) ? (
+										<span className="block min-h-24" />
+									) : (
 										<FuseAnimate animation="transition.expandIn">
 											<Typography component="span">會員 ID 需為 5 ~ 15 位英文或數字.</Typography>
 										</FuseAnimate>
@@ -191,7 +190,9 @@ function RegisterPage() {
 								onChange={handleChange}
 								error={!isEmailFormValid(form.email)}
 								helperText={
-									!isEmailFormValid(form.email) && (
+									isEmailFormValid(form.email) ? (
+										<span className="block min-h-24" />
+									) : (
 										<FuseAnimate animation="transition.expandIn">
 											<Typography component="span">請輸入正確的信箱.</Typography>
 										</FuseAnimate>
@@ -222,7 +223,9 @@ function RegisterPage() {
 								onChange={handleChange}
 								error={!isPasswordFormValid(form.password)}
 								helperText={
-									!isPasswordFormValid(form.password) && (
+									isPasswordFormValid(form.password) ? (
+										<span className="block min-h-24" />
+									) : (
 										<FuseAnimate animation="transition.expandIn">
 											<Typography component="span">密碼須包含8~15個英文或數字.</Typography>
 										</FuseAnimate>
@@ -256,7 +259,9 @@ function RegisterPage() {
 								onChange={handleChange}
 								error={!isConfirmPasswordFormValid(form.password, form.passwordConfirm)}
 								helperText={
-									!isConfirmPasswordFormValid(form.password, form.passwordConfirm) && (
+									isConfirmPasswordFormValid(form.password, form.passwordConfirm) ? (
+										<span className="block min-h-24" />
+									) : (
 										<FuseAnimate animation="transition.expandIn">
 											<Typography component="span">兩次輸入的密碼不相同.</Typography>
 										</FuseAnimate>

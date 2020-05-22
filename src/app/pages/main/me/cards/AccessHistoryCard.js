@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import humanizeDuration from 'humanize-duration';
+import useSWR, { SWRConfig } from 'swr';
+import axios from 'axios';
 import UAParser from 'ua-parser-js';
 import moment from 'moment';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -96,9 +98,10 @@ const AccessHistoryCard = () => {
 	const theme = useTheme();
 	const classes = useStyles();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+	const { data: accessHistory, error } = useSWR('/api/profile/access-history', query => axios.post(query));
 	const [tableExtend, setTableExtend] = useState(false);
 
-	const ACCESS_HISTORY = useSelector(({ me }) => me.accessHistory);
+	const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);
 
 	return (
 		<Grow in>
@@ -146,7 +149,7 @@ const AccessHistoryCard = () => {
 										</TableRow>
 									</TableHead>
 									<TableBody>
-										{ACCESS_HISTORY.docs.slice(0, tableExtend ? -1 : 5).map(doc => (
+										{ACCESS_HISTORY.data.slice(0, tableExtend ? -1 : 5).map(doc => (
 											<TableRow
 												key={doc._id}
 												hover

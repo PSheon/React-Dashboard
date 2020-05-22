@@ -5,8 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
-// import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
+import ConnectionStatus from 'app/fuse-layouts/shared-components/ConnectionStatus';
 
 function FooterLayout1(props) {
 	const footerTheme = useSelector(({ fuse }) => fuse.settings.footerTheme);
@@ -21,20 +20,20 @@ function FooterLayout1(props) {
 			>
 				<Toolbar className="pt-12 px-16 sm:px-24 py-0 flex items-center">
 					<div className="flex flex-1">
-						<Hidden mdDown>
+						<Hidden smDown>
 							<Typography color="textSecondary" className="font-medium">
 								COPYRIGHT © 2020 PSheon, All rights reserved
 							</Typography>
 						</Hidden>
-						<Hidden smUp>
+						<Hidden mdUp>
 							<Typography color="textSecondary" className="font-medium">
 								COPYRIGHT © 2020 PSheon
 							</Typography>
 						</Hidden>
 					</div>
 
-					<div>
-						<PoweredByLinks />
+					<div className="flex items-center items-center">
+						<ConnectionStatus />
 					</div>
 				</Toolbar>
 			</AppBar>

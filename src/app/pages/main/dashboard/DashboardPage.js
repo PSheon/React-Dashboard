@@ -1,28 +1,30 @@
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSocket } from 'use-socketio';
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import WidgetStatisticsCard from 'app/fuse-layouts/shared-components/StatisticsCard';
 import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import WidgetRevenue from './widgets/WidgetRevenue';
 import WidgetFundingRatio from './widgets/WidgetFundingRatio';
+import WidgetOrderHistory from './widgets/WidgetOrderHistory';
 
 import reducer from './store/reducers';
 // import * as Actions from './store/actions';
 
 function DashboardPage() {
 	const dispatch = useDispatch();
-	// const widgets = useSelector(({ analyticsDashboardApp }) => analyticsDashboardApp.widgets.data);
+	const [metrics, setMetrics] = useState([]);
+	const { socket, subscribe, unsubscribe } = useSocket('asm_stats', m => setMetrics([...metrics.slice(0, 30), m]));
 
-	useEffect(() => {
-		// dispatch(Actions.getWidgets());
-	}, [dispatch]);
+	// console.log('metrics, ', metrics);
 
-	// if (!widgets) {
-	// 	return null;
-	// }
+	// useEffect(() => {
+	// 	console.log('socket, ', socket);
+	// }, []);
+
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
@@ -121,7 +123,10 @@ function DashboardPage() {
 								近期訂單
 							</Typography>
 						</FuseAnimate>
-						<div className="widget w-full p-16 pb-20">{/* <Widget5 data={widgets.widget5} /> */}</div>
+						<div className="widget w-full p-16 pb-20">
+							{/* <Widget5 data={widgets.widget5} /> */}
+							<WidgetOrderHistory />
+						</div>
 
 						{/* <FuseAnimate delay={600}>
 							<Typography className="px-16 py-8 text-18 font-300">Where are your users?</Typography>

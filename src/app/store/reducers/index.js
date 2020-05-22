@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import auth from 'app/auth/store/reducers';
-import me from './me';
+import auth from './auth';
+import profile from './profile';
 import fuse from './fuse';
 import userList from './userList';
 
@@ -9,7 +9,7 @@ const createReducer = asyncReducers =>
 		auth,
 		fuse,
 
-		me,
+		profile,
 		userList,
 
 		...asyncReducers

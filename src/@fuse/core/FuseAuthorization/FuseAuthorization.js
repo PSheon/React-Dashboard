@@ -74,9 +74,9 @@ class FuseAuthorization extends Component {
 	}
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps({ profile }) {
 	return {
-		userRole: auth.user.role
+		userRole: profile.role.data
 	};
 }
 

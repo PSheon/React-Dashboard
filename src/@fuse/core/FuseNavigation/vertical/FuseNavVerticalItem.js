@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavVerticalItem(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const dispatch = useDispatch();
 
 	const theme = useTheme();

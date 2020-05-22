@@ -51,8 +51,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalCollapse(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
-
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const classes = useStyles(props);
 	const [opened, setOpened] = useState(false);
 	const { item, nestedLevel, dense } = props;

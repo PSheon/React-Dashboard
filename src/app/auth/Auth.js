@@ -1,5 +1,4 @@
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
-import * as userActions from 'app/auth/store/actions';
 // import auth0Service from 'app/services/auth0Service';
 // import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
@@ -37,11 +36,11 @@ class Auth extends Component {
 					.then(user => {
 						this.props.setUserData(user);
 
-						resolve();
-
 						this.props.showMessage({
 							message: '嗨！歡迎回來~'
 						});
+
+						resolve();
 					})
 					.catch(error => {
 						this.props.showMessage({ message: error });
@@ -140,8 +139,8 @@ class Auth extends Component {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
-			logout: userActions.logoutUser,
-			setUserData: userActions.setUserData,
+			logout: Actions.logoutUser,
+			setUserData: Actions.setUserData,
 			// setUserDataAuth0: userActions.setUserDataAuth0,
 			// setUserDataFirebase: userActions.setUserDataFirebase,
 			showMessage: Actions.showMessage,

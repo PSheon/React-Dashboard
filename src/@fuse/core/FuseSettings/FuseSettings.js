@@ -10,7 +10,6 @@ import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
-import * as AuthActions from 'app/auth/store/actions';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import React from 'react';
@@ -72,7 +71,7 @@ function FuseSettings(props) {
 		if (user.role === 'guest') {
 			dispatch(Actions.setDefaultSettings(newSettings));
 		} else {
-			dispatch(AuthActions.updateUserSettings(newSettings));
+			dispatch(Actions.updateUserSettings(newSettings));
 		}
 	}
 

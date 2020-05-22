@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavVerticalLink(props) {
 	const dispatch = useDispatch();
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 
 	const theme = useTheme();
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'));

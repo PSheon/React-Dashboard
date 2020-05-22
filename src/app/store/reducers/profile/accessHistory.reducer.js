@@ -1,8 +1,9 @@
-import * as Actions from 'app/store/actions/me/accessHistory.actions';
+import * as Actions from 'app/store/actions/profile';
 
 const initialState = {
 	loading: false,
-	docs: []
+
+	data: []
 };
 
 const accessHistory = (state = initialState, action) => {
@@ -11,7 +12,10 @@ const accessHistory = (state = initialState, action) => {
 			return { ...state, loading: true };
 		}
 		case Actions.SET_ME_ACCESS_HISTORY: {
-			return { ...state, loading: false, docs: action.payload.accessHistory };
+			return { ...state, loading: false, data: action.payload.accessHistory };
+		}
+		case Actions.RESET_ME_ACCESS_HISTORY: {
+			return initialState;
 		}
 
 		default: {

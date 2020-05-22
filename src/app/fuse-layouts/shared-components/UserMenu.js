@@ -13,7 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 
-import * as authActions from 'app/auth/store/actions';
+import * as authActions from 'app/store/actions/auth';
 import { roleConverter } from 'utils';
 
 const AvatarBadge = withStyles(theme => ({
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
 function UserMenu(props) {
 	const classes = useStyles(props);
 	const dispatch = useDispatch();
-	const user = useSelector(({ auth }) => auth.user);
+	const PROFILE = useSelector(({ profile }) => profile);
 
 	const [userMenu, setUserMenu] = useState(null);
 
@@ -81,10 +81,10 @@ function UserMenu(props) {
 			<Button className="h-48 rounded-32 mr-4 sm:mr-8 pr-8 p-0" onClick={userMenuClick}>
 				<div className="hidden sm:flex flex-col mx-12 items-end">
 					<Typography component="span" className="normal-case font-600 flex">
-						{user.data.displayName}
+						{PROFILE.me.data.displayName}
 					</Typography>
 					<Typography className="text-11 capitalize" color="textSecondary">
-						{roleConverter(user.role.toString())}
+						{roleConverter(PROFILE.role.data.toString())}
 					</Typography>
 				</div>
 
@@ -97,10 +97,10 @@ function UserMenu(props) {
 					variant="dot"
 				>
 					<div className="border-4 p-2 rounded-full">
-						{user.data.photoURL ? (
-							<Avatar className="w-36 h-36" alt="user photo" src={user.data.photoURL} />
+						{PROFILE.me.data.photoURL ? (
+							<Avatar className="w-36 h-36" alt="user photo" src={PROFILE.me.data.photoURL} />
 						) : (
-							<Avatar className="w-36 h-36">{user.data.displayName[0]}</Avatar>
+							<Avatar className="w-36 h-36">{PROFILE.me.data.displayName[0]}</Avatar>
 						)}
 					</div>
 				</AvatarBadge>
@@ -128,7 +128,7 @@ function UserMenu(props) {
 					}
 				}
 			>
-				{!user.role || user.role.length === 0 ? (
+				{!PROFILE.role.data || PROFILE.role.data.length === 0 ? (
 					<>
 						<MenuItem
 							component={Link}

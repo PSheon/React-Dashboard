@@ -1,45 +1,44 @@
-import * as Actions from '../actions';
+import * as Actions from 'app/store/actions/auth';
 
 const initialState = {
 	loading: false,
 	success: false,
 	error: {
 		global: null,
-		memberId: null,
 		email: null,
 		password: null
 	}
 };
 
-const register = (state = initialState, action) => {
+const login = (state = initialState, action) => {
 	switch (action.type) {
-		case Actions.SET_REGISTER_LOADING: {
+		case Actions.SET_LOGIN_LOADING: {
 			return {
 				...initialState,
 				loading: true
 			};
 		}
-		case Actions.REGISTER_SUCCESS: {
+		case Actions.LOGIN_SUCCESS: {
 			return {
 				...initialState,
 				loading: false,
 				success: true
 			};
 		}
-		case Actions.REGISTER_ERROR: {
+		case Actions.LOGIN_ERROR: {
 			return {
-				success: false,
+				...state,
 				loading: false,
+				success: false,
 				error: action.payload.error
 			};
 		}
-		case Actions.RESET_REGISTER_ALERT: {
+		case Actions.RESET_LOGIN_ALERT: {
 			return {
 				...state,
 				loading: false,
 				error: {
 					global: null,
-					memberId: null,
 					email: null,
 					password: null
 				}
@@ -51,4 +50,4 @@ const register = (state = initialState, action) => {
 	}
 };
 
-export default register;
+export default login;

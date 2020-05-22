@@ -1,7 +1,6 @@
 // import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
-// import * as Actions from 'app/store/actions';
-import * as UserActions from './user.actions';
+import * as ProfileActions from 'app/store/actions/profile';
 
 export const SET_REGISTER_LOADING = 'SET_REGISTER_LOADING';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
@@ -29,7 +28,7 @@ export function submitRegister({ memberId, email, password }) {
 				password
 			})
 			.then(user => {
-				dispatch(UserActions.setUserData(user));
+				dispatch(ProfileActions.setUserData(user));
 				return dispatch({
 					type: REGISTER_SUCCESS
 				});
@@ -62,7 +61,7 @@ export function resetRegisterAlert() {
 // 			.createUserWithEmailAndPassword(email, password)
 // 			.then(response => {
 // 				dispatch(
-// 					UserActions.createUserSettingsFirebase({
+// 					ProfileActions.createUserSettingsFirebase({
 // 						...response.user,
 // 						displayName,
 // 						email

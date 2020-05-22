@@ -74,7 +74,7 @@ function UserListDialog() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const userInfoDialog = useSelector(({ userList }) => userList.userInfoDialog);
-	const isAdmin = useSelector(({ auth }) => auth.user.role === 'admin');
+	const isAdmin = useSelector(({ profile }) => profile.role.data === 'admin');
 
 	const [showNewPasswordHint, setShowNewPasswordHint] = useState(false);
 

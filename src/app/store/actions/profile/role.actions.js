@@ -2,8 +2,9 @@
 
 // import * as FuseActions from 'app/store/actions/fuse';
 
-export const SET_ME_ROLE_LOADING = '[ME] SET ROLE LOADING';
-export const SET_ME_ROLE = '[ME] SET ROLE';
+export const SET_ME_ROLE_LOADING = '[PROFILE] SET ME ROLE LOADING';
+export const SET_ME_ROLE = '[PROFILE] SET ME ROLE DATA';
+export const RESET_ME_ROLE = '[PROFILE] RESET ME ROLE DATA';
 
 // TODO
 // export function refreshMeRole() {

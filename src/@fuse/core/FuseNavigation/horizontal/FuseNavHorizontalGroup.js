@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalGroup(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 
 	const classes = useStyles(props);
 	const [opened, setOpened] = useState(false);

@@ -37,8 +37,8 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function UserNavbarHeader(props) {
-	const user = useSelector(({ auth }) => auth.user);
+function UserNavbarHeader() {
+	const me = useSelector(({ profile }) => profile.me.data);
 	const foldedOpen = useSelector(({ fuse }) => fuse.navbar.foldedOpen);
 
 	// TODO
@@ -57,19 +57,15 @@ function UserNavbarHeader(props) {
 			)}
 		>
 			<Typography className="username text-16 whitespace-no-wrap font-bold" color="inherit">
-				{user.data.displayName}
+				{me.memberId}
 			</Typography>
 			<Typography className="email text-13 mt-8 opacity-50 whitespace-no-wrap font-semibold" color="inherit">
-				{user.data.email}
+				{me.email}
 			</Typography>
 			<Avatar
 				className={clsx(classes.avatar, 'avatar')}
 				alt="user photo"
-				src={
-					user.data.photoURL && user.data.photoURL !== ''
-						? user.data.photoURL
-						: 'assets/images/avatars/profile.jpg'
-				}
+				src={me.photoURL && me.photoURL !== '' ? me.photoURL : 'assets/images/avatars/profile.jpg'}
 			/>
 		</AppBar>
 	);

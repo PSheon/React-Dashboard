@@ -8,6 +8,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { create } from 'jss';
 import jssExtend from 'jss-plugin-extend';
 import rtl from 'jss-rtl';
+import { SocketIOProvider } from 'use-socketio';
 import React from 'react';
 import Provider from 'react-redux/es/components/Provider';
 import { Router } from 'react-router-dom';
@@ -31,21 +32,23 @@ const App = () => {
 				routes
 			}}
 		>
-			<StylesProvider jss={jss} generateClassName={generateClassName}>
-				<Provider store={store}>
-					<MuiPickersUtilsProvider utils={MomentUtils}>
-						<Auth>
-							<Router history={history}>
-								<FuseAuthorization>
-									<FuseTheme>
-										<FuseLayout />
-									</FuseTheme>
-								</FuseAuthorization>
-							</Router>
-						</Auth>
-					</MuiPickersUtilsProvider>
-				</Provider>
-			</StylesProvider>
+			<SocketIOProvider url={process.env.REACT_APP_API_URL} opts={{ path: process.env.SOCKET_PATH }}>
+				<StylesProvider jss={jss} generateClassName={generateClassName}>
+					<Provider store={store}>
+						<MuiPickersUtilsProvider utils={MomentUtils}>
+							<Auth>
+								<Router history={history}>
+									<FuseAuthorization>
+										<FuseTheme>
+											<FuseLayout />
+										</FuseTheme>
+									</FuseAuthorization>
+								</Router>
+							</Auth>
+						</MuiPickersUtilsProvider>
+					</Provider>
+				</StylesProvider>
+			</SocketIOProvider>
 		</AppContext.Provider>
 	);
 };

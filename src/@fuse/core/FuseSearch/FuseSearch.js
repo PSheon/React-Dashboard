@@ -223,7 +223,7 @@ function reducer(state, action) {
 }
 
 function FuseSearch(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const navigation = useSelector(({ fuse }) => fuse.navigation);
 
 	const [state, dispatch] = useReducer(reducer, initialState);

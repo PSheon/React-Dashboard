@@ -1,3 +1,4 @@
 export * from './fuse';
-export * from './me';
+export * from './auth';
+export * from './profile';
 export * from './userList';

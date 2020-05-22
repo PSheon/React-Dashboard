@@ -20,8 +20,7 @@ const useStyles = makeStyles(theme => ({
 const ProfileCard = () => {
 	const classes = useStyles();
 	// TODO 改 redux 中 auth、profile 位置
-	const USER_DATA = useSelector(({ me }) => me.profile.data);
-	console.log('USER_DATA, ', USER_DATA);
+	const ME_DATA = useSelector(({ profile }) => profile.me.data);
 
 	return (
 		<Grow in>
@@ -38,9 +37,9 @@ const ProfileCard = () => {
 					<div className="w-full mt-20 flex justify-between items-start text-center">
 						<Typography className="h2 mb-16">我的資訊</Typography>
 
-						{USER_DATA.email && (
+						{ME_DATA.email && (
 							<Typography color="textSecondary" className="mb-40">
-								{USER_DATA.email}
+								{ME_DATA.email}
 							</Typography>
 						)}
 					</div>
@@ -54,7 +53,7 @@ const ProfileCard = () => {
 								inputProps: {
 									'aria-label': '我的顯示名稱'
 								},
-								defaultValue: USER_DATA.displayName,
+								defaultValue: ME_DATA.displayName,
 								endAdornment: (
 									<InputAdornment position="end" classes={{ root: 'p-12' }}>
 										<User size={18} />
@@ -73,7 +72,7 @@ const ProfileCard = () => {
 									'aria-label': '我的信箱'
 								},
 								readOnly: true,
-								defaultValue: USER_DATA.email,
+								defaultValue: ME_DATA.email,
 								endAdornment: (
 									<InputAdornment position="end" classes={{ root: 'p-12' }}>
 										<Mail size={18} />
@@ -91,7 +90,7 @@ const ProfileCard = () => {
 								inputProps: {
 									'aria-label': '我的手機'
 								},
-								defaultValue: USER_DATA.phone,
+								defaultValue: ME_DATA.phone,
 								endAdornment: (
 									<InputAdornment position="end" classes={{ root: 'p-12' }}>
 										<Smartphone size={18} />
@@ -107,7 +106,7 @@ const ProfileCard = () => {
 								<Typography className="h3 text-left">信箱驗證狀態</Typography>
 							</div>
 							<div className="flex-1">
-								{USER_DATA.verified ? (
+								{ME_DATA.verified ? (
 									<DotLoader className="ml-auto" width={16} height={16} colorSchema="green" />
 								) : (
 									<DotLoader className="ml-auto" width={16} height={16} colorSchema="warning" />

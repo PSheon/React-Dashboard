@@ -1,4 +1,4 @@
-import * as Actions from 'app/store/actions/me';
+import * as Actions from 'app/store/actions/profile';
 
 const initialState = {
 	loading: false,
@@ -20,7 +20,10 @@ const profile = (state = initialState, action) => {
 			return { ...state, loading: true };
 		}
 		case Actions.SET_ME_PROFILE: {
-			return { ...state, loading: false, data: { ...action.payload.meProfile } };
+			return { ...state, loading: false, data: { ...state.data, ...action.payload.me } };
+		}
+		case Actions.RESET_ME_PROFILE: {
+			return initialState;
 		}
 
 		default: {

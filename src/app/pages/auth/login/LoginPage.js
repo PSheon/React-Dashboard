@@ -17,20 +17,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
-import { Mail, Eye, EyeOff } from 'react-feather';
+import { XCircle, Mail, Eye, EyeOff } from 'react-feather';
 
-import * as AuthActions from 'app/auth/store/actions';
+import * as AuthActions from 'app/store/actions/auth';
 import { isEmailFormValid, isPasswordFormValid } from 'utils';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		// background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
-		// 	theme.palette.primary.dark,
-		// 	0.5
-		// )} 100%)`,
 		background: 'url(assets/images/auth/money-tool.png)',
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
@@ -43,7 +38,6 @@ function LoginPage() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const LOGIN_STATE = useSelector(({ auth }) => auth.login);
-	const [alertOpen, setAlertOpen] = useState(true);
 	const [showPassword, setShowPassword] = useState(false);
 
 	const { form, handleChange } = useForm({
@@ -53,12 +47,11 @@ function LoginPage() {
 	});
 
 	function isFormValid() {
-		return isEmailFormValid(form.email) && isPasswordFormValid(form.password);
+		return form.email && form.password && isEmailFormValid(form.email) && isPasswordFormValid(form.password);
 	}
 
 	function handleSubmit(event) {
 		event.preventDefault();
-
 		dispatch(AuthActions.submitLogin(form));
 	}
 
@@ -99,30 +92,33 @@ function LoginPage() {
 						</div>
 
 						{/* Alert */}
-						<Grow in={alertOpen}>
-							<Alert
-								className="mb-20 rounded-16 w-full"
-								severity="error"
-								action={
-									<IconButton
-										aria-label="close"
-										color="inherit"
-										size="small"
-										onClick={() => {
-											setAlertOpen(false);
-										}}
-									>
-										<CloseIcon fontSize="inherit" />
-									</IconButton>
-								}
-							>
-								Close me!
-							</Alert>
-						</Grow>
+						{!!LOGIN_STATE.error.global && (
+							<Grow in={!!LOGIN_STATE.error.global}>
+								<Alert
+									className="mb-20 rounded-16 w-full"
+									severity="error"
+									action={
+										<IconButton
+											aria-label="close"
+											className="p-12 mr-4"
+											color="inherit"
+											size="small"
+											onClick={() => {
+												dispatch(AuthActions.resetLoginAlert());
+											}}
+										>
+											<XCircle size={18} />
+										</IconButton>
+									}
+								>
+									{LOGIN_STATE.error.global}
+								</Alert>
+							</Grow>
+						)}
 
 						<form name="loginForm" className="flex flex-col justify-center w-full" onSubmit={handleSubmit}>
 							<CssTextField
-								className="mb-16"
+								className="mb-8"
 								label="信箱"
 								autoFocus
 								type="email"
@@ -131,7 +127,9 @@ function LoginPage() {
 								onChange={handleChange}
 								error={!isEmailFormValid(form.email)}
 								helperText={
-									!isEmailFormValid(form.email) && (
+									isEmailFormValid(form.email) ? (
+										<span className="block min-h-24" />
+									) : (
 										<FuseAnimate animation="transition.expandIn">
 											<Typography component="span">請輸入正確的信箱.</Typography>
 										</FuseAnimate>
@@ -143,7 +141,7 @@ function LoginPage() {
 									},
 									placeholder: '使用信箱登入',
 									endAdornment: (
-										<InputAdornment position="end" classes={{ root: 'p-12' }}>
+										<InputAdornment position="end" classes={{ root: 'p-4 sm:p-12' }}>
 											<Mail size={18} />
 										</InputAdornment>
 									)
@@ -154,7 +152,7 @@ function LoginPage() {
 							/>
 
 							<CssTextField
-								className="mb-16"
+								className="mb-8"
 								label="密碼"
 								type="password"
 								name="password"
@@ -162,7 +160,9 @@ function LoginPage() {
 								onChange={handleChange}
 								error={!isPasswordFormValid(form.password)}
 								helperText={
-									!isPasswordFormValid(form.password) && (
+									isPasswordFormValid(form.password) ? (
+										<span className="block min-h-24" />
+									) : (
 										<FuseAnimate animation="transition.expandIn">
 											<Typography component="span">密碼須包含8~15個英文或數字.</Typography>
 										</FuseAnimate>
@@ -176,7 +176,10 @@ function LoginPage() {
 									type: showPassword ? 'text' : 'password',
 									endAdornment: (
 										<InputAdornment position="end">
-											<IconButton onClick={() => setShowPassword(!showPassword)}>
+											<IconButton
+												className="p-4 sm:p-12"
+												onClick={() => setShowPassword(!showPassword)}
+											>
 												{showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
 											</IconButton>
 										</InputAdornment>

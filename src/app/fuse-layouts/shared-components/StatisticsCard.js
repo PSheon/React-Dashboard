@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import { useInterval } from '@fuse/hooks';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -8,7 +9,6 @@ import { Cpu, Server, Activity } from 'react-feather';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Chart from 'react-apexcharts';
-import { useInterval } from '@fuse/hooks';
 
 const generateOptions = (chartId, chartColors) => ({
 	chart: {

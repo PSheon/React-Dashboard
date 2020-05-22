@@ -57,7 +57,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
-					reject(error.response.data);
+					reject(error.response.data || { msg: 'UNKNOWN_ERROR' });
 				});
 		});
 	};
@@ -76,7 +76,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
-					reject(error.response.data);
+					reject(error.response.data || { msg: 'UNKNOWN_ERROR' });
 				});
 		});
 	};

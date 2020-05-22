@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalLink(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 
 	const classes = useStyles(props);
 	const { item } = props;
