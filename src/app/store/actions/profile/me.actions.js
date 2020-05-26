@@ -1,5 +1,4 @@
 import axios from 'axios';
-import _ from '@lodash';
 import * as MessageActions from 'app/store/actions/fuse/message.actions';
 
 export const SET_ME_PROFILE_LOADING = '[PROFILE] SET ME LOADING';
@@ -17,7 +16,7 @@ export function updateProfileMe(me) {
 			.catch(error => {
 				dispatch({
 					type: MessageActions.SHOW_MESSAGE,
-					options: { message: `網路出現問題` }
+					payload: { options: { message: `網路出現問題` } }
 				});
 			});
 	};

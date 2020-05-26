@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import humanizeDuration from 'humanize-duration';
-import useSWR, { SWRConfig } from 'swr';
-import axios from 'axios';
-import UAParser from 'ua-parser-js';
 import moment from 'moment';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
@@ -21,7 +16,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { Smartphone, Monitor, ArrowDown } from 'react-feather';
+import { ArrowDown } from 'react-feather';
 
 const COLUMNS = [
 	{
@@ -41,35 +36,6 @@ const COLUMNS = [
 		title: '時間'
 	}
 ];
-
-// const AvatarBadge = withStyles(theme => ({
-// 	badge: {
-// 		backgroundColor: '#44b700',
-// 		color: '#44b700',
-// 		boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-// 		'&::after': {
-// 			position: 'absolute',
-// 			top: 0,
-// 			left: 0,
-// 			width: '100%',
-// 			height: '100%',
-// 			borderRadius: '50%',
-// 			animation: '$ripple 1.2s infinite ease-in-out',
-// 			border: '1px solid currentColor',
-// 			content: '""'
-// 		}
-// 	},
-// 	'@keyframes ripple': {
-// 		'0%': {
-// 			transform: 'scale(.8)',
-// 			opacity: 1
-// 		},
-// 		'100%': {
-// 			transform: 'scale(2.4)',
-// 			opacity: 0
-// 		}
-// 	}
-// }))(Badge);
 
 const renderActionIcon = action => {
 	switch (action) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSocket } from 'use-socketio';
 import { withStyles } from '@material-ui/core/styles';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
@@ -38,7 +38,6 @@ const AvatarBadge = withStyles(theme => ({
 }))(Badge);
 
 const ConnectionStatus = () => {
-	const [connected, setConnected] = useState(false);
 	const { socket } = useSocket('connection');
 
 	return (
@@ -66,7 +65,7 @@ const ConnectionStatus = () => {
 				</IconButton>
 			</Tooltip>
 
-			<Tooltip title="時間正確" placement="top">
+			<Tooltip title="時區已同步" placement="top">
 				<IconButton className="p-8">
 					<AvatarBadge
 						colorSchema="#44b700"

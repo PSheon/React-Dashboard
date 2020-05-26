@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import humanizeDuration from 'humanize-duration';
-import useSWR, { SWRConfig } from 'swr';
-import axios from 'axios';
 import UAParser from 'ua-parser-js';
 import moment from 'moment';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -46,21 +44,25 @@ const COLUMNS = [
 ];
 
 const renderActionIcon = action => {
-	switch (action) {
-		case 'login':
-			return <div className="text-14 bg-blue text-white inline text-11 font-500 px-8 py-4 rounded-8">登入</div>;
-		case 'refresh':
-			return (
-				<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">更新憑證</div>
-			);
-		case 'change-password':
-		default:
-			return (
-				<div className="text-14 bg-warning text-white inline text-11 font-500 px-8 py-4 rounded-8">
-					更換密碼
-				</div>
-			);
-	}
+	const ACTION_TABLE = {
+		'/auth/login': (
+			<div className="text-14 bg-blue text-white inline text-11 font-500 px-8 py-4 rounded-8">登入</div>
+		),
+		'/auth/access-token': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">更新憑證</div>
+		),
+		'/auth/reset-password': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">更新密碼</div>
+		),
+		'/auth/forgot-password': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">發起更新</div>
+		),
+		'/api/users': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">使用 API</div>
+		),
+		default: <div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">查詢</div>
+	};
+	return ACTION_TABLE[action] || ACTION_TABLE.default;
 };
 
 const renderUADetail = UAInfo => {
@@ -98,7 +100,6 @@ const AccessHistoryCard = () => {
 	const theme = useTheme();
 	const classes = useStyles();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
-	const { data: accessHistory, error } = useSWR('/api/profile/access-history', query => axios.post(query));
 	const [tableExtend, setTableExtend] = useState(false);
 
 	const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);
@@ -133,9 +134,9 @@ const AccessHistoryCard = () => {
 						<Paper className="w-full rounded-8 shadow-none border-none table-responsive">
 							{ACCESS_HISTORY.loading ? (
 								<>
-									<Skeleton animation="wave" className="h-36 rounded-8" />
-									<Skeleton animation="wave" className="h-36 rounded-8" />
-									<Skeleton animation="wave" className="h-36 rounded-8" />
+									<Skeleton animation="wave" className="h-64 rounded-8" />
+									<Skeleton animation="wave" className="h-64 rounded-8" />
+									<Skeleton animation="wave" className="h-64 rounded-8" />
 								</>
 							) : (
 								<Table className="w-full min-w-full">

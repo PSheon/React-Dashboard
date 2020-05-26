@@ -10,6 +10,6 @@ export function hideMessage() {
 export function showMessage(options) {
 	return {
 		type: SHOW_MESSAGE,
-		payload: { ...options }
+		payload: { options }
 	};
 }

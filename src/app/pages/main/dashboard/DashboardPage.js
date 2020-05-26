@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSocket } from 'use-socketio';
+import React from 'react';
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
@@ -12,19 +10,8 @@ import WidgetFundingRatio from './widgets/WidgetFundingRatio';
 import WidgetOrderHistory from './widgets/WidgetOrderHistory';
 
 import reducer from './store/reducers';
-// import * as Actions from './store/actions';
 
 function DashboardPage() {
-	const dispatch = useDispatch();
-	const [metrics, setMetrics] = useState([]);
-	const { socket, subscribe, unsubscribe } = useSocket('asm_stats', m => setMetrics([...metrics.slice(0, 30), m]));
-
-	// console.log('metrics, ', metrics);
-
-	// useEffect(() => {
-	// 	console.log('socket, ', socket);
-	// }, []);
-
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>

@@ -207,7 +207,7 @@ export function toggleUserActivation({ userId, email, active }) {
 			});
 			dispatch({
 				type: FuseActions.SHOW_MESSAGE,
-				options: { message: `更新成功` }
+				payload: { options: { message: `更新成功` } }
 			});
 			dispatch({
 				type: FuseActions.CLOSE_DIALOG
@@ -241,7 +241,7 @@ export function deleteUser({ userId }) {
 				});
 				dispatch({
 					type: FuseActions.SHOW_MESSAGE,
-					options: { message: `已刪除使用者` }
+					payload: { options: { message: `已刪除使用者` } }
 				});
 				dispatch({
 					type: FuseActions.CLOSE_DIALOG
@@ -250,7 +250,7 @@ export function deleteUser({ userId }) {
 			.catch(err => {
 				dispatch({
 					type: FuseActions.SHOW_MESSAGE,
-					options: { message: `刪除使用者時出現錯誤` }
+					payload: { options: { message: `刪除使用者時出現錯誤` } }
 				});
 			});
 	};

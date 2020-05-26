@@ -1,17 +1,13 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FusePageSimple from '@fuse/core/FusePageSimple';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import withReducer from 'app/store/withReducer';
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import { makeStyles } from '@material-ui/core/styles';
+import withReducer from 'app/store/withReducer';
 import ContactDialog from './ContactDialog';
 import ContactsHeader from './ContactsHeader';
 import ContactsList from './ContactsList';
-import ContactsSidebarContent from './ContactsSidebarContent';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
@@ -48,7 +44,6 @@ function UserList(props) {
 				}}
 				header={<ContactsHeader pageLayout={pageLayout} />}
 				content={<ContactsList />}
-				leftSidebarContent={<ContactsSidebarContent />}
 				sidebarInner
 				ref={pageLayout}
 				innerScroll

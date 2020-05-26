@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 
-import * as ProfileActions from 'app/store/actions';
+import * as ProfileActions from 'app/store/actions/profile';
 import ProfileCard from './cards/ProfileCard';
 import SocialLinksCard from './cards/SocialLinksCard';
 import SettingsCard from './cards/SettingsCard';

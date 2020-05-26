@@ -17,7 +17,7 @@ export function setAccessHistory() {
 			.catch(error => {
 				dispatch({
 					type: FuseActions.SHOW_MESSAGE,
-					options: { message: `網路出現問題` }
+					payload: { options: { message: `網路出現問題` } }
 				});
 			});
 	};

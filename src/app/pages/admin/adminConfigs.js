@@ -1,8 +1,9 @@
-// import DashboardPageConfig from './login/LoginPageConfig';
+import DashboardPageConfig from './dashboard/DashboardPageConfig';
 import MaintenancePageConfig from './maintenance/MaintenancePageConfig';
 
 const adminConfigs = [
-	// DashboardPageConfig,
+	// Dashboard
+	DashboardPageConfig,
 	MaintenancePageConfig
 ];
 

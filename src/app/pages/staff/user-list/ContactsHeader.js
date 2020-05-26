@@ -16,9 +16,9 @@ function ContactsHeader(props) {
 	return (
 		<div className="flex flex-1 items-center justify-between p-8 sm:px-24 sm:py-16">
 			<div className="flex items-center">
-				<FuseAnimate animation="transition.expandIn" delay={300}>
+				{/* <FuseAnimate animation="transition.expandIn" delay={300}>
 					<Icon className="text-32">account_box</Icon>
-				</FuseAnimate>
+				</FuseAnimate> */}
 				<FuseAnimate animation="transition.slideLeftIn" delay={300}>
 					<Typography variant="h6" className="mx-12 hidden sm:flex">
 						Contacts

@@ -1,3 +1,5 @@
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '@fuse/hooks';
 import FuseUtils from '@fuse/utils/FuseUtils';
 import AppBar from '@material-ui/core/AppBar';
@@ -11,8 +13,9 @@ import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { XCircle } from 'react-feather';
+import Paper from '@material-ui/core/Paper';
+import Draggable from 'react-draggable';
 import * as Actions from './store/actions';
 
 const defaultFormState = {
@@ -29,6 +32,14 @@ const defaultFormState = {
 	birthday: '',
 	notes: ''
 };
+
+function PaperComponent(props) {
+	return (
+		<Draggable handle="#draggable-dialog-title" cancel={'[class*="MuiDialogContent-root"]'}>
+			<Paper {...props} />
+		</Draggable>
+	);
+}
 
 function ContactDialog(props) {
 	const dispatch = useDispatch();
@@ -94,21 +105,33 @@ function ContactDialog(props) {
 	return (
 		<Dialog
 			classes={{
-				paper: 'm-24'
+				paper: 'm-24 rounded-8'
 			}}
 			{...contactDialog.props}
 			onClose={closeComposeDialog}
+			PaperComponent={PaperComponent}
 			fullWidth
-			maxWidth="xs"
+			maxWidth="lg"
 		>
-			<AppBar position="static" elevation={1}>
-				<Toolbar className="flex w-full">
+			<AppBar position="static" elevation={1} id="draggable-dialog-title">
+				<Toolbar className="flex w-full justify-between">
 					<Typography variant="subtitle1" color="inherit">
 						{contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
 					</Typography>
+
+					<IconButton
+						key="close"
+						aria-label="關閉編輯頁面"
+						className="p-12 mr-0 sm:mr-4"
+						color="inherit"
+						size="small"
+						onClick={closeComposeDialog}
+					>
+						<XCircle size={18} />
+					</IconButton>
 				</Toolbar>
 				<div className="flex flex-col items-center justify-center pb-24">
-					<Avatar className="w-96 h-96" alt="contact avatar" src={form.avatar} />
+					{/* <Avatar className="w-96 h-96" alt="contact avatar" src={form.avatar} /> */}
 					{contactDialog.type === 'edit' && (
 						<Typography variant="h6" color="inherit" className="pt-8">
 							{form.name}
@@ -118,6 +141,7 @@ function ContactDialog(props) {
 			</AppBar>
 			<form noValidate onSubmit={handleSubmit} className="flex flex-col md:overflow-hidden">
 				<DialogContent classes={{ root: 'p-24' }}>
+					<Avatar className="w-96 h-96 mb--24" alt="contact avatar" src={form.avatar} />
 					<div className="flex">
 						<div className="min-w-48 pt-20">
 							<Icon color="action">account_circle</Icon>
