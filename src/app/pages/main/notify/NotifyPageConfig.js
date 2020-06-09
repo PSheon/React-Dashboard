@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { authRoles } from 'app/auth';
 
 const NotifyPageConfig = {
 	settings: {
@@ -7,10 +7,11 @@ const NotifyPageConfig = {
 			config: {}
 		}
 	},
+	auth: authRoles.trial,
 	routes: [
 		{
 			path: '/notify',
-			component: () => <Redirect to="/coming-soon" />
+			component: React.lazy(() => import('./NotifyPage'))
 		}
 	]
 };

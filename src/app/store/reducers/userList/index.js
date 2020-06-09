@@ -5,10 +5,7 @@ const initialState = {
 	docs: null,
 	searchText: '',
 	searchCondition: {
-		gender: 'all',
-		education: 'all',
-		departmentName: 'all',
-		employmentStatus: 'all'
+		gender: 'all'
 	},
 	selectedUserIds: [],
 	routeParams: {},
@@ -26,7 +23,7 @@ const initialState = {
 	}
 };
 
-const userListReducer = function (state = initialState, action) {
+const userListReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case Actions.SET_USER_LIST_LOADING: {
 			return {

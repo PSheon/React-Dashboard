@@ -24,7 +24,11 @@ const renderCardIcon = (iconType, size) => {
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		transitionProperty: 'box-shadow, border-color',
+		transitionDuration: theme.transitions.duration.short,
+		transitionTimingFunction: theme.transitions.easing.easeInOut,
 		'&:hover': {
+			boxShadow: theme.shadows[6],
 			'& $iconWrapper': {
 				transform: 'scale(1.1)'
 			}
@@ -64,7 +68,7 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
 			<div className="py-24 sm:p-16 flex flex-row-reverse sm:flex-col justify-around sm:justify-center items-center">
-				<div className="flex justify-center items-center p-0 md:p-8">
+				<div className="flex justify-center items-start p-0 md:p-8">
 					<div
 						className={clsx(
 							classes.iconWrapper,
@@ -94,6 +98,12 @@ BasicCard.propTypes = {
 	content: PropTypes.string,
 	iconType: PropTypes.oneOf(['dollar-sign', 'alert-octagon', 'layers', 'users']),
 	iconColorSchema: PropTypes.oneOf(['primary', 'secondary', 'warning', 'info', 'success', 'error'])
+};
+BasicCard.defaultProps = {
+	title: 'Title',
+	content: 'Content',
+	iconType: 'users',
+	iconColorSchema: 'primary'
 };
 
 export default BasicCard;

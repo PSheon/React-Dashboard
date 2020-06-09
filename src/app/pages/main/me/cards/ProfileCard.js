@@ -1,54 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { Edit, Camera, User, Mail, Smartphone } from 'react-feather';
+import { Edit, User, Mail, Smartphone } from 'react-feather';
 
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import DotChart from 'app/fuse-layouts/shared-components/DotChart';
 import decorLeft from 'app/assets/images/profile/decore-left.png';
 import decorRight from 'app/assets/images/profile/decore-right.png';
-
-const BadgeButton = withStyles(theme => ({
-	root: {
-		background: theme.palette.background.default,
-		color: theme.palette.gray.light,
-		boxShadow: `0 0 0 3px ${theme.palette.background.paper}`,
-		border: `2px solid ${theme.palette.background.paper}`,
-		'&:hover': {
-			background: fade(theme.palette.background.default, 0.8)
-		},
-		'&::after': {
-			position: 'absolute',
-			top: 0,
-			left: 0,
-			width: '100%',
-			height: '100%',
-			borderRadius: '50%',
-			animation: '$ripple 2.2s infinite ease-in-out',
-			border: '3px solid currentColor',
-			content: '""'
-		}
-	},
-	'@keyframes ripple': {
-		'0%': {
-			transform: 'scale(.8)',
-			opacity: 1
-		},
-		'100%': {
-			transform: 'scale(1.2)',
-			opacity: 0
-		}
-	}
-}))(IconButton);
+import AvatarCrop from './AvatarCrop';
 
 const useStyles = makeStyles(theme => ({
 	reactBadge: {
@@ -72,39 +36,7 @@ const ProfileCard = () => {
 					<img src={decorLeft} alt="card-img-left" className="absolute w-2/5 top-0 left-0" />
 					<img src={decorRight} alt="card-img-right" className="absolute w-2/5 top-0 right-0" />
 
-					<Badge
-						classes={{ root: 'my-24' }}
-						overlap="circle"
-						anchorOrigin={{
-							vertical: 'bottom',
-							horizontal: 'right'
-						}}
-						badgeContent={
-							<BadgeButton
-								key="close"
-								aria-label="更新頭像"
-								className="p-12 mr-0 sm:mr-4"
-								color="inherit"
-								size="small"
-							>
-								<Camera size={18} />
-							</BadgeButton>
-						}
-					>
-						<div className="border-8 p-2 rounded-full">
-							{ME_DATA.photoURL ? (
-								<Avatar
-									className="w-96 h-96 bg-secondary text-32 sm:text-48"
-									alt="user photo"
-									src={ME_DATA.photoURL}
-								/>
-							) : (
-								<Avatar className="w-96 h-96 bg-secondary text-32 sm:text-48">
-									{ME_DATA.displayName[0]}
-								</Avatar>
-							)}
-						</div>
-					</Badge>
+					<AvatarCrop />
 
 					{/* Title */}
 					<div className="w-full mt-20 flex justify-between items-start text-center">

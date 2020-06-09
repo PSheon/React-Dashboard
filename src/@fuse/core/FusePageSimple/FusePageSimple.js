@@ -1,8 +1,9 @@
+import React, { useRef } from 'react';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
 
@@ -35,13 +36,11 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: theme.palette.background.default
 	},
 	header: {
-		// height: headerHeight,
 		minHeight: headerHeight,
 		display: 'flex',
 		// background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText,
 		backgroundSize: 'cover'
-		// backgroundColor: theme.palette.primary.dark
 	},
 	topBg: {
 		position: 'absolute',
@@ -51,26 +50,6 @@ const useStyles = makeStyles(theme => ({
 		height: headerHeight,
 		pointerEvents: 'none'
 	},
-	/* contentCardWrapper            : {
-         display : 'flex ',
-         flex    : '1 1 auto',
-         overflow: 'visible!important',
-         minWidth: 0,
-         '&.ps'  : {
-             overflow: 'visible!important'
-         }
-     },
-     contentCardWrapperInnerSidebar: {
-         display                     : 'block',
-         overflow                    : 'auto!important',
-         '-webkit-overflow-scrolling': 'touch',
-         '&.ps'                      : {
-             overflow: 'hidden!important'
-         },
-         '& $contentCard'            : {
-             borderRadius: 8
-         }
-     }, */
 	contentWrapper: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -107,8 +86,14 @@ const useStyles = makeStyles(theme => ({
 				position: 'relative'
 			}
 		},
+		borderRadius: '.8rem',
 		width: drawerWidth,
-		height: '100%'
+		height: 'calc(100% - 2.4rem)',
+		margin: '1.2rem 1.6rem',
+		[theme.breakpoints.up('lg')]: {
+			width: drawerWidth * 1.5,
+			margin: '1.2rem 2.4rem'
+		}
 	},
 	leftSidebar: {
 		[theme.breakpoints.up('lg')]: {
@@ -136,7 +121,8 @@ const useStyles = makeStyles(theme => ({
 	},
 	sidebarContent: {},
 	backdrop: {
-		position: 'absolute'
+		position: 'absolute',
+		background: `linear-gradient(to bottom, rgba(17,30,70,0) 0,${fade(theme.palette.background.paper, 0.6)} 25%)`
 	}
 }));
 

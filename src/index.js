@@ -4,6 +4,7 @@ import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-muli';
+import './moment';
 import './i18n';
 import './react-chartjs-2-defaults';
 import './styles/index.css';

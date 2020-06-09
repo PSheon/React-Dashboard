@@ -1,4 +1,5 @@
 import React from 'react';
+import { authRoles } from 'app/auth';
 
 const ComingSoonPageConfig = {
 	settings: {
@@ -6,6 +7,7 @@ const ComingSoonPageConfig = {
 			config: {}
 		}
 	},
+	auth: authRoles.trail,
 	routes: [
 		{
 			path: '/coming-soon',

@@ -1,6 +1,6 @@
 import LandingPageConfig from './landing/LandingPageConfig';
 import DashboardPageConfig from './dashboard/DashboardPageConfig';
-import BotSettingPageConfig from './bot-setting/BotSettingPageConfig';
+import BotBoardPageConfig from './bot-board/BotBoardPageConfig';
 import MarketPageConfig from './market/MarketPageConfig';
 import LeaderBoardPageConfig from './leader-board/LeaderBoardPageConfig';
 // FIXME testing
@@ -9,6 +9,7 @@ import LeaderBoardPageConfig from './leader-board/LeaderBoardPageConfig';
 import MePageConfig from './me/MePageConfig';
 import ReferralsPageConfig from './referrals/ReferralsPageConfig';
 import PaymentPageConfig from './payment/PaymentPageConfig';
+import PricingPageConfig from './pricing/PricingPageConfig';
 import NotifyPageConfig from './notify/NotifyPageConfig';
 
 import ComingSoonPageConfig from './coming-soon/ComingSoonPageConfig';
@@ -19,12 +20,13 @@ import Error500PageConfig from './errors/500/Error500PageConfig';
 const mainConfigs = [
 	LandingPageConfig,
 	DashboardPageConfig,
-	BotSettingPageConfig,
+	BotBoardPageConfig,
 	MarketPageConfig,
 	LeaderBoardPageConfig,
 	MePageConfig,
 	ReferralsPageConfig,
 	PaymentPageConfig,
+	PricingPageConfig,
 	NotifyPageConfig,
 	// ContactsAppConfig,
 

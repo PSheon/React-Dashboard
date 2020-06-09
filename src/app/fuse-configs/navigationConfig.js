@@ -17,7 +17,7 @@ const navigationConfig = [
 		children: [
 			{
 				id: 'dashboard',
-				title: '主控版',
+				title: '首頁',
 				translate: 'DASHBOARD',
 				type: 'item',
 				icon: 'dashboard',
@@ -25,12 +25,12 @@ const navigationConfig = [
 				url: '/dashboard'
 			},
 			{
-				id: 'bots-setting',
+				id: 'bots-board',
 				title: '機器人設置',
 				translate: 'BOTS_SETTING',
 				type: 'item',
 				icon: 'tune',
-				url: '/bot-setting'
+				url: '/bot-board'
 			},
 			{
 				id: 'market',
@@ -138,6 +138,13 @@ export const ADMIN_NAVIGATION = {
 			type: 'item',
 			icon: 'chrome_reader_mode',
 			url: '/admin/dashboard'
+		},
+		{
+			id: 'admin-settings',
+			title: '網站設定',
+			type: 'item',
+			icon: 'settings',
+			url: '/admin/settings'
 		},
 		{
 			id: 'admin-staff-list',

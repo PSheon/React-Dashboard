@@ -7,7 +7,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ConnectionStatus from 'app/fuse-layouts/shared-components/ConnectionStatus';
 
-function FooterLayout1(props) {
+function FooterLayout1() {
 	const footerTheme = useSelector(({ fuse }) => fuse.settings.footerTheme);
 
 	return (

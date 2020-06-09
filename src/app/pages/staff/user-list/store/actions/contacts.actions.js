@@ -460,10 +460,10 @@ export function getContacts(routeParams) {
 	// );
 }
 
-export function setSearchText(event) {
+export function setSearchText(newSearchText) {
 	return {
 		type: SET_SEARCH_TEXT,
-		searchText: event.target.value
+		searchText: newSearchText
 	};
 }
 

@@ -108,7 +108,7 @@ export function removeUserData() {
 /**
  * Logout
  */
-export function logoutUser() {
+export function logoutUserProfile() {
 	return (dispatch, getState) => {
 		const { user } = getState().auth;
 

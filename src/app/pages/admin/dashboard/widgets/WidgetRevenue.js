@@ -96,7 +96,13 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
 		margin: '2rem',
-		borderRadius: '.8rem'
+		borderRadius: '.8rem',
+		transitionProperty: 'box-shadow, border-color',
+		transitionDuration: theme.transitions.duration.short,
+		transitionTimingFunction: theme.transitions.easing.easeInOut,
+		'&:hover': {
+			boxShadow: theme.shadows[6]
+		}
 	}
 }));
 

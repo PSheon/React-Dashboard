@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: 'rgba(44, 48, 60, .9)',
 		height: 'calc(100% - 2.4rem)',
 		zIndex: 4,
-		margin: '1.2rem 0 1.2rem .4rem',
+		margin: '1.2rem 0 1.2rem .8rem',
 		borderRadius: '.8rem',
 		transition: theme.transitions.create(['width', 'min-width', 'margin', 'border-radius'], {
 			easing: theme.transitions.easing.sharp,

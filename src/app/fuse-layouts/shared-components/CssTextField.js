@@ -1,8 +1,9 @@
-// import React from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
-const CssTextField = withStyles({
+// TODO fix here to https://material-ui.com/components/text-fields/
+const CssTextFieldOld = withStyles({
 	root: {
 		borderRadius: '0.8rem',
 
@@ -46,4 +47,35 @@ const CssTextField = withStyles({
 	}
 })(TextField);
 
-export default CssTextField;
+// TODO
+// const InputLabelClasses = {
+// 	root: { transition: 'all .15s ease-in', color: '#ffffff', fontSize: '1.6rem' },
+// 	focused: { color: '#c2c6dc' }
+// };
+
+// const FormHelperTextClasses = {
+// 	filled: { fontSize: '1.4rem', transition: 'height .3s ease-in' }
+// };
+
+// const InputClasses = {
+// 	root: { color: '#c2c6dc', fontSize: '1.6rem', borderRadius: '.8rem', backgroundColor: '#262c49' },
+// 	error: {
+// 		'& .MuiIconButton-label': {
+// 			color: '#F56565'
+// 		}
+// 	},
+// 	notchedOutline: {
+// 		borderColor: '#262c49'
+// 	}
+// };
+
+// const CssTextField = () => (
+// 	<TextField
+// 		classes={{ root: { borderRadius: '0.8rem' } }}
+// 		InputLabelProps={InputLabelClasses}
+// 		FormHelperTextProps={FormHelperTextClasses}
+// 		InputProps={InputClasses}
+// 	/>
+// );
+
+export default CssTextFieldOld;

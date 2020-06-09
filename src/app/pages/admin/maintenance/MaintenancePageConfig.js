@@ -1,4 +1,5 @@
 import React from 'react';
+import { authRoles } from 'app/auth';
 
 const MaintenancePageConfig = {
 	settings: {
@@ -6,6 +7,7 @@ const MaintenancePageConfig = {
 			config: {}
 		}
 	},
+	auth: authRoles.admin,
 	routes: [
 		{
 			path: '/admin/maintenance',

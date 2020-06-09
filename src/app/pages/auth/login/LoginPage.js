@@ -73,7 +73,9 @@ function LoginPage() {
 	}
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 p-24 md:flex-row md:p-0')}>
+		<div
+			className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 p-24 md:flex-row md:p-0 items-center')}
+		>
 			{!mdDown && (
 				<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:flex-shrink-0 md:flex-1 md:text-left">
 					<div className="bg-success px-24 py-16 rounded-full mb-32">
@@ -91,7 +93,7 @@ function LoginPage() {
 			)}
 
 			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
-				<div className="w-full max-w-512 flex justify-center items-center sm:pr-48">
+				<div className="w-full max-w-512 flex justify-center items-center md:pr-48">
 					<Card className={clsx(classes.cardWrapper, 'w-full mx-auto m-16 md:m-0 rounded-8')}>
 						<CardContent className="flex flex-col items-center justify-center p-24 md:p-48 md:pt-64">
 							{mdDown && (

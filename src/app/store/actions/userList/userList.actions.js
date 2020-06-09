@@ -37,7 +37,6 @@ export function getUserList(routeParams) {
 	return dispatch => {
 		dispatch({ type: SET_USER_LIST_LOADING });
 		request.then(response => {
-			console.log('response, ', response);
 			dispatch({
 				type: GET_USER_LIST,
 				payload: {

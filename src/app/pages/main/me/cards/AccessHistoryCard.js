@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import humanizeDuration from 'humanize-duration';
 import UAParser from 'ua-parser-js';
 import moment from 'moment';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -173,12 +172,7 @@ const AccessHistoryCard = () => {
 												</TableCell>
 												<TableCell component="th" scope="row">
 													<Typography className={classes.createdAtCell}>
-														{humanizeDuration(moment(doc.createdAt).diff(moment()), {
-															largest: 2,
-															language: 'zh_TW',
-															round: true
-														})}{' '}
-														前
+														{moment(doc.createdAt).fromNow()}
 													</Typography>
 												</TableCell>
 											</TableRow>

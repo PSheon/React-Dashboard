@@ -82,7 +82,11 @@ const renderCardIcon = (iconType, size) => {
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		transitionProperty: 'box-shadow, border-color',
+		transitionDuration: theme.transitions.duration.short,
+		transitionTimingFunction: theme.transitions.easing.easeInOut,
 		'&:hover': {
+			boxShadow: theme.shadows[6],
 			'& $iconWrapper': {
 				transform: 'scale(1.1)'
 			}
@@ -148,7 +152,7 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 					</div>
 				</div>
 
-				<div className="flex justify-center items-center p-0 md:p-8">
+				<div className="flex justify-center items-start p-0 md:p-8">
 					<div
 						className={clsx(
 							classes.iconWrapper,
