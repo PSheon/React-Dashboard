@@ -25,6 +25,10 @@ import { isEmailFormValid, isPasswordFormValid } from 'utils';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
 import AUTH_BG from 'app/assets/images/auth/background.jpg';
+import GOOGLE_ICON from 'app/assets/images/auth/google-icon.png';
+import LINE_ICON from 'app/assets/images/auth/line-icon.png';
+import MOUNTAIN_ICON from 'app/assets/images/auth/mountain-icon.png';
+import MARACAS_ICON from 'app/assets/images/auth/maracas-icon.png';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -55,6 +59,9 @@ const useStyles = makeStyles(theme => ({
 		'&:hover': {
 			backgroundColor: lighten('#00b900', 0.1)
 		}
+	},
+	loginIconBackground: {
+		right: '2.4rem'
 	}
 }));
 
@@ -123,13 +130,18 @@ function LoginPage() {
 										'w-full flex justify-start normal-case px-24 my-6 sm:my-12 text-white'
 									)}
 								>
-									<Facebook width={24} height={24} />
-									<div className="flex flex-col ml-12 justify-center items-start">
+									<img src={GOOGLE_ICON} width={36} height={36} />
+									<div className="flex flex-col ml-24 justify-center items-start">
 										<Typography className="text-16">使用 Google</Typography>
 										<Typography className="text-12" color="textSecondary">
 											登入
 										</Typography>
 									</div>
+									<img
+										src={MOUNTAIN_ICON}
+										width={40}
+										className={clsx(classes.loginIconBackground, 'absolute')}
+									/>
 								</Button>
 								<Button
 									variant="contained"
@@ -138,13 +150,18 @@ function LoginPage() {
 										'w-full flex justify-start normal-case px-24 my-6 sm:my-12 text-white'
 									)}
 								>
-									<Facebook width={24} height={24} />
-									<div className="flex flex-col ml-12 justify-center items-start">
+									<img src={LINE_ICON} width={36} height={36} />
+									<div className="flex flex-col ml-24 justify-center items-start">
 										<Typography className="text-16">使用 Line</Typography>
 										<Typography className="text-12" color="textSecondary">
 											登入
 										</Typography>
 									</div>
+									<img
+										src={MARACAS_ICON}
+										width={40}
+										className={clsx(classes.loginIconBackground, 'absolute')}
+									/>
 								</Button>
 							</div>
 
@@ -231,7 +248,9 @@ function LoginPage() {
 											<span className="block min-h-24" />
 										) : (
 											<FuseAnimate animation="transition.expandIn">
-												<Typography component="span">密碼須包含8~15個英文、數字、特殊字元.</Typography>
+												<Typography component="span">
+													密碼須包含8~15個英文、數字、特殊字元.
+												</Typography>
 											</FuseAnimate>
 										)
 									}

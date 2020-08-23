@@ -49,6 +49,18 @@ function WidgetNotifHistory(props) {
 					<ListItemAvatar>
 						<Monitor size="32" className="m-4 text-danger" />
 					</ListItemAvatar>
+					<ListItemText primary="系統維護通知" secondary="Jan 9, 2020" />
+				</ListItem>
+				<ListItem>
+					<ListItemAvatar>
+						<Monitor size="32" className="m-4 text-danger" />
+					</ListItemAvatar>
+					<ListItemText primary="系統維護通知" secondary="Jan 9, 2020" />
+				</ListItem>
+				<ListItem>
+					<ListItemAvatar>
+						<Monitor size="32" className="m-4 text-danger" />
+					</ListItemAvatar>
 					<ListItemText primary="Photos" secondary="Jan 9, 2014" />
 				</ListItem>
 				<ListItem>

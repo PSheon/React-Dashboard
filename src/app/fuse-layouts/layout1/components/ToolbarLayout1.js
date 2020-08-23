@@ -51,7 +51,7 @@ function ToolbarLayout1(props) {
 								to="/"
 								role="button"
 								components={Typography}
-								className="text-16 font-medium"
+								className="text-14 font-medium sm:text-16"
 								color="textPrimary"
 							>
 								借貸平台

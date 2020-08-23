@@ -14,7 +14,7 @@ const MarketConfig = {
 		},
 		{
 			path: '/market',
-			component: () => <Redirect to="/admin/maintenance" />
+			component: React.lazy(() => import('./MarketPage'))
 		}
 	]
 };

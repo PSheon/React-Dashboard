@@ -2,6 +2,7 @@ import React from 'react';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Typography from '@material-ui/core/Typography';
+import Hidden from '@material-ui/core/Hidden';
 import withReducer from 'app/store/withReducer';
 import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
@@ -87,10 +88,18 @@ function DashboardPage() {
 
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
 					<div className="w-full sm:w-1/2 md:w-full">
+						<Hidden xsUp>
+							<FuseAnimate delay={600}>
+								<Typography className="px-16 pb-8 text-18 font-medium">統計表</Typography>
+							</FuseAnimate>
+						</Hidden>
+
 						<div className="p-16 pt-20 pb-0 sm:mb-32">
 							<WidgetTeamRatio />
 						</div>
+					</div>
 
+					<div className="w-full sm:w-1/2 md:w-full">
 						<FuseAnimate delay={600}>
 							<Typography className="px-16 pb-8 text-18 font-medium">系統通知</Typography>
 						</FuseAnimate>

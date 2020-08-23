@@ -6,15 +6,18 @@ import WidgetStatisticsCard from 'app/fuse-layouts/shared-components/StatisticsC
 import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import WidgetStockChart from './sections/WidgetStockChart';
+import WidgetStockHistory from './sections/WidgetStockHistory';
 
 function InstanceListPage() {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="運行實體" breadCrumbParent="超級管理員" breadCrumbActive="運行實體" />
+				<Breadcrumbs breadCrumbTitle="交易" breadCrumbParent="管理員" breadCrumbActive="交易" />
 			</FuseAnimate>
 
 			<WidgetStockChart />
+
+			<WidgetStockHistory />
 		</div>
 	);
 }
