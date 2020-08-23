@@ -98,7 +98,7 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 						<TableRow {...headerGroup.getHeaderGroupProps()}>
 							{headerGroup.headers.map(column => (
 								<TableCell
-									className="whitespace-no-wrap p-12"
+									className={clsx('whitespace-no-wrap p-12', column.headerClassName)}
 									{...(!column.sortable
 										? column.getHeaderProps()
 										: column.getHeaderProps(column.getSortByToggleProps()))}
@@ -143,7 +143,7 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 					<TableRow>
 						<TablePagination
 							classes={{
-								root: 'overflow-hidden',
+								root: 'overflow-hidden border-none',
 								spacer: 'w-0 max-w-0'
 							}}
 							// rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}

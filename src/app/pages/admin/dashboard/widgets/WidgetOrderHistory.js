@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import moment from 'moment';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { ArrowRight } from 'react-feather';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
@@ -15,7 +17,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { ArrowDown } from 'react-feather';
 
 const COLUMNS = [
 	{
@@ -73,52 +74,95 @@ const WidgetOrderHistory = () => {
 	const theme = useTheme();
 	const classes = useStyles();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
-	// const { data: accessHistory, error } = useSWR('/api/profile/access-history', query => axios.post(query));
-	const [tableExtend, setTableExtend] = useState(false);
 
-	// const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);
 	const ORDER_HISTORY = [
 		{
-			memberId: '123',
-			action: 'renew',
-			createdAt: new Date()
+			memberId: 'u4236901',
+			action: 'new',
+			createdAt: new Date('2020/08/05')
 		},
 		{
-			memberId: '1234',
+			memberId: 'u4236900',
 			action: 'renew',
-			createdAt: new Date()
+			createdAt: new Date('2020/08/03')
 		},
 		{
-			memberId: '1235',
+			memberId: 'u4236899',
 			action: 'renew',
-			createdAt: new Date()
+			createdAt: new Date('2020/08/01')
+		},
+		{
+			memberId: 'u4236898',
+			action: 'renew',
+			createdAt: new Date('2020/07/29')
+		},
+		{
+			memberId: 'u4236897',
+			action: 'renew',
+			createdAt: new Date('2020/07/28')
+		},
+		{
+			memberId: 'u4236896',
+			action: 'new',
+			createdAt: new Date('2020/07/25')
+		},
+		{
+			memberId: 'u4236895',
+			action: 'submit-contract',
+			createdAt: new Date('2020/07/25')
+		},
+		{
+			memberId: 'u4236892',
+			action: 'renew',
+			createdAt: new Date('2020/07/14')
+		},
+		{
+			memberId: 'u4236894',
+			action: 'new',
+			createdAt: new Date('2020/07/20')
+		},
+		{
+			memberId: 'u4236893',
+			action: 'renew',
+			createdAt: new Date('2020/07/19')
 		}
 	];
 
 	return (
 		<div
-			className={clsx(classes.root, 'w-full p-24 flex flex-col justify-center items-center bg-bgPaper rounded-8')}
+			className={clsx(
+				classes.root,
+				'w-full px-24 pt-20 sm:pt-16 flex flex-col justify-center items-center bg-bgPaper rounded-8'
+			)}
 		>
 			{/* Title */}
 			<div className="w-full flex justify-between items-center text-center">
 				<Typography className="h2">訂單紀錄</Typography>
 
-				<div className="flex justify-center">
+				<div className="flex justify-center items-center">
 					{smUp && (
-						<Button className="py-8 px-12 rounded-8" size="small" disabled>
+						<Button className="py-8 px-12 rounded-8" size="small">
 							更新方案
 						</Button>
 					)}
-					<Button className="py-8 px-12 rounded-8" size="small" disabled>
+					<Button className="py-8 px-12 rounded-8" size="small">
 						新加入戶
 					</Button>
 					<Button className="py-8 px-12 rounded-8" size="small">
 						更新方案
 					</Button>
+					<IconButton
+						aria-label="開啟列表"
+						className="py-12 ml-12 sm:ml-16 h-36 p-8"
+						color="inherit"
+						size="small"
+					>
+						<ArrowRight size={20} className="cursor-pointer" />
+					</IconButton>
 				</div>
 			</div>
 
-			<Divider className="w-full mt-16 mb-24" />
+			<Divider className="w-full mt-16 mb-4" />
 
 			{/* Detail */}
 			<div className="w-full flex flex-col justify-center items-center text-center mb-20">
@@ -134,34 +178,34 @@ const WidgetOrderHistory = () => {
 							<TableHead>
 								<TableRow>
 									{COLUMNS.map(column => (
-										<TableCell key={column.id} className="whitespace-no-wrap">
+										<TableCell key={column.id} className="whitespace-no-wrap border-none">
 											{column.title}
 										</TableCell>
 									))}
 								</TableRow>
 							</TableHead>
 							<TableBody>
-								{ORDER_HISTORY.slice(0, tableExtend ? -1 : 5).map(doc => (
+								{ORDER_HISTORY.slice(0, 3).map(doc => (
 									<TableRow
 										key={doc.memberId}
 										hover
-										className="py-12"
+										className="py-12 truncate cursor-pointer rounded-8 transition ease-in duration-150 transform hover:-translate-y-2"
 										classes={{ root: 'rounded-8 whitespace-no-wrap' }}
 									>
-										<TableCell component="th" scope="row">
-											{doc.memberId}
+										<TableCell component="th" scope="row" className="border-none">
+											# {doc.memberId}
 										</TableCell>
-										<TableCell component="th" scope="row">
+										<TableCell component="th" scope="row" className="border-none">
 											<Avatar
 												alt="Remy Sharp"
 												src="/static/images/avatar/1.jpg"
 												className={classes.avatarWrapper}
 											/>
 										</TableCell>
-										<TableCell component="th" scope="row">
+										<TableCell component="th" scope="row" className="border-none">
 											{renderActionIcon(doc.action)}
 										</TableCell>
-										<TableCell component="th" scope="row">
+										<TableCell component="th" scope="row" className="border-none">
 											<Typography className={classes.createdAtCell}>
 												{moment(doc.createdAt).fromNow()}
 											</Typography>
@@ -172,20 +216,6 @@ const WidgetOrderHistory = () => {
 						</Table>
 					)}
 				</Paper>
-				{/* TODO Fix Here */}
-				<div className="w-full flex justify-center item-center">
-					{!tableExtend && (
-						<IconButton
-							aria-label="開啟列表"
-							className="p-12"
-							color="inherit"
-							size="small"
-							onClick={() => setTableExtend(true)}
-						>
-							<ArrowDown size={18} />
-						</IconButton>
-					)}
-				</div>
 			</div>
 		</div>
 	);

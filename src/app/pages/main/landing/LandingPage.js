@@ -4,11 +4,12 @@ import clsx from 'clsx';
 
 import Header from './sections/Header';
 import Main from './sections/Main';
+// import Feature from './sections/Feature';
+import Pricing from './sections/Pricing';
 import Footer from './sections/Footer';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		// background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${theme.palette.primary.dark} 80%)`,
 		color: theme.palette.primary.contrastText
 	}
 }));
@@ -17,12 +18,7 @@ function LandingPage() {
 	const classes = useStyles();
 
 	return (
-		<div
-			className={clsx(
-				classes.root,
-				'flex flex-col flex-auto flex-shrink-0 items-center justify-start px-12 md:px-32 pt-24 pb-12'
-			)}
-		>
+		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-start')}>
 			{/* Header */}
 			<Header />
 
@@ -30,13 +26,10 @@ function LandingPage() {
 			<Main />
 
 			{/* Feature */}
-			<div className="w-full sm:w-4/5 flex flex-col items-center justify-center">Feature</div>
+			{/* <Feature /> */}
 
 			{/* Pricing */}
-			<div className="w-full sm:w-4/5 flex flex-col items-center justify-center">Pricing</div>
-
-			{/* Contact */}
-			<div className="w-full sm:w-4/5 flex flex-col items-center justify-center">Contract</div>
+			<Pricing />
 
 			{/* Footer */}
 			<Footer />

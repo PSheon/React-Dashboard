@@ -36,11 +36,9 @@ const useStyles = makeStyles(theme => ({
 		width: navbarWidth,
 		minWidth: navbarWidth,
 		backgroundColor: 'rgba(44, 48, 60, .9)',
-		height: 'calc(100% - 2.4rem)',
+		height: '100%',
 		zIndex: 4,
-		margin: '1.2rem 0 1.2rem .8rem',
-		borderRadius: '.8rem',
-		transition: theme.transitions.create(['width', 'min-width', 'margin', 'border-radius'], {
+		transition: theme.transitions.create(['width', 'hight', 'min-width', 'margin', 'border-radius'], {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.shorter
 		}),
@@ -53,8 +51,6 @@ const useStyles = makeStyles(theme => ({
 		flex: '1 1 auto',
 		width: navbarWidth,
 		minWidth: navbarWidth,
-		height: 'calc(100% - 1.6rem)',
-		margin: '1rem .8rem',
 		borderRadius: '.8rem',
 		zIndex: 4,
 		transition: theme.transitions.create(['width', 'min-width'], {
@@ -94,9 +90,9 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: theme.palette.background.paper
 	},
 	foldedAndClosed: {
-		height: '100%',
-		margin: '0',
-		borderRadius: '0',
+		height: 'calc(100% - 1.8rem)',
+		margin: '1.2rem 0 .6rem .8rem',
+		borderRadius: '.8rem',
 		'& $navbarContent': {
 			'& .logo-icon': {
 				maxWidth: 32,

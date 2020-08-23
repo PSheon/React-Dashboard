@@ -53,7 +53,7 @@ function UserNavbarHeader() {
 			classes={{ root: classes.root }}
 			className={clsx(
 				foldedOpen && 'sm:rounded-b-8',
-				'user relative flex flex-col items-center justify-center pt-24 pb-64 mb-32 z-0 rounded-b-0 sm:rounded-none'
+				'user relative flex flex-col items-center justify-center pt-24 pb-64 mb-32 z-0 rounded-b-8'
 			)}
 		>
 			<Typography className="username text-16 whitespace-no-wrap font-bold" color="inherit">

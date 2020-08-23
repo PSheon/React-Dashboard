@@ -127,19 +127,19 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 	useInterval(() => {
 		// TODO
 		const restList = usageList.splice(1);
-		const newUsageList = [...restList, Math.floor(Math.random() * 600) + 100];
+		const newUsageList = [...restList, Math.floor(Math.random() * 6) + 100];
 
 		setUsageList(newUsageList);
 	}, 1500);
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
-			<div className="p-24 pb-0 sm:px-16 sm:pt-16 flex justify-between lg:justify-around">
+			<div className="p-24 flex justify-between lg:justify-around">
 				<div className="flex flex-col">
 					<Typography className="text-20 sm:text-16" color="textSecondary">
 						{title}
 					</Typography>
-					<Typography className="text-48 sm:text-24 md:text-36 font-semibold leading-none mt-8 sm:mt-12">
+					<Typography className="text-28 sm:text-24 font-semibold leading-none mt-8 sm:mt-12">
 						{content}
 					</Typography>
 					<div className="py-8 md:py-4 text-20 sm:text-24 flex flex-row items-center">
@@ -148,11 +148,11 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 							{change < 0 && <Icon className="text-red">trending_down</Icon>}
 							<Typography className="mx-4">{change}%</Typography>
 						</div>
-						<Typography className="whitespace-no-wrap">of target</Typography>
+						<Typography className="whitespace-no-wrap">用量</Typography>
 					</div>
 				</div>
 
-				<div className="flex justify-center items-start p-0 md:p-8">
+				<div className="flex justify-center items-start py-8">
 					<div
 						className={clsx(
 							classes.iconWrapper,

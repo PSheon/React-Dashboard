@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 		background: 'linear-gradient(to bottom, rgba(44,48,60,.9) 44%,rgba(44,48,60,.43) 73%,rgba(17,30,70,0))'
 	},
 	backButton: {
-		background: theme.palette.secondaryGradient
+		background: theme.palette.primaryGradient
 	}
 }));
 
@@ -44,22 +44,22 @@ const Header = props => {
 						</Typography>
 					</div>
 
-					<div className="items-center">
-						<Hidden smDown>
-							{/* 語言選擇 */}
-							<LanguageSwitcher />
-						</Hidden>
+					<div className="items-center mr-16 sm:mr-0">
+						{/* 語言選擇 */}
+						<LanguageSwitcher />
 					</div>
 
-					<Button
-						component={Link}
-						to="/dashboard"
-						variant="contained"
-						startIcon={<Anchor width={16} />}
-						className={clsx(classes.backButton, 'mx-16 rounded-8 font-medium text-14 text-white')}
-					>
-						開始投資
-					</Button>
+					<Hidden smDown>
+						<Button
+							component={Link}
+							to="/dashboard"
+							variant="contained"
+							startIcon={<Anchor width={16} />}
+							className={clsx(classes.backButton, 'mx-16 rounded-8 font-medium text-14 text-white')}
+						>
+							回到首頁
+						</Button>
+					</Hidden>
 				</Toolbar>
 			</AppBar>
 		</ThemeProvider>

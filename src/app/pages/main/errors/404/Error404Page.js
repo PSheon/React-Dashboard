@@ -6,6 +6,7 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Anchor } from 'react-feather';
+import Header from '../sections/Header';
 
 const useStyles = makeStyles(theme => ({
 	backButton: {
@@ -18,7 +19,9 @@ function Error404Page() {
 
 	return (
 		<div className="flex flex-col flex-1 items-center justify-center py-16 px-24">
-			<div className="max-w-512 text-center">
+			<Header />
+
+			<div className="max-w-512 text-center mt-24">
 				<FuseAnimate animation="transition.expandIn" delay={100}>
 					<Typography variant="h1" color="inherit" className="font-medium mb-16">
 						404

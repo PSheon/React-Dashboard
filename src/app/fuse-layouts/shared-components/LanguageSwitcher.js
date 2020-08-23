@@ -11,18 +11,17 @@ import * as Actions from 'app/store/actions';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 const languages = [
+	{
+		id: 'tw',
+		title: '繁體中文',
+		flag: 'tw'
+	},
 	{
 		id: 'en',
 		title: 'English',
 		flag: 'us'
-	},
-	{
-		id: 'tr',
-		title: 'Turkish',
-		flag: 'tr'
 	},
 	{
 		id: 'ar',

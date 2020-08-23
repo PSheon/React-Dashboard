@@ -10,11 +10,11 @@ const MarketConfig = {
 	routes: [
 		{
 			path: '/market/:marketId',
-			component: () => <Redirect to="/coming-soon" />
+			component: () => <Redirect to="/admin/maintenance" />
 		},
 		{
 			path: '/market',
-			component: () => <Redirect to="/coming-soon" />
+			component: () => <Redirect to="/admin/maintenance" />
 		}
 	]
 };

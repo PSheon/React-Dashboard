@@ -1,8 +1,8 @@
 // TODO Dev this
 import React, { useState } from 'react';
-import { useInterval } from '@fuse/hooks';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
@@ -79,15 +79,15 @@ const useStyles = makeStyles(theme => ({
 function WidgetFundingRatio(props) {
 	const classes = useStyles();
 	const theme = useTheme(props);
-	const [usageRatio, setUsageRatio] = useState(82);
+	const [usageRatio, setUsageRatio] = useState(81);
 
-	useInterval(() => {
-		setUsageRatio(Math.floor(Math.random() * 99) + 1);
-	}, 1500);
+	// useInterval(() => {
+	// 	setUsageRatio(Math.floor(Math.random() * 99) + 1);
+	// }, 1500);
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
-			<div className="pt-16 px-20 flex justify-between items-center">
+			<div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
 				<Typography className="h1 font-medium">成功掛單比率</Typography>
 				<Tooltip
 					arrow
@@ -95,7 +95,9 @@ function WidgetFundingRatio(props) {
 					placement="top"
 					classes={{ tooltip: 'bg-grey-800 text-white p-8 font-300 text-14' }}
 				>
-					<HelpCircle size={20} className="cursor-pointer text-muted" />
+					<IconButton aria-label="成功掛單比率說明" className="h-36 p-8" color="inherit" size="small">
+						<HelpCircle size={20} className="cursor-pointer text-muted" />
+					</IconButton>
 				</Tooltip>
 			</div>
 
@@ -111,11 +113,11 @@ function WidgetFundingRatio(props) {
 			<div className="flex justify-center items-center mt-20">
 				<div className="border-t-1 border-r-1 text-center w-1/2 py-16">
 					<p className="mb-4 font-300">已借出</p>
-					<p className="text-28 font-semibold mb-4">786,617</p>
+					<p className="text-28 font-semibold mb-4">14,617</p>
 				</div>
 				<div className="border-t-1 border-l-1 text-center w-1/2 py-16">
 					<p className="mb-4 font-300">等待借出</p>
-					<p className="text-28 font-semibold mb-4">13,561</p>
+					<p className="text-28 font-semibold mb-4">3,561</p>
 				</div>
 			</div>
 		</Card>

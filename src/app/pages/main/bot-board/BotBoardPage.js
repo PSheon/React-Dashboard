@@ -759,7 +759,7 @@ function BotBoardPage(props) {
 				{boards.map(board => (
 					<Link
 						key={board.id}
-						to={`/bot-board/${board.id}/${board.uri}`}
+						// to={`/bot-board/${board.id}/${board.uri}`}
 						className={clsx(classes.board, 'w-full sm:w-1/4 p-16')}
 						role="button"
 					>

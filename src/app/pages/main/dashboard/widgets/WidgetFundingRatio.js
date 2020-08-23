@@ -81,13 +81,13 @@ function WidgetFundingRatio(props) {
 	const theme = useTheme(props);
 	const [usageRatio, setUsageRatio] = useState(82);
 
-	useInterval(() => {
-		setUsageRatio(Math.floor(Math.random() * 99) + 1);
-	}, 1500);
+	// useInterval(() => {
+	// 	setUsageRatio(Math.floor(Math.random() * 99) + 1);
+	// }, 1500);
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
-			<div className="pt-16 px-20 flex justify-between items-center">
+			<div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
 				<Typography className="h1 font-medium">成功掛單比率</Typography>
 				<Tooltip
 					arrow

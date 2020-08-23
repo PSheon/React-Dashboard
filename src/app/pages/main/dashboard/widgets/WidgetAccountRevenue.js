@@ -58,20 +58,7 @@ const OPTIONS = ({ labelColor, dangerLight, strokeColor, primary }) => ({
 		axisTicks: {
 			show: false
 		},
-		categories: [
-			'一月',
-			'二月',
-			'三月',
-			'四月',
-			'五月',
-			'六月',
-			'七月',
-			'八月',
-			'九月',
-			'十月',
-			'十一月',
-			'十二月'
-		],
+		categories: ['01', '05', '09', '13', '17', '21', '26', '31'],
 		axisBorder: {
 			show: false
 		},
@@ -97,17 +84,18 @@ const OPTIONS = ({ labelColor, dangerLight, strokeColor, primary }) => ({
 const SERIES = [
 	{
 		name: '本月份',
-		data: [400, 12676, 16822, 0, 0, 36244, 86589, 126589, 0, 0, 0, 0]
+		data: [45000, 47000, 44800, 47500, 45500, 48000, 46500, 48600]
 	},
 	{
-		name: '去年同期月份',
-		data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63]
+		name: '上個月',
+		data: [46000, 48000, 45500, 46600, 44500, 46500, 45000, 47000]
 	}
 ];
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
+		flex: 2,
 		margin: '2rem',
 		borderRadius: '.8rem',
 		transitionProperty: 'box-shadow, border-color',
@@ -119,26 +107,26 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function WidgetRevenue(props) {
+function WidgetAccountRevenue(props) {
 	const classes = useStyles(props);
 	const theme = useTheme();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24')}>
+		<div className={clsx(classes.root, 'rounded-8 mx-16 mb-24')}>
 			<FuseAnimate delay={100}>
 				<div className="container relative px-24 pt-20 sm:pt-16 flex flex-row justify-between items-center">
 					<Typography className="h1 font-medium" color="textPrimary">
-						平台利潤
+						我的利潤
 					</Typography>
 
 					<div className="flex justify-between items-center">
 						<div className="flex items-center mr-12">
-							{/* {smUp && (
+							{smUp && (
 								<Button className="py-8 px-12 rounded-8" size="small" disabled>
 									2018
 								</Button>
-							)} */}
+							)}
 							<Button className="py-8 px-12 rounded-8" size="small" disabled>
 								2019
 							</Button>
@@ -152,37 +140,37 @@ function WidgetRevenue(props) {
 			</FuseAnimate>
 
 			<FuseAnimate delay={100}>
-				<div className="px-20 pb-24">
+				<div className="px-20">
 					<div className="flex justify-start py-12 sm:py-16">
 						<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-							<Typography className="mb-8 font-medium text-16">本月度</Typography>
+							<Typography className="mb-8 font-medium text-16">總金額</Typography>
 							<Typography className="font-400 flex justify-center items-start">
 								<sup className="text-20 font-medium mr-8">$</sup>
-								<span className="text-28 text-teal">126,589</span>
+								<span className="text-28 text-teal">86,589</span>
 							</Typography>
 						</div>
 						<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-							<Typography className="mb-8 font-medium text-16">上月度</Typography>
+							<Typography className="mb-8 font-medium text-16">淨利</Typography>
 							<Typography className="font-400 flex justify-center items-start">
 								<sup className="text-20 font-medium mr-8">$</sup>
-								<span className="text-28">86,589</span>
+								<span className="text-28">73,683</span>
 							</Typography>
 						</div>
 						{smUp && (
 							<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-								<Typography className="mb-8 font-medium text-16">上季度</Typography>
+								<Typography className="mb-8 font-medium text-16">返傭</Typography>
 								<Typography className="font-400 flex justify-center items-start">
 									<sup className="text-20 font-medium mr-8">$</sup>
-									<span className="text-28">46,835</span>
+									<span className="text-28">43,683</span>
 								</Typography>
 							</div>
 						)}
 						{smUp && (
 							<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-								<Typography className="mb-8 font-medium text-16">上年度</Typography>
+								<Typography className="mb-8 font-medium text-16">獎金</Typography>
 								<Typography className="font-400 flex justify-center items-start">
 									<sup className="text-20 font-medium mr-8">$</sup>
-									<span className="text-28">63</span>
+									<span className="text-28">20,683</span>
 								</Typography>
 							</div>
 						)}
@@ -205,4 +193,4 @@ function WidgetRevenue(props) {
 	);
 }
 
-export default React.memo(WidgetRevenue);
+export default React.memo(WidgetAccountRevenue);

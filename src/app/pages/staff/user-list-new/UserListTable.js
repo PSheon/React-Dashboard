@@ -265,17 +265,17 @@ function UserListTable() {
 						Header: '顯示名稱',
 						accessor: 'displayName',
 						Cell: ({ value }) => <span className="text-gray">{value}</span>,
-						className: 'flex items-center justify-center font-bold',
-						// filterable: true,
-						minWidth: 128
+						className: 'flex items-center justify-start font-bold',
+						filterable: true,
+						minWidth: 80
 					},
 					{
 						Header: '信箱',
 						accessor: 'email',
 						Cell: ({ value }) => <span className="text-600 text-lg">{value}</span>,
 						className: 'flex items-center justify-center',
-						// filterable: true
-						minWidth: 240
+						filterable: true,
+						minWidth: 128
 					},
 					{
 						Header: '綁定 Google',

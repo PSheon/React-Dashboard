@@ -139,7 +139,7 @@ const BotInfoCard = ({ title, content, change, iconType, iconColorSchema, chartI
 					<Typography className="text-20 sm:text-16" color="textSecondary">
 						{title}
 					</Typography>
-					<Typography className="text-48 sm:text-24 md:text-36 font-semibold leading-none mt-8 sm:mt-12">
+					<Typography className="text-28 sm:text-24 font-semibold leading-none mt-8 sm:mt-12">
 						{content}
 					</Typography>
 					<div className="py-8 md:py-4 text-20 sm:text-24 flex flex-row items-center">

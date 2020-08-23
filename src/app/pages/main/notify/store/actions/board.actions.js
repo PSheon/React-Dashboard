@@ -35,7 +35,7 @@ export function getBoard(params) {
 			error => {
 				dispatch(
 					showMessage({
-						message: error.response.data,
+						message: error?.response?.data,
 						autoHideDuration: 2000,
 						anchorOrigin: {
 							vertical: 'top',

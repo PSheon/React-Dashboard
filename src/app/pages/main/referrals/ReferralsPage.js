@@ -33,7 +33,7 @@ const ReferralsPage = () => {
 				</div>
 				<div className="w-full sm:w-2/5 sm:pl-12">
 					<DownlineCard />
-					<DownlineCard />
+					{/* <DownlineCard /> */}
 				</div>
 			</div>
 		</div>

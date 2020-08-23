@@ -79,19 +79,54 @@ const WidgetOrderHistory = () => {
 	// const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);
 	const ORDER_HISTORY = [
 		{
-			memberId: '123',
-			action: 'renew',
-			createdAt: new Date()
+			memberId: 'u4236901',
+			action: 'new',
+			createdAt: new Date('2020/08/05')
 		},
 		{
-			memberId: '1234',
+			memberId: 'u4236900',
 			action: 'renew',
-			createdAt: new Date()
+			createdAt: new Date('2020/08/03')
 		},
 		{
-			memberId: '1235',
+			memberId: 'u4236899',
 			action: 'renew',
-			createdAt: new Date()
+			createdAt: new Date('2020/08/01')
+		},
+		{
+			memberId: 'u4236898',
+			action: 'renew',
+			createdAt: new Date('2020/07/29')
+		},
+		{
+			memberId: 'u4236897',
+			action: 'renew',
+			createdAt: new Date('2020/07/28')
+		},
+		{
+			memberId: 'u4236896',
+			action: 'new',
+			createdAt: new Date('2020/07/25')
+		},
+		{
+			memberId: 'u4236895',
+			action: 'submit-contract',
+			createdAt: new Date('2020/07/25')
+		},
+		{
+			memberId: 'u4236892',
+			action: 'renew',
+			createdAt: new Date('2020/07/14')
+		},
+		{
+			memberId: 'u4236894',
+			action: 'new',
+			createdAt: new Date('2020/07/20')
+		},
+		{
+			memberId: 'u4236893',
+			action: 'renew',
+			createdAt: new Date('2020/07/19')
 		}
 	];
 

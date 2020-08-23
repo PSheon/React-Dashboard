@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 import IMAGE from 'app/assets/images/landing/features-split-image-01.png';
 
-const Main = () => {
+const Feature = () => {
 	return (
 		<FuseAnimateGroup
 			enter={{
@@ -24,4 +24,4 @@ const Main = () => {
 	);
 };
 
-export default Main;
+export default Feature;

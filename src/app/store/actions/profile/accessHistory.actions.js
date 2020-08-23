@@ -4,7 +4,7 @@ import * as FuseActions from 'app/store/actions/fuse';
 
 export const SET_ME_ACCESS_HISTORY_LOADING = '[PROFILE] SET ME ACCESS HISTORY LOADING';
 export const SET_ME_ACCESS_HISTORY = '[PROFILE] SET ME ACCESS HISTORY DATA';
-export const RESET_ME_ACCESS_HISTORY = '[PROFILE] SET ME ACCESS HISTORY DATA';
+export const RESET_ME_ACCESS_HISTORY = '[PROFILE] RESET ME ACCESS HISTORY DATA';
 
 export function setAccessHistory() {
 	return dispatch => {

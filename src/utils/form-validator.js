@@ -32,7 +32,7 @@ export const isPasswordFormValid = password => {
 		if (LENGTH < 8 || LENGTH > 15) {
 			return false;
 		}
-		if (!validator.isAlphanumeric(password)) {
+		if (!new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/).test(password)) {
 			return false;
 		}
 	}

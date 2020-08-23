@@ -81,7 +81,7 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 					</div>
 				</div>
 				<div className="flex flex-col justify-center items-center">
-					<Typography className="text-48 sm:text-24 md:text-32 font-semibold leading-none my-8 sm:mt-12">
+					<Typography className="text-28 sm:text-24 font-semibold leading-none my-8 sm:mt-12">
 						{content}
 					</Typography>
 					<Typography className="text-20 sm:text-16" color="textSecondary">

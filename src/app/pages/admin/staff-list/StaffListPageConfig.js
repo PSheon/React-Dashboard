@@ -2,19 +2,23 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { authRoles } from 'app/auth';
 
-const NotifyPageConfig = {
+const StaffListPageConfig = {
 	settings: {
 		layout: {
-			config: {}
+			config: {
+				footer: {
+					display: false
+				}
+			}
 		}
 	},
-	auth: authRoles.trial,
+	auth: authRoles.staff,
 	routes: [
 		{
-			path: '/notify',
+			path: '/admin/staff-list',
 			component: () => <Redirect to="/admin/maintenance" />
 		}
 	]
 };
 
-export default NotifyPageConfig;
+export default StaffListPageConfig;

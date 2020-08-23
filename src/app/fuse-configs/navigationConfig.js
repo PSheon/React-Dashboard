@@ -1,12 +1,10 @@
 // import { authRoles } from 'app/auth';
 import i18next from 'i18next';
-import ar from './navigation-i18n/ar';
+import tw from './navigation-i18n/tw';
 import en from './navigation-i18n/en';
-import tr from './navigation-i18n/tr';
 
+i18next.addResourceBundle('tw', 'navigation', tw);
 i18next.addResourceBundle('en', 'navigation', en);
-i18next.addResourceBundle('tr', 'navigation', tr);
-i18next.addResourceBundle('ar', 'navigation', ar);
 
 const navigationConfig = [
 	{
@@ -174,11 +172,18 @@ export const STAFF_NAVIGATION = {
 			url: '/staff/user-list'
 		},
 		{
-			id: 'staff-bot-list',
+			id: 'staff-instance-list',
 			title: '運行實體列表',
 			type: 'item',
 			icon: 'list_alt',
-			url: '/staff/bot-list'
+			url: '/staff/instance-list'
+		},
+		{
+			id: 'staff-order-list',
+			title: '訂單列表',
+			type: 'item',
+			icon: 'list_alt',
+			url: '/staff/order-list'
 		},
 		{
 			type: 'divider',

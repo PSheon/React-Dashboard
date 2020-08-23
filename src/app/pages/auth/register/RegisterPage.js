@@ -2,58 +2,50 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from '@fuse/hooks';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles } from '@material-ui/core/styles';
+import { darken } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import Grow from '@material-ui/core/Grow';
-import Alert from '@material-ui/lab/Alert';
 import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Checkbox from '@material-ui/core/Checkbox';
-import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { XCircle, Meh, Smile, Mail, Eye, EyeOff } from 'react-feather';
+import { Meh, Smile, Mail, Eye, EyeOff } from 'react-feather';
 
 import * as AuthActions from 'app/store/actions/auth';
 import { isMemberIdFormValid, isEmailFormValid, isPasswordFormValid, isConfirmPasswordFormValid } from 'utils';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
-import FUSE_ICON from 'app/assets/images/logo/fuse.svg';
-import DECO_BG from 'app/assets/images/auth/undraw_compose_music_ovo2.svg';
 import AUTH_BG from 'app/assets/images/auth/background.jpg';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		minHeight: '90vh',
 		maxHeight: '100vh',
 		color: theme.palette.primary.contrastText,
+		background: `linear-gradient(to right, ${theme.palette.background.default} 0%, ${darken(
+			theme.palette.background.default,
+			0.5
+		)} 100%)`
+	},
+	leftSection: {},
+	rightSection: {
 		background: `url(${AUTH_BG})`,
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
-		[theme.breakpoints.down('sm')]: {
-			maxHeight: 'unset',
-			background: `url(${AUTH_BG})`,
-			backgroundPosition: 'center',
-			backgroundRepeat: 'no-repeat',
-			backgroundSize: 'cover'
-		}
-	},
-	cardWrapper: {
-		minHeight: '80%'
+		color: theme.palette.primary.contrastText
 	}
 }));
 
 function RegisterPage() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const theme = useTheme();
-	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 	const REGISTER_STATE = useSelector(({ auth }) => auth.register);
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -86,88 +78,39 @@ function RegisterPage() {
 
 	return (
 		<div
-			className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 p-24 md:flex-row md:p-0 items-center')}
-		>
-			{!mdDown && (
-				<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:flex-shrink-0 md:flex-1 md:text-left">
-					<div className="bg-success px-24 py-16 rounded-full mb-32">
-						<Typography variant="h3" color="inherit" className="font-semibold">
-							歡迎加入
-						</Typography>
-					</div>
-					<FuseAnimate animation="transition.slideUpIn" delay={300}>
-						<Link to="/">
-							<img className="w-full" src={DECO_BG} alt="login" />
-						</Link>
-					</FuseAnimate>
-				</div>
+			className={clsx(
+				classes.root,
+				'flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24'
 			)}
-
-			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
-				<div className="w-full max-w-512 flex justify-center items-center md:pr-48">
-					<Card className={clsx(classes.cardWrapper, 'w-full mx-auto m-16 md:m-0 rounded-8')}>
-						<CardContent className="flex flex-col items-center justify-center p-24 md:p-48 md:pt-64">
-							{mdDown && (
-								<FuseAnimate animation="transition.expandIn">
-									<Link to="/">
-										<img className="w-96 mb-24" src={FUSE_ICON} alt="logo" />
-									</Link>
-								</FuseAnimate>
-							)}
-
-							<Typography variant="h1" className="h1 font-medium md:w-full mb-32 text-center">
-								建立帳號
-							</Typography>
-
-							<div className="w-full sm:w-4/5 flex justify-around items-center mb-8">
-								<Button
-									variant="contained"
-									color="secondary"
-									size="small"
-									className="flex-1 mx-12 p-12 normal-case"
-								>
-									Google 登入
-								</Button>
-								<Button
-									variant="contained"
-									color="primary"
-									size="small"
-									className="flex-1 mx-12 p-12 normal-case"
-								>
-									Line 登入
-								</Button>
-							</div>
-
-							<div className="w-full my-24 flex items-center justify-center">
-								<Divider className="w-full max-w-96" />
-								<span className="mx-8 font-bold">或者</span>
-								<Divider className="w-full max-w-96" />
-							</div>
-
-							{/* Alert */}
-							{!!REGISTER_STATE.error.global && (
-								<Grow in={!!REGISTER_STATE.error.global}>
-									<Alert
-										className="mb-20 rounded-16 w-full"
-										severity="error"
-										action={
-											<IconButton
-												aria-label="close"
-												className="p-12 mr-4"
-												color="inherit"
-												size="small"
-												onClick={() => {
-													dispatch(AuthActions.resetRegisterAlert());
-												}}
-											>
-												<XCircle size={18} />
-											</IconButton>
-										}
-									>
-										{REGISTER_STATE.error.global}
-									</Alert>
-								</Grow>
-							)}
+		>
+			<FuseAnimate animation="transition.expandIn">
+				<div className="flex w-full max-w-400 md:max-w-3xl rounded-12 shadow-2xl overflow-hidden">
+					<Card
+						className={clsx(
+							classes.leftSection,
+							'flex flex-col w-full max-w-sm items-center justify-center'
+						)}
+						square
+						elevation={0}
+					>
+						<CardContent className="flex flex-col items-center justify-center w-full py-48 max-w-360">
+							<FuseAnimate animation="transition.slideUpIn" delay={300}>
+								<div className="flex items-center mb-24 sm:mb-48">
+									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
+									<div className="border-l-1 mr-4 w-1 h-40" />
+									<div>
+										<Typography className="text-24 font-800 logo-text" color="inherit">
+											建立帳號
+										</Typography>
+										<Typography
+											className="text-16 tracking-widest -mt-8 font-700"
+											color="textSecondary"
+										>
+											借貸平台
+										</Typography>
+									</div>
+								</div>
+							</FuseAnimate>
 
 							<form
 								name="registerForm"
@@ -175,7 +118,7 @@ function RegisterPage() {
 								onSubmit={handleSubmit}
 							>
 								<CssTextField
-									className="mb-16"
+									className="mb-0 sm:mb-16"
 									label="會員 ID"
 									autoFocus
 									type="memberId"
@@ -215,7 +158,7 @@ function RegisterPage() {
 								/>
 
 								<CssTextField
-									className="mb-16"
+									className="mb-0 sm:mb-16"
 									label="信箱"
 									type="email"
 									name="email"
@@ -248,7 +191,7 @@ function RegisterPage() {
 								/>
 
 								<CssTextField
-									className="mb-16"
+									className="mb-0 sm:mb-16"
 									label="密碼"
 									type="password"
 									name="password"
@@ -260,7 +203,9 @@ function RegisterPage() {
 											<span className="block min-h-24" />
 										) : (
 											<FuseAnimate animation="transition.expandIn">
-												<Typography component="span">密碼須包含8~15個英文或數字.</Typography>
+												<Typography component="span">
+													密碼須包含8~15個英文、數字、特殊字元.
+												</Typography>
 											</FuseAnimate>
 										)
 									}
@@ -284,7 +229,7 @@ function RegisterPage() {
 								/>
 
 								<CssTextField
-									className="mb-16"
+									className="mb-0 sm:mb-16"
 									label="確認密碼"
 									type="password"
 									name="passwordConfirm"
@@ -344,7 +289,7 @@ function RegisterPage() {
 								</Button>
 							</form>
 
-							<div className="flex flex-col items-center justify-center pt-32 pb-24">
+							<div className="flex flex-col items-center justify-center pb-0 pt-24 sm:pt-32 sm:pb-24">
 								<span className="font-medium">已有帳號？</span>
 								<Link className="font-medium focus:font-black" to="/auth/login">
 									登入
@@ -352,6 +297,26 @@ function RegisterPage() {
 							</div>
 						</CardContent>
 					</Card>
+
+					<div
+						className={clsx(classes.rightSection, 'hidden md:flex flex-1 items-center justify-center p-64')}
+					>
+						<div className="max-w-320">
+							<FuseAnimate animation="transition.slideUpIn" delay={400}>
+								<Typography variant="h3" color="inherit" className="font-800 leading-tight">
+									歡迎使用 <br />
+									虛擬貨幣 <br /> 借貸平台!
+								</Typography>
+							</FuseAnimate>
+
+							<FuseAnimate delay={500}>
+								<Typography variant="subtitle1" color="inherit" className="mt-32">
+									Powerful and professional admin template for Web Applications, CRM, CMS, Admin
+									Panels and more.
+								</Typography>
+							</FuseAnimate>
+						</div>
+					</div>
 				</div>
 			</FuseAnimate>
 		</div>

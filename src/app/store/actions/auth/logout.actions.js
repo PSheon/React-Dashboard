@@ -1,8 +1,10 @@
 import * as ProfileActions from 'app/store/actions/profile';
 import * as MessageActions from 'app/store/actions/fuse/message.actions';
+import jwtService from 'app/services/jwtService';
 
 export function logoutUser() {
 	return dispatch => {
+		jwtService.logout();
 		dispatch({ type: ProfileActions.RESET_ME_ROLE });
 		dispatch({ type: ProfileActions.RESET_ME_PROFILE });
 		dispatch({ type: ProfileActions.RESET_ME_ACCESS_HISTORY });

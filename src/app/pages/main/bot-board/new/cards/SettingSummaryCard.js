@@ -26,7 +26,7 @@ function SettingSummaryCard(props) {
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
-			<div className="pt-16 px-20 flex justify-between items-center">
+			<div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
 				<Typography className="h1 font-medium">機器人設定</Typography>
 				<Tooltip
 					arrow

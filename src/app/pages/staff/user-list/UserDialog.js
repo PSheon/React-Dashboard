@@ -22,17 +22,13 @@ import * as Actions from './store/actions';
 
 const defaultFormState = {
 	id: '',
-	name: '',
-	lastName: '',
-	avatar: 'assets/images/avatars/profile.jpg',
-	nickname: '',
-	company: '',
-	jobTitle: '',
-	email: '',
+	photoUrl: 'assets/images/avatars/default.jpg',
+	displayName: '',
+	mail: '',
 	phone: '',
-	address: '',
-	birthday: '',
-	notes: ''
+	class: '',
+	progress: 0,
+	scheme: ''
 };
 
 function PaperComponent(props) {
@@ -92,7 +88,7 @@ function UserDialog(props) {
 	}
 
 	function canBeSubmitted() {
-		return form.name.length > 0;
+		return form.displayName.length > 0;
 	}
 
 	function handleSubmit(event) {
@@ -141,15 +137,11 @@ function UserDialog(props) {
 					</IconButton>
 				</Toolbar>
 				<div className="flex flex-col items-center justify-center">
-					{/* <Avatar className="w-96 h-96" alt="contact avatar" src={form.avatar} /> */}
-					{/* <Typography variant="h6" color="inherit" className="pt-8">
-							{form.name}
-						</Typography> */}
 					{contactDialog.type === 'edit' && (
 						<Avatar
 							className={clsx(classes.avatarWrapper, 'w-96 h-96 -mb-36')}
 							alt="contact avatar"
-							src={form.avatar}
+							src={form.photoUrl}
 						/>
 					)}
 				</div>
@@ -160,14 +152,13 @@ function UserDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">account_circle</Icon>
 						</div>
-
 						<CssTextField
 							className="mb-24"
-							label="Name"
+							label="用戶名"
 							autoFocus
-							id="name"
-							name="name"
-							value={form.name}
+							id="displayName"
+							name="displayName"
+							value={form.displayName}
 							onChange={handleChange}
 							variant="outlined"
 							required
@@ -176,29 +167,15 @@ function UserDialog(props) {
 					</div>
 
 					<div className="flex">
-						<div className="min-w-48 pt-20" />
-						<CssTextField
-							className="mb-24"
-							label="Last name"
-							id="lastName"
-							name="lastName"
-							value={form.lastName}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
-					</div>
-
-					<div className="flex">
 						<div className="min-w-48 pt-20">
-							<Icon color="action">star</Icon>
+							<Icon color="action">email</Icon>
 						</div>
 						<CssTextField
 							className="mb-24"
-							label="Nickname"
-							id="nickname"
-							name="nickname"
-							value={form.nickname}
+							label="信箱"
+							id="mail"
+							name="mail"
+							value={form.mail}
 							onChange={handleChange}
 							variant="outlined"
 							fullWidth
@@ -211,7 +188,7 @@ function UserDialog(props) {
 						</div>
 						<CssTextField
 							className="mb-24"
-							label="Phone"
+							label="手機"
 							id="phone"
 							name="phone"
 							value={form.phone}
@@ -223,14 +200,14 @@ function UserDialog(props) {
 
 					<div className="flex">
 						<div className="min-w-48 pt-20">
-							<Icon color="action">email</Icon>
+							<Icon color="action">emoji_events</Icon>
 						</div>
 						<CssTextField
 							className="mb-24"
-							label="Email"
-							id="email"
-							name="email"
-							value={form.email}
+							label="階級"
+							id="class"
+							name="class"
+							value={form.class}
 							onChange={handleChange}
 							variant="outlined"
 							fullWidth
@@ -239,14 +216,14 @@ function UserDialog(props) {
 
 					<div className="flex">
 						<div className="min-w-48 pt-20">
-							<Icon color="action">domain</Icon>
+							<Icon color="action">bar_chart</Icon>
 						</div>
 						<CssTextField
 							className="mb-24"
-							label="Company"
-							id="company"
-							name="company"
-							value={form.company}
+							label="交易進度"
+							id="progress"
+							name="progress"
+							value={form.progress}
 							onChange={handleChange}
 							variant="outlined"
 							fullWidth
@@ -255,69 +232,16 @@ function UserDialog(props) {
 
 					<div className="flex">
 						<div className="min-w-48 pt-20">
-							<Icon color="action">work</Icon>
+							<Icon color="action">local_atm</Icon>
 						</div>
 						<CssTextField
 							className="mb-24"
-							label="Job title"
-							id="jobTitle"
-							name="jobTitle"
-							value={form.jobTitle}
+							label="方案"
+							id="scheme"
+							name="scheme"
+							value={form.scheme}
 							onChange={handleChange}
 							variant="outlined"
-							fullWidth
-						/>
-					</div>
-
-					<div className="flex">
-						<div className="min-w-48 pt-20">
-							<Icon color="action">cake</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							id="birthday"
-							label="Birthday"
-							type="date"
-							value={form.birthday}
-							onChange={handleChange}
-							InputLabelProps={{
-								shrink: true
-							}}
-							variant="outlined"
-							fullWidth
-						/>
-					</div>
-
-					<div className="flex">
-						<div className="min-w-48 pt-20">
-							<Icon color="action">home</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="Address"
-							id="address"
-							name="address"
-							value={form.address}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
-					</div>
-
-					<div className="flex">
-						<div className="min-w-48 pt-20">
-							<Icon color="action">note</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="Notes"
-							id="notes"
-							name="notes"
-							value={form.notes}
-							onChange={handleChange}
-							variant="outlined"
-							multiline
-							rows={5}
 							fullWidth
 						/>
 					</div>
@@ -347,7 +271,7 @@ function UserDialog(props) {
 								onClick={handleSubmit}
 								disabled={!canBeSubmitted()}
 							>
-								Save
+								確定
 							</Button>
 						</div>
 						<IconButton onClick={handleRemove}>

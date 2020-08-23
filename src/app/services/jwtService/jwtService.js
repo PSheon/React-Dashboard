@@ -17,7 +17,7 @@ class JwtService extends FuseUtils.EventEmitter {
 			},
 			err => {
 				return new Promise((resolve, reject) => {
-					if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
+					if (err?.response?.status === 401 && err?.config && !err?.config?.__isRetryRequest) {
 						// if you ever get an unauthorized response, logout the user
 						this.emit('onAutoLogout', 'Invalid access_token');
 						this.setSession(null);
@@ -57,7 +57,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
-					reject(error.response.data || { msg: 'UNKNOWN_ERROR' });
+					reject(error?.response?.data ?? { msg: 'UNKNOWN_ERROR' });
 				});
 		});
 	};
@@ -71,12 +71,13 @@ class JwtService extends FuseUtils.EventEmitter {
 				})
 				.then(response => {
 					if (response.data.user) {
+						console.log('response.data.token, ', response.data.token);
 						this.setSession(response.data.token);
 						resolve(response.data.user);
 					}
 				})
 				.catch(error => {
-					reject(error.response.data || { msg: 'UNKNOWN_ERROR' });
+					reject(error?.response?.data ?? { msg: 'UNKNOWN_ERROR' });
 				});
 		});
 	};

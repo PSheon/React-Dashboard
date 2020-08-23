@@ -1,11 +1,11 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { authRoles } from 'app/auth';
 
-const UserListPageConfig = {
+const OrderListPageConfig = {
 	settings: {
 		layout: {
 			config: {
-				mode: 'fullWidth',
 				footer: {
 					display: false
 				}
@@ -15,10 +15,10 @@ const UserListPageConfig = {
 	auth: authRoles.staff,
 	routes: [
 		{
-			path: '/staff/user-list',
-			component: React.lazy(() => import('./UserList'))
+			path: '/staff/order-list',
+			component: () => <Redirect to="/admin/maintenance" />
 		}
 	]
 };
 
-export default UserListPageConfig;
+export default OrderListPageConfig;

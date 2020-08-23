@@ -105,16 +105,16 @@ const ClaimHistoryCard = () => {
 					<Typography className="h2">領獎紀錄</Typography>
 
 					<div className="flex justify-center">
-						{smUp && (
+						{/* {smUp && (
 							<Button className="py-8 px-12 rounded-8" size="small" disabled>
 								更新憑證
 							</Button>
-						)}
+						)} */}
 						<Button className="py-8 px-12 rounded-8" size="small" disabled>
-							更換密碼
+							直推會員
 						</Button>
 						<Button className="py-8 px-12 rounded-8" size="small">
-							更新憑證
+							團隊利潤
 						</Button>
 					</div>
 				</div>

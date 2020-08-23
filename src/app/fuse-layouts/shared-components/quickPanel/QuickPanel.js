@@ -25,8 +25,8 @@ import reducer from './store/reducers';
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: 280,
-		height: 'calc(100% - 1.6rem)',
-		margin: '1.2rem .4rem 1.2rem 0',
+		height: 'calc(100% - 1.8rem)',
+		margin: '1.2rem .8rem .6rem 0',
 		borderRadius: '.8rem'
 	}
 }));
@@ -76,9 +76,9 @@ function QuickPanel(props) {
 						</Typography>
 					</div>
 
-					<Hidden mdDown>
+					{/* <Hidden mdDown>
 						<NavbarFoldedToggleButton className="w-40 h-40 p-0" />
-					</Hidden>
+					</Hidden> */}
 
 					<Hidden lgUp>
 						<NavbarMobileToggleButton className="w-40 h-40 p-0">
@@ -89,7 +89,7 @@ function QuickPanel(props) {
 
 				<FuseScrollbars option={{ suppressScrollX: true }}>
 					<ListSubheader component="div" className="bg-grey">
-						Today
+						近期公告
 					</ListSubheader>
 					<div className="mb-0 py-16 px-24">
 						<Typography className="mb-12 text-32" color="textSecondary">

@@ -17,7 +17,7 @@ function DashboardPage() {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="首頁" breadCrumbParent="超級管理員" breadCrumbActive="首頁" />
+				<Breadcrumbs breadCrumbTitle="主控台" breadCrumbParent="超級管理員" breadCrumbActive="主控台" />
 			</FuseAnimate>
 
 			<WidgetRevenue />
@@ -36,7 +36,7 @@ function DashboardPage() {
 						<div className="widget flex w-full sm:w-1/4 p-16">
 							<WidgetBasicCard
 								title="借貸總資金"
-								content="3M"
+								content="0.14M"
 								iconType="dollar-sign"
 								iconColorSchema="primary"
 							/>
@@ -44,7 +44,7 @@ function DashboardPage() {
 						<div className="widget flex w-full sm:w-1/4 p-16">
 							<WidgetBasicCard
 								title="運行機器人"
-								content="450"
+								content="15"
 								iconType="layers"
 								iconColorSchema="secondary"
 							/>
@@ -52,7 +52,7 @@ function DashboardPage() {
 						<div className="widget w-full sm:w-1/4 p-16">
 							<WidgetBasicCard
 								title="活躍用戶數"
-								content="1995"
+								content="21"
 								iconType="users"
 								iconColorSchema="success"
 							/>
@@ -60,7 +60,7 @@ function DashboardPage() {
 						<div className="widget w-full sm:w-1/4 p-16">
 							<WidgetBasicCard
 								title="未處理訂單"
-								content="2"
+								content="0"
 								iconType="alert-octagon"
 								iconColorSchema="error"
 							/>
@@ -92,7 +92,7 @@ function DashboardPage() {
 						</div>
 						<div className="widget flex w-full sm:w-1/3 p-16">
 							<WidgetStatisticsCard
-								title="Memory 使用率"
+								title="記憶體使用率"
 								content="450Mb"
 								change={32}
 								iconType="memory"

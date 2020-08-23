@@ -32,7 +32,7 @@ function FooterLayout1() {
 						</Hidden>
 					</div>
 
-					<div className="flex items-center items-center">
+					<div className="flex justify-center items-center">
 						<ConnectionStatus />
 					</div>
 				</Toolbar>

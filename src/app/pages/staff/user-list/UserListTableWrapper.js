@@ -28,7 +28,7 @@ function UserListTableWrapper(props) {
 						selectedFlatRows.length > 0 && <ContactsMultiSelectMenu selectedContactIds={selectedRowIds} />
 					);
 				},
-				accessor: 'avatar',
+				accessor: 'photoUrl',
 				Cell: ({ row }) => {
 					return <Avatar className="mx-8" alt={row.original.name} src={row.original.avatar} />;
 				},
@@ -37,43 +37,56 @@ function UserListTableWrapper(props) {
 				sortable: false
 			},
 			{
-				Header: 'First Name',
-				accessor: 'name',
-				className: 'font-bold',
+				Header: '用戶名',
+				accessor: 'displayName',
+				headerClassName: 'text-center',
+				className: 'text-center font-bold',
 				sortable: true
 			},
 			{
-				Header: 'Last Name',
-				accessor: 'lastName',
-				className: 'font-bold',
+				Header: '信箱',
+				accessor: 'mail',
+				headerClassName: 'text-center',
+				className: 'text-center',
 				sortable: true
 			},
 			{
-				Header: 'Company',
-				accessor: 'company',
-				sortable: true
-			},
-			{
-				Header: 'Job Title',
-				accessor: 'jobTitle',
-				sortable: true
-			},
-			{
-				Header: 'Email',
-				accessor: 'email',
-				sortable: true
-			},
-			{
-				Header: 'Phone',
+				Header: '電話',
 				accessor: 'phone',
+				headerClassName: 'text-center',
+				className: 'text-center',
 				sortable: true
 			},
 			{
+				Header: '階級',
+				accessor: 'class',
+				headerClassName: 'text-center',
+				className: 'text-center font-bold',
+				sortable: true
+			},
+			{
+				Header: '交易進度',
+				accessor: 'progress',
+				headerClassName: 'text-center',
+				customized: true,
+				sortable: true
+			},
+			{
+				Header: '方案',
+				accessor: 'scheme',
+				headerClassName: 'text-center',
+				className: 'text-center',
+				sortable: true
+			},
+			{
+				Header: '操作',
 				id: 'action',
+				headerClassName: 'text-center',
+				className: 'flex justify-center',
 				width: 128,
 				sortable: false,
 				Cell: ({ row }) => (
-					<div className="flex items-center">
+					<>
 						<IconButton
 							onClick={ev => {
 								ev.stopPropagation();
@@ -94,7 +107,7 @@ function UserListTableWrapper(props) {
 						>
 							<Icon>delete</Icon>
 						</IconButton>
-					</div>
+					</>
 				)
 			}
 		],

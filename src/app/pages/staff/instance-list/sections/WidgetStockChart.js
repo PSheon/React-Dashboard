@@ -83,11 +83,11 @@ const OPTIONS = ({ labelColor, dangerLight, strokeColor, primary }) => ({
 
 const SERIES = [
 	{
-		name: 'This Month',
+		name: '本月份',
 		data: [45000, 47000, 44800, 47500, 45500, 48000, 46500, 48600]
 	},
 	{
-		name: 'Last Month',
+		name: '上個月',
 		data: [46000, 48000, 45500, 46600, 44500, 46500, 45000, 47000]
 	}
 ];
@@ -95,22 +95,29 @@ const SERIES = [
 const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
+		flex: 2,
 		margin: '2rem',
-		borderRadius: '.8rem'
+		borderRadius: '.8rem',
+		transitionProperty: 'box-shadow, border-color',
+		transitionDuration: theme.transitions.duration.short,
+		transitionTimingFunction: theme.transitions.easing.easeInOut,
+		'&:hover': {
+			boxShadow: theme.shadows[6]
+		}
 	}
 }));
 
-function WidgetRevenue(props) {
+function WidgetStockChart(props) {
 	const classes = useStyles(props);
 	const theme = useTheme();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24')}>
+		<div className={clsx(classes.root, 'rounded-8 mx-16 mb-24')}>
 			<FuseAnimate delay={100}>
-				<div className="container relative px-24 pt-24 sm:pt-20 flex flex-row justify-between items-center">
+				<div className="container relative px-24 pt-20 sm:pt-16 flex flex-row justify-between items-center">
 					<Typography className="h1 font-medium" color="textPrimary">
-						平台利潤
+						我的利潤
 					</Typography>
 
 					<div className="flex justify-between items-center">
@@ -133,17 +140,17 @@ function WidgetRevenue(props) {
 			</FuseAnimate>
 
 			<FuseAnimate delay={100}>
-				<div className="px-20 pb-24">
+				<div className="px-20">
 					<div className="flex justify-start py-12 sm:py-16">
 						<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-							<Typography className="mb-8 font-medium text-16">本月度</Typography>
+							<Typography className="mb-8 font-medium text-16">總金額</Typography>
 							<Typography className="font-400 flex justify-center items-start">
 								<sup className="text-20 font-medium mr-8">$</sup>
 								<span className="text-28 text-teal">86,589</span>
 							</Typography>
 						</div>
 						<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-							<Typography className="mb-8 font-medium text-16">上月度</Typography>
+							<Typography className="mb-8 font-medium text-16">淨利</Typography>
 							<Typography className="font-400 flex justify-center items-start">
 								<sup className="text-20 font-medium mr-8">$</sup>
 								<span className="text-28">73,683</span>
@@ -151,7 +158,7 @@ function WidgetRevenue(props) {
 						</div>
 						{smUp && (
 							<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-								<Typography className="mb-8 font-medium text-16">上季度</Typography>
+								<Typography className="mb-8 font-medium text-16">返傭</Typography>
 								<Typography className="font-400 flex justify-center items-start">
 									<sup className="text-20 font-medium mr-8">$</sup>
 									<span className="text-28">43,683</span>
@@ -160,7 +167,7 @@ function WidgetRevenue(props) {
 						)}
 						{smUp && (
 							<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
-								<Typography className="mb-8 font-medium text-16">上年度</Typography>
+								<Typography className="mb-8 font-medium text-16">獎金</Typography>
 								<Typography className="font-400 flex justify-center items-start">
 									<sup className="text-20 font-medium mr-8">$</sup>
 									<span className="text-28">20,683</span>
@@ -186,4 +193,4 @@ function WidgetRevenue(props) {
 	);
 }
 
-export default React.memo(WidgetRevenue);
+export default React.memo(WidgetStockChart);

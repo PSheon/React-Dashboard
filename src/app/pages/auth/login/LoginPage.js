@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from '@fuse/hooks';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import { darken, lighten } from '@material-ui/core/styles/colorManipulator';
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
@@ -18,48 +18,55 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
-import { XCircle, Mail, Eye, EyeOff } from 'react-feather';
+import { Facebook, XCircle, Mail, Eye, EyeOff } from 'react-feather';
 
 import * as AuthActions from 'app/store/actions/auth';
 import { isEmailFormValid, isPasswordFormValid } from 'utils';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
-import FUSE_ICON from 'app/assets/images/logo/fuse.svg';
-import DECO_BG from 'app/assets/images/auth/undraw_compose_music_ovo2.svg';
 import AUTH_BG from 'app/assets/images/auth/background.jpg';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		minHeight: '90vh',
 		maxHeight: '100vh',
 		color: theme.palette.primary.contrastText,
+		background: `linear-gradient(to right, ${theme.palette.background.default} 0%, ${darken(
+			theme.palette.background.default,
+			0.5
+		)} 100%)`
+	},
+	leftSection: {},
+	rightSection: {
 		background: `url(${AUTH_BG})`,
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
-		[theme.breakpoints.down('sm')]: {
-			maxHeight: 'unset',
-			background: `url(${AUTH_BG})`,
-			backgroundPosition: 'center',
-			backgroundRepeat: 'no-repeat',
-			backgroundSize: 'cover'
+		color: theme.palette.primary.contrastText
+	},
+	googleBtn: {
+		backgroundColor: '#db4437',
+		'&:hover': {
+			backgroundColor: lighten('#db4437', 0.1)
 		}
 	},
-	cardWrapper: {
-		minHeight: '80%'
+	lineBtn: {
+		backgroundColor: '#00b900',
+		'&:hover': {
+			backgroundColor: lighten('#00b900', 0.1)
+		}
 	}
 }));
 
 function LoginPage() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const theme = useTheme();
-	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 	const LOGIN_STATE = useSelector(({ auth }) => auth.login);
 	const [showPassword, setShowPassword] = useState(false);
 
 	const { form, handleChange } = useForm({
-		email: '',
-		password: '',
+		email: 'demo@1788.app',
+		password: '!@demo1788',
 		remember: true
 	});
 
@@ -74,60 +81,74 @@ function LoginPage() {
 
 	return (
 		<div
-			className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 p-24 md:flex-row md:p-0 items-center')}
-		>
-			{!mdDown && (
-				<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:flex-shrink-0 md:flex-1 md:text-left">
-					<div className="bg-success px-24 py-16 rounded-full mb-32">
-						<Typography variant="h3" color="inherit" className="font-semibold">
-							歡迎回來
-						</Typography>
-					</div>
-
-					<FuseAnimate animation="transition.slideUpIn" delay={300}>
-						<Link to="/">
-							<img className="w-full" src={DECO_BG} alt="login" />
-						</Link>
-					</FuseAnimate>
-				</div>
+			className={clsx(
+				classes.root,
+				'flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24'
 			)}
+		>
+			<FuseAnimate animation="transition.expandIn">
+				<div className="flex w-full max-w-400 md:max-w-3xl rounded-12 shadow-2xl overflow-hidden">
+					<Card
+						className={clsx(
+							classes.leftSection,
+							'flex flex-col w-full max-w-sm items-center justify-center'
+						)}
+						square
+						elevation={0}
+					>
+						<CardContent className="flex flex-col items-center justify-center w-full px-24 py-48 max-w-360">
+							<FuseAnimate animation="transition.slideUpIn" delay={300}>
+								<div className="flex items-center mb-24 sm:mb-36">
+									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
+									<div className="border-l-1 mr-4 w-1 h-40" />
+									<div>
+										<Typography className="text-24 font-800 logo-text" color="inherit">
+											登入您的帳號
+										</Typography>
+										<Typography
+											className="text-16 tracking-widest -mt-8 font-700"
+											color="textSecondary"
+										>
+											借貸平台
+										</Typography>
+									</div>
+								</div>
+							</FuseAnimate>
 
-			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
-				<div className="w-full max-w-512 flex justify-center items-center md:pr-48">
-					<Card className={clsx(classes.cardWrapper, 'w-full mx-auto m-16 md:m-0 rounded-8')}>
-						<CardContent className="flex flex-col items-center justify-center p-24 md:p-48 md:pt-64">
-							{mdDown && (
-								<FuseAnimate animation="transition.expandIn">
-									<Link to="/">
-										<img className="w-96 mb-24" src={FUSE_ICON} alt="logo" />
-									</Link>
-								</FuseAnimate>
-							)}
-
-							<Typography variant="h1" className="h1 font-medium md:w-full mb-32 text-center">
-								登入您的帳號
-							</Typography>
-
-							<div className="w-full sm:w-4/5 flex justify-around items-center mb-8">
+							<div className="w-full flex flex-col justify-around items-center mb-8">
 								<Button
 									variant="contained"
-									color="secondary"
-									size="small"
-									className="normal-case flex-1 mx-4 sm:mx-12 p-8"
+									className={clsx(
+										classes.googleBtn,
+										'w-full flex justify-start normal-case px-24 my-6 sm:my-12 text-white'
+									)}
 								>
-									Google 登入
+									<Facebook width={24} height={24} />
+									<div className="flex flex-col ml-12 justify-center items-start">
+										<Typography className="text-16">使用 Google</Typography>
+										<Typography className="text-12" color="textSecondary">
+											登入
+										</Typography>
+									</div>
 								</Button>
 								<Button
 									variant="contained"
-									color="primary"
-									size="small"
-									className="normal-case flex-1 mx-4 sm:mx-12 p-8"
+									className={clsx(
+										classes.lineBtn,
+										'w-full flex justify-start normal-case px-24 my-6 sm:my-12 text-white'
+									)}
 								>
-									Line 登入
+									<Facebook width={24} height={24} />
+									<div className="flex flex-col ml-12 justify-center items-start">
+										<Typography className="text-16">使用 Line</Typography>
+										<Typography className="text-12" color="textSecondary">
+											登入
+										</Typography>
+									</div>
 								</Button>
 							</div>
 
-							<div className="w-full my-24 flex items-center justify-center">
+							<div className="w-full mt-8 mb-16 flex items-center justify-center">
 								<Divider className="w-full max-w-96" />
 								<span className="mx-8 font-bold">或者</span>
 								<Divider className="w-full max-w-96" />
@@ -137,7 +158,7 @@ function LoginPage() {
 							{!!LOGIN_STATE.error.global && (
 								<Grow in={!!LOGIN_STATE.error.global}>
 									<Alert
-										className="mb-20 rounded-16 w-full"
+										className="w-full flex items-center mb-24 rounded-16"
 										severity="error"
 										action={
 											<IconButton
@@ -164,7 +185,7 @@ function LoginPage() {
 								onSubmit={handleSubmit}
 							>
 								<CssTextField
-									className="mb-8"
+									className="mb-0 sm:mb-16"
 									label="信箱"
 									autoFocus
 									type="email"
@@ -198,7 +219,7 @@ function LoginPage() {
 								/>
 
 								<CssTextField
-									className="mb-8"
+									className="mb-0 sm:mb-16"
 									label="密碼"
 									type="password"
 									name="password"
@@ -210,7 +231,7 @@ function LoginPage() {
 											<span className="block min-h-24" />
 										) : (
 											<FuseAnimate animation="transition.expandIn">
-												<Typography component="span">密碼須包含8~15個英文或數字.</Typography>
+												<Typography component="span">密碼須包含8~15個英文、數字、特殊字元.</Typography>
 											</FuseAnimate>
 										)
 									}
@@ -275,6 +296,26 @@ function LoginPage() {
 							</div>
 						</CardContent>
 					</Card>
+
+					<div
+						className={clsx(classes.rightSection, 'hidden md:flex flex-1 items-center justify-center p-64')}
+					>
+						<div className="max-w-320">
+							<FuseAnimate animation="transition.slideUpIn" delay={400}>
+								<Typography variant="h3" color="inherit" className="font-800 leading-tight">
+									歡迎使用 <br />
+									虛擬貨幣 <br /> 借貸平台!
+								</Typography>
+							</FuseAnimate>
+
+							<FuseAnimate delay={500}>
+								<Typography variant="subtitle1" color="inherit" className="mt-32">
+									Powerful and professional admin template for Web Applications, CRM, CMS, Admin
+									Panels and more.
+								</Typography>
+							</FuseAnimate>
+						</div>
+					</div>
 				</div>
 			</FuseAnimate>
 		</div>
