@@ -1,16 +1,17 @@
 import React from 'react';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import Typography from '@material-ui/core/Typography';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Hidden from '@material-ui/core/Hidden';
-import withReducer from 'app/store/withReducer';
+import Typography from '@material-ui/core/Typography';
 import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
-import WidgetAccountRevenue from './widgets/WidgetAccountRevenue';
-import WidgetTeamRatio from './widgets/WidgetTeamRatio';
-import WidgetNotifHistory from './widgets/WidgetNotifHistory';
+import withReducer from 'app/store/withReducer';
 
 import reducer from './store/reducers';
+import WidgetAccountRevenue from './widgets/WidgetAccountRevenue';
+import WidgetNotifHistory from './widgets/WidgetNotifHistory';
+import WidgetTeamRatio from './widgets/WidgetTeamRatio';
 
 function DashboardPage() {
 	return (
