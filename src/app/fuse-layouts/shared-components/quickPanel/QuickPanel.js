@@ -88,7 +88,7 @@ function QuickPanel(props) {
 				</AppBar>
 
 				<FuseScrollbars option={{ suppressScrollX: true }}>
-					<ListSubheader component="div" className="bg-grey">
+					<ListSubheader component="div" className="bg-primary">
 						近期公告
 					</ListSubheader>
 					<div className="mb-0 py-16 px-24">

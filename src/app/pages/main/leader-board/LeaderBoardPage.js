@@ -7,8 +7,8 @@ import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-
 import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
+import WidgetLoanBase from './sections/WidgetLoanBase';
 
 const useStyles = makeStyles(theme => ({
 	headerWrapper: {
@@ -50,7 +50,9 @@ function LeaderBoardPage(props) {
 				<Breadcrumbs breadCrumbTitle="資金排行榜" breadCrumbActive="資金排行榜" />
 			</FuseAnimate>
 
-			<FuseAnimateGroup
+			<WidgetLoanBase />
+
+			{/* <FuseAnimateGroup
 				className="w-full flex flex-wrap justify-start px-0 sm:px-8"
 				enter={{
 					animation: 'transition.slideUpBigIn',
@@ -67,37 +69,6 @@ function LeaderBoardPage(props) {
 						我的機器人
 					</Typography>
 				</div>
-			</FuseAnimateGroup>
-
-			{/* <FuseAnimateGroup
-				className="w-full flex flex-wrap justify-start px-0 sm:px-8"
-				enter={{
-					animation: 'transition.slideUpBigIn',
-					duration: 300
-				}}
-			>
-				{boards.map(board => (
-					<Link
-						key={board.id}
-						to={`/bot-board/${board.id}/${board.uri}`}
-						className={clsx(classes.board, 'w-full sm:w-1/4 p-16')}
-						role="button"
-					>
-						<BotInfoCard
-							title="CPU 使用率"
-							content="35%"
-							change={-3}
-							iconType="cpu"
-							iconColorSchema="primary"
-							chartId="cpu"
-							chartColors="primary"
-							tooltipTitle="使用率"
-						/>
-					</Link>
-				))}
-				<Link to="/bot-board/new" className={clsx(classes.board, 'w-full sm:w-1/4 p-16')} role="button">
-					<BotAddCard title="" content="" iconType="plus-circle" iconColorSchema="primary" />
-				</Link>
 			</FuseAnimateGroup> */}
 		</div>
 	);

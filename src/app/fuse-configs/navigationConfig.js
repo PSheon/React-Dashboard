@@ -144,13 +144,13 @@ export const ADMIN_NAVIGATION = {
 			icon: 'settings',
 			url: '/admin/settings'
 		},
-		{
-			id: 'admin-staff-list',
-			title: '員工列表',
-			type: 'item',
-			icon: 'list_alt',
-			url: '/admin/staff-list'
-		},
+		// {
+		// 	id: 'admin-staff-list',
+		// 	title: '員工列表',
+		// 	type: 'item',
+		// 	icon: 'list_alt',
+		// 	url: '/admin/staff-list'
+		// },
 		{
 			type: 'divider',
 			id: 'divider-admin'

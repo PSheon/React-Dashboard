@@ -22,15 +22,43 @@ function DashboardPage() {
 			<div className="flex flex-col md:flex-row sm:p-8 container">
 				<div className="flex flex-1 flex-col min-w-0">
 					<WidgetAccountRevenue />
+				</div>
 
+				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
+					<div className="w-full sm:w-1/2 md:w-full">
+						<Hidden xsUp>
+							<FuseAnimate delay={600}>
+								<Typography className="px-16 pb-8 text-18 font-medium">統計表</Typography>
+							</FuseAnimate>
+						</Hidden>
+
+						<div className="px-16 pt-20 pb-24">
+							<WidgetTeamRatio />
+						</div>
+					</div>
+
+					<Hidden xsDown>
+						<div className="w-full sm:w-1/2 md:w-full">
+							<FuseAnimate delay={300}>
+								<div className="px-16 pt-20 pb-24">
+									<WidgetNotifHistory />
+								</div>
+							</FuseAnimate>
+						</div>
+					</Hidden>
+				</div>
+			</div>
+
+			<div className="flex flex-col md:flex-row sm:p-8 container">
+				<div className="flex flex-1 flex-col min-w-0">
 					<FuseAnimate delay={600}>
-						<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">資金狀態</Typography>
+						<Typography className="px-16 pb-8 text-18 sm:text-20 fsont-medium">資金狀態</Typography>
 					</FuseAnimate>
 					<FuseAnimateGroup
 						enter={{
 							animation: 'transition.expandIn'
 						}}
-						className="flex flex-col sm:flex sm:flex-row"
+						className="flex flex-col sm:flex sm:flex-row mb-16 sm:mb-0"
 					>
 						<div className="w-full sm:w-1/3 p-16">
 							<WidgetBasicCard
@@ -65,7 +93,7 @@ function DashboardPage() {
 						enter={{
 							animation: 'transition.expandIn'
 						}}
-						className="flex flex-col sm:flex sm:flex-row"
+						className="flex flex-col sm:flex sm:flex-row mb-16 sm:mb-0"
 					>
 						<div className="w-full sm:w-1/2 p-16">
 							<WidgetBasicCard
@@ -87,29 +115,19 @@ function DashboardPage() {
 				</div>
 
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
-					<div className="w-full sm:w-1/2 md:w-full">
-						<Hidden xsUp>
+					<Hidden smUp>
+						<div className="w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
-								<Typography className="px-16 pb-8 text-18 font-medium">統計表</Typography>
+								<Typography className="px-16 pb-8 text-18 font-medium">系統通知</Typography>
 							</FuseAnimate>
-						</Hidden>
 
-						<div className="p-16 pt-20 pb-0 sm:mb-32">
-							<WidgetTeamRatio />
+							<FuseAnimate delay={600}>
+								<div className="widget w-full p-16">
+									<WidgetNotifHistory />
+								</div>
+							</FuseAnimate>
 						</div>
-					</div>
-
-					<div className="w-full sm:w-1/2 md:w-full">
-						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-medium">系統通知</Typography>
-						</FuseAnimate>
-
-						<FuseAnimate delay={600}>
-							<div className="widget w-full p-16">
-								<WidgetNotifHistory />
-							</div>
-						</FuseAnimate>
-					</div>
+					</Hidden>
 				</div>
 			</div>
 		</div>
