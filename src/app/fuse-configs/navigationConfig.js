@@ -178,13 +178,13 @@ export const STAFF_NAVIGATION = {
 			icon: 'list_alt',
 			url: '/staff/instance-list'
 		},
-		{
-			id: 'staff-order-list',
-			title: '訂單列表',
-			type: 'item',
-			icon: 'list_alt',
-			url: '/staff/order-list'
-		},
+		// {
+		// 	id: 'staff-order-list',
+		// 	title: '訂單列表',
+		// 	type: 'item',
+		// 	icon: 'list_alt',
+		// 	url: '/staff/order-list'
+		// },
 		{
 			type: 'divider',
 			id: 'divider-staff'

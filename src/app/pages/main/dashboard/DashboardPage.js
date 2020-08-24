@@ -37,7 +37,7 @@ function DashboardPage() {
 						</div>
 					</div>
 
-					<Hidden xsDown>
+					<Hidden only={['xs', 'md', 'lg', 'xl']}>
 						<div className="w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={300}>
 								<div className="px-16 pt-20 pb-24">
@@ -115,7 +115,7 @@ function DashboardPage() {
 				</div>
 
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
-					<Hidden smUp>
+					<Hidden only={['sm']}>
 						<div className="w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
 								<Typography className="px-16 pb-8 text-18 font-medium">系統通知</Typography>
