@@ -99,6 +99,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
+					this.emit('onAutoLogout', 'network error');
 					this.logout();
 					Promise.reject();
 				});

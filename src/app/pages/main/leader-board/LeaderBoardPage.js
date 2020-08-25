@@ -1,14 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import { makeStyles } from '@material-ui/core/styles';
-import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
 import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
-import WidgetLoanBase from './sections/WidgetLoanBase';
+import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
+import clsx from 'clsx';
+
+import WidgetLoanLeaderboard from './sections/WidgetLoanLeaderboard';
 
 const useStyles = makeStyles(theme => ({
 	headerWrapper: {
@@ -50,9 +52,7 @@ function LeaderBoardPage(props) {
 				<Breadcrumbs breadCrumbTitle="資金排行榜" breadCrumbActive="資金排行榜" />
 			</FuseAnimate>
 
-			<WidgetLoanBase />
-
-			{/* <FuseAnimateGroup
+			<FuseAnimateGroup
 				className="w-full flex flex-wrap justify-start px-0 sm:px-8"
 				enter={{
 					animation: 'transition.slideUpBigIn',
@@ -62,14 +62,36 @@ function LeaderBoardPage(props) {
 				<div
 					className={clsx(
 						classes.headerWrapper,
-						'h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
+						'w-1/3 h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
 					)}
 				>
 					<Typography className="text-32 sm:text-40 font-semibold" color="inherit">
-						我的機器人
+						冠軍
 					</Typography>
 				</div>
-			</FuseAnimateGroup> */}
+				<div
+					className={clsx(
+						classes.headerWrapper,
+						'w-1/3 h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
+					)}
+				>
+					<Typography className="text-32 sm:text-40 font-semibold" color="inherit">
+						冠軍
+					</Typography>
+				</div>
+				<div
+					className={clsx(
+						classes.headerWrapper,
+						'w-1/3 h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
+					)}
+				>
+					<Typography className="text-32 sm:text-40 font-semibold" color="inherit">
+						冠軍
+					</Typography>
+				</div>
+			</FuseAnimateGroup>
+
+			<WidgetLoanLeaderboard />
 		</div>
 	);
 }

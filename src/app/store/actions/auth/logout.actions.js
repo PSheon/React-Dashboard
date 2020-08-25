@@ -1,6 +1,6 @@
-import * as ProfileActions from 'app/store/actions/profile';
-import * as MessageActions from 'app/store/actions/fuse/message.actions';
 import jwtService from 'app/services/jwtService';
+import * as MessageActions from 'app/store/actions/fuse/message.actions';
+import * as ProfileActions from 'app/store/actions/profile';
 
 export function logoutUser() {
 	return dispatch => {

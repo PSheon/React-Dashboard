@@ -1,20 +1,21 @@
 import React from 'react';
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import moment from 'moment';
 import Chart from 'react-apexcharts';
+import { Settings } from 'react-feather';
+
+import FuseAnimate from '@fuse/core/FuseAnimate';
 import Button from '@material-ui/core/Button';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import { Settings } from 'react-feather';
+import moment from 'moment';
 
 const DATA = {
 	columns: [
@@ -301,7 +302,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function WidgetLoanBase(props) {
+function WidgetLoanLeaderboard(props) {
 	const classes = useStyles(props);
 	const theme = useTheme();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
@@ -374,4 +375,4 @@ function WidgetLoanBase(props) {
 	);
 }
 
-export default React.memo(WidgetLoanBase);
+export default React.memo(WidgetLoanLeaderboard);

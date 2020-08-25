@@ -1,3 +1,8 @@
+import React, { useEffect, useReducer, useRef } from 'react';
+import Autosuggest from 'react-autosuggest';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import FuseUtils from '@fuse/utils';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
@@ -14,11 +19,8 @@ import Typography from '@material-ui/core/Typography';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import clsx from 'clsx';
+
 import _ from '@lodash';
-import React, { useEffect, useReducer, useRef } from 'react';
-import Autosuggest from 'react-autosuggest';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 function renderInputComponent(inputProps) {
 	const { variant, classes, inputRef = () => {}, ref, ...other } = inputProps;
