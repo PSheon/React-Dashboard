@@ -1,13 +1,16 @@
 // TODO Dev this
 import React, { useState } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { HelpCircle, Monitor, ArrowUp, Smartphone, Tablet, ArrowDown, ChevronDown } from 'react-feather';
+
 import Card from '@material-ui/core/Card';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import { Monitor, ArrowUp, Smartphone, Tablet, ArrowDown, ChevronDown } from 'react-feather';
+import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -26,17 +29,19 @@ function WidgetNotifHistory(props) {
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
-			{/* <div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
-				<Typography className="h1 font-medium">成功掛單比率</Typography>
-				<Tooltip
-					arrow
-					title="成功掛單比率"
-					placement="top"
-					classes={{ tooltip: 'bg-grey-800 text-white p-8 font-300 text-14' }}
-				>
-					<HelpCircle size={20} className="cursor-pointer text-muted" />
-				</Tooltip>
-			</div> */}
+			{props.showTitle && (
+				<div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
+					<Typography className="h1 font-medium">系統通知</Typography>
+					<Tooltip
+						arrow
+						title="系統通知"
+						placement="top"
+						classes={{ tooltip: 'bg-grey-800 text-white p-8 font-300 text-14' }}
+					>
+						<HelpCircle size={20} className="cursor-pointer text-muted" />
+					</Tooltip>
+				</div>
+			)}
 
 			<List className="">
 				<ListItem>

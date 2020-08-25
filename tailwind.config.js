@@ -23,6 +23,7 @@ module.exports = {
 			warning: '#FF9F43',
 			danger: '#EA5455',
 			success: '#28C76F',
+			lightGray: 'rgba(255, 255, 255, .12)',
 			grey: {
 				50: '#FAFAFA',
 				100: '#F5F5F5',

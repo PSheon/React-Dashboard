@@ -42,7 +42,7 @@ function DashboardPage() {
 						<div className="w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={300}>
 								<div className="px-16 pt-20 pb-24">
-									<WidgetNotifHistory />
+									<WidgetNotifHistory showTitle />
 								</div>
 							</FuseAnimate>
 						</div>

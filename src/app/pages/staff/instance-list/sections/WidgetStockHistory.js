@@ -15,7 +15,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import moment from 'moment';
 
 const DATA = {
 	columns: [
@@ -90,7 +89,7 @@ const DATA = {
 				},
 				{
 					id: 'profit_perc',
-					value: '-',
+					value: '-%',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				}
@@ -137,7 +136,7 @@ const DATA = {
 				},
 				{
 					id: 'profit_perc',
-					value: '%7.32',
+					value: '7.32%',
 					classes: 'text-green',
 					icon: 'trending_up'
 				}
@@ -184,7 +183,7 @@ const DATA = {
 				},
 				{
 					id: 'profit_perc',
-					value: '-',
+					value: '-%',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				}
@@ -278,7 +277,7 @@ const DATA = {
 				},
 				{
 					id: 'profit_perc',
-					value: '-',
+					value: '-%',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				}
@@ -321,7 +320,7 @@ function WidgetStockHistory(props) {
 							<TableHead>
 								<TableRow>
 									{DATA.columns.map(column => (
-										<TableCell key={column.id} className="whitespace-no-wrap">
+										<TableCell key={column.id} className="whitespace-no-wrap border-lightGray">
 											{column.title}
 										</TableCell>
 									))}
