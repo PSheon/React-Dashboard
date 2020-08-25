@@ -1,20 +1,21 @@
 import React from 'react';
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import moment from 'moment';
 import Chart from 'react-apexcharts';
+import { Settings } from 'react-feather';
+
+import FuseAnimate from '@fuse/core/FuseAnimate';
 import Button from '@material-ui/core/Button';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import { Settings } from 'react-feather';
+import moment from 'moment';
 
 const DATA = {
 	columns: [
@@ -24,7 +25,7 @@ const DATA = {
 		},
 		{
 			id: 'transaction_amount',
-			title: '交易量'
+			title: '交易量/保險倉'
 		},
 		{
 			id: 'buying_price',
@@ -53,13 +54,13 @@ const DATA = {
 			cells: [
 				{
 					id: 'transaction_type',
-					value: 'Wireframing',
-					classes: 'bg-blue text-white',
+					value: '買入',
+					classes: 'bg-orange-900 text-white',
 					icon: ''
 				},
 				{
 					id: 'transaction_amount',
-					value: '$14,880.00',
+					value: '$120,000 / 60,000',
 					classes: 'font-bold',
 					icon: ''
 				},
@@ -71,25 +72,25 @@ const DATA = {
 				},
 				{
 					id: 'buying_timestamp',
-					value: '%94.08',
-					classes: 'text-green',
-					icon: 'trending_up'
+					value: '2020-08-17',
+					classes: '',
+					icon: ''
 				},
 				{
 					id: 'selling_price',
-					value: '$880.00',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'selling_timestamp',
-					value: '%5.92',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'profit_perc',
-					value: '%5.92',
+					value: '-',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				}
@@ -100,45 +101,45 @@ const DATA = {
 			cells: [
 				{
 					id: 'transaction_type',
-					value: 'Design',
+					value: '賣出',
 					classes: 'bg-green text-white',
 					icon: ''
 				},
 				{
 					id: 'transaction_amount',
-					value: '$21,080.00',
+					value: '$120,000 / 60,000',
 					classes: 'font-bold',
 					icon: ''
 				},
 				{
 					id: 'buying_price',
-					value: '$17,240.34',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'buying_timestamp',
-					value: '%81.78',
-					classes: 'text-green',
-					icon: 'trending_up'
+					value: '-',
+					classes: '',
+					icon: ''
 				},
 				{
 					id: 'selling_price',
-					value: '$3,839.66',
+					value: '$11921',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'selling_timestamp',
-					value: '%18.22',
+					value: '2020-08-11',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'profit_perc',
-					value: '%5.92',
-					classes: 'text-blue',
-					icon: 'trending_flat'
+					value: '%7.32',
+					classes: 'text-green',
+					icon: 'trending_up'
 				}
 			]
 		},
@@ -147,43 +148,43 @@ const DATA = {
 			cells: [
 				{
 					id: 'transaction_type',
-					value: 'Coding',
-					classes: 'bg-red text-white',
+					value: '買入',
+					classes: 'bg-orange-900 text-white',
 					icon: ''
 				},
 				{
 					id: 'transaction_amount',
-					value: '$34,720.00',
+					value: '$120,000 / 60,000',
 					classes: 'font-bold',
 					icon: ''
 				},
 				{
 					id: 'buying_price',
-					value: '$3,518.00',
+					value: '$11086',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'buying_timestamp',
-					value: '%10.13',
-					classes: 'text-red',
-					icon: 'trending_down'
+					value: '2020-07-30',
+					classes: '',
+					icon: ''
 				},
 				{
 					id: 'selling_price',
-					value: '$31,202.00',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'selling_timestamp',
-					value: '%89.87',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'profit_perc',
-					value: '%5.92',
+					value: '-',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				}
@@ -194,45 +195,45 @@ const DATA = {
 			cells: [
 				{
 					id: 'transaction_type',
-					value: 'Marketing',
-					classes: 'bg-pink text-white',
+					value: '賣出',
+					classes: 'bg-green text-white',
 					icon: ''
 				},
 				{
 					id: 'transaction_amount',
-					value: '$34,720.00',
+					value: '$120,000 / 60,000',
 					classes: 'font-bold',
 					icon: ''
 				},
 				{
 					id: 'buying_price',
-					value: '$0.00',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'buying_timestamp',
-					value: '%0.00',
+					value: '-',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				},
 				{
 					id: 'selling_price',
-					value: '$34,720.00',
+					value: '$9182',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'selling_timestamp',
-					value: '%100.00',
+					value: '2020-07-14',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'profit_perc',
-					value: '%5.92',
-					classes: 'text-blue',
-					icon: 'trending_flat'
+					value: '-0.74%',
+					classes: 'text-red',
+					icon: 'trending_down'
 				}
 			]
 		},
@@ -241,43 +242,43 @@ const DATA = {
 			cells: [
 				{
 					id: 'transaction_type',
-					value: 'Extra',
-					classes: 'bg-orange text-white',
+					value: '買入',
+					classes: 'bg-orange-900 text-white',
 					icon: ''
 				},
 				{
 					id: 'transaction_amount',
-					value: '$18,600.00',
+					value: '$120,000 / 60,000',
 					classes: 'font-bold',
 					icon: ''
 				},
 				{
 					id: 'buying_price',
-					value: '$0.00',
+					value: '$9242',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'buying_timestamp',
-					value: '%0.00',
-					classes: 'text-blue',
-					icon: 'trending_flat'
+					value: '2020-07-10',
+					classes: '',
+					icon: ''
 				},
 				{
 					id: 'selling_price',
-					value: '$34,720.00',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'selling_timestamp',
-					value: '%100.00',
+					value: '-',
 					classes: '',
 					icon: ''
 				},
 				{
 					id: 'profit_perc',
-					value: '%5.92',
+					value: '-',
 					classes: 'text-blue',
 					icon: 'trending_flat'
 				}
@@ -328,12 +329,20 @@ function WidgetStockHistory(props) {
 							</TableHead>
 							<TableBody>
 								{DATA.rows.map(row => (
-									<TableRow key={row.id}>
+									<TableRow
+										key={row.id}
+										className="cursor-pointer rounded-8 transition ease-in duration-150 transform hover:-translate-y-2"
+									>
 										{row.cells.map(cell => {
 											switch (cell.id) {
 												case 'transaction_type': {
 													return (
-														<TableCell key={cell.id} component="th" scope="row">
+														<TableCell
+															key={cell.id}
+															component="th"
+															scope="row"
+															className="border-none"
+														>
 															<Typography
 																className={clsx(
 																	cell.classes,
@@ -347,7 +356,12 @@ function WidgetStockHistory(props) {
 												}
 												case 'profit_perc': {
 													return (
-														<TableCell key={cell.id} component="th" scope="row">
+														<TableCell
+															key={cell.id}
+															component="th"
+															scope="row"
+															className="border-none"
+														>
 															<Typography
 																className={clsx(cell.classes, 'flex items-center')}
 															>
@@ -359,7 +373,12 @@ function WidgetStockHistory(props) {
 												}
 												default: {
 													return (
-														<TableCell key={cell.id} component="th" scope="row">
+														<TableCell
+															key={cell.id}
+															component="th"
+															scope="row"
+															className="border-none"
+														>
 															<Typography className={cell.classes}>
 																{cell.value}
 															</Typography>

@@ -1,14 +1,16 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseUtils from '@fuse/utils';
 import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
-import UserListTable from './UserListTable';
 import * as Actions from './store/actions';
+import UserListTable from './UserListTable';
 
 function UserListTableWrapper(props) {
 	const dispatch = useDispatch();

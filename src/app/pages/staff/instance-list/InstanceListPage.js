@@ -1,10 +1,12 @@
 import React from 'react';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Typography from '@material-ui/core/Typography';
-import WidgetStatisticsCard from 'app/fuse-layouts/shared-components/StatisticsCard';
 import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
+import WidgetStatisticsCard from 'app/fuse-layouts/shared-components/StatisticsCard';
+
 import WidgetStockChart from './sections/WidgetStockChart';
 import WidgetStockHistory from './sections/WidgetStockHistory';
 
