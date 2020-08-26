@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
+import { Facebook, XCircle, Mail, Eye, EyeOff } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useForm } from '@fuse/hooks';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken, lighten } from '@material-ui/core/styles/colorManipulator';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
+import { useForm } from '@fuse/hooks';
 import Button from '@material-ui/core/Button';
-import Grow from '@material-ui/core/Grow';
-import Alert from '@material-ui/lab/Alert';
-import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Checkbox from '@material-ui/core/Checkbox';
 import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grow from '@material-ui/core/Grow';
+import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { makeStyles } from '@material-ui/core/styles';
+import { darken, lighten } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
-import { Facebook, XCircle, Mail, Eye, EyeOff } from 'react-feather';
-
-import * as AuthActions from 'app/store/actions/auth';
-import { isEmailFormValid, isPasswordFormValid } from 'utils';
-import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
-import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import Alert from '@material-ui/lab/Alert';
 import AUTH_BG from 'app/assets/images/auth/background.jpg';
 import GOOGLE_ICON from 'app/assets/images/auth/google-icon.png';
 import LINE_ICON from 'app/assets/images/auth/line-icon.png';
-import MOUNTAIN_ICON from 'app/assets/images/auth/mountain-icon.png';
 import MARACAS_ICON from 'app/assets/images/auth/maracas-icon.png';
+import MOUNTAIN_ICON from 'app/assets/images/auth/mountain-icon.png';
+import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
+import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import * as AuthActions from 'app/store/actions/auth';
+import clsx from 'clsx';
+
+import { isEmailFormValid, isPasswordFormValid } from 'utils';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -130,7 +131,7 @@ function LoginPage() {
 										'w-full flex justify-start normal-case px-24 my-6 sm:my-12 text-white'
 									)}
 								>
-									<img src={GOOGLE_ICON} width={36} height={36} />
+									<img src={GOOGLE_ICON} alt="google icon" width={36} height={36} />
 									<div className="flex flex-col ml-24 justify-center items-start">
 										<Typography className="text-16">使用 Google</Typography>
 										<Typography className="text-12" color="textSecondary">
@@ -139,6 +140,7 @@ function LoginPage() {
 									</div>
 									<img
 										src={MOUNTAIN_ICON}
+										alt="mountain decorator"
 										width={40}
 										className={clsx(classes.loginIconBackground, 'absolute')}
 									/>
@@ -150,7 +152,7 @@ function LoginPage() {
 										'w-full flex justify-start normal-case px-24 my-6 sm:my-12 text-white'
 									)}
 								>
-									<img src={LINE_ICON} width={36} height={36} />
+									<img src={LINE_ICON} alt="line icon" width={36} height={36} />
 									<div className="flex flex-col ml-24 justify-center items-start">
 										<Typography className="text-16">使用 Line</Typography>
 										<Typography className="text-12" color="textSecondary">
@@ -159,6 +161,7 @@ function LoginPage() {
 									</div>
 									<img
 										src={MARACAS_ICON}
+										alt="maracas decorator"
 										width={40}
 										className={clsx(classes.loginIconBackground, 'absolute')}
 									/>

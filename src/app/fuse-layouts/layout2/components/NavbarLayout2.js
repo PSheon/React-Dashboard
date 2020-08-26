@@ -1,7 +1,8 @@
+import React from 'react';
+
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
-import React from 'react';
 
 function NavbarLayout2() {
 	return (

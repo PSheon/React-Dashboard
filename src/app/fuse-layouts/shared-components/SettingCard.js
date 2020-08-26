@@ -1,13 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Typography from '@material-ui/core/Typography';
+import { Award, DollarSign, AlertOctagon, Layers, Users } from 'react-feather';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import { Award, DollarSign, AlertOctagon, Layers, Users } from 'react-feather';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const renderCardIcon = (iconType, size) => {
 	switch (iconType) {

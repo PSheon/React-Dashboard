@@ -1,4 +1,5 @@
 import DEFAULT_SECTION, { ADMIN_NAVIGATION, STAFF_NAVIGATION } from 'app/fuse-configs/navigationConfig';
+
 import * as Actions from '../../actions/fuse';
 
 const initialState = DEFAULT_SECTION;

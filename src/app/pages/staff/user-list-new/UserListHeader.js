@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { IconButton, Icon, Input, Tooltip, Paper, Typography } from '@material-ui/core';
-import { useDebouncedCallback } from '@fuse/hooks';
-import FilterListOutlinedIcon from '@material-ui/icons/FilterListOutlined';
-import { ThemeProvider } from '@material-ui/core/styles';
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as Actions from 'app/store/actions';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import { useDebouncedCallback } from '@fuse/hooks';
+import { IconButton, Icon, Input, Tooltip, Paper, Typography } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
+import FilterListOutlinedIcon from '@material-ui/icons/FilterListOutlined';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import * as Actions from 'app/store/actions';
 
 function UserListHeader() {
 	const dispatch = useDispatch();

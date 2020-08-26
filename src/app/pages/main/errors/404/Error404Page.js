@@ -1,11 +1,13 @@
 import React from 'react';
+import { Anchor } from 'react-feather';
 import { Link } from 'react-router-dom';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { Anchor } from 'react-feather';
+import clsx from 'clsx';
+
 import Header from '../sections/Header';
 
 const useStyles = makeStyles(theme => ({

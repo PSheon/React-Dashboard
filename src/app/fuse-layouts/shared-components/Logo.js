@@ -1,11 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
 
-import LOGO from 'app/assets/images/logo/logo.svg';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import CrownIcon from 'app/assets/images/logo/crown.svg';
+import LOGO from 'app/assets/images/logo/logo.svg';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
 	root: {

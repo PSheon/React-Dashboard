@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
+import { Search, Filter } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
-import clsx from 'clsx';
-import { useDebouncedCallback } from '@fuse/hooks';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
+import { useDebouncedCallback } from '@fuse/hooks';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import Paper from '@material-ui/core/Paper';
-import { Search, Filter } from 'react-feather';
-import Button from '@material-ui/core/Button';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
-
 // import * as Actions from './store/actions';
 import * as Actions from 'app/store/actions';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
 	filterWrapper: {

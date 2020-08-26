@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 
-import MissionCard from './cards/MissionCard';
 import ClaimCard from './cards/ClaimCard';
-import ReferralLinkCard from './cards/ReferralLinkCard';
 import ClaimHistoryCard from './cards/ClaimHistoryCard';
 import DownlineCard from './cards/DownlineCard';
+import MissionCard from './cards/MissionCard';
+import ReferralLinkCard from './cards/ReferralLinkCard';
 
 const ReferralsPage = () => {
 	useEffect(() => {

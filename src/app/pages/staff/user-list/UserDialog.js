@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
+import Draggable from 'react-draggable';
+import { XCircle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useForm } from '@fuse/hooks';
-import clsx from 'clsx';
 import FuseUtils from '@fuse/utils/FuseUtils';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
@@ -11,13 +13,13 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { XCircle } from 'react-feather';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Draggable from 'react-draggable';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
+import clsx from 'clsx';
+
 import * as Actions from './store/actions';
 
 const defaultFormState = {

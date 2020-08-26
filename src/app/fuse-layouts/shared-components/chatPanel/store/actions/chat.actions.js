@@ -1,5 +1,6 @@
 import { closeMobileChatsSidebar } from 'app/pages/main/chat/store/actions/sidebars.actions';
 import axios from 'axios';
+
 import { setselectedContactId } from './contacts.actions';
 
 export const GET_CHAT = '[CHAT PANEL] GET CHAT';

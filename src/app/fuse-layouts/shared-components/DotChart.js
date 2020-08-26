@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
 	root: {

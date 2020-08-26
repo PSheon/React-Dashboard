@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Package, Clipboard, CheckCircle } from 'react-feather';
+
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import { Package, Clipboard, CheckCircle } from 'react-feather';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
 	root: {

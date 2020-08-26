@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { useForm } from '@fuse/hooks';
 import {
 	TextField,
 	Button,
@@ -18,15 +21,13 @@ import {
 	TableCell,
 	TableRow
 } from '@material-ui/core';
-import { useForm } from '@fuse/hooks';
-import moment from 'moment';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import CloseIcon from '@material-ui/icons/Close';
-import { useDispatch, useSelector } from 'react-redux';
-
-import * as Actions from 'app/store/actions';
 import jwtService from 'app/services/jwtService';
+import * as Actions from 'app/store/actions';
+import clsx from 'clsx';
+import moment from 'moment';
+
 import { avatarNameToPathConverter } from 'utils';
 
 const defaultFormState = {

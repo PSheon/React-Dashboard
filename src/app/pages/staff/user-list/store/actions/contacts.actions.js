@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { getUserData } from './user.actions';
 
 export const GET_CONTACTS = '[CONTACTS APP] GET CONTACTS';

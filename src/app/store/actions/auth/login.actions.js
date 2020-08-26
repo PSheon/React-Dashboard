@@ -1,8 +1,8 @@
 // import firebaseService from 'app/services/firebaseService';
-import axios from 'axios';
 import jwtService from 'app/services/jwtService';
 // import * as Actions from 'app/store/actions';
 import * as ProfileActions from 'app/store/actions/profile';
+import axios from 'axios';
 
 export const SET_LOGIN_LOADING = 'SET_LOGIN_LOADING';
 export const LOGIN_ERROR = 'LOGIN_ERROR';

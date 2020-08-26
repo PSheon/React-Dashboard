@@ -1,16 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import { makeStyles } from '@material-ui/core/styles';
-import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-
 import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
-import BotInfoCard from './cards/BotInfoCard';
+import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
+import clsx from 'clsx';
+
 import BotAddCard from './cards/BotAddCard';
+import BotInfoCard from './cards/BotInfoCard';
 
 const boards = [
 	{

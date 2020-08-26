@@ -1,6 +1,7 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+
 import StepConnector from '@material-ui/core/StepConnector';
+import { withStyles } from '@material-ui/core/styles';
 
 const StepperConnector = withStyles({
 	alternativeLabel: {

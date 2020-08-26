@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
-
 import * as ProfileActions from 'app/store/actions/profile';
-import ProfileCard from './cards/ProfileCard';
-import SocialLinksCard from './cards/SocialLinksCard';
-import SettingsCard from './cards/SettingsCard';
+
 import AccessHistoryCard from './cards/AccessHistoryCard';
+import ProfileCard from './cards/ProfileCard';
+import SettingsCard from './cards/SettingsCard';
+import SocialLinksCard from './cards/SocialLinksCard';
 
 const MePage = () => {
 	const dispatch = useDispatch();

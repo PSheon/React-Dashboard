@@ -1,15 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import { Anchor } from 'react-feather';
+import { useDispatch, useSelector } from 'react-redux';
 
-import * as Actions from 'app/store/actions/botBoard';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import * as Actions from 'app/store/actions/botBoard';
+import clsx from 'clsx';
+
 import { renderNewBotPackage, renderNewBotCurrency, renderNewBotProportion, renderNewBotPeriod } from 'utils/bot-board';
 
 const useStyles = makeStyles(theme => ({

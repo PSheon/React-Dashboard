@@ -1,5 +1,5 @@
-import * as ContactActions from './contacts.actions';
 import * as ChatActions from './chat.actions';
+import * as ContactActions from './contacts.actions';
 
 export const TOGGLE_CHAT_PANEL = '[CHAT PANEL] TOGGLE CHAT PANEL';
 export const OPEN_CHAT_PANEL = '[CHAT PANEL] OPEN CHAT PANEL';

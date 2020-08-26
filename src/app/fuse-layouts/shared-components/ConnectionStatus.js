@@ -1,11 +1,12 @@
 import React from 'react';
-import { useSocket } from 'use-socketio';
+import { Activity, Clock } from 'react-feather';
+
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import AvatarBadge from 'app/fuse-layouts/shared-components/AvatarBadge';
-import IconButton from '@material-ui/core/IconButton';
-import { Activity, Clock } from 'react-feather';
+import { useSocket } from 'use-socketio';
 
 const ConnectionStatus = () => {
 	const { socket } = useSocket('connection');

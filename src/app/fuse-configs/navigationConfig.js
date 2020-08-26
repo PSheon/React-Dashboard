@@ -1,7 +1,8 @@
 // import { authRoles } from 'app/auth';
 import i18next from 'i18next';
-import tw from './navigation-i18n/tw';
+
 import en from './navigation-i18n/en';
+import tw from './navigation-i18n/tw';
 
 i18next.addResourceBundle('tw', 'navigation', tw);
 i18next.addResourceBundle('en', 'navigation', en);

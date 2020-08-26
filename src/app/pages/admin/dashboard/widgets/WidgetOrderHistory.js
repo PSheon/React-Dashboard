@@ -1,22 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import clsx from 'clsx';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import moment from 'moment';
-import Skeleton from '@material-ui/lab/Skeleton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { ArrowRight } from 'react-feather';
+import { Link } from 'react-router-dom';
+
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Skeleton from '@material-ui/lab/Skeleton';
+import clsx from 'clsx';
+import moment from 'moment';
 
 const COLUMNS = [
 	{

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Drawer, Typography, Divider, TextField, MenuItem } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
+
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
+import { Button, Drawer, Typography, Divider, TextField, MenuItem } from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import SchoolIcon from '@material-ui/icons/School';
+import WcIcon from '@material-ui/icons/Wc';
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import * as Actions from 'app/store/actions';
+import axios from 'axios';
 import clsx from 'clsx';
 import fileDownload from 'js-file-download';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import WcIcon from '@material-ui/icons/Wc';
-import SchoolIcon from '@material-ui/icons/School';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
-
-import * as Actions from 'app/store/actions';
-import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
 
 const CssTextField = withStyles({
 	root: {

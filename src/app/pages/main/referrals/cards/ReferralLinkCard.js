@@ -1,16 +1,16 @@
 import React from 'react';
+import { Copy, HelpCircle } from 'react-feather';
 import { useSelector, useDispatch } from 'react-redux';
-import copy from 'copy-to-clipboard';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
+
 import Divider from '@material-ui/core/Divider';
 import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { Copy, HelpCircle } from 'react-feather';
-
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import * as FuseActions from 'app/store/actions/fuse';
+import copy from 'copy-to-clipboard';
 
 const ReferralLinkCard = () => {
 	const dispatch = useDispatch();

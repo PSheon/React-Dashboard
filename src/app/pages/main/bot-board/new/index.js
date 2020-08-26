@@ -1,22 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
-import Typography from '@material-ui/core/Typography';
-import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
+import Stepper from '@material-ui/core/Stepper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
+import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import clsx from 'clsx';
 
-import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
+import SettingSummaryCard from './cards/SettingSummaryCard';
+import NewBotSummarySection from './sections/NewBotSummarySection';
 import SelectNewBotPackageAndCurrencySection from './sections/SelectNewBotPackageAndCurrencySection';
 import SelectNewBotProportionAndPeriodSection from './sections/SelectNewBotProportionAndPeriodSection';
-import NewBotSummarySection from './sections/NewBotSummarySection';
 import StepperConnector from './stepper/Connector';
 import StepIcon from './stepper/Icon';
-import SettingSummaryCard from './cards/SettingSummaryCard';
 
 const getSteps = () => ['選擇方案', '細節設定', '確認送出'];
 

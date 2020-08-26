@@ -1,7 +1,8 @@
-import FuseNavigation from '@fuse/core/FuseNavigation';
-import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
+
+import FuseNavigation from '@fuse/core/FuseNavigation';
+import clsx from 'clsx';
 
 function Navigation(props) {
 	const navigation = useSelector(({ fuse }) => fuse.navigation);

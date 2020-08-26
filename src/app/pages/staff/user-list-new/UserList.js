@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import FusePageCarded from '@fuse/core/FusePageCarded';
 import { useDispatch, useSelector } from 'react-redux';
 
+import FusePageCarded from '@fuse/core/FusePageCarded';
 import * as Actions from 'app/store/actions';
-import UserListTable from './UserListTable';
-import UserListHeader from './UserListHeader';
+
 import UserListDialog from './UserListDialog';
 import UserListFilterPanel from './UserListFilterPanel';
+import UserListHeader from './UserListHeader';
+import UserListTable from './UserListTable';
 
 function UserList() {
 	const dispatch = useDispatch();

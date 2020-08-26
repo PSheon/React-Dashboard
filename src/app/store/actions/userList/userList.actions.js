@@ -1,6 +1,5 @@
-import axios from 'axios';
-
 import * as FuseActions from 'app/store/actions/fuse';
+import axios from 'axios';
 
 export const SET_ACTIVITY_LOGS_BY_USER_ID = '[USER LIST] SET USER ACTIVITY LOGS BY USER ID';
 export const SET_USER_LIST_LOADING = '[USER LIST] SET USER LIST LOADING';

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import { Anchor } from 'react-feather';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import * as Actions from 'app/store/actions/botBoard';
+
 import SelectCard from '../cards/SelectCard';
 
 const SelectNewBotPackageAndCurrencySection = () => {

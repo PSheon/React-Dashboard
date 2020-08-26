@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Home, ChevronRight } from 'react-feather';
 import { Link } from 'react-router-dom';
-import clsx from 'clsx';
+
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { Home, ChevronRight } from 'react-feather';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const BreadcrumbsDefault = props => {
 	const { breadCrumbTitle, breadCrumbParent, breadCrumbParent2, breadCrumbParent3, breadCrumbActive } = props;

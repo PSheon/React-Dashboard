@@ -1,10 +1,11 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 import ConnectionStatus from 'app/fuse-layouts/shared-components/ConnectionStatus';
 
 function FooterLayout1() {

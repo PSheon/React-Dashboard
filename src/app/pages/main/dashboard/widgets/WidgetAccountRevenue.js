@@ -1,12 +1,13 @@
 import React from 'react';
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Chart from 'react-apexcharts';
+import { Settings } from 'react-feather';
+
+import FuseAnimate from '@fuse/core/FuseAnimate';
 import Button from '@material-ui/core/Button';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import { Settings } from 'react-feather';
 
 const OPTIONS = ({ labelColor, dangerLight, strokeColor, primary }) => ({
 	chart: {

@@ -7,12 +7,13 @@ import {
 	mainThemeVariations,
 	mustHaveThemeOptions
 } from '@fuse/default-settings';
-import _ from '@lodash';
 import { createMuiTheme } from '@material-ui/core/styles';
 import FuseSettingsConfig from 'app/fuse-configs/settingsConfig';
 import FuseThemesConfig from 'app/fuse-configs/themesConfig';
 import FuseLayoutConfigs from 'app/fuse-layouts/FuseLayoutConfigs';
 import * as Actions from 'app/store/actions/fuse';
+
+import _ from '@lodash';
 
 const themesObjRaw = Object.keys(FuseThemesConfig).length !== 0 ? FuseThemesConfig : defaultThemes;
 const initialSettings = getInitialSettings();

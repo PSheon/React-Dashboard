@@ -1,3 +1,5 @@
+import React from 'react';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseCountdown from '@fuse/core/FuseCountdown';
 import { useForm } from '@fuse/hooks';
@@ -10,7 +12,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
 
 const useStyles = makeStyles(theme => ({
 	root: {

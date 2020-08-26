@@ -1,5 +1,5 @@
-import axios from 'axios';
 import * as MessageActions from 'app/store/actions/fuse/message.actions';
+import axios from 'axios';
 
 export const SET_ME_PROFILE_LOADING = '[PROFILE] SET ME LOADING';
 export const SET_ME_PROFILE = '[PROFILE] SET ME DATA';

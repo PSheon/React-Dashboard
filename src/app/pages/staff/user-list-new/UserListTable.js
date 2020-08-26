@@ -1,17 +1,19 @@
 import React from 'react';
-import { Avatar, Checkbox, Icon, Typography, Chip } from '@material-ui/core';
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTable from 'react-table';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import moment from 'moment';
-import clsx from 'clsx';
 
-import * as Actions from 'app/store/actions';
-import { socialLogoConverter, avatarNameToPathConverter } from 'utils';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import { Avatar, Checkbox, Icon, Typography, Chip } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import * as Actions from 'app/store/actions';
+import clsx from 'clsx';
+import moment from 'moment';
+
 import UserListMultiSelectMenu from './UserListMultiSelectMenu';
+
+import { socialLogoConverter, avatarNameToPathConverter } from 'utils';
 
 const useStyles = makeStyles(theme => ({
 	logoImgWrapper: {

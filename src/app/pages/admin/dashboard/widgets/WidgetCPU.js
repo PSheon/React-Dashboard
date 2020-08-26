@@ -1,14 +1,17 @@
 // TODO
 import React from 'react';
-import clsx from 'clsx';
-import Typography from '@material-ui/core/Typography';
+import Chart from 'react-apexcharts';
+import { Cpu } from 'react-feather';
+
 import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
-import { Cpu } from 'react-feather';
 import { makeStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
+
 // // import StatisticsCard from 'app/fuse-layouts/shared-components/StatisticsCard';
-import Chart from 'react-apexcharts';
+
 import { cpuUsageGained, cpuUsageGainedSeries } from './StatisticsData';
 
 const useStyles = makeStyles(theme => ({

@@ -1,15 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Hidden from '@material-ui/core/Hidden';
 import { Anchor } from 'react-feather';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import LanguageSwitcher from 'app/fuse-layouts/shared-components/LanguageSwitcher';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
 	appbarWrapper: {

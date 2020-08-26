@@ -1,3 +1,7 @@
+import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
+
 import FuseDialog from '@fuse/core/FuseDialog';
 import FuseMessage from '@fuse/core/FuseMessage';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
@@ -6,9 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
 // import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
 import clsx from 'clsx';
-import React, { useContext } from 'react';
-import { useSelector } from 'react-redux';
-import { renderRoutes } from 'react-router-config';
+
 import FooterLayout1 from './components/FooterLayout1';
 import LeftSideLayout1 from './components/LeftSideLayout1';
 import NavbarWrapperLayout1 from './components/NavbarWrapperLayout1';

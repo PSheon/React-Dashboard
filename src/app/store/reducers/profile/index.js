@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import role from './role.reducer';
-import me from './me.reducer';
-import shortcuts from './shortcuts.reducer';
+
 import accessHistory from './accessHistory.reducer';
+import me from './me.reducer';
+import role from './role.reducer';
+import shortcuts from './shortcuts.reducer';
 
 const meReducers = combineReducers({
 	role,

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
+import Chart from 'react-apexcharts';
+import { Cpu, Server, Activity } from 'react-feather';
+
 import { useInterval } from '@fuse/hooks';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
-import { Cpu, Server, Activity } from 'react-feather';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import Chart from 'react-apexcharts';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import clsx from 'clsx';
 
 const generateOptions = (chartId, chartColors) => ({
 	chart: {

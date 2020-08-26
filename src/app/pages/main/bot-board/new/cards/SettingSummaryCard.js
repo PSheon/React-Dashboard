@@ -1,11 +1,12 @@
 import React from 'react';
+import { HelpCircle } from 'react-feather';
 import { useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+
 import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import { HelpCircle } from 'react-feather';
+import clsx from 'clsx';
 
 import { renderNewBotPackage, renderNewBotCurrency, renderNewBotProportion, renderNewBotPeriod } from 'utils/bot-board';
 

@@ -1,12 +1,12 @@
 import React from 'react';
+import { DollarSign, Moon, Bell } from 'react-feather';
+
 import Divider from '@material-ui/core/Divider';
 import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
 import Switch from '@material-ui/core/Switch';
-import { DollarSign, Moon, Bell } from 'react-feather';
-
+import Typography from '@material-ui/core/Typography';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 
 const currencies = [

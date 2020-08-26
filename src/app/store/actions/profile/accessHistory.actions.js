@@ -1,6 +1,5 @@
-import axios from 'axios';
-
 import * as FuseActions from 'app/store/actions/fuse';
+import axios from 'axios';
 
 export const SET_ME_ACCESS_HISTORY_LOADING = '[PROFILE] SET ME ACCESS HISTORY LOADING';
 export const SET_ME_ACCESS_HISTORY = '[PROFILE] SET ME ACCESS HISTORY DATA';

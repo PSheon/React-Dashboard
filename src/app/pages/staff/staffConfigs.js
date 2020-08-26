@@ -1,7 +1,7 @@
-import UserListPageConfig from './user-list/UserListPageConfig';
 import InstanceListPageConfig from './instance-list/InstanceListPageConfig';
-import OrderListPageConfig from './order-list/OrderListPageConfig';
 import MaintenancePageConfig from './maintenance/MaintenancePageConfig';
+import OrderListPageConfig from './order-list/OrderListPageConfig';
+import UserListPageConfig from './user-list/UserListPageConfig';
 
 const staffConfigs = [
 	// FIXME

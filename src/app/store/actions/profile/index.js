@@ -1,9 +1,11 @@
-import history from '@history';
-import _ from '@lodash';
 import jwtService from 'app/services/jwtService';
 import * as FuseActions from 'app/store/actions/fuse';
-import * as RoleActions from './role.actions';
+
 import * as MeActions from './me.actions';
+import * as RoleActions from './role.actions';
+
+import history from '@history';
+import _ from '@lodash';
 
 export * from './me.actions';
 export * from './shortcuts.actions';

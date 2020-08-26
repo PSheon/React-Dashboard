@@ -1,12 +1,13 @@
 import React from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
 import { PlusCircle } from 'react-feather';
+
+import Card from '@material-ui/core/Card';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
 	root: {

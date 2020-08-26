@@ -1,13 +1,14 @@
 // TODO add upload component
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import Badge from '@material-ui/core/Badge';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import { Camera } from 'react-feather';
 import { FilePond, registerPlugin } from 'react-filepond';
+import { useSelector } from 'react-redux';
+
+import Avatar from '@material-ui/core/Avatar';
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 import { DokaOverlay, DokaModal, toURL } from 'utils/doka';
 // import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';

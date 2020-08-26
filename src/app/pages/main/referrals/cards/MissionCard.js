@@ -1,13 +1,13 @@
 import React from 'react';
+import { Award } from 'react-feather';
 import { useSelector } from 'react-redux';
-import clsx from 'clsx';
+
+import Grow from '@material-ui/core/Grow';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grow from '@material-ui/core/Grow';
-import { Award } from 'react-feather';
-
 import decorLeft from 'app/assets/images/profile/decore-left.png';
 import decorRight from 'app/assets/images/profile/decore-right.png';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
 	root: {

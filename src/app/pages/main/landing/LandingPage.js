@@ -1,12 +1,13 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 
+import Footer from './sections/Footer';
 import Header from './sections/Header';
 import Main from './sections/Main';
 // import Feature from './sections/Feature';
 import Pricing from './sections/Pricing';
-import Footer from './sections/Footer';
 
 const useStyles = makeStyles(theme => ({
 	root: {

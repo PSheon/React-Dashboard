@@ -1,22 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import UAParser from 'ua-parser-js';
-import moment from 'moment';
-import Skeleton from '@material-ui/lab/Skeleton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Divider from '@material-ui/core/Divider';
-import Button from '@material-ui/core/Button';
-import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
 import { Smartphone, Monitor } from 'react-feather';
+import { useSelector } from 'react-redux';
+
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Skeleton from '@material-ui/lab/Skeleton';
+import clsx from 'clsx';
+import moment from 'moment';
+import UAParser from 'ua-parser-js';
 
 const COLUMNS = [
 	{

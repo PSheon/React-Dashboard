@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
+import { Meh, Smile, Mail, Eye, EyeOff } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useForm } from '@fuse/hooks';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
-import clsx from 'clsx';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import IconButton from '@material-ui/core/IconButton';
+import { useForm } from '@fuse/hooks';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { makeStyles } from '@material-ui/core/styles';
+import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { Meh, Smile, Mail, Eye, EyeOff } from 'react-feather';
-
-import * as AuthActions from 'app/store/actions/auth';
-import { isMemberIdFormValid, isEmailFormValid, isPasswordFormValid, isConfirmPasswordFormValid } from 'utils';
+import AUTH_BG from 'app/assets/images/auth/background.jpg';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
-import AUTH_BG from 'app/assets/images/auth/background.jpg';
+import * as AuthActions from 'app/store/actions/auth';
+import clsx from 'clsx';
+
+import { isMemberIdFormValid, isEmailFormValid, isPasswordFormValid, isConfirmPasswordFormValid } from 'utils';
 
 const useStyles = makeStyles(theme => ({
 	root: {

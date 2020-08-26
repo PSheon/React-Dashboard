@@ -1,17 +1,18 @@
 import React from 'react';
+import { Edit, User, Mail, Smartphone } from 'react-feather';
 import { useSelector } from 'react-redux';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { Edit, User, Mail, Smartphone } from 'react-feather';
-
-import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
-import DotChart from 'app/fuse-layouts/shared-components/DotChart';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import decorLeft from 'app/assets/images/profile/decore-left.png';
 import decorRight from 'app/assets/images/profile/decore-right.png';
+import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
+import DotChart from 'app/fuse-layouts/shared-components/DotChart';
+import clsx from 'clsx';
+
 import AvatarCrop from './AvatarCrop';
 
 const useStyles = makeStyles(theme => ({

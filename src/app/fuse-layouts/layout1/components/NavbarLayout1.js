@@ -1,3 +1,5 @@
+import React from 'react';
+
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
@@ -9,7 +11,6 @@ import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarM
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import clsx from 'clsx';
-import React from 'react';
 
 const useStyles = makeStyles({
 	content: {

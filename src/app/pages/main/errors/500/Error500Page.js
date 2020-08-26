@@ -1,7 +1,9 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Typography from '@material-ui/core/Typography';
+
 import Header from '../sections/Header';
 
 function Error500Page() {

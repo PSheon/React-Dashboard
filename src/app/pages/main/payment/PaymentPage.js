@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import { Gift } from 'react-feather';
+import { Link } from 'react-router-dom';
+
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Typography from '@material-ui/core/Typography';
+import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
+
 import PaymentHistory from './cards/PaymentHistory';
 
 function PaymentPage() {

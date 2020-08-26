@@ -1,13 +1,14 @@
 // TODO Dev this
 import React, { useState } from 'react';
-import { useInterval } from '@fuse/hooks';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
 import Chart from 'react-apexcharts';
 import { HelpCircle } from 'react-feather';
+
+import { useInterval } from '@fuse/hooks';
+import Card from '@material-ui/core/Card';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
 
 const OPTIONS = ({ success, strokeColor }) => ({
 	chart: {

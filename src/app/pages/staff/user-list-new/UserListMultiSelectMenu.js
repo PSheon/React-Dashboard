@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Icon, IconButton, ListItemIcon, Menu, MenuItem, MenuList } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+
+import { Icon, IconButton, ListItemIcon, Menu, MenuItem, MenuList } from '@material-ui/core';
 
 import { userListToCsvConverter, CsvDownload } from 'utils';
 

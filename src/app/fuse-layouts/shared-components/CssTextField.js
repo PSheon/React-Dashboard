@@ -1,6 +1,7 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+
 import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 // TODO fix here to https://material-ui.com/components/text-fields/
 const CssTextFieldOld = withStyles({
