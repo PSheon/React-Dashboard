@@ -1,4 +1,5 @@
 import React from 'react';
+
 import deepEqual from 'lodash/isEqual';
 
 /**

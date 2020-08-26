@@ -1,8 +1,9 @@
-import _ from '@lodash';
 import React from 'react';
-import { withFormsy } from 'formsy-react';
 
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
+import { withFormsy } from 'formsy-react';
+
+import _ from '@lodash';
 
 function TextFieldFormsy(props) {
 	const importedProps = _.pick(props, [

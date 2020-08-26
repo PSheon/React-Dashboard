@@ -1,8 +1,10 @@
-import _ from '@lodash';
+import React from 'react';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import React from 'react';
+
+import _ from '@lodash';
 
 function DemoSidebarContent() {
 	function generate(element) {

@@ -1,3 +1,6 @@
+import React from 'react';
+import Frame from 'react-frame-component';
+
 import {
 	createGenerateClassName,
 	jssPreset,
@@ -8,8 +11,6 @@ import {
 import { create } from 'jss';
 import jssExtend from 'jss-plugin-extend';
 import PropTypes from 'prop-types';
-import React from 'react';
-import Frame from 'react-frame-component';
 
 const styles = theme => ({
 	root: {

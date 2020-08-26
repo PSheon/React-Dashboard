@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Drawer from '@material-ui/core/Drawer';
 import Fab from '@material-ui/core/Fab';
@@ -8,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React, { useState } from 'react';
 
 const useStyles = makeStyles(theme => ({
 	paper: {

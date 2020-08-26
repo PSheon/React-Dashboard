@@ -1,3 +1,8 @@
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import FuseUtils from '@fuse/utils';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
@@ -5,10 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
 import FuseNavBadge from '../FuseNavBadge';
 
 const useStyles = makeStyles(theme => ({

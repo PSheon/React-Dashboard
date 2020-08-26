@@ -1,7 +1,9 @@
+import React, { useImperativeHandle, useState } from 'react';
+
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import clsx from 'clsx';
-import React, { useImperativeHandle, useState } from 'react';
+
 import FusePageSimpleSidebarContent from './FusePageSimpleSidebarContent';
 
 function FusePageSimpleSidebar(props, ref) {

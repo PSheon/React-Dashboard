@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+
+import PropTypes from 'prop-types';
 import { VelocityTransitionGroup } from 'velocity-react';
 import 'velocity-animate/velocity.ui';
 

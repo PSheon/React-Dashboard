@@ -1,5 +1,7 @@
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import FuseLayoutConfigs from '@fuse/layouts/FuseLayoutConfigs';
-import _ from '@lodash';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -12,8 +14,8 @@ import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
 	root: {},

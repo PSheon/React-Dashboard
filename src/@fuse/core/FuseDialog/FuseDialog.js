@@ -1,7 +1,8 @@
-import Dialog from '@material-ui/core/Dialog';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import Dialog from '@material-ui/core/Dialog';
+import * as Actions from 'app/store/actions';
 
 function FuseDialog(props) {
 	const dispatch = useDispatch();

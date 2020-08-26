@@ -1,16 +1,18 @@
+import React, { useContext, useMemo, useCallback, useRef } from 'react';
+import { defaults as Chartjs2Defaults } from 'react-chartjs-2';
+import { useDispatch, useSelector } from 'react-redux';
+import { matchRoutes } from 'react-router-config';
+import { useLocation } from 'react-router-dom';
+
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseLayouts from '@fuse/layouts/FuseLayouts';
-import _ from '@lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
 import * as Actions from 'app/store/actions';
 import { generateSettings } from 'app/store/reducers/fuse/settings.reducer';
-import React, { useContext, useMemo, useCallback, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { matchRoutes } from 'react-router-config';
-import { useLocation } from 'react-router-dom';
 import * as Velocity from 'velocity-animate';
-import { defaults as Chartjs2Defaults } from 'react-chartjs-2';
+
+import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
 	'@global': {
