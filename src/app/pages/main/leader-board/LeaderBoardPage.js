@@ -53,7 +53,7 @@ function LeaderBoardPage(props) {
 			</FuseAnimate>
 
 			<FuseAnimateGroup
-				className="w-full flex flex-wrap justify-start px-0 sm:px-8"
+				className="w-full flex flex-wrap justify-start"
 				enter={{
 					animation: 'transition.slideUpBigIn',
 					duration: 300

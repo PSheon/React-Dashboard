@@ -60,7 +60,6 @@ const generateOptions = (chartId, chartColors) => ({
 		x: { show: false }
 	}
 });
-
 const generateSeries = (tooltipTitle, series) => [
 	{
 		name: tooltipTitle,
@@ -70,9 +69,15 @@ const generateSeries = (tooltipTitle, series) => [
 
 const renderCardIcon = (iconType, size) => {
 	switch (iconType) {
-		case 'network':
+		case 'btc':
 			return <Activity size={size} />;
-		case 'memory':
+		case 'eth':
+			return <Server size={size} />;
+		case 'xrp':
+			return <Server size={size} />;
+		case 'iota':
+			return <Server size={size} />;
+		case 'eos':
 			return <Server size={size} />;
 
 		case 'cpu':
@@ -117,7 +122,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, chartId, chartColors, tooltipTitle }) => {
+const WidgetCryptoCard = ({ title, content, iconType, iconColorSchema, chartId, chartColors, tooltipTitle }) => {
 	const classes = useStyles({ iconColorSchema });
 	const theme = useTheme();
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
@@ -135,7 +140,7 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
-			<div className="p-24 sm:px-16 md:px-12 py-16 flex justify-between lg:justify-around">
+			<div className="p-24 flex justify-between">
 				<div className="flex flex-col">
 					<Typography className="text-20 sm:text-16" color="textSecondary">
 						{title}
@@ -143,14 +148,6 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 					<Typography className="text-28 sm:text-24 font-semibold leading-none mt-8 sm:mt-12">
 						{content}
 					</Typography>
-					<div className="py-8 md:py-4 text-20 sm:text-24 flex flex-row items-center">
-						<div className="flex flex-row items-center">
-							{change > 0 && <Icon className="text-green">trending_up</Icon>}
-							{change < 0 && <Icon className="text-red">trending_down</Icon>}
-							<Typography className="mx-4">{change}%</Typography>
-						</div>
-						<Typography className="whitespace-no-wrap">用量</Typography>
-					</div>
 				</div>
 
 				<div className="flex justify-center items-start py-8">
@@ -175,4 +172,4 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 		</Card>
 	);
 };
-export default StatisticsCard;
+export default WidgetCryptoCard;

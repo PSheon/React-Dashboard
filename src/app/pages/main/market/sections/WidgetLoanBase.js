@@ -1,20 +1,17 @@
 import React from 'react';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import moment from 'moment';
-import Chart from 'react-apexcharts';
-import Button from '@material-ui/core/Button';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import { Settings } from 'react-feather';
 
 const DATA = {
 	columns: [
@@ -282,6 +279,100 @@ const DATA = {
 					icon: 'trending_flat'
 				}
 			]
+		},
+		{
+			id: 6,
+			cells: [
+				{
+					id: 'transaction_type',
+					value: 'Extra',
+					classes: 'bg-orange text-white',
+					icon: ''
+				},
+				{
+					id: 'transaction_amount',
+					value: '$18,600.00',
+					classes: 'font-bold',
+					icon: ''
+				},
+				{
+					id: 'buying_price',
+					value: '$0.00',
+					classes: '',
+					icon: ''
+				},
+				{
+					id: 'buying_timestamp',
+					value: '%0.00',
+					classes: 'text-blue',
+					icon: 'trending_flat'
+				},
+				{
+					id: 'selling_price',
+					value: '$34,720.00',
+					classes: '',
+					icon: ''
+				},
+				{
+					id: 'selling_timestamp',
+					value: '%100.00',
+					classes: '',
+					icon: ''
+				},
+				{
+					id: 'profit_perc',
+					value: '%5.92',
+					classes: 'text-blue',
+					icon: 'trending_flat'
+				}
+			]
+		},
+		{
+			id: 7,
+			cells: [
+				{
+					id: 'transaction_type',
+					value: 'Extra',
+					classes: 'bg-orange text-white',
+					icon: ''
+				},
+				{
+					id: 'transaction_amount',
+					value: '$18,600.00',
+					classes: 'font-bold',
+					icon: ''
+				},
+				{
+					id: 'buying_price',
+					value: '$0.00',
+					classes: '',
+					icon: ''
+				},
+				{
+					id: 'buying_timestamp',
+					value: '%0.00',
+					classes: 'text-blue',
+					icon: 'trending_flat'
+				},
+				{
+					id: 'selling_price',
+					value: '$34,720.00',
+					classes: '',
+					icon: ''
+				},
+				{
+					id: 'selling_timestamp',
+					value: '%100.00',
+					classes: '',
+					icon: ''
+				},
+				{
+					id: 'profit_perc',
+					value: '%5.92',
+					classes: 'text-blue',
+					icon: 'trending_flat'
+				}
+			]
 		}
 	]
 };
@@ -307,7 +398,7 @@ function WidgetLoanBase(props) {
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-24 mb-24')}>
+		<div className={clsx(classes.root, 'rounded-8 m-16 mb-24')}>
 			<FuseAnimate delay={100}>
 				<Paper className="w-full rounded-8 shadow-1">
 					<div className="table-responsive">
@@ -328,7 +419,12 @@ function WidgetLoanBase(props) {
 											switch (cell.id) {
 												case 'transaction_type': {
 													return (
-														<TableCell key={cell.id} component="th" scope="row">
+														<TableCell
+															key={cell.id}
+															component="th"
+															scope="row"
+															className="border-none"
+														>
 															<Typography
 																className={clsx(
 																	cell.classes,
@@ -342,7 +438,12 @@ function WidgetLoanBase(props) {
 												}
 												case 'profit_perc': {
 													return (
-														<TableCell key={cell.id} component="th" scope="row">
+														<TableCell
+															key={cell.id}
+															component="th"
+															scope="row"
+															className="border-none"
+														>
 															<Typography
 																className={clsx(cell.classes, 'flex items-center')}
 															>
@@ -354,7 +455,12 @@ function WidgetLoanBase(props) {
 												}
 												default: {
 													return (
-														<TableCell key={cell.id} component="th" scope="row">
+														<TableCell
+															key={cell.id}
+															component="th"
+															scope="row"
+															className="border-none"
+														>
 															<Typography className={cell.classes}>
 																{cell.value}
 															</Typography>
