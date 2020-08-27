@@ -137,7 +137,7 @@ const WidgetOrderHistory = () => {
 		>
 			{/* Title */}
 			<div className="w-full flex justify-between items-center text-center">
-				<Typography className="h2">訂單紀錄</Typography>
+				<Typography className="h1 text-semibold">訂單紀錄</Typography>
 
 				<div className="flex justify-center">
 					{smUp && (

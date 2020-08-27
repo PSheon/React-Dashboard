@@ -138,26 +138,21 @@ const WidgetOrderHistory = () => {
 		>
 			{/* Title */}
 			<div className="w-full flex justify-between items-center text-center">
-				<Typography className="h2">訂單紀錄</Typography>
+				<Typography className="h1 text-semibold">訂單紀錄</Typography>
 
 				<div className="flex justify-center items-center">
 					{smUp && (
-						<Button className="py-8 px-12 rounded-8" size="small">
+						<Button className="py-8 px-8 rounded-8" size="small">
 							更新方案
 						</Button>
 					)}
-					<Button className="py-8 px-12 rounded-8" size="small">
+					<Button className="py-8 px-8 rounded-8" size="small">
 						新加入戶
 					</Button>
-					<Button className="py-8 px-12 rounded-8" size="small">
+					<Button className="py-8 px-8 rounded-8" size="small">
 						更新方案
 					</Button>
-					<IconButton
-						aria-label="開啟列表"
-						className="py-12 ml-12 sm:ml-16 h-36 p-8"
-						color="inherit"
-						size="small"
-					>
+					<IconButton aria-label="開啟列表" className="py-12 sm:ml-16 h-36 p-8" color="inherit" size="small">
 						<ArrowRight size={20} className="cursor-pointer" />
 					</IconButton>
 				</div>

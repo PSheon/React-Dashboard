@@ -2,6 +2,7 @@ import React from 'react';
 
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import { Hidden } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
@@ -10,6 +11,7 @@ import withReducer from 'app/store/withReducer';
 
 import reducer from './store/reducers';
 import WidgetCustomerMap from './widgets/WidgetCustomerMap';
+import WidgetCustomerRetention from './widgets/WidgetCustomerRetention';
 import WidgetFundingRatio from './widgets/WidgetFundingRatio';
 import WidgetMemberStatistics from './widgets/WidgetMemberStatistics';
 import WidgetOrderHistory from './widgets/WidgetOrderHistory';
@@ -118,42 +120,50 @@ function DashboardPage() {
 						</div>
 					</FuseAnimateGroup>
 
-					<FuseAnimate delay={600}>
+					{/* <FuseAnimate delay={600}>
 						<Typography className="p-16 py-8 text-18 sm:text-20 sm:text-20 font-medium">
 							近期訂單
 						</Typography>
-					</FuseAnimate>
+					</FuseAnimate> */}
+
+					<Hidden mdUp>
+						<FuseAnimate delay={400}>
+							<Typography className="px-16 pb-8 text-18 font-medium">統計圖表</Typography>
+						</FuseAnimate>
+					</Hidden>
 
 					<div className="widget w-full p-16 pb-20">
 						<WidgetOrderHistory />
 					</div>
 
-					<FuseAnimate delay={600}>
+					{/* <FuseAnimate delay={600}>
 						<Typography className="p-16 py-8 text-18 sm:text-20 sm:text-20 font-medium">
 							業務成長
 						</Typography>
-					</FuseAnimate>
+					</FuseAnimate> */}
 
 					<div className="widget w-full p-16 pb-20">
-						<WidgetOrderHistory />
+						<WidgetCustomerRetention />
 					</div>
 				</div>
 
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
-					<div className="w-full sm:w-1/2 md:w-full mb-16 sm:mb-24">
-						<FuseAnimate delay={400}>
-							<Typography className="px-16 pb-8 text-18 font-medium">統計圖表</Typography>
-						</FuseAnimate>
+					<div className="w-full sm:w-1/2 md:w-full">
+						<Hidden smDown>
+							<FuseAnimate delay={400}>
+								<Typography className="px-16 pb-8 text-18 font-medium">統計圖表</Typography>
+							</FuseAnimate>
+						</Hidden>
 
 						<div className="widget w-full p-16">
 							<WidgetFundingRatio />
 						</div>
 					</div>
 
-					<div className="w-full sm:w-1/2 md:w-full mb-16 sm:mb-24">
-						<FuseAnimate delay={600}>
+					<div className="w-full sm:w-1/2 md:w-full">
+						{/* <FuseAnimate delay={600}>
 							<Typography className="px-16 pb-8 text-18 font-medium">使用裝置</Typography>
-						</FuseAnimate>
+						</FuseAnimate> */}
 
 						<FuseAnimate delay={600}>
 							<div className="widget w-full p-16">
@@ -163,9 +173,9 @@ function DashboardPage() {
 					</div>
 
 					<div className="w-full sm:w-1/2 md:w-full">
-						<FuseAnimate delay={800}>
+						{/* <FuseAnimate delay={800}>
 							<Typography className="px-16 pb-8 text-18 font-medium">客戶熱點</Typography>
-						</FuseAnimate>
+						</FuseAnimate> */}
 
 						<FuseAnimate delay={800}>
 							<div className="widget w-full p-16">

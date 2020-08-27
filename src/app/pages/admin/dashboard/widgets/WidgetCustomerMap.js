@@ -117,7 +117,7 @@ function WidgetCustomerMap(props) {
 				</Tooltip>
 			</div>
 
-			<div className="px-20 py-16">
+			<div className="px-20 py-16 sm:pt-8 md:pt-0">
 				<ReactFC {...CHART_CONFIGS} />
 			</div>
 		</Card>

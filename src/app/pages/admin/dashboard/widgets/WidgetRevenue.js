@@ -117,6 +117,9 @@ const useStyles = makeStyles(theme => ({
 		'&:hover': {
 			boxShadow: theme.shadows[6]
 		}
+	},
+	chartRoot: {
+		width: 'calc(100% + 2.4rem)'
 	}
 }));
 
@@ -153,7 +156,7 @@ function WidgetRevenue(props) {
 			</FuseAnimate>
 
 			<FuseAnimate delay={100}>
-				<div className="px-20 pb-24">
+				<div className="px-20 pb-0 sm:pb-8">
 					<div className="flex justify-start py-12 sm:py-16">
 						<div className="flex flex-col justify-center items-start px-8 pr-12 mr-16">
 							<Typography className="mb-8 font-medium text-16">本月度</Typography>
@@ -189,7 +192,7 @@ function WidgetRevenue(props) {
 						)}
 					</div>
 					<Chart
-						className="-ml-16 -mr-12 sm:mx-0"
+						className={clsx(classes.chartRoot, '-ml-16 -mr-8')}
 						options={OPTIONS({
 							labelColor: '#e7eef7',
 							dangerLight: '#f29292',

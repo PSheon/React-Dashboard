@@ -177,7 +177,7 @@ function WidgetAccountRevenue(props) {
 						)}
 					</div>
 					<Chart
-						className="-ml-16 -mr-12 sm:mx-0"
+						className="w-full -ml-16 -mr-12 sm:mx-0"
 						options={OPTIONS({
 							labelColor: '#e7eef7',
 							dangerLight: '#f29292',

@@ -73,7 +73,7 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 					<div
 						className={clsx(
 							classes.iconWrapper,
-							'text-center whiteSpace-no-wrap relative text-white inline-flex p-24 sm:p-12 m-0'
+							'whiteSpace-no-wrap relative text-white inline-flex p-16 sm:p-8 m-0'
 						)}
 					>
 						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
@@ -85,7 +85,7 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 					<Typography className="text-28 sm:text-24 font-semibold leading-none my-8 sm:mt-12">
 						{content}
 					</Typography>
-					<Typography className="text-20 sm:text-16" color="textSecondary">
+					<Typography className="text-18 sm:text-16" color="textSecondary">
 						{title}
 					</Typography>
 				</div>

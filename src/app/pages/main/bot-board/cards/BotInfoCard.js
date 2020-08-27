@@ -137,7 +137,7 @@ const BotInfoCard = ({ title, content, change, iconType, iconColorSchema, chartI
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
 			<div className="p-24 pb-0 sm:px-16 sm:pt-16 flex justify-between lg:justify-around">
 				<div className="flex flex-col">
-					<Typography className="text-20 sm:text-16" color="textSecondary">
+					<Typography className="text-18 sm:text-16" color="textSecondary">
 						{title}
 					</Typography>
 					<Typography className="text-28 sm:text-24 font-semibold leading-none mt-8 sm:mt-12">
@@ -157,7 +157,7 @@ const BotInfoCard = ({ title, content, change, iconType, iconColorSchema, chartI
 					<div
 						className={clsx(
 							classes.iconWrapper,
-							'text-center whiteSpace-no-wrap relative text-white inline-flex p-24 sm:p-12 m-0'
+							'whiteSpace-no-wrap relative text-white inline-flex p-16 sm:p-8 m-0'
 						)}
 					>
 						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
