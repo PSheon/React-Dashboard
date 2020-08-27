@@ -9,6 +9,7 @@ import WidgetStatisticsCard from 'app/fuse-layouts/shared-components/StatisticsC
 import withReducer from 'app/store/withReducer';
 
 import reducer from './store/reducers';
+import WidgetCustomerMap from './widgets/WidgetCustomerMap';
 import WidgetFundingRatio from './widgets/WidgetFundingRatio';
 import WidgetMemberStatistics from './widgets/WidgetMemberStatistics';
 import WidgetOrderHistory from './widgets/WidgetOrderHistory';
@@ -126,12 +127,22 @@ function DashboardPage() {
 					<div className="widget w-full p-16 pb-20">
 						<WidgetOrderHistory />
 					</div>
+
+					<FuseAnimate delay={600}>
+						<Typography className="p-16 py-8 text-18 sm:text-20 sm:text-20 font-medium">
+							業務成長
+						</Typography>
+					</FuseAnimate>
+
+					<div className="widget w-full p-16 pb-20">
+						<WidgetOrderHistory />
+					</div>
 				</div>
 
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
-					<div className="w-full sm:w-1/2 md:w-full mb-0 sm:mb-32">
-						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-medium">統計表</Typography>
+					<div className="w-full sm:w-1/2 md:w-full mb-16 sm:mb-24">
+						<FuseAnimate delay={400}>
+							<Typography className="px-16 pb-8 text-18 font-medium">統計圖表</Typography>
 						</FuseAnimate>
 
 						<div className="widget w-full p-16">
@@ -139,7 +150,7 @@ function DashboardPage() {
 						</div>
 					</div>
 
-					<div className="w-full sm:w-1/2 md:w-full">
+					<div className="w-full sm:w-1/2 md:w-full mb-16 sm:mb-24">
 						<FuseAnimate delay={600}>
 							<Typography className="px-16 pb-8 text-18 font-medium">使用裝置</Typography>
 						</FuseAnimate>
@@ -147,6 +158,18 @@ function DashboardPage() {
 						<FuseAnimate delay={600}>
 							<div className="widget w-full p-16">
 								<WidgetMemberStatistics />
+							</div>
+						</FuseAnimate>
+					</div>
+
+					<div className="w-full sm:w-1/2 md:w-full">
+						<FuseAnimate delay={800}>
+							<Typography className="px-16 pb-8 text-18 font-medium">客戶熱點</Typography>
+						</FuseAnimate>
+
+						<FuseAnimate delay={800}>
+							<div className="widget w-full p-16">
+								<WidgetCustomerMap />
 							</div>
 						</FuseAnimate>
 					</div>
