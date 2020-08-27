@@ -7,7 +7,6 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
 	root: {

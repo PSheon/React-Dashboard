@@ -98,7 +98,7 @@ function RegisterPage() {
 							<FuseAnimate animation="transition.slideUpIn" delay={300}>
 								<div className="flex items-center mb-24 sm:mb-48">
 									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
-									<div className="border-l-1 mr-4 w-1 h-40" />
+									<div className="border-l-1 mx-4 w-4 h-40" />
 									<div>
 										<Typography className="text-24 font-800 logo-text" color="inherit">
 											建立帳號

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight } from 'react-feather';
-import ReactFC from 'react-fusioncharts';
 
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
@@ -9,81 +8,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
-import FusionCharts from 'fusioncharts';
-import Maps from 'fusioncharts/fusioncharts.maps';
-import World from 'fusioncharts/maps/fusioncharts.world';
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
-
-ReactFC.fcRoot(FusionCharts, Maps, World, FusionTheme);
-
-const chartConfigsBuilder = theme => ({
-	type: 'world',
-	// width: '100%',
-	// height: 400,
-	dataFormat: 'json',
-	dataSource: {
-		chart: {
-			bgColor: theme.palette.background.paper,
-			showBorder: 0,
-			theme: 'candy',
-			formatnumberscale: '0',
-			numbersuffix: ' 瀏覽',
-			entityfillhovercolor: '#5048a8',
-			entitytooltext:
-				"<div class='text-center text-gray-200 text-14 py-2 px-4'>$displayValue</div><div class='text-center text-16 text-white text-semibold'>$value 瀏覽</div>"
-		},
-		colorrange: {
-			startlabel: '偶爾',
-			endlabel: '頻繁',
-			code: '#D7DDFF',
-			minvalue: '0',
-			gradient: '1',
-			color: [
-				{
-					maxvalue: '150',
-					displayvalue: '平均',
-					code: '#828FD6'
-				},
-				{
-					maxvalue: '300',
-					code: '#36469F'
-				}
-			]
-		},
-		data: [
-			{
-				id: 'NA',
-				displayvalue: '北美',
-				value: '57.2'
-			},
-			{
-				id: 'SA',
-				displayvalue: '南美',
-				value: '57.1'
-			},
-			{
-				id: 'AS',
-				displayvalue: '亞洲',
-				value: '247'
-			},
-			{
-				id: 'EU',
-				displayvalue: '歐洲',
-				value: '188.5'
-			},
-			{
-				id: 'AF',
-				displayvalue: '非洲',
-				value: '87.2'
-			},
-			{
-				id: 'AU',
-				displayvalue: '澳洲',
-				value: '8.32'
-			}
-		]
-	}
-});
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -96,12 +20,10 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const WidgetCustomerMap = () => {
+const WidgetCustomerRetention = () => {
 	const theme = useTheme();
 	const classes = useStyles();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
-
-	const CHART_CONFIGS = chartConfigsBuilder(theme);
 
 	return (
 		<div
@@ -139,12 +61,12 @@ const WidgetCustomerMap = () => {
 
 			<Divider className="w-full mt-16 mb-4" />
 
-			{/* World Map */}
+			{/* Retention */}
 			<div className="w-full flex flex-col justify-center items-center text-center mb-20">
-				<ReactFC {...CHART_CONFIGS} />
+				123123123123123 123123123 123123 12312
 			</div>
 		</div>
 	);
 };
 
-export default WidgetCustomerMap;
+export default WidgetCustomerRetention;

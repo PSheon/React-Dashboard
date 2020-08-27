@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Facebook, XCircle, Mail, Eye, EyeOff } from 'react-feather';
+import { XCircle, Mail, Eye, EyeOff } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -108,7 +108,7 @@ function LoginPage() {
 							<FuseAnimate animation="transition.slideUpIn" delay={300}>
 								<div className="flex items-center mb-24 sm:mb-36">
 									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
-									<div className="border-l-1 mr-4 w-1 h-40" />
+									<div className="border-l-1 mx-4 w-4 h-40" />
 									<div>
 										<Typography className="text-24 font-800 logo-text" color="inherit">
 											登入您的帳號

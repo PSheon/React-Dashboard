@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { HelpCircle, ArrowUp } from 'react-feather';
+import React from 'react';
+import { HelpCircle } from 'react-feather';
 import ReactFC from 'react-fusioncharts';
 
 import Card from '@material-ui/core/Card';

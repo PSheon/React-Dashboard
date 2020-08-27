@@ -151,7 +151,7 @@ function UserDialog(props) {
 			<form noValidate onSubmit={handleSubmit} className="flex flex-col md:overflow-hidden">
 				<DialogContent classes={{ root: 'p-24' }}>
 					<div className="flex">
-						<div className="min-w-48 pt-20">
+						<div className="min-w-48 pt-12">
 							<Icon color="action">account_circle</Icon>
 						</div>
 						<CssTextField
@@ -169,7 +169,7 @@ function UserDialog(props) {
 					</div>
 
 					<div className="flex">
-						<div className="min-w-48 pt-20">
+						<div className="min-w-48 pt-12">
 							<Icon color="action">email</Icon>
 						</div>
 						<CssTextField
@@ -185,7 +185,7 @@ function UserDialog(props) {
 					</div>
 
 					<div className="flex">
-						<div className="min-w-48 pt-20">
+						<div className="min-w-48 pt-12">
 							<Icon color="action">phone</Icon>
 						</div>
 						<CssTextField
@@ -201,7 +201,7 @@ function UserDialog(props) {
 					</div>
 
 					<div className="flex">
-						<div className="min-w-48 pt-20">
+						<div className="min-w-48 pt-12">
 							<Icon color="action">emoji_events</Icon>
 						</div>
 						<CssTextField
@@ -217,7 +217,7 @@ function UserDialog(props) {
 					</div>
 
 					<div className="flex">
-						<div className="min-w-48 pt-20">
+						<div className="min-w-48 pt-12">
 							<Icon color="action">bar_chart</Icon>
 						</div>
 						<CssTextField
@@ -233,7 +233,7 @@ function UserDialog(props) {
 					</div>
 
 					<div className="flex">
-						<div className="min-w-48 pt-20">
+						<div className="min-w-48 pt-12">
 							<Icon color="action">local_atm</Icon>
 						</div>
 						<CssTextField
@@ -265,6 +265,10 @@ function UserDialog(props) {
 					</DialogActions>
 				) : (
 					<DialogActions className="justify-between p-8">
+						<IconButton onClick={handleRemove}>
+							<Icon>delete</Icon>
+						</IconButton>
+
 						<div className="px-16">
 							<Button
 								variant="contained"
@@ -276,9 +280,6 @@ function UserDialog(props) {
 								確定
 							</Button>
 						</div>
-						<IconButton onClick={handleRemove}>
-							<Icon>delete</Icon>
-						</IconButton>
 					</DialogActions>
 				)}
 			</form>

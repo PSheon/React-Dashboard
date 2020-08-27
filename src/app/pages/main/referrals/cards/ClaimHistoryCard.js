@@ -13,7 +13,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Skeleton from '@material-ui/lab/Skeleton';
 import clsx from 'clsx';
 import moment from 'moment';
@@ -94,7 +93,6 @@ const useStyles = makeStyles(theme => ({
 const ClaimHistoryCard = () => {
 	const theme = useTheme();
 	const classes = useStyles();
-	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);
 
