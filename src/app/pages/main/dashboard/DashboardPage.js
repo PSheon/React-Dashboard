@@ -29,7 +29,7 @@ function DashboardPage() {
 					<div className="w-full sm:w-1/2 md:w-full">
 						<Hidden xsUp>
 							<FuseAnimate delay={600}>
-								<Typography className="px-16 pb-8 text-18 font-medium">統計表</Typography>
+								<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">統計表</Typography>
 							</FuseAnimate>
 						</Hidden>
 
@@ -53,7 +53,7 @@ function DashboardPage() {
 			<div className="flex flex-col md:flex-row sm:p-8 container">
 				<div className="flex flex-1 flex-col min-w-0">
 					<FuseAnimate delay={600}>
-						<Typography className="px-16 pb-8 text-18 sm:text-20 fsont-medium">資金狀態</Typography>
+						<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">資金狀態</Typography>
 					</FuseAnimate>
 					<FuseAnimateGroup
 						enter={{
@@ -65,7 +65,7 @@ function DashboardPage() {
 							<WidgetBasicCard
 								title="現金-錢包"
 								content="$0"
-								iconType="dollar-sign"
+								iconType="activity"
 								iconColorSchema="primary"
 							/>
 						</div>
@@ -73,7 +73,7 @@ function DashboardPage() {
 							<WidgetBasicCard
 								title="補償-錢包"
 								content="$0"
-								iconType="layers"
+								iconType="shield"
 								iconColorSchema="secondary"
 							/>
 						</div>
@@ -81,7 +81,7 @@ function DashboardPage() {
 							<WidgetBasicCard
 								title="預購-錢包"
 								content="$0"
-								iconType="users"
+								iconType="target"
 								iconColorSchema="success"
 							/>
 						</div>
@@ -100,7 +100,7 @@ function DashboardPage() {
 							<WidgetBasicCard
 								title="當月團隊總交易量"
 								content="$0"
-								iconType="dollar-sign"
+								iconType="award"
 								iconColorSchema="primary"
 							/>
 						</div>
@@ -108,7 +108,7 @@ function DashboardPage() {
 							<WidgetBasicCard
 								title="當月團隊保險總入金"
 								content="$0"
-								iconType="layers"
+								iconType="pocket"
 								iconColorSchema="secondary"
 							/>
 						</div>
@@ -119,7 +119,7 @@ function DashboardPage() {
 					<Hidden only={['sm']}>
 						<div className="w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
-								<Typography className="px-16 pb-8 text-18 font-medium">系統通知</Typography>
+								<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">系統通知</Typography>
 							</FuseAnimate>
 
 							<FuseAnimate delay={600}>

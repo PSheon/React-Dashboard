@@ -9,6 +9,7 @@ import Hidden from '@material-ui/core/Hidden';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import LOGO from 'app/assets/images/logo/new-logo.svg';
 import LanguageSwitcher from 'app/fuse-layouts/shared-components/LanguageSwitcher';
 import clsx from 'clsx';
 
@@ -38,7 +39,7 @@ const Header = props => {
 					style={{ backgroundColor: toolbarTheme.palette.background.paper }}
 				>
 					<div className="flex flex-1 items-center">
-						<img className="w-36 h-36 py-0 ml-16 mr-12" src="assets/images/logos/fuse.svg" alt="logo" />
+						<img className="w-36 h-36 py-0 ml-16 mr-12" src={LOGO} alt="logo" />
 
 						<Typography className="h1 mr-16 font-medium logo-text whitespace-no-wrap" color="textPrimary">
 							借貸平台

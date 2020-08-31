@@ -135,7 +135,7 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
-			<div className="p-24 sm:px-16 md:px-12 py-16 flex justify-between lg:justify-around">
+			<div className="p-24 sm:px-16 md:px-12 lg:px-24 py-16 flex justify-between">
 				<div className="flex flex-col">
 					<Typography className="text-18 sm:text-16" color="textSecondary">
 						{title}
@@ -155,7 +155,7 @@ const StatisticsCard = ({ title, content, change, iconType, iconColorSchema, cha
 					<div
 						className={clsx(
 							classes.iconWrapper,
-							'whiteSpace-no-wrap relative text-white inline-flex p-16 sm:p-8 m-0'
+							'whiteSpace-no-wrap relative text-white inline-flex p-12 sm:p-8 m-0'
 						)}
 					>
 						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>

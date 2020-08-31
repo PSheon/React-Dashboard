@@ -31,7 +31,7 @@ const BreadcrumbsDefault = props => {
 				classes={{ ol: 'flex justify-center items-center' }}
 				separator={<ChevronRight size={18} />}
 			>
-				<Link className="flex justify-center items-center" to="/">
+				<Link className="flex justify-center items-center" to="/dashboard">
 					<Home className="align-top" size={18} />
 				</Link>
 				{breadCrumbParent && <Typography color="textSecondary">{breadCrumbParent}</Typography>}

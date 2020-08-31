@@ -154,9 +154,13 @@ const WidgetCustomerRetention = () => {
 					className={clsx(classes.chartRoot, '-ml-24 -mr-8')}
 					options={OPTIONS({
 						labelColor: '#e7eef7',
-						dangerLight: '#f29292',
 						strokeColor: '#b9c3cd',
-						primary: '#7367F0'
+						primary: theme.palette.primary.main,
+						warning: theme.palette.warning.main,
+						danger: theme.palette.danger.main,
+						primaryLight: theme.palette.primary.light,
+						warningLight: theme.palette.warning.light,
+						dangerLight: theme.palette.danger.light
 					})}
 					series={SERIES}
 					type="bar"

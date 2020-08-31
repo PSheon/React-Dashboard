@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
@@ -60,40 +59,39 @@ function MarketPage(props) {
 					enter={{
 						animation: 'transition.expandIn'
 					}}
-					className="flex flex-col flex-wrap sm:flex sm:flex-row"
+					className="flex flex-col flex-wrap sm:flex sm:flex-row sm:flex-no-wrap overflow-x-scroll"
 				>
-					<div className="widget flex w-full sm:w-3/7 p-16">
+					<div className="widget flex w-full sm:w-1/3 p-16">
 						<WidgetCryptoCard
-							title="CPU 使用率"
-							content="35%"
-							change={-3}
+							title="Bitcoin"
+							content="$12,012.17"
 							iconType="cpu"
 							iconColorSchema="primary"
-							chartId="cpu"
+							chartId="bitcoin"
 							chartColors="primary"
-							tooltipTitle="使用率"
+							tooltipTitle="價格"
 						/>
 					</div>
-					<div className="widget flex w-full sm:w-2/7 p-16">
+					<div className="widget flex w-full sm:w-1/3 p-16">
 						<WidgetCryptoCard
-							title="CPU 使用率"
-							content="35%"
+							title="Ethereum"
+							content="$406.34"
 							iconType="cpu"
 							iconColorSchema="primary"
-							chartId="cpu2"
+							chartId="ethereum"
 							chartColors="primary"
-							tooltipTitle="使用率"
+							tooltipTitle="價格"
 						/>
 					</div>
-					<div className="widget w-full sm:w-2/7 p-16">
+					<div className="widget w-full w-full sm:w-1/3 p-16">
 						<WidgetCryptoCard
-							title="CPU 使用率"
-							content="35%"
+							title="Litecoin"
+							content="$56.45"
 							iconType="cpu"
 							iconColorSchema="primary"
-							chartId="cpu3"
+							chartId="litecoin"
 							chartColors="primary"
-							tooltipTitle="使用率"
+							tooltipTitle="價格"
 						/>
 					</div>
 				</FuseAnimateGroup>
@@ -111,7 +109,7 @@ function MarketPage(props) {
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
 					<div className="w-full sm:w-1/2 md:w-full">
 						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-medium">特別市場</Typography>
+							<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">特別市場</Typography>
 						</FuseAnimate>
 
 						<div className="widget w-full p-16">

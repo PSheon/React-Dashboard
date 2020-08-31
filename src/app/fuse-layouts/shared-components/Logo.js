@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CrownIcon from 'app/assets/images/logo/crown.svg';
-import LOGO from 'app/assets/images/logo/logo.svg';
+import LOGO from 'app/assets/images/logo/new-logo.svg';
 import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
@@ -36,8 +36,8 @@ function Logo() {
 	const classes = useStyles();
 
 	return (
-		<div className={clsx(classes.root, 'flex items-center')}>
-			<Link to="/" className="logo-icon inline-block" role="button">
+		<div className={clsx(classes.root, 'flex items-center sm:-ml-4')}>
+			<Link to="/dashboard" className="logo-icon inline-block" role="button">
 				<img src={LOGO} alt="logo" />
 			</Link>
 			<Typography className="text-16 ml-12 mr-16 font-medium logo-text whitespace-no-wrap" color="textPrimary">

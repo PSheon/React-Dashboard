@@ -1,5 +1,5 @@
 import React from 'react';
-import { DollarSign, AlertOctagon, Layers, Users } from 'react-feather';
+import { Activity, Shield, Target, Award, Pocket, DollarSign, AlertOctagon, Layers, Users } from 'react-feather';
 
 import Card from '@material-ui/core/Card';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -11,6 +11,16 @@ import PropTypes from 'prop-types';
 
 const renderCardIcon = (iconType, size) => {
 	switch (iconType) {
+		case 'activity':
+			return <Activity size={size} />;
+		case 'shield':
+			return <Shield size={size} />;
+		case 'target':
+			return <Target size={size} />;
+		case 'award':
+			return <Award size={size} />;
+		case 'pocket':
+			return <Pocket size={size} />;
 		case 'dollar-sign':
 			return <DollarSign size={size} />;
 		case 'alert-octagon':
@@ -73,7 +83,7 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 					<div
 						className={clsx(
 							classes.iconWrapper,
-							'whiteSpace-no-wrap relative text-white inline-flex p-16 sm:p-8 m-0'
+							'whiteSpace-no-wrap relative text-white inline-flex p-12 sm:p-8 m-0'
 						)}
 					>
 						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
@@ -97,7 +107,17 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 BasicCard.propTypes = {
 	title: PropTypes.string,
 	content: PropTypes.string,
-	iconType: PropTypes.oneOf(['dollar-sign', 'alert-octagon', 'layers', 'users']),
+	iconType: PropTypes.oneOf([
+		'activity',
+		'shield',
+		'target',
+		'award',
+		'pocket',
+		'dollar-sign',
+		'alert-octagon',
+		'layers',
+		'users'
+	]),
 	iconColorSchema: PropTypes.oneOf(['primary', 'secondary', 'warning', 'info', 'success', 'error'])
 };
 BasicCard.defaultProps = {

@@ -9,6 +9,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import BITCOIN_IMG from 'app/assets/images/market/bitcoin.svg';
 import clsx from 'clsx';
 
 const generateOptions = (chartId, chartColors) => ({
@@ -140,27 +141,22 @@ const WidgetCryptoCard = ({ title, content, iconType, iconColorSchema, chartId, 
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
-			<div className="p-24 flex justify-between">
-				<div className="flex flex-col">
-					<Typography className="text-18 sm:text-16" color="textSecondary">
-						{title}
-					</Typography>
-					<Typography className="text-28 sm:text-24 font-semibold leading-none mt-8 sm:mt-12">
-						{content}
-					</Typography>
+			<div className="px-24 pt-16 pb-12 flex justify-between">
+				<div className="flex justify-center items-center">
+					<img src={BITCOIN_IMG} alt="123" width={48} />
+					<div className="flex flex-col pl-12">
+						<Typography className="text-28 sm:text-24 font-bold leading-none mt-8 mb-4">Bitcoin</Typography>
+						<Typography className="text-18 sm:text-16" color="textSecondary">
+							BTC
+						</Typography>
+					</div>
 				</div>
 
-				<div className="flex justify-center items-start py-8">
-					<div
-						className={clsx(
-							classes.iconWrapper,
-							'whiteSpace-no-wrap relative text-white inline-flex p-16 sm:p-8 m-0'
-						)}
-					>
-						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
-							{renderCardIcon(iconType, ICON_SIZE)}
-						</div>
-					</div>
+				<div className="flex flex-col">
+					<Typography className="text-28 sm:text-24 font-bold leading-none mt-8 mb-4">$12,000</Typography>
+					<Typography className="text-18 sm:text-16" color="textSecondary">
+						up 3%
+					</Typography>
 				</div>
 			</div>
 			<Chart

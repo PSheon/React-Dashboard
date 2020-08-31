@@ -94,7 +94,9 @@ function Board(props) {
 						<div className="flex flex-wrap w-full md:w-320 lg:w-400">
 							<div className="w-full mb-0 sm:mb-32">
 								<FuseAnimate delay={600}>
-									<Typography className="px-16 pb-8 text-18 font-medium">總結設定</Typography>
+									<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">
+										總結設定
+									</Typography>
 								</FuseAnimate>
 
 								<FuseAnimate delay={600}>

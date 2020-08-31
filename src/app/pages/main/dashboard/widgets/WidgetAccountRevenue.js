@@ -105,6 +105,9 @@ const useStyles = makeStyles(theme => ({
 		'&:hover': {
 			boxShadow: theme.shadows[6]
 		}
+	},
+	chartRoot: {
+		width: 'calc(100% + 2.4rem)'
 	}
 }));
 
@@ -177,7 +180,7 @@ function WidgetAccountRevenue(props) {
 						)}
 					</div>
 					<Chart
-						className="w-full -ml-16 -mr-12 sm:mx-0"
+						className="-ml-16 -mr-8"
 						options={OPTIONS({
 							labelColor: '#e7eef7',
 							dangerLight: '#f29292',

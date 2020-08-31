@@ -17,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import AUTH_BG from 'app/assets/images/auth/background.jpg';
+import LOGO from 'app/assets/images/logo/new-logo.svg';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
 import * as AuthActions from 'app/store/actions/auth';
@@ -97,7 +98,7 @@ function RegisterPage() {
 						<CardContent className="flex flex-col items-center justify-center w-full py-48 max-w-360">
 							<FuseAnimate animation="transition.slideUpIn" delay={300}>
 								<div className="flex items-center mb-24 sm:mb-48">
-									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
+									<img className="logo-icon w-48" src={LOGO} alt="logo" />
 									<div className="border-l-1 mx-4 w-4 h-40" />
 									<div>
 										<Typography className="text-24 font-800 logo-text" color="inherit">

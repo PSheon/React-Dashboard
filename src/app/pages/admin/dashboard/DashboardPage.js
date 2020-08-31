@@ -128,7 +128,7 @@ function DashboardPage() {
 
 					<Hidden mdUp>
 						<FuseAnimate delay={400}>
-							<Typography className="px-16 pb-8 text-18 font-medium">統計圖表</Typography>
+							<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">統計圖表</Typography>
 						</FuseAnimate>
 					</Hidden>
 
@@ -151,7 +151,7 @@ function DashboardPage() {
 					<div className="w-full sm:w-1/2 md:w-full">
 						<Hidden smDown>
 							<FuseAnimate delay={400}>
-								<Typography className="px-16 pb-8 text-18 font-medium">統計圖表</Typography>
+								<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">統計圖表</Typography>
 							</FuseAnimate>
 						</Hidden>
 
@@ -162,7 +162,7 @@ function DashboardPage() {
 
 					<div className="w-full sm:w-1/2 md:w-full">
 						{/* <FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-medium">使用裝置</Typography>
+							<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">使用裝置</Typography>
 						</FuseAnimate> */}
 
 						<FuseAnimate delay={600}>
@@ -174,7 +174,7 @@ function DashboardPage() {
 
 					<div className="w-full sm:w-1/2 md:w-full">
 						{/* <FuseAnimate delay={800}>
-							<Typography className="px-16 pb-8 text-18 font-medium">客戶熱點</Typography>
+							<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">客戶熱點</Typography>
 						</FuseAnimate> */}
 
 						<FuseAnimate delay={800}>

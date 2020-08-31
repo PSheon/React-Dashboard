@@ -17,36 +17,6 @@ const SettingsPage = () => {
 				<Breadcrumbs breadCrumbTitle="設定" breadCrumbParent="超級管理員" breadCrumbActive="設定" />
 			</FuseAnimate>
 
-			{/* <div className="flex flex-col md:flex-row sm:p-8 container">
-				<div className="flex flex-1 flex-col min-w-0">
-					<WidgetAccountRevenue />
-				</div>
-
-				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
-					<div className="w-full sm:w-1/2 md:w-full">
-						<Hidden xsUp>
-							<FuseAnimate delay={600}>
-								<Typography className="px-16 pb-8 text-18 font-medium">統計表</Typography>
-							</FuseAnimate>
-						</Hidden>
-
-						<div className="px-16 pt-20 pb-24">
-							<WidgetTeamRatio />
-						</div>
-					</div>
-
-					<Hidden only={['xs', 'md', 'lg', 'xl']}>
-						<div className="w-full sm:w-1/2 md:w-full">
-							<FuseAnimate delay={300}>
-								<div className="px-16 pt-20 pb-24">
-									<WidgetNotifHistory showTitle />
-								</div>
-							</FuseAnimate>
-						</div>
-					</Hidden>
-				</div>
-			</div> */}
-
 			<div className="flex flex-col md:flex-row sm:p-8 container">
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
 					<FuseAnimateGroup

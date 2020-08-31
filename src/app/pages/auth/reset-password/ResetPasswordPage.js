@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import LOGO from 'app/assets/images/logo/new-logo.svg';
 import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
@@ -52,7 +53,7 @@ function ResetPasswordPage() {
 		>
 			<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
 				<FuseAnimate animation="transition.expandIn">
-					<img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo" />
+					<img className="w-128 mb-32" src={LOGO} alt="logo" />
 				</FuseAnimate>
 
 				<FuseAnimate animation="transition.slideUpIn" delay={300}>

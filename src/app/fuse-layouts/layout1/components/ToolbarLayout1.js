@@ -50,7 +50,7 @@ function ToolbarLayout1(props) {
 							<NavbarMobileToggleButton className="w-48 h-48 py-0 mx-8" />
 
 							<Link
-								to="/"
+								to="/dashboard"
 								role="button"
 								components={Typography}
 								className="text-14 font-medium sm:text-16"

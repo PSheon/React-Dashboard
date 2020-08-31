@@ -122,7 +122,7 @@ const ProportionSliderCard = ({ active, selected, title, iconType, iconColorSche
 					<div
 						className={clsx(
 							classes.iconWrapper,
-							'whiteSpace-no-wrap relative text-white inline-flex p-16 sm:p-8 m-0'
+							'whiteSpace-no-wrap relative text-white inline-flex p-12 sm:p-8 m-0'
 						)}
 					>
 						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>

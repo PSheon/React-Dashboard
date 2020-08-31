@@ -6,6 +6,7 @@ import Grow from '@material-ui/core/Grow';
 import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
+import LOGO from 'app/assets/images/logo/new-logo.svg';
 import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
@@ -19,12 +20,12 @@ function MaintenancePage() {
 	const classes = useStyles();
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
+		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-16')}>
 			<div className="flex flex-col items-center justify-center w-full">
 				<Grow in>
 					<Card className="w-full max-w-384">
 						<CardContent className="flex flex-col items-center justify-center text-center p-48">
-							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
+							<img className="w-128 m-32" src={LOGO} alt="logo" />
 
 							<Typography variant="subtitle1" className="mb-16">
 								Closed for scheduled maintenance!
