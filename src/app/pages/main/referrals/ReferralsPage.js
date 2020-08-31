@@ -25,7 +25,7 @@ const ReferralsPage = () => {
 					<MissionCard />
 					<ReferralLinkCard />
 				</div>
-				<div className="w-full sm:w-2/3 sm:px-12">
+				<div className="w-full sm:w-2/3 sm:pl-12">
 					<ClaimCard />
 				</div>
 

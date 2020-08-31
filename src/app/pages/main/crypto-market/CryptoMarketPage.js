@@ -6,7 +6,6 @@ import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
-import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import clsx from 'clsx';
 
@@ -36,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function MarketPage(props) {
+function CryptoMarketPage(props) {
 	const dispatch = useDispatch();
 
 	const classes = useStyles(props);
@@ -54,48 +53,49 @@ function MarketPage(props) {
 				<Breadcrumbs breadCrumbTitle="借貸市場" breadCrumbActive="借貸市場" />
 			</FuseAnimate>
 
-			<div className="flex flex-1 flex-col p-8 min-w-0">
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.expandIn'
-					}}
-					className="flex flex-col flex-wrap sm:flex sm:flex-row sm:flex-no-wrap overflow-x-scroll"
-				>
-					<div className="widget flex w-full sm:w-1/3 p-16">
-						<WidgetCryptoCard
-							title="Bitcoin"
-							content="$12,012.17"
-							iconType="cpu"
-							iconColorSchema="primary"
-							chartId="bitcoin"
-							chartColors="primary"
-							tooltipTitle="價格"
-						/>
-					</div>
-					<div className="widget flex w-full sm:w-1/3 p-16">
-						<WidgetCryptoCard
-							title="Ethereum"
-							content="$406.34"
-							iconType="cpu"
-							iconColorSchema="primary"
-							chartId="ethereum"
-							chartColors="primary"
-							tooltipTitle="價格"
-						/>
-					</div>
-					<div className="widget w-full w-full sm:w-1/3 p-16">
-						<WidgetCryptoCard
-							title="Litecoin"
-							content="$56.45"
-							iconType="cpu"
-							iconColorSchema="primary"
-							chartId="litecoin"
-							chartColors="primary"
-							tooltipTitle="價格"
-						/>
-					</div>
-				</FuseAnimateGroup>
-			</div>
+			<FuseAnimateGroup
+				enter={{
+					animation: 'transition.expandIn'
+				}}
+				className="flex flex-row flex-no-wrap sm:flex-wrap p-8 overflow-x-scroll"
+			>
+				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
+					<WidgetCryptoCard
+						title="Bitcoin"
+						abbreviation="BTC"
+						price={12012.17}
+						change={-0.03}
+						iconColorSchema="warning"
+						chartId="bitcoin-history-price-chart"
+						chartColors="warning"
+						tooltipTitle="價格"
+					/>
+				</div>
+				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
+					<WidgetCryptoCard
+						title="Etherum"
+						abbreviation="ETH"
+						price={400}
+						change={-0.03}
+						iconColorSchema="info"
+						chartId="etherum-history-price-chart"
+						chartColors="info"
+						tooltipTitle="價格"
+					/>
+				</div>
+				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
+					<WidgetCryptoCard
+						title="Litecoin"
+						abbreviation="LTC"
+						price={200}
+						change={-0.03}
+						iconColorSchema="success"
+						chartId="litecoin-history-price-chart"
+						chartColors="success"
+						tooltipTitle="價格"
+					/>
+				</div>
+			</FuseAnimateGroup>
 
 			<div className="flex flex-col md:flex-row sm:p-8 container">
 				<div className="flex flex-1 flex-col min-w-0">
@@ -122,4 +122,4 @@ function MarketPage(props) {
 	);
 }
 
-export default MarketPage;
+export default CryptoMarketPage;

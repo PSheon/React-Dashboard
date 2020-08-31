@@ -150,7 +150,7 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 							}}
 							// rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
 							count={data.length}
-							rowsPerPage={20}
+							rowsPerPage={25}
 							// page={currentPageIndex - 1}
 							// SelectProps={{
 							// 	inputProps: { 'aria-label': 'rows per page' },

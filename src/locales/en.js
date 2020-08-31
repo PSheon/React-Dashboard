@@ -1,13 +1,14 @@
 const localeEN = {
-	APPLICATION: '自動借貸',
-	DASHBOARD: '首頁',
-	BOTS_SETTING: '機器人設置',
-	MARKET: '借貸市場',
-	LEADERBOARD: '資金排行榜',
-	REFERRAL: '好友推薦',
-	PERSONAL_SETTING: '個人資訊',
-	PAYMENT: '付款紀錄',
-	NOTIFY: '通知設定'
+	PORTFOLIO: 'Portfolio',
+	DASHBOARD: 'My Investment',
+	BOTS_SETTING: 'Bot Setting',
+	STRATEGIES_MARKET: 'Strategies Market',
+	LEADERBOARD: 'Leaderboard',
+	PERSONAL: 'Personal',
+	PERSONAL_SETTING: 'Personal Setting',
+	REFERRAL: 'Referral',
+	PAYMENT: 'Payment History',
+	NOTIFY: 'Notify Settings'
 };
 
 export default localeEN;

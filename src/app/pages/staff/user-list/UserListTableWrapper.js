@@ -7,10 +7,13 @@ import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import CssLinearProgress from 'app/fuse-layouts/shared-components/CssLinearProgress';
 
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
 import * as Actions from './store/actions';
 import UserListTable from './UserListTable';
+
+import { getInfoFromScheme, getInfoFromClassGroup, getInfoFromProgress } from 'utils';
 
 function UserListTableWrapper(props) {
 	const dispatch = useDispatch();
@@ -32,14 +35,14 @@ function UserListTableWrapper(props) {
 				},
 				accessor: 'photoUrl',
 				Cell: ({ row }) => {
-					return <Avatar className="mx-8" alt={row.original.name} src={row.original.avatar} />;
+					return <Avatar className="mx-8" alt={row.original.displayName} src={row.original.photoUrl} />;
 				},
 				className: 'justify-center',
 				width: 64,
 				sortable: false
 			},
 			{
-				Header: '用戶名',
+				Header: '戶名',
 				accessor: 'displayName',
 				headerClassName: 'text-center',
 				className: 'text-center font-bold',
@@ -60,8 +63,31 @@ function UserListTableWrapper(props) {
 				sortable: true
 			},
 			{
+				Header: '方案',
+				accessor: 'scheme',
+				Cell: ({ row }) => {
+					const { schemeTitle } = getInfoFromScheme(row.original.scheme);
+					return (
+						<Typography className="text-semibold" color="textPrimary">
+							{schemeTitle}
+						</Typography>
+					);
+				},
+				headerClassName: 'text-center',
+				className: 'text-center',
+				sortable: true
+			},
+			{
 				Header: '階級',
 				accessor: 'class',
+				Cell: ({ row }) => {
+					const { classTitle } = getInfoFromClassGroup(row.original.class);
+					return (
+						<Typography className="text-semibold" color="textPrimary">
+							{classTitle}
+						</Typography>
+					);
+				},
 				headerClassName: 'text-center',
 				className: 'text-center font-bold',
 				sortable: true
@@ -69,15 +95,12 @@ function UserListTableWrapper(props) {
 			{
 				Header: '交易進度',
 				accessor: 'progress',
+				Cell: ({ row }) => {
+					const { percentage, colorSchema } = getInfoFromProgress(row.original.progress);
+					return <CssLinearProgress percentage={percentage} colorSchema={colorSchema} />;
+				},
 				headerClassName: 'text-center',
 				customized: true,
-				sortable: true
-			},
-			{
-				Header: '方案',
-				accessor: 'scheme',
-				headerClassName: 'text-center',
-				className: 'text-center',
 				sortable: true
 			},
 			{

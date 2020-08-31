@@ -9,14 +9,14 @@ i18next.addResourceBundle('en', 'navigation', en);
 
 const navigationConfig = [
 	{
-		id: 'application',
-		title: '自動借貸',
-		translate: 'APPLICATION',
+		id: 'portfolio',
+		title: '投資組合',
+		translate: 'PORTFOLIO',
 		type: 'group',
 		children: [
 			{
 				id: 'dashboard',
-				title: '首頁',
+				title: '我的投資',
 				translate: 'DASHBOARD',
 				type: 'item',
 				icon: 'dashboard',
@@ -25,40 +25,35 @@ const navigationConfig = [
 			},
 			{
 				id: 'bots-board',
-				title: '機器人設置',
+				title: '跟投機器人',
 				translate: 'BOTS_SETTING',
 				type: 'item',
 				icon: 'tune',
 				url: '/bot-board'
 			},
 			{
-				id: 'market',
-				title: '借貸市場',
-				translate: 'MARKET',
+				id: 'crypto-market',
+				title: '貨幣市場',
+				translate: 'CRYPTO_MARKET',
 				type: 'item',
 				icon: 'euro_symbol',
-				url: '/market'
+				url: '/crypto-market'
+			},
+			{
+				id: 'strategies-market',
+				title: '策略市場',
+				translate: 'STRATEGIES_MARKET',
+				type: 'item',
+				icon: 'euro_symbol',
+				url: '/strategies-market'
 			},
 			{
 				id: 'leader-board',
-				title: '資金排行榜',
+				title: '績效排行榜',
 				translate: 'LEADERBOARD',
 				type: 'item',
 				icon: 'bar_chart',
 				url: '/leaderboard'
-			},
-			{
-				id: 'referrals',
-				title: '好友推薦',
-				translate: 'REFERRAL',
-				type: 'item',
-				icon: 'email',
-				url: '/referrals',
-				badge: {
-					title: 25,
-					bg: '#F44336',
-					fg: '#FFFFFF'
-				}
 			}
 		]
 	},
@@ -69,6 +64,7 @@ const navigationConfig = [
 	{
 		id: 'personal',
 		title: '個人頁面',
+		translate: 'PERSONAL',
 		type: 'group',
 		children: [
 			{
@@ -81,6 +77,19 @@ const navigationConfig = [
 				badge: {
 					title: 3,
 					bg: 'rgb(255, 111, 0)',
+					fg: '#FFFFFF'
+				}
+			},
+			{
+				id: 'referrals',
+				title: '好友推薦',
+				translate: 'REFERRAL',
+				type: 'item',
+				icon: 'email',
+				url: '/referrals',
+				badge: {
+					title: 25,
+					bg: '#F44336',
 					fg: '#FFFFFF'
 				}
 			},
@@ -119,6 +128,7 @@ const navigationConfig = [
 	{
 		id: 'logout',
 		title: '登出',
+		translate: 'LOG_OUT',
 		type: 'item',
 		icon: 'exit_to_app',
 		url: '/logout'
@@ -128,12 +138,13 @@ const navigationConfig = [
 export const ADMIN_NAVIGATION = {
 	id: 'admin-navigation',
 	title: '網站設定',
-	// translate: 'ADMIN_NAVIGATION',
+	translate: 'ADMIN_NAVIGATION',
 	type: 'group',
 	children: [
 		{
 			id: 'admin-dashboard',
 			title: '網站主控版',
+			translate: 'ADMIN_DASHBOARD',
 			type: 'item',
 			icon: 'chrome_reader_mode',
 			url: '/admin/dashboard'
@@ -141,6 +152,7 @@ export const ADMIN_NAVIGATION = {
 		{
 			id: 'admin-settings',
 			title: '網站設定',
+			translate: 'ADMIN_SETTINGS',
 			type: 'item',
 			icon: 'settings',
 			url: '/admin/settings'
@@ -162,12 +174,13 @@ export const ADMIN_NAVIGATION = {
 export const STAFF_NAVIGATION = {
 	id: 'staff-navigation',
 	title: '網站管理',
-	// translate: 'STAFF_NAVIGATION',
+	translate: 'STAFF_NAVIGATION',
 	type: 'group',
 	children: [
 		{
 			id: 'staff-user-list',
 			title: '會員列表',
+			translate: 'STAFF_USER_LIST',
 			type: 'item',
 			icon: 'list_alt',
 			url: '/staff/user-list'
@@ -175,6 +188,7 @@ export const STAFF_NAVIGATION = {
 		{
 			id: 'staff-instance-list',
 			title: '運行實體列表',
+			translate: 'STAFF_INSTANCE_LIST',
 			type: 'item',
 			icon: 'list_alt',
 			url: '/staff/instance-list'

@@ -106,7 +106,7 @@ function UserMenu(props) {
 					</div>
 				</AvatarBadge>
 
-				<Icon className="text-16 hidden sm:flex ml-8" variant="action">
+				<Icon className="text-16 hidden sm:flex ml-8 font-bold" variant="action">
 					keyboard_arrow_down
 				</Icon>
 			</Button>

@@ -121,7 +121,7 @@ function UserDialog(props) {
 			maxWidth="md"
 		>
 			<AppBar position="static" elevation={1} id="draggable-dialog-title" className="mb-48 rounded-8">
-				<Toolbar className="flex w-full justify-between">
+				<Toolbar className="flex w-full justify-between cursor-move">
 					<Typography variant="subtitle1" color="inherit">
 						{contactDialog.type === 'new' ? 'New Contact' : '編輯用戶'}
 					</Typography>
@@ -156,7 +156,7 @@ function UserDialog(props) {
 						</div>
 						<CssTextField
 							className="mb-24"
-							label="用戶名"
+							label="戶名"
 							autoFocus
 							id="displayName"
 							name="displayName"

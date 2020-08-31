@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const MarketConfig = {
+const CryptoMarketPage = {
 	settings: {
 		layout: {
 			config: {}
@@ -9,14 +9,14 @@ const MarketConfig = {
 	},
 	routes: [
 		{
-			path: '/market/:marketId',
+			path: '/crypto-market/:cryptoId',
 			component: () => <Redirect to="/admin/maintenance" />
 		},
 		{
-			path: '/market',
-			component: React.lazy(() => import('./MarketPage'))
+			path: '/crypto-market',
+			component: React.lazy(() => import('./CryptoMarketPage'))
 		}
 	]
 };
 
-export default MarketConfig;
+export default CryptoMarketPage;

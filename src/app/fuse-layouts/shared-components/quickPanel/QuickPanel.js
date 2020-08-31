@@ -7,6 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -16,8 +17,6 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
-// import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
-import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import withReducer from 'app/store/withReducer';
 import moment from 'moment';
 
@@ -28,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		width: 280,
 		height: 'calc(100% - 1.8rem)',
-		margin: '1.2rem .8rem .6rem 0',
+		margin: '1.2rem 0 .6rem 0',
 		borderRadius: '.8rem'
 	}
 }));
@@ -78,15 +77,13 @@ function QuickPanel(props) {
 						</Typography>
 					</div>
 
-					{/* <Hidden mdDown>
-						<NavbarFoldedToggleButton className="w-40 h-40 p-0" />
-					</Hidden> */}
-
-					<Hidden lgUp>
-						<NavbarMobileToggleButton className="w-40 h-40 p-0">
-							<Icon>close</Icon>
-						</NavbarMobileToggleButton>
-					</Hidden>
+					<IconButton
+						className="w-40 h-40 p-0"
+						onClick={ev => dispatch(Actions.toggleQuickPanel())}
+						color="inherit"
+					>
+						<Icon>close</Icon>
+					</IconButton>
 				</AppBar>
 
 				<FuseScrollbars option={{ suppressScrollX: true }}>

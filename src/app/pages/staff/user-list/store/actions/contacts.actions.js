@@ -25,7 +25,7 @@ const contactsDB = {
 			mail: 'arnold@withinpixels.com',
 			phone: '+886-908091511',
 			class: 'vip2',
-			progress: 0.8,
+			progress: 0.2,
 			scheme: 'new'
 		},
 		{
@@ -35,7 +35,7 @@ const contactsDB = {
 			mail: 'arnold@withinpixels.com',
 			phone: '+886-908091511',
 			class: 'vip2',
-			progress: 0.8,
+			progress: 0.45,
 			scheme: 'new'
 		},
 		{
