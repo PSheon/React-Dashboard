@@ -11,6 +11,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import BITCOIN_IMG from 'app/assets/images/market/bitcoin.svg';
+import DOGE_IMG from 'app/assets/images/market/dogecoin.svg';
 import ETHERUM_IMG from 'app/assets/images/market/ethereum.svg';
 import LITECOIN_IMG from 'app/assets/images/market/litecoin.svg';
 import TETHER_IMG from 'app/assets/images/market/tether.svg';
@@ -85,6 +86,8 @@ const renderCardIcon = (iconType = 'pending', size = 48) => {
 			return <img src={LITECOIN_IMG} alt="Litecoin Logo" width={size} />;
 		case 'usdt':
 			return <img src={TETHER_IMG} alt="Tether Logo" width={size} />;
+		case 'doge':
+			return <img src={DOGE_IMG} alt="Doge Logo" width={size} />;
 		case 'pending':
 		default:
 			return <AlertCircle size={size} />;
@@ -137,7 +140,17 @@ const useStyles = makeStyles(theme => ({
 	iconContent: {
 		color: ({ iconColorSchema }) => theme.palette[iconColorSchema].dark,
 		width: '32px',
-		height: '32px'
+		height: '32px',
+		'& img': {
+			zIndex: '2'
+		}
+	},
+	iconContentBg: {
+		width: '30px',
+		height: '30px',
+		backgroundColor: '#fff',
+		borderRadius: '999px',
+		zIndex: '1'
 	},
 	'@keyframes pulse': {
 		'0%': { boxShadow: `0 0 0 0 ${fade(theme.palette.background.default, 0.7)}` },
@@ -162,7 +175,7 @@ const WidgetCryptoCard = ({
 	const [usageList, setUsageList] = useState(new Array(30).fill(0));
 
 	const ICON_SIZE = mdDown ? 36 : 32;
-	const CHART_HEIGHT = mdDown ? 96 : 192;
+	const CHART_HEIGHT = mdDown ? 96 : 160;
 
 	useInterval(() => {
 		// TODO
@@ -174,7 +187,7 @@ const WidgetCryptoCard = ({
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
-			<div className="px-16 sm:px-24 pt-16 pb-12 flex justify-between">
+			<div className="px-16 sm:pr-24 pt-16 pb-12 flex justify-between">
 				<div className="flex justify-center items-center">
 					<div
 						className={clsx(
@@ -182,7 +195,8 @@ const WidgetCryptoCard = ({
 							'whiteSpace-no-wrap relative text-white inline-flex p-12 sm:p-8 m-0'
 						)}
 					>
-						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
+						<div className={clsx(classes.iconContent, 'relative flex justify-center items-center')}>
+							<div className={clsx(classes.iconContentBg, 'absolute')} />
 							{renderCardIcon(abbreviation, ICON_SIZE)}
 						</div>
 					</div>

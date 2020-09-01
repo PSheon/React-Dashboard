@@ -48,16 +48,16 @@ export function submitLogin({ email, password }) {
 		// jwtService
 		// 	.signInWithEmailAndPassword(email, password)
 		// 	.then(user => {
-		// 		// dispatch(ProfileActions.setUserData(user));
-		// 		// return dispatch({
-		// 		// 	type: LOGIN_SUCCESS
-		// 		// });
+		// 		dispatch(ProfileActions.setUserData(user));
+		// 		return dispatch({
+		// 			type: LOGIN_SUCCESS
+		// 		});
 		// 	})
 		// 	.catch(error => {
 		// 		// FIXME
 		// 		return dispatch({
 		// 			type: LOGIN_ERROR,
-		// 			payload: { error: ERROR_TABLE[error.errors[0].msg] }
+		// 			payload: { error: ERROR_TABLE[error?.errors[0]?.msg] }
 		// 		});
 		// 	});
 	};

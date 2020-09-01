@@ -9,9 +9,9 @@ import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import clsx from 'clsx';
 
-import WidgetCryptoCard from './sections/WidgetCryptoCard';
 import WidgetFundingRatio from './sections/WidgetFundingRatio';
 import WidgetLoanBase from './sections/WidgetLoanBase';
+import WidgetStrategyCard from './sections/WidgetStrategyCard';
 
 const useStyles = makeStyles(theme => ({
 	headerWrapper: {
@@ -50,7 +50,7 @@ function StrategiesMarketPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="借貸市場" breadCrumbActive="借貸市場" />
+				<Breadcrumbs breadCrumbTitle="策略市場" breadCrumbActive="策略市場" />
 			</FuseAnimate>
 
 			<FuseAnimateGroup
@@ -60,7 +60,7 @@ function StrategiesMarketPage(props) {
 				className="flex flex-row flex-no-wrap sm:flex-wrap p-8 overflow-x-scroll"
 			>
 				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
-					<WidgetCryptoCard
+					<WidgetStrategyCard
 						title="Bitcoin"
 						abbreviation="BTC"
 						price={12012.17}
@@ -72,7 +72,7 @@ function StrategiesMarketPage(props) {
 					/>
 				</div>
 				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
-					<WidgetCryptoCard
+					<WidgetStrategyCard
 						title="Etherum"
 						abbreviation="ETH"
 						price={400}
@@ -84,7 +84,7 @@ function StrategiesMarketPage(props) {
 					/>
 				</div>
 				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
-					<WidgetCryptoCard
+					<WidgetStrategyCard
 						title="Litecoin"
 						abbreviation="LTC"
 						price={200}

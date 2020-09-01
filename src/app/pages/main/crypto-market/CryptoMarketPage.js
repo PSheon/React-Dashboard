@@ -50,16 +50,16 @@ function CryptoMarketPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="借貸市場" breadCrumbActive="借貸市場" />
+				<Breadcrumbs breadCrumbTitle="貨幣市場" breadCrumbActive="貨幣市場" />
 			</FuseAnimate>
 
 			<FuseAnimateGroup
 				enter={{
 					animation: 'transition.expandIn'
 				}}
-				className="flex flex-row flex-no-wrap sm:flex-wrap p-8 overflow-x-scroll"
+				className="flex flex-row flex-no-wrap px-8 py-16 overflow-x-scroll"
 			>
-				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
+				<div className="widget flex min-w-240 sm:min-w-360 p-8 sm:p-16">
 					<WidgetCryptoCard
 						title="Bitcoin"
 						abbreviation="BTC"
@@ -71,19 +71,19 @@ function CryptoMarketPage(props) {
 						tooltipTitle="價格"
 					/>
 				</div>
-				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
+				<div className="widget flex min-w-240 sm:min-w-360 p-8 sm:p-16">
 					<WidgetCryptoCard
 						title="Etherum"
 						abbreviation="ETH"
 						price={400}
 						change={-0.03}
-						iconColorSchema="info"
+						iconColorSchema="purple"
 						chartId="etherum-history-price-chart"
-						chartColors="info"
+						chartColors="purple"
 						tooltipTitle="價格"
 					/>
 				</div>
-				<div className="widget flex min-w-240 sm:w-1/3 p-8 sm:p-16">
+				<div className="widget flex min-w-240 sm:min-w-360 p-8 sm:p-16">
 					<WidgetCryptoCard
 						title="Litecoin"
 						abbreviation="LTC"
@@ -92,6 +92,18 @@ function CryptoMarketPage(props) {
 						iconColorSchema="success"
 						chartId="litecoin-history-price-chart"
 						chartColors="success"
+						tooltipTitle="價格"
+					/>
+				</div>
+				<div className="widget flex min-w-240 sm:min-w-360 p-8 sm:p-16">
+					<WidgetCryptoCard
+						title="Doge"
+						abbreviation="DOGE"
+						price={200}
+						change={-0.03}
+						iconColorSchema="info"
+						chartId="dogecoin-history-price-chart"
+						chartColors="info"
 						tooltipTitle="價格"
 					/>
 				</div>

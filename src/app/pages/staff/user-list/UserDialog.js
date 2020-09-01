@@ -18,9 +18,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
+import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
-
-import * as Actions from './store/actions';
 
 const defaultFormState = {
 	id: '',
@@ -50,7 +49,8 @@ const useStyles = makeStyles(theme => ({
 function UserDialog(props) {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const contactDialog = useSelector(({ contactsApp }) => contactsApp.contacts.contactDialog);
+	// const contactDialog = useSelector(({ contactsApp }) => contactsApp.contacts.contactDialog);
+	const userInfoDialog = useSelector(({ userList }) => userList.userInfoDialog);
 
 	const { form, handleChange, setForm } = useForm(defaultFormState);
 
@@ -58,35 +58,36 @@ function UserDialog(props) {
 		/**
 		 * Dialog type: 'edit'
 		 */
-		if (contactDialog.type === 'edit' && contactDialog.data) {
-			setForm({ ...contactDialog.data });
+		if (userInfoDialog.type === 'edit' && userInfoDialog.data) {
+			setForm({ ...userInfoDialog.data });
 		}
 
 		/**
 		 * Dialog type: 'new'
 		 */
-		if (contactDialog.type === 'new') {
+		if (userInfoDialog.type === 'new') {
 			setForm({
 				...defaultFormState,
-				...contactDialog.data,
+				...userInfoDialog.data,
 				id: FuseUtils.generateGUID()
 			});
 		}
-	}, [contactDialog.data, contactDialog.type, setForm]);
+	}, [userInfoDialog.data, userInfoDialog.type, setForm]);
 
 	useEffect(() => {
 		/**
 		 * After Dialog Open
 		 */
-		if (contactDialog.props.open) {
+		if (userInfoDialog.props.open) {
 			initDialog();
 		}
-	}, [contactDialog.props.open, initDialog]);
+	}, [userInfoDialog.props.open, initDialog]);
 
 	function closeComposeDialog() {
-		return contactDialog.type === 'edit'
-			? dispatch(Actions.closeEditContactDialog())
-			: dispatch(Actions.closeNewContactDialog());
+		// return userInfoDialog.type === 'edit'
+		// 	? dispatch(Actions.closeEdituserInfoDialog())
+		// 	: dispatch(Actions.closeNewuserInfoDialog());
+		dispatch(Actions.closeUserInfoDialog());
 	}
 
 	function canBeSubmitted() {
@@ -96,7 +97,7 @@ function UserDialog(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		if (contactDialog.type === 'new') {
+		if (userInfoDialog.type === 'new') {
 			dispatch(Actions.addContact(form));
 		} else {
 			dispatch(Actions.updateContact(form));
@@ -114,7 +115,7 @@ function UserDialog(props) {
 			classes={{
 				paper: 'm-24 rounded-8 bg-bgDefault'
 			}}
-			{...contactDialog.props}
+			{...userInfoDialog.props}
 			onClose={closeComposeDialog}
 			PaperComponent={PaperComponent}
 			fullWidth
@@ -123,7 +124,7 @@ function UserDialog(props) {
 			<AppBar position="static" elevation={1} id="draggable-dialog-title" className="mb-48 rounded-8">
 				<Toolbar className="flex w-full justify-between cursor-move">
 					<Typography variant="subtitle1" color="inherit">
-						{contactDialog.type === 'new' ? 'New Contact' : '編輯用戶'}
+						{userInfoDialog.type === 'new' ? 'New Contact' : '編輯用戶'}
 					</Typography>
 
 					<IconButton
@@ -139,7 +140,7 @@ function UserDialog(props) {
 					</IconButton>
 				</Toolbar>
 				<div className="flex flex-col items-center justify-center">
-					{contactDialog.type === 'edit' && (
+					{userInfoDialog.type === 'edit' && (
 						<Avatar
 							className={clsx(classes.avatarWrapper, 'w-96 h-96 -mb-36')}
 							alt="contact avatar"
@@ -249,7 +250,7 @@ function UserDialog(props) {
 					</div>
 				</DialogContent>
 
-				{contactDialog.type === 'new' ? (
+				{userInfoDialog.type === 'new' ? (
 					<DialogActions className="justify-between p-8">
 						<div className="px-16">
 							<Button

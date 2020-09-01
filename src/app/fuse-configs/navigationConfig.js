@@ -9,9 +9,9 @@ i18next.addResourceBundle('en', 'navigation', en);
 
 const navigationConfig = [
 	{
-		id: 'portfolio',
-		title: '投資組合',
-		translate: 'PORTFOLIO',
+		id: 'trading',
+		title: '投資交易',
+		translate: 'TRADING',
 		type: 'group',
 		children: [
 			{
@@ -19,24 +19,36 @@ const navigationConfig = [
 				title: '我的投資',
 				translate: 'DASHBOARD',
 				type: 'item',
-				icon: 'dashboard',
+				icon: 'pie_chart',
 				exact: true,
 				url: '/dashboard'
 			},
 			{
 				id: 'bots-board',
-				title: '跟投機器人',
+				title: '策略跟投',
 				translate: 'BOTS_SETTING',
 				type: 'item',
 				icon: 'tune',
 				url: '/bot-board'
-			},
+			}
+		]
+	},
+	{
+		type: 'divider',
+		id: 'divider-1'
+	},
+	{
+		id: 'market',
+		title: '投資市場',
+		translate: 'MARKET',
+		type: 'group',
+		children: [
 			{
 				id: 'crypto-market',
 				title: '貨幣市場',
 				translate: 'CRYPTO_MARKET',
 				type: 'item',
-				icon: 'euro_symbol',
+				icon: 'monetization_on',
 				url: '/crypto-market'
 			},
 			{
@@ -44,12 +56,12 @@ const navigationConfig = [
 				title: '策略市場',
 				translate: 'STRATEGIES_MARKET',
 				type: 'item',
-				icon: 'euro_symbol',
+				icon: 'model_training',
 				url: '/strategies-market'
 			},
 			{
 				id: 'leader-board',
-				title: '績效排行榜',
+				title: '投資風雲榜',
 				translate: 'LEADERBOARD',
 				type: 'item',
 				icon: 'bar_chart',
@@ -59,7 +71,7 @@ const navigationConfig = [
 	},
 	{
 		type: 'divider',
-		id: 'divider-1'
+		id: 'divider-2'
 	},
 	{
 		id: 'personal',
@@ -85,7 +97,7 @@ const navigationConfig = [
 				title: '好友推薦',
 				translate: 'REFERRAL',
 				type: 'item',
-				icon: 'email',
+				icon: 'group_add',
 				url: '/referrals',
 				badge: {
 					title: 25,
@@ -123,7 +135,7 @@ const navigationConfig = [
 	},
 	{
 		type: 'divider',
-		id: 'divider-2'
+		id: 'divider-3'
 	},
 	{
 		id: 'logout',

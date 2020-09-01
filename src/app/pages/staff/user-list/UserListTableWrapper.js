@@ -8,20 +8,26 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CssLinearProgress from 'app/fuse-layouts/shared-components/CssLinearProgress';
+import * as Actions from 'app/store/actions';
 
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
-import * as Actions from './store/actions';
 import UserListTable from './UserListTable';
 
 import { getInfoFromScheme, getInfoFromClassGroup, getInfoFromProgress } from 'utils';
 
 function UserListTableWrapper(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ contactsApp }) => contactsApp.contacts.entities);
-	const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
-	const user = useSelector(({ contactsApp }) => contactsApp.user);
-
-	const [filteredData, setFilteredData] = useState(null);
+	// const contacts = useSelector(({ contactsApp }) => contactsApp.contacts.entities);
+	// const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
+	// const user = useSelector(({ contactsApp }) => contactsApp.user);
+	const USER_LIST = useSelector(({ userList }) => userList);
+	const currentPageIndex = USER_LIST.routeParams.page ?? 1;
+	const totalPages = USER_LIST.totalPages ?? 1;
+	const isListLoading = USER_LIST.loading;
+	const filteredData = USER_LIST.docs ?? [];
+	const { selectedUserIds } = USER_LIST;
+	const { searchText } = USER_LIST;
+	const { searchCondition } = USER_LIST;
 
 	const columns = React.useMemo(
 		() => [
@@ -112,7 +118,7 @@ function UserListTableWrapper(props) {
 				sortable: false,
 				Cell: ({ row }) => (
 					<>
-						<IconButton
+						{/* <IconButton
 							onClick={ev => {
 								ev.stopPropagation();
 								dispatch(Actions.toggleStarredContact(row.original.id));
@@ -123,7 +129,7 @@ function UserListTableWrapper(props) {
 							) : (
 								<Icon>star_border</Icon>
 							)}
-						</IconButton>
+						</IconButton> */}
 						<IconButton
 							onClick={ev => {
 								ev.stopPropagation();
@@ -136,32 +142,63 @@ function UserListTableWrapper(props) {
 				)
 			}
 		],
-		[dispatch, user.starred]
+		[dispatch]
 	);
 
-	useEffect(() => {
-		function getFilteredArray(entities, _searchText) {
-			const arr = Object.keys(entities).map(id => entities[id]);
-			if (_searchText.length === 0) {
-				return arr;
-			}
-			return FuseUtils.filterArrayByString(arr, _searchText);
-		}
+	function handlePageChange(wantedPageIndex) {
+		if (wantedPageIndex === currentPageIndex) return;
 
-		if (contacts) {
-			setFilteredData(getFilteredArray(contacts, searchText));
-		}
-	}, [contacts, searchText]);
+		dispatch(
+			Actions.updateUserListWithPageIndex({
+				filter: searchText,
+				fields: 'displayName,email,fullName,schoolName,phone,city',
+				conditions: searchCondition,
+				page: wantedPageIndex,
+				limit: 20,
+				sort: 'updatedAt',
+				order: -1
+			})
+		);
+	}
+	function handleSortChange(newSorted) {
+		const sortDetail = newSorted[0];
+
+		dispatch(
+			Actions.getUserList({
+				filter: searchText,
+				fields: 'displayName,email,fullName,schoolName,phone,city',
+				conditions: searchCondition,
+				page: 1,
+				limit: 20,
+				sort: sortDetail.id,
+				order: sortDetail.desc ? 1 : -1
+			})
+		);
+	}
+
+	// useEffect(() => {
+	// 	function getFilteredArray(entities, _searchText) {
+	// 		const arr = Object.keys(entities).map(id => entities[id]);
+	// 		if (_searchText.length === 0) {
+	// 			return arr;
+	// 		}
+	// 		return FuseUtils.filterArrayByString(arr, _searchText);
+	// 	}
+
+	// 	if (contacts) {
+	// 		setFilteredData(getFilteredArray(contacts, searchText));
+	// 	}
+	// }, [contacts, searchText]);
 
 	if (!filteredData) {
-		return null;
+		return <div className="flex justify-center items-center">沒有符合條件的會員kjhkjhjhjkn</div>;
 	}
 
 	if (filteredData.length === 0) {
 		return (
 			<div className="flex flex-1 items-center justify-center h-full">
 				<Typography color="textSecondary" variant="h5">
-					沒有符合的會員
+					沒有符合條件的會員 ...
 				</Typography>
 			</div>
 		);
@@ -174,7 +211,7 @@ function UserListTableWrapper(props) {
 				data={filteredData}
 				onRowClick={(ev, row) => {
 					if (row) {
-						dispatch(Actions.openEditContactDialog(row.original));
+						dispatch(Actions.openUserInfoDialog(row.original));
 					}
 				}}
 			/>

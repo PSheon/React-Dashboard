@@ -146,7 +146,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const WidgetCryptoCard = ({
+const WidgetStrategyCard = ({
 	title,
 	abbreviation,
 	price,
@@ -214,7 +214,7 @@ const WidgetCryptoCard = ({
 	);
 };
 
-WidgetCryptoCard.propTypes = {
+WidgetStrategyCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	abbreviation: PropTypes.string.isRequired,
 	price: PropTypes.number,
@@ -225,7 +225,7 @@ WidgetCryptoCard.propTypes = {
 	tooltipTitle: PropTypes.string.isRequired
 };
 
-WidgetCryptoCard.defaultProps = {
+WidgetStrategyCard.defaultProps = {
 	title: 'Crypto',
 	abbreviation: 'crypto',
 	price: 100,
@@ -236,4 +236,4 @@ WidgetCryptoCard.defaultProps = {
 	tooltipTitle: 'Crypto 價格'
 };
 
-export default WidgetCryptoCard;
+export default WidgetStrategyCard;

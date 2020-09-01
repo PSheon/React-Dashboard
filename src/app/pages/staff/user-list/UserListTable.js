@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from 'react-table';
 
 import Checkbox from '@material-ui/core/Checkbox';
@@ -32,6 +33,11 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 });
 
 const EnhancedTable = ({ columns, data, onRowClick }) => {
+	const USER_LIST = useSelector(({ userList }) => userList);
+	const currentPageIndex = USER_LIST.routeParams.page ?? 1;
+	const totalPages = USER_LIST.totalPages ?? 1;
+	const isListLoading = USER_LIST.loading;
+
 	const {
 		getTableProps,
 		headerGroups,

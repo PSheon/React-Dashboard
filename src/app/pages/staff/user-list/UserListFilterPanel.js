@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ContactsSidebarContent(props) {
-	const user = useSelector(({ contactsApp }) => contactsApp.user);
+	// const user = useSelector(({ contactsApp }) => contactsApp.user);
 
 	const classes = useStyles(props);
 

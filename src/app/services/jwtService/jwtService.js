@@ -71,7 +71,6 @@ class JwtService extends FuseUtils.EventEmitter {
 				})
 				.then(response => {
 					if (response.data.user) {
-						console.log('response.data.token, ', response.data.token);
 						this.setSession(response.data.token);
 						resolve(response.data.user);
 					}
@@ -133,7 +132,6 @@ class JwtService extends FuseUtils.EventEmitter {
 		const decoded = jwtDecode(access_token);
 		const currentTime = Date.now() / 1000;
 		if (decoded.exp < currentTime) {
-			console.warn('access token expired');
 			return false;
 		}
 

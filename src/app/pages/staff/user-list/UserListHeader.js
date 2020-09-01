@@ -70,7 +70,7 @@ function UserListHeader(props) {
 			dispatch(
 				Actions.getUserList({
 					filter: newSearchText,
-					fields: 'displayName,email,phone',
+					fields: 'displayName',
 					conditions: searchCondition,
 					page: 1,
 					limit: 20,
