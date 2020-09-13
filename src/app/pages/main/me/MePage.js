@@ -21,7 +21,7 @@ const MePage = () => {
 		<div className="flex flex-wrap justify-center items-center">
 			<div className="w-full">
 				<FuseAnimate animation="transition.slideUpIn">
-					<Breadcrumbs breadCrumbTitle="個人資訊" breadCrumbActive="個人資訊" />
+					<Breadcrumbs breadCrumbTitle="個人資訊" breadCrumbs={[{ title: '個人資訊', isActive: true }]} />
 				</FuseAnimate>
 
 				<div className="flex flex-col sm:flex-row justify-center items-center sm:items-start mx-16 sm:mx-24 mt-20">

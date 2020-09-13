@@ -86,7 +86,7 @@ function UserListHeader(props) {
 	return (
 		<div className="flex flex-col flex-1 items-start justify-between p-8 sm:px-24 sm:py-16">
 			<FuseAnimate animation="transition.slideUpIn">
-				<Breadcrumbs classes={{ padding: 'p-8' }} breadCrumbTitle="用戶列表" breadCrumbActive="用戶列表" />
+				<Breadcrumbs classes={{ padding: 'p-16' }} breadCrumbTitle="用戶列表" breadCrumbActive="用戶列表" />
 			</FuseAnimate>
 
 			<div className="w-full flex flex-1 items-center justify-between px-8 sm:px-12">

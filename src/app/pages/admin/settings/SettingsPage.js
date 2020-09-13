@@ -10,7 +10,10 @@ const SettingsPage = () => {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="設定" breadCrumbParent="超級管理員" breadCrumbActive="設定" />
+				<Breadcrumbs
+					breadCrumbTitle="設定"
+					breadCrumbs={[{ title: '超級管理員' }, { title: '設定', isActive: true }]}
+				/>
 			</FuseAnimate>
 
 			<div className="flex flex-col md:flex-row sm:p-8 container">

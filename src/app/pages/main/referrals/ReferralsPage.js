@@ -17,7 +17,7 @@ const ReferralsPage = () => {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn">
-				<Breadcrumbs breadCrumbTitle="好友推薦" breadCrumbActive="好友推薦" />
+				<Breadcrumbs breadCrumbTitle="好友推薦" breadCrumbs={[{ title: '好友推薦', isActive: true }]} />
 			</FuseAnimate>
 
 			<div className="flex flex-wrap flex-col sm:flex-row justify-center items-center sm:items-start mx-16 sm:mx-24 mt-20">

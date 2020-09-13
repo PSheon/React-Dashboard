@@ -21,7 +21,10 @@ function DashboardPage() {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="主控台" breadCrumbParent="超級管理員" breadCrumbActive="主控台" />
+				<Breadcrumbs
+					breadCrumbTitle="主控台"
+					breadCrumbs={[{ title: '超級管理員' }, { title: '主控台', isActive: true }]}
+				/>
 			</FuseAnimate>
 
 			<WidgetRevenue />

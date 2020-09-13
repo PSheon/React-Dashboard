@@ -734,7 +734,7 @@ function BotBoardPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="我的機器人" breadCrumbActive="我的機器人" />
+				<Breadcrumbs breadCrumbTitle="我的機器人" breadCrumbs={[{ title: '我的機器人', isActive: true }]} />
 			</FuseAnimate>
 
 			<FuseAnimate>

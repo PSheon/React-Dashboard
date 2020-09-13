@@ -7,7 +7,7 @@ const locale = {
 	STAFF_INSTANCE_LIST: 'Instance List',
 	TRADING: 'Trading',
 	DASHBOARD: 'My Investment',
-	BOTS_SETTING: 'Bot Setting',
+	BOTS_BOARD: 'Bot Setting',
 	MARKET: 'Market',
 	CRYPTO_MARKET: 'Crypto Market',
 	STRATEGIES_MARKET: 'Strategies Market',

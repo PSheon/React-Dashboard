@@ -17,7 +17,7 @@ function DashboardPage() {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn">
-				<Breadcrumbs breadCrumbTitle="首頁" breadCrumbActive="首頁" />
+				<Breadcrumbs breadCrumbTitle="首頁" breadCrumbs={[{ title: '首頁', isActive: true }]} />
 			</FuseAnimate>
 
 			<div className="flex flex-col md:flex-row sm:p-8 container">

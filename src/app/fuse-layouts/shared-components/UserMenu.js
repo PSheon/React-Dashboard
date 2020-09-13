@@ -10,41 +10,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
 import * as authActions from 'app/store/actions/auth';
 import clsx from 'clsx';
 
 import { roleConverter } from 'utils';
-
-const AvatarBadge = withStyles(theme => ({
-	badge: {
-		backgroundColor: '#44b700',
-		color: '#44b700',
-		boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-		'&::after': {
-			position: 'absolute',
-			top: 0,
-			left: 0,
-			width: '100%',
-			height: '100%',
-			borderRadius: '50%',
-			animation: '$ripple 1.2s infinite ease-in-out',
-			border: '1px solid currentColor',
-			content: '""'
-		}
-	},
-	'@keyframes ripple': {
-		'0%': {
-			transform: 'scale(.8)',
-			opacity: 1
-		},
-		'100%': {
-			transform: 'scale(2.4)',
-			opacity: 0
-		}
-	}
-}))(Badge);
 
 const useStyles = makeStyles(theme => ({
 	menuItemWrapper: {
@@ -89,7 +61,7 @@ function UserMenu(props) {
 					</Typography>
 				</div>
 
-				<AvatarBadge
+				<CssAvatarBadge
 					overlap="circle"
 					anchorOrigin={{
 						vertical: 'bottom',
@@ -104,7 +76,7 @@ function UserMenu(props) {
 							<Avatar className="w-36 h-36">{PROFILE.me.data.displayName[0]}</Avatar>
 						)}
 					</div>
-				</AvatarBadge>
+				</CssAvatarBadge>
 
 				<Icon className="text-16 hidden sm:flex ml-8 font-bold" variant="action">
 					keyboard_arrow_down

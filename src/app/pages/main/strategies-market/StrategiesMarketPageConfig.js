@@ -10,7 +10,7 @@ const StrategiesMarketPage = {
 	routes: [
 		{
 			path: '/strategies-market/:strategyId',
-			component: () => <Redirect to="/admin/maintenance" />
+			component: React.lazy(() => import('./StrategyPage'))
 		},
 		{
 			path: '/strategies-market',

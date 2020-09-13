@@ -49,7 +49,7 @@ function LeaderBoardPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="資金排行榜" breadCrumbActive="資金排行榜" />
+				<Breadcrumbs breadCrumbTitle="資金排行榜" breadCrumbs={[{ title: '資金排行榜', isActive: true }]} />
 			</FuseAnimate>
 
 			<FuseAnimateGroup

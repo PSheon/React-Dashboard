@@ -99,16 +99,18 @@ const renderChange = change => {
 
 	if (upDown === 'up') {
 		return (
-			<Typography className="flex justify-end items-center text-18 sm:text-16 text-success">
-				<Icon className="text-14 mx-4">trending_up</Icon>
-				{percentage}%
+			<Typography color="textSecondary" className="flex justify-end items-center">
+				過去7天
+				<Icon className="text-14 text-success mx-4">trending_up</Icon>
+				<span className="text-18 sm:text-16 text-success">{percentage}%</span>
 			</Typography>
 		);
 	}
 	return (
-		<Typography className="flex justify-end items-center text-18 sm:text-16 text-danger">
-			<Icon className="text-14 mx-4">trending_down</Icon>
-			{percentage}%
+		<Typography color="textSecondary" className="flex justify-end items-center">
+			過去7天
+			<Icon className="text-14 text-danger mx-4">trending_down</Icon>
+			<span className="text-18 sm:text-16 text-danger">{percentage}%</span>
 		</Typography>
 	);
 };

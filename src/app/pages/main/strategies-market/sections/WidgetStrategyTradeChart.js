@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
 import { Settings } from 'react-feather';
 
@@ -30,31 +30,40 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function WidgetStockChart(props) {
+function WidgetStrategyTradeChart(props) {
 	const classes = useStyles(props);
 	const theme = useTheme();
-	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+	const [activateBtn, setActivateBtn] = useState('all');
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-24 mb-24')}>
+		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24 mt-0 mb-24')}>
 			<FuseAnimate delay={100}>
-				<div className="container relative px-24 pt-20 sm:pt-16 flex flex-row justify-between items-center">
+				<div className="container relative px-24 pt-20 sm:pt-16 flex flex-col sm:flex-row justify-between items-start sm:items-center">
 					<Typography className="h1 font-medium" color="textPrimary">
-						市場歷史
+						交易歷程圖
 					</Typography>
-
-					<div className="flex justify-between items-center">
+					<div className="flex self-end sm:self-auto justify-between items-center">
 						<div className="flex items-center mr-12">
-							{smUp && (
-								<Button className="py-8 px-12 rounded-8" size="small" disabled>
-									XRP
-								</Button>
-							)}
-							<Button className="py-8 px-12 rounded-8" size="small" disabled>
-								ETH
+							<Button
+								className={clsx(activateBtn === 'long' && 'bg-primary', 'py-8 px-12 rounded-8')}
+								size="small"
+								onClick={() => setActivateBtn('long')}
+							>
+								做多
 							</Button>
-							<Button className="py-8 px-12 rounded-8" size="small">
-								BTC
+							<Button
+								className={clsx(activateBtn === 'short' && 'bg-primary', 'py-8 px-12 rounded-8')}
+								size="small"
+								onClick={() => setActivateBtn('short')}
+							>
+								賣空
+							</Button>
+							<Button
+								className={clsx(activateBtn === 'all' && 'bg-primary', 'py-8 px-12 rounded-8')}
+								size="small"
+								onClick={() => setActivateBtn('all')}
+							>
+								所有
 							</Button>
 						</div>
 						<Settings size={20} className="cursor-pointer mx-0 sm:ml-12 sm:mr-8" />
@@ -84,4 +93,4 @@ function WidgetStockChart(props) {
 	);
 }
 
-export default React.memo(WidgetStockChart);
+export default React.memo(WidgetStrategyTradeChart);

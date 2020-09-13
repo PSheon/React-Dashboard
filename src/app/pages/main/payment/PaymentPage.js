@@ -12,7 +12,7 @@ function PaymentPage() {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="付款紀錄" breadCrumbActive="付款紀錄" />
+				<Breadcrumbs breadCrumbTitle="付款紀錄" breadCrumbs={[{ title: '付款紀錄', isActive: true }]} />
 			</FuseAnimate>
 
 			<PaymentHistory />

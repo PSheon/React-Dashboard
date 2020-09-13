@@ -2,6 +2,8 @@ import React from 'react';
 import { Activity, Shield, Target, Award, Pocket, DollarSign, AlertOctagon, Layers, Users } from 'react-feather';
 
 import Card from '@material-ui/core/Card';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
@@ -27,6 +29,8 @@ const renderCardIcon = (iconType, size) => {
 			return <AlertOctagon size={size} />;
 		case 'layers':
 			return <Layers size={size} />;
+		case 'exchange':
+			return <Icon style={{ fontSize: size }}>account_balance</Icon>;
 		case 'users':
 		default:
 			return <Users size={size} />;
@@ -69,7 +73,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
+const StrategyBasicCard = ({ title, content, iconType, iconColorSchema }) => {
 	const classes = useStyles({ iconColorSchema });
 	const theme = useTheme();
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
@@ -79,18 +83,20 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
 			<div className="py-24 sm:p-16 flex flex-row-reverse sm:flex-col justify-around sm:justify-center items-center">
-				<div className="flex justify-center items-start p-0 md:p-8">
-					<div
-						className={clsx(
-							classes.iconWrapper,
-							'whiteSpace-no-wrap relative text-white inline-flex p-12 sm:p-8 m-0'
-						)}
-					>
-						<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
-							{renderCardIcon(iconType, ICON_SIZE)}
+				<Hidden smDown>
+					<div className="flex justify-center items-start p-0 md:p-8">
+						<div
+							className={clsx(
+								classes.iconWrapper,
+								'whiteSpace-no-wrap relative text-white inline-flex p-12 sm:p-8 m-0'
+							)}
+						>
+							<div className={clsx(classes.iconContent, 'flex justify-center items-center')}>
+								{renderCardIcon(iconType, ICON_SIZE)}
+							</div>
 						</div>
 					</div>
-				</div>
+				</Hidden>
 				<div className="flex flex-col justify-center items-center">
 					<Typography className="text-28 sm:text-24 font-semibold leading-none my-8 sm:mt-12">
 						{content}
@@ -104,7 +110,7 @@ const BasicCard = ({ title, content, iconType, iconColorSchema }) => {
 	);
 };
 
-BasicCard.propTypes = {
+StrategyBasicCard.propTypes = {
 	title: PropTypes.string,
 	content: PropTypes.string,
 	iconType: PropTypes.oneOf([
@@ -120,11 +126,11 @@ BasicCard.propTypes = {
 	]),
 	iconColorSchema: PropTypes.oneOf(['primary', 'secondary', 'warning', 'info', 'success', 'error'])
 };
-BasicCard.defaultProps = {
+StrategyBasicCard.defaultProps = {
 	title: 'Title',
 	content: 'Content',
 	iconType: 'users',
 	iconColorSchema: 'primary'
 };
 
-export default BasicCard;
+export default StrategyBasicCard;

@@ -2,7 +2,7 @@ const localeTW = {
 	PORTFOLIO: '投資組合',
 	APPLICATION: '投資組合123',
 	DASHBOARD: '我的投資',
-	BOTS_SETTING: '跟投機器人',
+	BOTS_BOARD: '跟投機器人',
 	STRATEGIES_MARKET: '策略市場',
 	LEADERBOARD: '績效排行榜',
 	PERSONAL: '個人頁面',

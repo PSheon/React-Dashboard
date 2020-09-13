@@ -3,7 +3,7 @@ import * as Actions from 'app/store/actions/profile';
 const initialState = {
 	loading: false,
 
-	data: ['bot-board', 'market', 'leader-board', 'referrals']
+	data: ['bots-board', 'strategies-market', 'leader-board', 'referrals']
 };
 
 const shortcuts = (state = initialState, action) => {

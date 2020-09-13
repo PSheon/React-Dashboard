@@ -55,7 +55,10 @@ function Board(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="新增" breadCrumbParent="我的機器人" breadCrumbActive="新增" />
+				<Breadcrumbs
+					breadCrumbTitle="新增"
+					breadCrumbs={[{ title: '我的機器人' }, { title: '新增', isActive: true }]}
+				/>
 			</FuseAnimate>
 
 			<FuseAnimate>

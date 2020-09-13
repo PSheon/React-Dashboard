@@ -1,4 +1,5 @@
 import React from 'react';
+import Chart from 'react-apexcharts';
 import { Info } from 'react-feather';
 import { Link } from 'react-router-dom';
 
@@ -15,6 +16,85 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import { formatNumber } from 'utils';
+
+const OPTIONS = ({ labelColor, dangerLight, strokeColor, success }) => ({
+	chart: {
+		stacked: true,
+		toolbar: { show: false }
+	},
+	plotOptions: {
+		bar: {
+			columnWidth: '50%',
+			endingShape: 'rounded'
+		}
+	},
+	colors: [success, dangerLight],
+	dataLabels: {
+		enabled: false
+	},
+	grid: {
+		borderColor: labelColor,
+		padding: {
+			left: 0,
+			right: 0
+		}
+	},
+	legend: {
+		show: false
+	},
+	xaxis: {
+		show: false,
+		labels: {
+			// show: false,
+			style: {
+				colors: strokeColor
+			}
+		},
+		axisTicks: {
+			show: false
+		},
+		categories: [
+			'一月',
+			'二月',
+			'三月',
+			'四月',
+			'五月',
+			'六月',
+			'七月',
+			'八月',
+			'九月',
+			'十月',
+			'十一月',
+			'十二月'
+		],
+		axisBorder: {
+			show: false
+		}
+	},
+	yaxis: {
+		show: false,
+		tickAmount: 5
+	},
+	tooltip: {
+		theme: 'dark',
+		x: {
+			show: false
+		},
+		y: {
+			formatter: val => `${val}%`
+		}
+	}
+});
+const SERIES = [
+	{
+		name: '獲利',
+		data: [12.14, 7.13, 5.02, 6.86, 17.68, 4.17, 0, 0, 0, 0, 1.36, 7.46]
+	},
+	{
+		name: '虧損',
+		data: [0, 0, 0, 0, 0, 0, -5.19, -4.71, -4.61, -1.81, 0, 0]
+	}
+];
 
 const getRiskColorScheme = riskScore => {
 	if (riskScore < 4) {
@@ -65,6 +145,11 @@ const useStyles = makeStyles(theme => ({
 			}
 		}
 	},
+	chartRoot: {
+		'& .apexcharts-canvas .apexcharts-legend': {
+			left: '10px !important'
+		}
+	},
 	gainRate: {
 		color: ({ gainRateColorSchema }) => theme.palette[gainRateColorSchema].main
 	},
@@ -80,7 +165,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const WidgetStrategyCard = ({
+const WidgetStrategyFeatureCard = ({
 	author,
 	strategyId,
 	strategyDisplayname,
@@ -155,6 +240,25 @@ const WidgetStrategyCard = ({
 				</div>
 			</div>
 
+			<div className="mx-16 sm:mx-24">
+				<Chart
+					className={clsx(classes.chartRoot, 'w-full -mt-16 -mb-24')}
+					options={OPTIONS({
+						labelColor: '#e7eef7',
+						strokeColor: '#b9c3cd',
+						success: theme.palette.success.main,
+						warning: theme.palette.warning.main,
+						danger: theme.palette.danger.main,
+						primaryLight: theme.palette.primary.light,
+						warningLight: theme.palette.warning.light,
+						dangerLight: theme.palette.danger.light
+					})}
+					series={SERIES}
+					type="bar"
+					height={200}
+				/>
+			</div>
+
 			<div className="px-16 sm:px-24 flex justify-center">
 				<Button
 					component={Link}
@@ -174,7 +278,7 @@ const WidgetStrategyCard = ({
 	);
 };
 
-WidgetStrategyCard.propTypes = {
+WidgetStrategyFeatureCard.propTypes = {
 	author: PropTypes.object.isRequired,
 	strategyId: PropTypes.string.isRequired,
 	strategyDisplayname: PropTypes.string.isRequired,
@@ -184,7 +288,7 @@ WidgetStrategyCard.propTypes = {
 	followersChange: PropTypes.number.isRequired
 };
 
-WidgetStrategyCard.defaultProps = {
+WidgetStrategyFeatureCard.defaultProps = {
 	author: {
 		displayName: 'Paul',
 		photoUrl: 'assets/images/avatars/default.jpg'
@@ -197,4 +301,4 @@ WidgetStrategyCard.defaultProps = {
 	followersChange: 120
 };
 
-export default WidgetStrategyCard;
+export default WidgetStrategyFeatureCard;

@@ -7,7 +7,7 @@ const locale = {
 	STAFF_INSTANCE_LIST: '運行實體列表',
 	TRADING: '投資交易',
 	DASHBOARD: '我的投資',
-	BOTS_SETTING: '策略跟投',
+	BOTS_BOARD: '策略跟投',
 	MARKET: '投資市場',
 	CRYPTO_MARKET: '貨幣市場',
 	STRATEGIES_MARKET: '策略市場',

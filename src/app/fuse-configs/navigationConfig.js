@@ -26,7 +26,7 @@ const navigationConfig = [
 			{
 				id: 'bots-board',
 				title: '策略跟投',
-				translate: 'BOTS_SETTING',
+				translate: 'BOTS_BOARD',
 				type: 'item',
 				icon: 'tune',
 				url: '/bot-board'
@@ -56,7 +56,7 @@ const navigationConfig = [
 				title: '策略市場',
 				translate: 'STRATEGIES_MARKET',
 				type: 'item',
-				icon: 'model_training',
+				icon: 'stars',
 				url: '/strategies-market'
 			},
 			{

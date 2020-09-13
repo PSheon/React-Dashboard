@@ -1,7 +1,7 @@
 const localeEN = {
 	PORTFOLIO: 'Portfolio',
 	DASHBOARD: 'My Investment',
-	BOTS_SETTING: 'Bot Setting',
+	BOTS_BOARD: 'Bot Setting',
 	STRATEGIES_MARKET: 'Strategies Market',
 	LEADERBOARD: 'Leaderboard',
 	PERSONAL: 'Personal',

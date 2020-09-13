@@ -10,7 +10,7 @@ const initialState = {
 		// email: 'johndoe@withinpixels.com',
 		email: 'pauljiang61020@gmail.com',
 		// shortcuts: ['calendar', 'mail', 'contacts', 'todo']
-		shortcuts: ['bot-board', 'market', 'leader-board', 'referrals']
+		shortcuts: ['bots-board', 'strategies-market', 'leader-board', 'referrals']
 	}
 };
 

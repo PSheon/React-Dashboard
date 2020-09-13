@@ -14,7 +14,10 @@ function InstanceListPage() {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="交易" breadCrumbParent="管理員" breadCrumbActive="交易" />
+				<Breadcrumbs
+					breadCrumbTitle="交易"
+					breadCrumbs={[{ title: '管理員' }, { title: '交易', isActive: true }]}
+				/>
 			</FuseAnimate>
 
 			<WidgetStockChart />

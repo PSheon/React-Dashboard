@@ -50,7 +50,7 @@ function CryptoMarketPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="貨幣市場" breadCrumbActive="貨幣市場" />
+				<Breadcrumbs breadCrumbTitle="貨幣市場" breadCrumbs={[{ title: '貨幣市場', isActive: true }]} />
 			</FuseAnimate>
 
 			<FuseAnimateGroup
