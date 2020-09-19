@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
 import { AlertCircle } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 import { useInterval } from '@fuse/hooks';
 import Card from '@material-ui/core/Card';
@@ -11,6 +12,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import BITCOIN_IMG from 'app/assets/images/market/bitcoin.svg';
+import COTTON_IMG from 'app/assets/images/market/cotton.svg';
 import DOGE_IMG from 'app/assets/images/market/dogecoin.svg';
 import ETHERUM_IMG from 'app/assets/images/market/ethereum.svg';
 import LITECOIN_IMG from 'app/assets/images/market/litecoin.svg';
@@ -88,6 +90,8 @@ const renderCardIcon = (iconType = 'pending', size = 48) => {
 			return <img src={TETHER_IMG} alt="Tether Logo" width={size} />;
 		case 'doge':
 			return <img src={DOGE_IMG} alt="Doge Logo" width={size} />;
+		case 'cotton':
+			return <img src={COTTON_IMG} alt="Cotton Logo" width={size} />;
 		case 'pending':
 		default:
 			return <AlertCircle size={size} />;
@@ -161,7 +165,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const WidgetCryptoCard = ({
+const WidgetCommodityFeatureCard = ({
 	title,
 	abbreviation,
 	price,
@@ -177,7 +181,7 @@ const WidgetCryptoCard = ({
 	const [usageList, setUsageList] = useState(new Array(30).fill(0));
 
 	const ICON_SIZE = mdDown ? 36 : 32;
-	const CHART_HEIGHT = mdDown ? 96 : 160;
+	const CHART_HEIGHT = mdDown ? 128 : 160;
 
 	useInterval(() => {
 		// TODO
@@ -189,7 +193,7 @@ const WidgetCryptoCard = ({
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
-			<div className="px-16 sm:pr-24 pt-16 pb-12 flex justify-between">
+			<div className="px-16 py-12 flex justify-between">
 				<div className="flex justify-center items-center">
 					<div
 						className={clsx(
@@ -202,14 +206,12 @@ const WidgetCryptoCard = ({
 							{renderCardIcon(abbreviation, ICON_SIZE)}
 						</div>
 					</div>
-					<Hidden xsDown>
-						<div className="flex flex-col pl-12">
-							<Typography className="text-24 font-bold leading-none mt-8">{title}</Typography>
-							<Typography className="sm:text-16" color="textSecondary">
-								{abbreviation.toUpperCase()}
-							</Typography>
-						</div>
-					</Hidden>
+					<div className="flex flex-col pl-12">
+						<Typography className="text-20 font-bold leading-none mt-8">{title}</Typography>
+						<Typography className="sm:text-16" color="textSecondary">
+							{abbreviation.toUpperCase()}
+						</Typography>
+					</div>
 				</div>
 
 				<div className="flex flex-col">
@@ -220,17 +222,19 @@ const WidgetCryptoCard = ({
 					{renderChange(change)}
 				</div>
 			</div>
-			<Chart
-				options={generateOptions(chartId, [theme.palette[chartColors].light])}
-				series={generateSeries(tooltipTitle, usageList)}
-				type="area"
-				height={CHART_HEIGHT}
-			/>
+			<Link to={`/commodities-market/${abbreviation}`}>
+				<Chart
+					options={generateOptions(chartId, [theme.palette[chartColors].light])}
+					series={generateSeries(tooltipTitle, usageList)}
+					type="area"
+					height={CHART_HEIGHT}
+				/>
+			</Link>
 		</Card>
 	);
 };
 
-WidgetCryptoCard.propTypes = {
+WidgetCommodityFeatureCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	abbreviation: PropTypes.string.isRequired,
 	price: PropTypes.number,
@@ -241,7 +245,7 @@ WidgetCryptoCard.propTypes = {
 	tooltipTitle: PropTypes.string.isRequired
 };
 
-WidgetCryptoCard.defaultProps = {
+WidgetCommodityFeatureCard.defaultProps = {
 	title: 'Crypto',
 	abbreviation: 'crypto',
 	price: 100,
@@ -252,4 +256,4 @@ WidgetCryptoCard.defaultProps = {
 	tooltipTitle: 'Crypto 價格'
 };
 
-export default WidgetCryptoCard;
+export default WidgetCommodityFeatureCard;

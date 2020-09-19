@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 
-import WidgetStrategyCard from './widgets/WidgetStrategyCard';
-import WidgetStrategyFeatureCard from './widgets/WidgetStrategyFeatureCard';
+import WidgetCommodityCard from './widgets/WidgetCommodityCard';
+import WidgetCommodityFeatureCard from './widgets/WidgetCommodityFeatureCard';
 
 const useStyles = makeStyles(theme => ({
 	headerWrapper: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function StrategiesMarketPage(props) {
+function CommoditiesMarketPage(props) {
 	const dispatch = useDispatch();
 
 	const classes = useStyles(props);
@@ -48,7 +48,7 @@ function StrategiesMarketPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="策略市場" breadCrumbs={[{ title: '策略市場', isActive: true }]} />
+				<Breadcrumbs breadCrumbTitle="交易市場" breadCrumbs={[{ title: '交易市場', isActive: true }]} />
 			</FuseAnimate>
 
 			<FuseAnimateGroup
@@ -57,8 +57,8 @@ function StrategiesMarketPage(props) {
 				}}
 				className="flex flex-row flex-no-wrap mx-8 my-16 sm:mb-0 overflow-x-scroll"
 			>
-				<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-					<WidgetStrategyCard
+				<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+					<WidgetCommodityCard
 						title="Bitcoin"
 						abbreviation="BTC"
 						price={12012.17}
@@ -69,8 +69,8 @@ function StrategiesMarketPage(props) {
 						tooltipTitle="價格"
 					/>
 				</div>
-				<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-					<WidgetStrategyCard
+				<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+					<WidgetCommodityCard
 						title="Etherum"
 						abbreviation="ETH"
 						price={400}
@@ -81,8 +81,8 @@ function StrategiesMarketPage(props) {
 						tooltipTitle="價格"
 					/>
 				</div>
-				<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-					<WidgetStrategyCard
+				<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+					<WidgetCommodityCard
 						title="Litecoin"
 						abbreviation="LTC"
 						price={200}
@@ -93,15 +93,15 @@ function StrategiesMarketPage(props) {
 						tooltipTitle="價格"
 					/>
 				</div>
-				<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-					<WidgetStrategyCard
-						title="Litecoin"
-						abbreviation="LTC"
+				<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+					<WidgetCommodityCard
+						title="Doge"
+						abbreviation="DOGE"
 						price={200}
 						change={-0.03}
-						iconColorSchema="success"
-						chartId="litecoin-history-price-chart"
-						chartColors="success"
+						iconColorSchema="info"
+						chartId="dogecoin-history-price-chart"
+						chartColors="info"
 						tooltipTitle="價格"
 					/>
 				</div>
@@ -110,7 +110,7 @@ function StrategiesMarketPage(props) {
 			<div className="flex flex-col md:flex-row sm:px-8 sm:pt-12 container">
 				<div className="flex flex-1 flex-col min-w-0 pb-16 sm:pb-0">
 					<FuseAnimate delay={600}>
-						<Typography className="px-24 pb-8 text-18 sm:text-20 font-medium">低風險分數</Typography>
+						<Typography className="px-24 pb-8 text-18 sm:text-20 font-medium">大宗商品</Typography>
 					</FuseAnimate>
 
 					<FuseAnimateGroup
@@ -119,20 +119,20 @@ function StrategiesMarketPage(props) {
 						}}
 						className="mx-8 sm:mx-0 flex flex-row flex-no-wrap overflow-x-scroll"
 					>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
-								title="Bitcoin"
-								abbreviation="BTC"
+						<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+							<WidgetCommodityCard
+								title="Cotton"
+								abbreviation="cotton"
 								price={12012.17}
 								change={-0.03}
 								iconColorSchema="warning"
-								chartId="bitcoin-history-price-chart"
+								chartId="oil-history-price-chart"
 								chartColors="warning"
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
+						<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+							<WidgetCommodityCard
 								title="Etherum"
 								abbreviation="ETH"
 								price={400}
@@ -143,8 +143,8 @@ function StrategiesMarketPage(props) {
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
+						<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+							<WidgetCommodityCard
 								title="Litecoin"
 								abbreviation="LTC"
 								price={200}
@@ -155,77 +155,15 @@ function StrategiesMarketPage(props) {
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
-								title="Litecoin"
-								abbreviation="LTC"
+						<div className="widget flex min-w-240 sm:min-w-340 p-8 sm:p-16">
+							<WidgetCommodityCard
+								title="Doge"
+								abbreviation="DOGE"
 								price={200}
-								change={-0.03}
-								iconColorSchema="success"
-								chartId="litecoin-history-price-chart"
-								chartColors="success"
-								tooltipTitle="價格"
-							/>
-						</div>
-					</FuseAnimateGroup>
-
-					<FuseAnimate delay={600}>
-						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">
-							中等風險分數
-						</Typography>
-					</FuseAnimate>
-
-					<FuseAnimateGroup
-						enter={{
-							animation: 'transition.expandIn'
-						}}
-						className="mx-8 sm:mx-0 flex flex-row flex-no-wrap overflow-x-scroll"
-					>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
-								title="Bitcoin"
-								abbreviation="BTC"
-								price={12012.17}
-								change={-0.03}
-								iconColorSchema="warning"
-								chartId="bitcoin-history-price-chart"
-								chartColors="warning"
-								tooltipTitle="價格"
-							/>
-						</div>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
-								title="Etherum"
-								abbreviation="ETH"
-								price={400}
 								change={-0.03}
 								iconColorSchema="info"
-								chartId="etherum-history-price-chart"
+								chartId="dogecoin-history-price-chart"
 								chartColors="info"
-								tooltipTitle="價格"
-							/>
-						</div>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
-								title="Litecoin"
-								abbreviation="LTC"
-								price={200}
-								change={-0.03}
-								iconColorSchema="success"
-								chartId="litecoin-history-price-chart"
-								chartColors="success"
-								tooltipTitle="價格"
-							/>
-						</div>
-						<div className="widget flex min-w-256 sm:min-w-320 p-8 sm:p-16">
-							<WidgetStrategyCard
-								title="Litecoin"
-								abbreviation="LTC"
-								price={200}
-								change={-0.03}
-								iconColorSchema="success"
-								chartId="litecoin-history-price-chart"
-								chartColors="success"
 								tooltipTitle="價格"
 							/>
 						</div>
@@ -235,17 +173,17 @@ function StrategiesMarketPage(props) {
 				<div className="flex flex-wrap w-full md:w-320 lg:w-400">
 					<div className="w-full sm:w-1/2 md:w-full">
 						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">最多跟單</Typography>
+							<Typography className="px-16 pb-8 text-18 sm:text-20 font-medium">特別市場</Typography>
 						</FuseAnimate>
 
 						<div className="widget w-full p-16">
-							<WidgetStrategyFeatureCard
+							<WidgetCommodityFeatureCard
 								title="Bitcoin"
 								abbreviation="BTC"
 								price={12012.17}
 								change={-0.03}
 								iconColorSchema="warning"
-								chartId="best-history-price-chart"
+								chartId="bitcoin-history-price-chart"
 								chartColors="warning"
 								tooltipTitle="價格"
 							/>
@@ -257,4 +195,4 @@ function StrategiesMarketPage(props) {
 	);
 }
 
-export default StrategiesMarketPage;
+export default CommoditiesMarketPage;

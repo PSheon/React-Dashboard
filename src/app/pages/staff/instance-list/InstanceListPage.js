@@ -1,14 +1,10 @@
 import React from 'react';
 
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
-import Typography from '@material-ui/core/Typography';
-import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
-import WidgetStatisticsCard from 'app/fuse-layouts/shared-components/StatisticsCard';
 
-import WidgetStockChart from './sections/WidgetStockChart';
-import WidgetStockHistory from './sections/WidgetStockHistory';
+import WidgetStockChart from './widgets/WidgetStockChart';
+import WidgetStockHistory from './widgets/WidgetStockHistory';
 
 function InstanceListPage() {
 	return (

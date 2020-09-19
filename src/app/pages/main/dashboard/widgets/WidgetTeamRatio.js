@@ -94,7 +94,7 @@ function WidgetTeamRatio(props) {
 				</Tooltip>
 			</div>
 
-			<div className="relative px-16 pt-16">
+			<div className="relative px-16">
 				<Chart
 					options={OPTIONS({
 						primary: theme.palette.primary.main,

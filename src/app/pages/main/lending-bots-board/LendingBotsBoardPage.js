@@ -7,11 +7,14 @@ import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
+import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import clsx from 'clsx';
 
 import BotAddCard from './cards/BotAddCard';
 import BotInfoCard from './cards/BotInfoCard';
+import WidgetStrategyCard from './widgets/StrategyCard';
+import WidgetStrategyReturn from './widgets/StrategyReturn';
 
 const boards = [
 	{
@@ -719,7 +722,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function BotBoardPage(props) {
+function LendingBotsBoardPage(props) {
 	const dispatch = useDispatch();
 
 	const classes = useStyles(props);
@@ -734,54 +737,100 @@ function BotBoardPage(props) {
 	return (
 		<div className="w-full">
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
-				<Breadcrumbs breadCrumbTitle="我的機器人" breadCrumbs={[{ title: '我的機器人', isActive: true }]} />
-			</FuseAnimate>
-
-			<FuseAnimate>
-				<div
-					className={clsx(
-						classes.headerWrapper,
-						'h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
-					)}
-				>
-					<Typography className="text-32 sm:text-40 font-semibold" color="inherit">
-						我的機器人
-					</Typography>
-				</div>
+				<Breadcrumbs breadCrumbTitle="智能借貸" breadCrumbs={[{ title: '我的借貸', isActive: true }]} />
 			</FuseAnimate>
 
 			<FuseAnimateGroup
-				className="w-full flex flex-wrap justify-start px-0 sm:px-8"
 				enter={{
-					animation: 'transition.slideUpBigIn',
-					duration: 300
+					animation: 'transition.expandIn'
 				}}
+				className="flex flex-col sm:flex sm:flex-row mt-16 sm:mx-8"
 			>
-				{boards.map(board => (
-					<Link
-						key={board.id}
-						// to={`/bot-board/${board.id}/${board.uri}`}
-						className={clsx(classes.board, 'w-full sm:w-1/4 p-16')}
-						role="button"
-					>
-						<BotInfoCard
-							title="CPU 使用率"
-							content="35%"
-							change={-3}
-							iconType="cpu"
-							iconColorSchema="primary"
-							chartId="cpu"
-							chartColors="primary"
-							tooltipTitle="使用率"
-						/>
-					</Link>
-				))}
-				<Link to="/bot-board/new" className={clsx(classes.board, 'w-full sm:w-1/4 p-16')} role="button">
-					<BotAddCard title="" content="" iconType="plus-circle" iconColorSchema="primary" />
-				</Link>
+				<div className="w-full sm:w-1/4 p-16">
+					<WidgetBasicCard title="借貸數量" content="2" iconType="activity" iconColorSchema="primary" />
+				</div>
+				<div className="w-full sm:w-1/4 p-16">
+					<WidgetBasicCard title="總計金額" content="$3,000" iconType="shield" iconColorSchema="secondary" />
+				</div>
+				<div className="w-full sm:w-1/4 p-16">
+					<WidgetBasicCard title="總計獲利" content="$1,237" iconType="target" iconColorSchema="success" />
+				</div>
+				<div className="w-full sm:w-1/4 p-16">
+					<WidgetBasicCard title="持續時間" content="422天" iconType="target" iconColorSchema="success" />
+				</div>
 			</FuseAnimateGroup>
+
+			<FuseAnimateGroup
+				enter={{
+					animation: 'transition.expandIn'
+				}}
+				className="flex flex-wrap md:flex-row container"
+			>
+				<div className="w-full flex-col">
+					<FuseAnimate delay={600}>
+						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">借貸 #1</Typography>
+					</FuseAnimate>
+
+					<div className="flex sm:px-8 flex-wrap justify-center items-start">
+						<div className="flex w-full md:w-1/3 lg:w-320 p-16">
+							<WidgetStrategyCard
+								title="Litecoin"
+								abbreviation="LTC"
+								price={200}
+								change={-0.03}
+								iconColorSchema="success"
+								chartId="litecoin-history-price-chart"
+								chartColors="success"
+								tooltipTitle="價格"
+							/>
+						</div>
+						<div className="flex-1 min-w-0 p-16">
+							<WidgetStrategyReturn />
+						</div>
+					</div>
+				</div>
+
+				<div className="w-full flex-col">
+					<FuseAnimate delay={600}>
+						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">借貸 #2</Typography>
+					</FuseAnimate>
+
+					<div className="flex sm:px-8 flex-wrap justify-center items-start">
+						<div className="flex w-full md:w-1/3 lg:w-320 p-16">
+							<WidgetStrategyCard
+								title="Litecoin"
+								abbreviation="LTC"
+								price={200}
+								change={-0.03}
+								iconColorSchema="success"
+								chartId="litecoin-history-price-chart"
+								chartColors="success"
+								tooltipTitle="價格"
+							/>
+						</div>
+						<div className="flex-1 min-w-0 p-16">
+							<WidgetStrategyReturn />
+						</div>
+					</div>
+				</div>
+			</FuseAnimateGroup>
+
+			<FuseAnimate>
+				<Link to="/strategies-market" role="button">
+					<div
+						className={clsx(
+							classes.headerWrapper,
+							'h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
+						)}
+					>
+						<Typography className="text-24 sm:text-28 font-semibold" color="inherit">
+							查看所有借貸策略
+						</Typography>
+					</div>
+				</Link>
+			</FuseAnimate>
 		</div>
 	);
 }
 
-export default BotBoardPage;
+export default LendingBotsBoardPage;

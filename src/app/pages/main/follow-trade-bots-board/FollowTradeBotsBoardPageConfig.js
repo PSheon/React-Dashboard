@@ -2,7 +2,7 @@ import React from 'react';
 
 import { authRoles } from 'app/auth';
 
-const BotBoardPageConfig = {
+const FollowTradeBotsBoardPageConfig = {
 	settings: {
 		layout: {
 			config: {}
@@ -11,18 +11,18 @@ const BotBoardPageConfig = {
 	auth: authRoles.trial,
 	routes: [
 		{
-			path: '/bot-board/new',
+			path: '/follow-trade-bots-board/new',
 			component: React.lazy(() => import('./new'))
 		},
 		{
-			path: '/bot-board/:botId',
+			path: '/follow-trade-bots-board/:botId',
 			component: React.lazy(() => import('./detail'))
 		},
 		{
-			path: '/bot-board',
-			component: React.lazy(() => import('./BotBoardPage'))
+			path: '/follow-trade-bots-board',
+			component: React.lazy(() => import('./FollowTradeBotsBoardPage'))
 		}
 	]
 };
 
-export default BotBoardPageConfig;
+export default FollowTradeBotsBoardPageConfig;

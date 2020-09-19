@@ -10,7 +10,7 @@ import BACKGROUND from 'app/assets/images/bot-board/background.jpg';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import clsx from 'clsx';
 
-import WidgetLoanLeaderboard from './sections/WidgetLoanLeaderboard';
+import WidgetLoanLeaderboard from './widgets/WidgetLoanLeaderboard';
 
 const useStyles = makeStyles(theme => ({
 	headerWrapper: {

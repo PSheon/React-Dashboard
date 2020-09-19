@@ -33,7 +33,7 @@ function DashboardPage() {
 							</FuseAnimate>
 						</Hidden>
 
-						<div className="px-16 pt-20 pb-24">
+						<div className="px-16 pt-20 pb-8">
 							<WidgetTeamRatio />
 						</div>
 					</div>

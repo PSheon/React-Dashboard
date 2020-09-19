@@ -1,11 +1,12 @@
-import BotBoardPageConfig from './bot-board/BotBoardPageConfig';
 import ComingSoonPageConfig from './coming-soon/ComingSoonPageConfig';
-import CryptoMarketPageConfig from './crypto-market/CryptoMarketPageConfig';
+import CommoditiesMarketPageConfig from './commodities-market/CommoditiesMarketPageConfig';
 import DashboardPageConfig from './dashboard/DashboardPageConfig';
 import Error404PageConfig from './errors/404/Error404PageConfig';
 import Error500PageConfig from './errors/500/Error500PageConfig';
+import FollowTradeBotsBoardPageConfig from './follow-trade-bots-board/FollowTradeBotsBoardPageConfig';
 import LandingPageConfig from './landing/LandingPageConfig';
 import LeaderBoardPageConfig from './leader-board/LeaderBoardPageConfig';
+import LendingBotsBoardPageConfig from './lending-bots-board/LendingBotsBoardPageConfig';
 import MaintenancePageConfig from './maintenance/MaintenancePageConfig';
 import MePageConfig from './me/MePageConfig';
 // FIXME testing
@@ -20,8 +21,9 @@ import StrategiesMarketPageConfig from './strategies-market/StrategiesMarketPage
 const mainConfigs = [
 	LandingPageConfig,
 	DashboardPageConfig,
-	BotBoardPageConfig,
-	CryptoMarketPageConfig,
+	LendingBotsBoardPageConfig,
+	FollowTradeBotsBoardPageConfig,
+	CommoditiesMarketPageConfig,
 	StrategiesMarketPageConfig,
 	LeaderBoardPageConfig,
 	MePageConfig,

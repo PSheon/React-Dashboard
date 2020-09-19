@@ -24,12 +24,20 @@ const navigationConfig = [
 				url: '/dashboard'
 			},
 			{
-				id: 'bots-board',
+				id: 'follow-trade-bots-board',
 				title: '策略跟投',
-				translate: 'BOTS_BOARD',
+				translate: 'FOLLOW_TRADE_BOTS_BOARD',
 				type: 'item',
 				icon: 'tune',
-				url: '/bot-board'
+				url: '/follow-trade-bots-board'
+			},
+			{
+				id: 'lending-bots-board',
+				title: '智能借貸',
+				translate: 'LENDING_BOTS_BOARD',
+				type: 'item',
+				icon: 'tune',
+				url: '/lending-bots-board'
 			}
 		]
 	},
@@ -44,12 +52,12 @@ const navigationConfig = [
 		type: 'group',
 		children: [
 			{
-				id: 'crypto-market',
-				title: '貨幣市場',
-				translate: 'CRYPTO_MARKET',
+				id: 'commodities-market',
+				title: '交易市場',
+				translate: 'COMMODITIES_MARKET',
 				type: 'item',
 				icon: 'monetization_on',
-				url: '/crypto-market'
+				url: '/commodities-market'
 			},
 			{
 				id: 'strategies-market',
