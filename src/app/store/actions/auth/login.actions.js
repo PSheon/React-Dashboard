@@ -38,31 +38,31 @@ export function submitLogin({ email, password }) {
 		const access_token =
 			'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVlYzEwY2FlNzRjYTk3MDMyY2Q0YTA1NSJ9LCJleHAiOjE1OTg0MTA5NTQsImlhdCI6MTU5ODE1MTc1NH0.sLk9X24JKSUpkq-aJF-G_o7-J88WKBQpbXlzMEDDGoc';
 
-		localStorage.setItem('jwt_access_token', access_token);
-		axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
+		// localStorage.setItem('jwt_access_token', access_token);
+		// axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
 
-		dispatch(ProfileActions.setUserData(user));
+		// dispatch(ProfileActions.setUserData(user));
 
-		dispatch({
-			type: LOGIN_SUCCESS
-		});
+		// dispatch({
+		// 	type: LOGIN_SUCCESS
+		// });
 
 		// TODO return demo
-		// jwtService
-		// 	.signInWithEmailAndPassword(email, password)
-		// 	.then(user => {
-		// 		dispatch(ProfileActions.setUserData(user));
-		// 		return dispatch({
-		// 			type: LOGIN_SUCCESS
-		// 		});
-		// 	})
-		// 	.catch(error => {
-		// 		// FIXME
-		// 		return dispatch({
-		// 			type: LOGIN_ERROR,
-		// 			payload: { error: ERROR_TABLE[error?.errors[0]?.msg] }
-		// 		});
-		// 	});
+		jwtService
+			.signInWithEmailAndPassword(email, password)
+			.then(user => {
+				dispatch(ProfileActions.setUserData(user));
+				return dispatch({
+					type: LOGIN_SUCCESS
+				});
+			})
+			.catch(error => {
+				// FIXME
+				return dispatch({
+					type: LOGIN_ERROR,
+					payload: { error: ERROR_TABLE[error?.errors[0]?.msg] }
+				});
+			});
 	};
 }
 

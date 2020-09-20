@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from 'react-table';
 
+import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Checkbox from '@material-ui/core/Checkbox';
 import MaUTable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -34,6 +35,7 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 
 const EnhancedTable = ({ columns, data, onRowClick }) => {
 	const USER_LIST = useSelector(({ userList }) => userList);
+	console.log('USER_LIST, ', USER_LIST);
 	const currentPageIndex = USER_LIST.routeParams.page ?? 1;
 	const totalPages = USER_LIST.totalPages ?? 1;
 	const isListLoading = USER_LIST.loading;
@@ -99,77 +101,85 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 
 	// Render the UI for your table
 	return (
-		<TableContainer className="min-h-full sm:rounded-16 -mt-16 sm:mt-0">
-			<MaUTable {...getTableProps()} stickyHeader>
-				<TableHead>
-					{headerGroups.map(headerGroup => (
-						<TableRow {...headerGroup.getHeaderGroupProps()}>
-							{headerGroup.headers.map(column => (
-								<TableCell
-									className={clsx('whitespace-no-wrap p-12 border-lightGray', column.headerClassName)}
-									{...(!column.sortable
-										? column.getHeaderProps()
-										: column.getHeaderProps(column.getSortByToggleProps()))}
-								>
-									{column.render('Header')}
-									{column.sortable ? (
-										<TableSortLabel
-											active={column.isSorted}
-											// react-table has a unsorted state which is not treated here
-											direction={column.isSortedDesc ? 'desc' : 'asc'}
-										/>
-									) : null}
-								</TableCell>
-							))}
-						</TableRow>
-					))}
-				</TableHead>
-				<TableBody>
-					{page.map((row, i) => {
-						prepareRow(row);
-						return (
-							<TableRow
-								{...row.getRowProps()}
-								onClick={ev => onRowClick(ev, row)}
-								className="truncate cursor-pointer rounded-8 transition ease-in duration-150 transform hover:-translate-y-2"
-							>
-								{row.cells.map(cell => {
-									return (
-										<TableCell
-											{...cell.getCellProps()}
-											className={clsx('p-12 border-none', cell.column.className)}
-										>
-											{cell.render('Cell')}
-										</TableCell>
-									);
-								})}
+		<div className="flex flex-col min-h-full -mt-16 sm:mt-0">
+			<TableContainer className="flex flex-1">
+				<MaUTable {...getTableProps()} stickyHeader>
+					<TableHead>
+						{headerGroups.map(headerGroup => (
+							<TableRow {...headerGroup.getHeaderGroupProps()}>
+								{headerGroup.headers.map(column => (
+									<TableCell
+										className={clsx(
+											'whitespace-no-wrap p-12 border-lightGray',
+											column.headerClassName
+										)}
+										{...(!column.sortable
+											? column.getHeaderProps()
+											: column.getHeaderProps(column.getSortByToggleProps()))}
+									>
+										{column.render('Header')}
+										{column.sortable ? (
+											<TableSortLabel
+												active={column.isSorted}
+												// react-table has a unsorted state which is not treated here
+												direction={column.isSortedDesc ? 'desc' : 'asc'}
+											/>
+										) : null}
+									</TableCell>
+								))}
 							</TableRow>
-						);
-					})}
-				</TableBody>
-				<TableFooter>
-					<TableRow>
-						<TablePagination
-							classes={{
-								root: 'overflow-hidden border-none',
-								spacer: 'w-0 max-w-0'
-							}}
-							// rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
-							count={data.length}
-							rowsPerPage={25}
-							// page={currentPageIndex - 1}
-							// SelectProps={{
-							// 	inputProps: { 'aria-label': 'rows per page' },
-							// 	native: false
-							// }}
-							onChangePage={handleChangePage}
-							onChangeRowsPerPage={handleChangeRowsPerPage}
-							ActionsComponent={ContactsTablePaginationActions}
-						/>
-					</TableRow>
-				</TableFooter>
-			</MaUTable>
-		</TableContainer>
+						))}
+					</TableHead>
+					<TableBody>
+						{page.map((row, i) => {
+							prepareRow(row);
+							return (
+								<TableRow
+									{...row.getRowProps()}
+									onClick={ev => onRowClick(ev, row)}
+									className="truncate cursor-pointer rounded-8 transition ease-in duration-150 transform hover:-translate-y-2"
+								>
+									{row.cells.map(cell => {
+										return (
+											<TableCell
+												{...cell.getCellProps()}
+												className={clsx('p-12 border-none', cell.column.className)}
+											>
+												{cell.render('Cell')}
+											</TableCell>
+										);
+									})}
+								</TableRow>
+							);
+						})}
+					</TableBody>
+				</MaUTable>
+			</TableContainer>
+
+			<TablePagination
+				component="div"
+				classes={{
+					root: 'overflow-hidden border-none',
+					spacer: 'w-0 max-w-0'
+				}}
+				SelectProps={{
+					inputProps: { 'aria-label': '每頁資料筆數' },
+					native: false
+				}}
+				rowsPerPage={5}
+				// rowsPerPage={pageSize}
+				rowsPerPageOptions={[5]}
+				// rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
+				labelDisplayedRows={({ from, to, count }) => `第 ${from} 到 ${to} 筆，共 ${count} 筆`}
+				labelRowsPerPage="每頁資料數"
+				count={data.length}
+				page={pageIndex}
+				// page={currentPageIndex - 1}
+				onChangePage={handleChangePage}
+				// onChangeRowsPerPage={handleChangeRowsPerPage}
+				ActionsComponent={ContactsTablePaginationActions}
+			/>
+		</div>
 	);
 };
 

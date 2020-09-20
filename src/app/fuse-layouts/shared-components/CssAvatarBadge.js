@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 
 const CssAvatarBadge = withStyles(theme => ({
 	badge: {
-		backgroundColor: ({ statusColorSchema }) => theme.palette[statusColorSchema].main,
-		color: ({ statusColorSchema }) => theme.palette[statusColorSchema].main,
+		backgroundColor: ({ dotschema }) => theme.palette[dotschema].main,
+		color: ({ dotschema }) => theme.palette[dotschema].main,
 		boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
 		'&::after': {
 			position: 'absolute',
@@ -34,11 +34,11 @@ const CssAvatarBadge = withStyles(theme => ({
 }))(Badge);
 
 CssAvatarBadge.propTypes = {
-	statusColorSchema: PropTypes.oneOf(['warning', 'danger', 'success'])
+	dotschema: PropTypes.oneOf(['warning', 'danger', 'success'])
 };
 
 CssAvatarBadge.defaultProps = {
-	statusColorSchema: 'success'
+	dotschema: 'success'
 };
 
 export default CssAvatarBadge;

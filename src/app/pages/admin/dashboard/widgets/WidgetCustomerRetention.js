@@ -7,7 +7,6 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 
 const OPTIONS = ({ labelColor, dangerLight, strokeColor, primary }) => ({
@@ -115,7 +114,6 @@ const useStyles = makeStyles(theme => ({
 const WidgetCustomerRetention = () => {
 	const theme = useTheme();
 	const classes = useStyles();
-	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
 		<div

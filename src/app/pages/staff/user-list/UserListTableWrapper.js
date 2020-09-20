@@ -15,7 +15,7 @@ import UserListTable from './UserListTable';
 
 import { getInfoFromScheme, getInfoFromClassGroup, getInfoFromProgress } from 'utils';
 
-function UserListTableWrapper(props) {
+function UserListTableWrapper() {
 	const dispatch = useDispatch();
 	// const contacts = useSelector(({ contactsApp }) => contactsApp.contacts.entities);
 	// const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
@@ -191,7 +191,7 @@ function UserListTableWrapper(props) {
 	// }, [contacts, searchText]);
 
 	if (!filteredData) {
-		return <div className="flex justify-center items-center">沒有符合條件的會員kjhkjhjhjkn</div>;
+		return <div className="flex justify-center items-center">沒有符合條件的會員</div>;
 	}
 
 	if (filteredData.length === 0) {

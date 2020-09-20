@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
-import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
 // import * as Actions from '../store/actions';
 // import reducer from '../store/reducers';
@@ -41,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Board(props) {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	const boards = useSelector(({ scrumboardApp }) => scrumboardApp.boards);
 
 	const classes = useStyles(props);

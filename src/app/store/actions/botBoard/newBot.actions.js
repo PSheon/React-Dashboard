@@ -1,5 +1,5 @@
-import * as MessageActions from 'app/store/actions/fuse/message.actions';
-import axios from 'axios';
+// import * as MessageActions from 'app/store/actions/fuse/message.actions';
+// import axios from 'axios';
 
 export const SET_NEW_BOT_LOADING = '[BOT BOARD] SET NEW BOT LOADING';
 export const SET_NEW_BOT_SETTING_STEP = '[BOT BOARD] SET NEW BOT STEP';

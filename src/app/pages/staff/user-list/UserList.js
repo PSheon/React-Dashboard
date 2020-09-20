@@ -37,7 +37,7 @@ function UserList() {
 		<>
 			<FusePageSimple
 				classes={{
-					contentWrapper: 'p-0 sm:p-24 pb-12 sm:py-0 h-full',
+					contentWrapper: 'p-0 sm:p-24 pb-0 sm:py-0 h-full',
 					content: 'flex flex-col h-full',
 					leftSidebar: 'w-256 border-0',
 					header: 'min-h-128 h-128 sm:h-136 sm:min-h-136',

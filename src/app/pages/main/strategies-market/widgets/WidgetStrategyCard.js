@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
@@ -93,7 +93,6 @@ const WidgetStrategyCard = ({
 		gainRateColorSchema: getGainColorScheme(gainRate),
 		riskScoreColorSchema: getRiskColorScheme(riskScore)
 	});
-	const theme = useTheme();
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
@@ -105,7 +104,7 @@ const WidgetStrategyCard = ({
 							vertical: 'bottom',
 							horizontal: 'right'
 						}}
-						statusColorSchema="success"
+						dotschema="success"
 						variant="dot"
 					>
 						<div className="border-4 p-2 rounded-full">

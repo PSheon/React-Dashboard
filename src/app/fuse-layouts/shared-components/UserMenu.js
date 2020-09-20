@@ -67,6 +67,7 @@ function UserMenu(props) {
 						vertical: 'bottom',
 						horizontal: 'right'
 					}}
+					dotschema="danger"
 					variant="dot"
 				>
 					<div className="border-4 p-2 rounded-full">

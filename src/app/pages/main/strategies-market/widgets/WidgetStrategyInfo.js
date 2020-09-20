@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import WidgetBasicCard from 'app/fuse-layouts/shared-components/BasicCard';
 import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
 import clsx from 'clsx';
 
@@ -39,7 +38,7 @@ const WidgetStrategyInfo = props => {
 							vertical: 'bottom',
 							horizontal: 'right'
 						}}
-						statusColorSchema="success"
+						dotschema="success"
 						variant="dot"
 					>
 						<div className="border-4 p-2 rounded-full">

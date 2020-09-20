@@ -118,7 +118,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const StrategyReturn = () => {
+const WidgetStrategyReturn = () => {
 	const theme = useTheme();
 	const classes = useStyles();
 
@@ -183,4 +183,4 @@ const StrategyReturn = () => {
 	);
 };
 
-export default StrategyReturn;
+export default WidgetStrategyReturn;

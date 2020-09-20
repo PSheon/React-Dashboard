@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
@@ -80,7 +80,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const StrategyCard = ({
+const WidgetStrategyCard = ({
 	author,
 	strategyId,
 	strategyDisplayname,
@@ -93,7 +93,6 @@ const StrategyCard = ({
 		gainRateColorSchema: getGainColorScheme(gainRate),
 		riskScoreColorSchema: getRiskColorScheme(riskScore)
 	});
-	const theme = useTheme();
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none flex flex-col justify-between')}>
@@ -105,7 +104,7 @@ const StrategyCard = ({
 							vertical: 'bottom',
 							horizontal: 'right'
 						}}
-						statusColorSchema="success"
+						dotschema="success"
 						variant="dot"
 					>
 						<div className="border-4 p-2 rounded-full">
@@ -174,7 +173,7 @@ const StrategyCard = ({
 	);
 };
 
-StrategyCard.propTypes = {
+WidgetStrategyCard.propTypes = {
 	author: PropTypes.object.isRequired,
 	strategyId: PropTypes.string.isRequired,
 	strategyDisplayname: PropTypes.string.isRequired,
@@ -184,7 +183,7 @@ StrategyCard.propTypes = {
 	followersChange: PropTypes.number.isRequired
 };
 
-StrategyCard.defaultProps = {
+WidgetStrategyCard.defaultProps = {
 	author: {
 		displayName: 'Paul',
 		photoUrl: 'assets/images/avatars/default.jpg'
@@ -197,4 +196,4 @@ StrategyCard.defaultProps = {
 	followersChange: 120
 };
 
-export default StrategyCard;
+export default WidgetStrategyCard;

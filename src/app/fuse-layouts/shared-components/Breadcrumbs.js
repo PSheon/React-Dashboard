@@ -8,13 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const renderText = (title, isActive) =>
-	isActive ? (
-		<Typography color="textPrimary">{title}</Typography>
-	) : (
-		<Typography color="textSecondary">{title}</Typography>
-	);
-
 const BreadcrumbsDefault = props => {
 	const { breadCrumbTitle, breadCrumbs } = props;
 
@@ -41,13 +34,15 @@ const BreadcrumbsDefault = props => {
 				<Link className="flex justify-center items-center" to="/dashboard">
 					<Home className="align-top" size={18} />
 				</Link>
-				{breadCrumbs.map(({ to, title, isActive }) =>
+				{breadCrumbs.map(({ to, title, isActive }, i) =>
 					to ? (
-						<Link className="flex justify-center items-center" to={to}>
-							{renderText(title, isActive)}
+						<Link key={i} className="flex justify-center items-center" to={to}>
+							<Typography color={isActive ? 'textPrimary' : 'textSecondary'}>{title}</Typography>
 						</Link>
 					) : (
-						renderText(title, isActive)
+						<Typography key={i} color={isActive ? 'textPrimary' : 'textSecondary'}>
+							{title}
+						</Typography>
 					)
 				)}
 			</Breadcrumbs>

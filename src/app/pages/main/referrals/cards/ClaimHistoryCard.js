@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -91,7 +91,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ClaimHistoryCard = () => {
-	const theme = useTheme();
 	const classes = useStyles();
 
 	const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);

@@ -190,7 +190,7 @@ const WidgetStrategyFeatureCard = ({
 							vertical: 'bottom',
 							horizontal: 'right'
 						}}
-						statusColorSchema="success"
+						dotschema="success"
 						variant="dot"
 					>
 						<div className="border-4 p-2 rounded-full">
