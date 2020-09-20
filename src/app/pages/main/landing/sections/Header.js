@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 		background: 'linear-gradient(to bottom, rgba(44,48,60,.9) 44%,rgba(44,48,60,.43) 73%,rgba(17,30,70,0))'
 	},
 	backButton: {
-		background: theme.palette.secondaryGradient
+		background: theme.palette.primaryGradient
 	}
 }));
 

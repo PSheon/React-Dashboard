@@ -13,10 +13,9 @@ const Main = () => {
 			}}
 			className="w-full flex flex-col items-center justify-center px-24 pt-96 sm:pt-200 pb-48"
 		>
-			<Typography className="mb-24 text-48 font-semibold text-center">平台</Typography>
+			<Typography className="mb-24 text-32 font-semibold text-center">外匯差價合約和加密數字貨幣借貸</Typography>
 			<Typography className="mb-24 text-24 text-center" color="textSecondary">
-				Our landing page template works on all devices, so you only have to set it up once, and get beautiful
-				results forever.
+				利用我們先進的工具和功能，控制您的投資風險：探索世界最受歡迎的市場交易，免費即時行情和全天候線上支持。
 			</Typography>
 
 			<img src={IMAGE} alt="App Demo" />

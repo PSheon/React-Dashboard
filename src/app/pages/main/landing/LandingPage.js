@@ -30,7 +30,7 @@ function LandingPage() {
 			{/* <Feature /> */}
 
 			{/* Pricing */}
-			<Pricing />
+			{/* <Pricing /> */}
 
 			{/* Footer */}
 			<Footer />
