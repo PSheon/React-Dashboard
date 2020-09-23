@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Breadcrumbs from 'app/fuse-layouts/shared-components/Breadcrumbs';
 import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
-// import * as Actions from './store/actions';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 
@@ -55,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 function UserListHeader(props) {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const { searchText, searchCondition, totalUsers } = useSelector(({ userList }) => userList);
+	const searchText = useSelector(({ userList }) => userList.routeParams.filter);
 	const theme = useTheme();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -66,16 +65,9 @@ function UserListHeader(props) {
 		newSearchText => {
 			setIsLocalSearchingLoading(false);
 			setLocalSearchText(newSearchText);
-			dispatch(Actions.setSearchText(newSearchText));
 			dispatch(
-				Actions.getUserList({
-					filter: newSearchText,
-					fields: 'displayName',
-					conditions: searchCondition,
-					page: 1,
-					limit: 20,
-					sort: 'updatedAt',
-					order: -1
+				Actions.setSearchRouteParams({
+					filter: newSearchText
 				})
 			);
 		},

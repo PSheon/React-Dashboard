@@ -4,7 +4,6 @@ import { XCircle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from '@fuse/hooks';
-import FuseUtils from '@fuse/utils/FuseUtils';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -22,19 +21,22 @@ import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 
 const defaultFormState = {
-	id: '',
+	memberId: '',
 	photoUrl: 'assets/images/avatars/default.jpg',
 	displayName: '',
-	mail: '',
+	email: '',
 	phone: '',
 	class: '',
 	progress: 0,
-	scheme: ''
+	scheme: '',
+	active: true,
+	createAt: new Date(),
+	updatedAt: new Date()
 };
 
 function PaperComponent(props) {
 	return (
-		<Draggable handle="#draggable-dialog-title" cancel={'[class*="MuiDialogContent-root"]'}>
+		<Draggable handle="#draggable-dialog" cancel={'[class*="MuiDialogContent-root"]'}>
 			<Paper {...props} />
 		</Draggable>
 	);
@@ -47,9 +49,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function UserDialog(props) {
-	const classes = useStyles();
+	const classes = useStyles(props);
 	const dispatch = useDispatch();
-	// const contactDialog = useSelector(({ contactsApp }) => contactsApp.contacts.contactDialog);
 	const userInfoDialog = useSelector(({ userList }) => userList.userInfoDialog);
 
 	const { form, handleChange, setForm } = useForm(defaultFormState);
@@ -58,21 +59,21 @@ function UserDialog(props) {
 		/**
 		 * Dialog type: 'edit'
 		 */
-		if (userInfoDialog.type === 'edit' && userInfoDialog.data) {
+		if (userInfoDialog.data) {
 			setForm({ ...userInfoDialog.data });
 		}
 
 		/**
 		 * Dialog type: 'new'
 		 */
-		if (userInfoDialog.type === 'new') {
-			setForm({
-				...defaultFormState,
-				...userInfoDialog.data,
-				id: FuseUtils.generateGUID()
-			});
-		}
-	}, [userInfoDialog.data, userInfoDialog.type, setForm]);
+		// if (userInfoDialog.type === 'new') {
+		// 	setForm({
+		// 		...defaultFormState,
+		// 		...userInfoDialog.data,
+		// 		id: FuseUtils.generateGUID()
+		// 	});
+		// }
+	}, [userInfoDialog.data, setForm]);
 
 	useEffect(() => {
 		/**
@@ -84,29 +85,23 @@ function UserDialog(props) {
 	}, [userInfoDialog.props.open, initDialog]);
 
 	function closeComposeDialog() {
-		// return userInfoDialog.type === 'edit'
-		// 	? dispatch(Actions.closeEdituserInfoDialog())
-		// 	: dispatch(Actions.closeNewuserInfoDialog());
 		dispatch(Actions.closeUserInfoDialog());
 	}
 
 	function canBeSubmitted() {
-		return form.displayName.length > 0;
+		// return form.displayName.length > 0;
+		return form.displayName && form.displayName.length > 0;
 	}
 
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		if (userInfoDialog.type === 'new') {
-			dispatch(Actions.addContact(form));
-		} else {
-			dispatch(Actions.updateContact(form));
-		}
+		// dispatch(Actions.updateContact(form));
 		closeComposeDialog();
 	}
 
-	function handleRemove() {
-		dispatch(Actions.removeContact(form.id));
+	function handleToggleActiveStatus() {
+		// dispatch(Actions.setUserActiveStatus(form.memberId, !form.active));
 		closeComposeDialog();
 	}
 
@@ -118,10 +113,11 @@ function UserDialog(props) {
 			{...userInfoDialog.props}
 			onClose={closeComposeDialog}
 			PaperComponent={PaperComponent}
+			scroll="paper"
 			fullWidth
 			maxWidth="md"
 		>
-			<AppBar position="static" elevation={1} id="draggable-dialog-title" className="mb-48 rounded-8">
+			<AppBar position="static" elevation={1} id="draggable-dialog" className="mb-24 rounded-8">
 				<Toolbar className="flex w-full justify-between cursor-move">
 					<Typography variant="subtitle1" color="inherit">
 						{userInfoDialog.type === 'new' ? 'New Contact' : '編輯用戶'}
@@ -140,150 +136,139 @@ function UserDialog(props) {
 					</IconButton>
 				</Toolbar>
 				<div className="flex flex-col items-center justify-center">
-					{userInfoDialog.type === 'edit' && (
-						<Avatar
-							className={clsx(classes.avatarWrapper, 'w-96 h-96 -mb-36')}
-							alt="contact avatar"
-							src={form.photoUrl}
-						/>
-					)}
+					<Avatar
+						className={clsx(classes.avatarWrapper, 'w-64 h-64 -mb-24')}
+						alt="user avatar"
+						src={form.photoUrl}
+					/>
 				</div>
 			</AppBar>
-			<form noValidate onSubmit={handleSubmit} className="flex flex-col md:overflow-hidden">
-				<DialogContent classes={{ root: 'p-24' }}>
-					<div className="flex">
-						<div className="min-w-48 pt-12">
-							<Icon color="action">account_circle</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="戶名"
-							autoFocus
-							id="displayName"
-							name="displayName"
-							value={form.displayName}
-							onChange={handleChange}
-							variant="outlined"
-							required
-							fullWidth
-						/>
+			<DialogContent classes={{ root: 'px-24 py-12 flex flex-col md:overflow-hidden' }}>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">account_circle</Icon>
 					</div>
+					<CssTextField
+						className=""
+						label="戶名"
+						id="memberId"
+						name="memberId"
+						value={form.memberId}
+						variant="outlined"
+						InputProps={{
+							readOnly: true
+						}}
+						fullWidth
+					/>
+				</div>
 
-					<div className="flex">
-						<div className="min-w-48 pt-12">
-							<Icon color="action">email</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="信箱"
-							id="mail"
-							name="mail"
-							value={form.mail}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">account_circle</Icon>
 					</div>
+					<CssTextField
+						className=""
+						label="顯示名稱"
+						autoFocus
+						id="displayName"
+						name="displayName"
+						value={form.displayName}
+						onChange={handleChange}
+						variant="outlined"
+						fullWidth
+					/>
+				</div>
 
-					<div className="flex">
-						<div className="min-w-48 pt-12">
-							<Icon color="action">phone</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="手機"
-							id="phone"
-							name="phone"
-							value={form.phone}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">email</Icon>
 					</div>
+					<CssTextField
+						className=""
+						label="信箱"
+						id="mail"
+						name="mail"
+						value={form.email}
+						onChange={handleChange}
+						variant="outlined"
+						fullWidth
+					/>
+				</div>
 
-					<div className="flex">
-						<div className="min-w-48 pt-12">
-							<Icon color="action">emoji_events</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="階級"
-							id="class"
-							name="class"
-							value={form.class}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">phone</Icon>
 					</div>
+					<CssTextField
+						className=""
+						label="手機"
+						id="phone"
+						name="phone"
+						value={form.phone}
+						onChange={handleChange}
+						variant="outlined"
+						fullWidth
+					/>
+				</div>
 
-					<div className="flex">
-						<div className="min-w-48 pt-12">
-							<Icon color="action">bar_chart</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="交易進度"
-							id="progress"
-							name="progress"
-							value={form.progress}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">emoji_events</Icon>
 					</div>
+					<CssTextField
+						className=""
+						label="階級"
+						id="class"
+						name="class"
+						value={form.class}
+						onChange={handleChange}
+						variant="outlined"
+						fullWidth
+					/>
+				</div>
 
-					<div className="flex">
-						<div className="min-w-48 pt-12">
-							<Icon color="action">local_atm</Icon>
-						</div>
-						<CssTextField
-							className="mb-24"
-							label="方案"
-							id="scheme"
-							name="scheme"
-							value={form.scheme}
-							onChange={handleChange}
-							variant="outlined"
-							fullWidth
-						/>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">bar_chart</Icon>
 					</div>
-				</DialogContent>
+					<CssTextField
+						className=""
+						label="交易進度"
+						id="progress"
+						name="progress"
+						value={form.progress}
+						variant="outlined"
+						fullWidth
+					/>
+				</div>
 
-				{userInfoDialog.type === 'new' ? (
-					<DialogActions className="justify-between p-8">
-						<div className="px-16">
-							<Button
-								variant="contained"
-								color="primary"
-								onClick={handleSubmit}
-								type="submit"
-								disabled={!canBeSubmitted()}
-							>
-								Add
-							</Button>
-						</div>
-					</DialogActions>
-				) : (
-					<DialogActions className="justify-between p-8">
-						<IconButton onClick={handleRemove}>
-							<Icon>delete</Icon>
-						</IconButton>
+				<div className="flex items-center py-12">
+					<div className="min-w-48">
+						<Icon color="action">local_atm</Icon>
+					</div>
+					<CssTextField
+						className=""
+						label="方案"
+						id="scheme"
+						name="scheme"
+						value={form.scheme}
+						onChange={handleChange}
+						variant="outlined"
+						fullWidth
+					/>
+				</div>
+			</DialogContent>
+			<DialogActions className="justify-between p-8">
+				<IconButton onClick={handleToggleActiveStatus}>
+					{form.active ? <Icon>lock</Icon> : <Icon>lock_open</Icon>}
+				</IconButton>
 
-						<div className="px-16">
-							<Button
-								variant="contained"
-								color="primary"
-								type="submit"
-								onClick={handleSubmit}
-								disabled={!canBeSubmitted()}
-							>
-								確定
-							</Button>
-						</div>
-					</DialogActions>
-				)}
-			</form>
+				<div className="px-16">
+					<Button variant="contained" color="primary" onClick={handleSubmit} disabled={!canBeSubmitted()}>
+						確定
+					</Button>
+				</div>
+			</DialogActions>
 		</Dialog>
 	);
 }

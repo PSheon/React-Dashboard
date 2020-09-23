@@ -132,7 +132,7 @@ const WidgetStrategyCard = ({
 				</IconButton>
 			</div>
 
-			<div className="px-16 py-8 sm:px-24 sm:py-12 flex justify-between">
+			<div className="px-16 py-24 sm:px-24 sm:py-12 flex justify-between">
 				<div className="flex flex-col justify-center">
 					<Typography
 						className={clsx(classes.gainRate, 'text-24 font-bold leading-none')}
@@ -153,7 +153,6 @@ const WidgetStrategyCard = ({
 					</Typography>
 				</div>
 			</div>
-
 			<div className="px-16 sm:px-24 flex justify-center">
 				<Button
 					component={Link}
@@ -164,7 +163,6 @@ const WidgetStrategyCard = ({
 					使用策略
 				</Button>
 			</div>
-
 			<div className="px-16 sm:px-24 pb-16 flex justify-center items-center">
 				<Typography color="textSecondary">{`${formatNumber(followersCount)} 使用者`}</Typography>
 				{renderFollowersChange(followersChange)}

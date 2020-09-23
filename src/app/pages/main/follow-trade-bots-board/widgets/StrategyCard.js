@@ -132,7 +132,7 @@ const StrategyCard = ({
 				</IconButton>
 			</div>
 
-			<div className="px-16 py-8 sm:px-24 sm:py-12 flex justify-between">
+			<div className="px-16 py-24 sm:px-24 sm:py-12 flex justify-between">
 				<div className="flex flex-col justify-center">
 					<Typography
 						className={clsx(classes.gainRate, 'text-24 font-bold leading-none')}

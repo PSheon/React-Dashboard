@@ -13,24 +13,12 @@ import UserListTableWrapper from './UserListTableWrapper';
 
 function UserList() {
 	const dispatch = useDispatch();
-	const searchText = useSelector(({ userList }) => userList.searchText);
-	const searchCondition = useSelector(({ userList }) => userList.searchCondition);
+	const routeParams = useSelector(({ userList }) => userList.routeParams);
 
 	const pageLayout = useRef(null);
-	const routeParams = useParams();
 
 	useDeepCompareEffect(() => {
-		dispatch(
-			Actions.getUserList({
-				filter: searchText,
-				fields: 'displayName,email',
-				conditions: searchCondition,
-				page: 1,
-				limit: 20,
-				sort: 'updatedAt',
-				order: -1
-			})
-		);
+		dispatch(Actions.getUserList(routeParams));
 	}, [dispatch, routeParams]);
 
 	return (

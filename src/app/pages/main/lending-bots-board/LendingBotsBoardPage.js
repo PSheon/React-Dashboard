@@ -769,7 +769,7 @@ function LendingBotsBoardPage(props) {
 						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">借貸 #1</Typography>
 					</FuseAnimate>
 
-					<div className="flex sm:px-8 flex-wrap justify-center items-start">
+					<div className="flex sm:px-8 flex-wrap">
 						<div className="flex w-full md:w-1/3 lg:w-320 p-16">
 							<WidgetStrategyCard
 								title="Litecoin"
@@ -782,7 +782,7 @@ function LendingBotsBoardPage(props) {
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="flex-1 min-w-0 p-16">
+						<div className="flex-1 p-16">
 							<WidgetStrategyReturn />
 						</div>
 					</div>
@@ -793,7 +793,7 @@ function LendingBotsBoardPage(props) {
 						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">借貸 #2</Typography>
 					</FuseAnimate>
 
-					<div className="flex sm:px-8 flex-wrap justify-center items-start">
+					<div className="flex sm:px-8 flex-wrap">
 						<div className="flex w-full md:w-1/3 lg:w-320 p-16">
 							<WidgetStrategyCard
 								title="Litecoin"
@@ -806,7 +806,7 @@ function LendingBotsBoardPage(props) {
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="flex-1 min-w-0 p-16">
+						<div className="flex-1 p-16">
 							<WidgetStrategyReturn />
 						</div>
 					</div>

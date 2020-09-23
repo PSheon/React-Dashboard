@@ -763,8 +763,8 @@ function FollowTradeBotsBoardPage(props) {
 						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">跟投 #1</Typography>
 					</FuseAnimate>
 
-					<div className="flex sm:px-8 flex-wrap justify-center items-start">
-						<div className="flex w-full md:w-1/3 lg:w-320 p-16">
+					<div className="flex sm:px-8 flex-wrap">
+						<div className="flex w-full md:w-1/3 lg:w-320 m-16">
 							<WidgetStrategyCard
 								title="Litecoin"
 								abbreviation="LTC"
@@ -776,7 +776,7 @@ function FollowTradeBotsBoardPage(props) {
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="flex-1 min-w-0 p-16">
+						<div className="flex-1 m-16 mt-0 sm:mt-16">
 							<WidgetStrategyReturn />
 						</div>
 					</div>
@@ -787,8 +787,8 @@ function FollowTradeBotsBoardPage(props) {
 						<Typography className="px-24 pb-8 pt-12 text-18 sm:text-20 font-medium">跟投 #2</Typography>
 					</FuseAnimate>
 
-					<div className="flex sm:px-8 flex-wrap justify-center items-start">
-						<div className="flex w-full md:w-1/3 lg:w-320 p-16">
+					<div className="flex sm:px-8 flex-wrap">
+						<div className="flex w-full md:w-1/3 lg:w-320 m-16">
 							<WidgetStrategyCard
 								title="Litecoin"
 								abbreviation="LTC"
@@ -800,7 +800,7 @@ function FollowTradeBotsBoardPage(props) {
 								tooltipTitle="價格"
 							/>
 						</div>
-						<div className="flex-1 min-w-0 p-16">
+						<div className="flex-1 m-16 mt-0 sm:mt-16">
 							<WidgetStrategyReturn />
 						</div>
 					</div>
@@ -812,7 +812,7 @@ function FollowTradeBotsBoardPage(props) {
 					<div
 						className={clsx(
 							classes.headerWrapper,
-							'h-128 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
+							'h-256 sm:h-200 m-16 sm:m-24 flex justify-center items-center rounded-8'
 						)}
 					>
 						<Typography className="text-24 sm:text-28 font-semibold" color="inherit">

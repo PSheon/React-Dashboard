@@ -3,15 +3,21 @@ import * as Actions from 'app/store/actions/userList';
 const initialState = {
 	loading: true,
 	docs: null,
-	searchText: '',
-	searchCondition: {
-		gender: 'all'
-	},
 	selectedUserIds: [],
-	routeParams: {},
+	routeParams: {
+		filter: '',
+		fields: 'displayName,email',
+		page: 1,
+		// limit: 20,
+		limit: 2,
+		conditions: {},
+		sort: 'createdAt',
+		order: -1
+	},
 	totalPages: 1,
-	totalUsers: 10,
+	totalUsers: 20,
 	userInfoDialog: {
+		type: 'edit',
 		props: {
 			open: false
 		},
@@ -19,7 +25,7 @@ const initialState = {
 	},
 	filterPanel: {
 		open: false,
-		data: ''
+		data: {}
 	}
 };
 
@@ -32,7 +38,7 @@ const userListReducer = (state = initialState, action) => {
 			};
 		}
 
-		case Actions.GET_USER_LIST: {
+		case Actions.SET_USER_LIST: {
 			const { users, routeParams, totalPages, totalUsers } = action.payload;
 
 			return {
@@ -44,62 +50,13 @@ const userListReducer = (state = initialState, action) => {
 				totalUsers
 			};
 		}
-		case Actions.SET_ACTIVITY_LOGS_BY_USER_ID: {
-			const { userId, activityLogs } = action.payload;
-			const newUserList = state.docs.map(doc => {
-				if (doc._id === userId) {
-					return {
-						...doc,
-						activityLogs
-					};
+		case Actions.SET_ROUTE_PARAMS: {
+			return {
+				...state,
+				routeParams: {
+					...state.routeParams,
+					...action.payload.routeParams
 				}
-				return doc;
-			});
-
-			return {
-				...state,
-				loading: false,
-				docs: newUserList,
-				userInfoDialog: {
-					...state.userInfoDialog,
-					data: {
-						...state.userInfoDialog.data,
-						activityLogs
-					}
-				}
-			};
-		}
-		case Actions.UPDATE_USER_LIST: {
-			/* NOTE */
-			const { users, routeParams, totalPages } = action.payload;
-			// const userIdSet = new Set(state.docs.map(item => item._id));
-			// let tempUsersArr = [];
-
-			// users.map(user =>
-			//   !userIdSet.has(user._id) ? tempUsersArr.push(user) : null
-			// );
-
-			return {
-				...state,
-				loading: false,
-				docs: [...users],
-				routeParams,
-				totalPages
-			};
-		}
-		case Actions.SET_SEARCH_TEXT: {
-			const { searchText } = action.payload;
-			return {
-				...state,
-				searchText
-			};
-		}
-		case Actions.SET_SEARCH_CONDITION: {
-			const { searchCondition } = action.payload;
-
-			return {
-				...state,
-				searchCondition
 			};
 		}
 		case Actions.TOGGLE_IN_SELECTED_USERS: {
@@ -138,6 +95,7 @@ const userListReducer = (state = initialState, action) => {
 			return {
 				...state,
 				userInfoDialog: {
+					...state.userInfoDialog,
 					props: {
 						open: true
 					},
@@ -149,6 +107,7 @@ const userListReducer = (state = initialState, action) => {
 			return {
 				...state,
 				userInfoDialog: {
+					...state.userInfoDialog,
 					props: {
 						open: false
 					},

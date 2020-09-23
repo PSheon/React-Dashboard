@@ -1,12 +1,9 @@
 import * as FuseActions from 'app/store/actions/fuse';
 import axios from 'axios';
 
-export const SET_ACTIVITY_LOGS_BY_USER_ID = '[USER LIST] SET USER ACTIVITY LOGS BY USER ID';
 export const SET_USER_LIST_LOADING = '[USER LIST] SET USER LIST LOADING';
-export const GET_USER_LIST = '[USER LIST] GET USER LIST';
-export const UPDATE_USER_LIST = '[USER LIST] UPDATE USER LIST';
-export const SET_SEARCH_TEXT = '[USER LIST] SET SEARCH TEXT';
-export const SET_SEARCH_CONDITION = '[USER LIST] SET SEARCH CONDITION';
+export const SET_USER_LIST = '[USER LIST] SET USER LIST';
+export const SET_ROUTE_PARAMS = '[USER LIST] SET ROUTE PARAMS';
 export const TOGGLE_IN_SELECTED_USERS = '[USER LIST] TOGGLE IN SELECTED USERS';
 export const SELECT_ALL_USERS = '[USER LIST] SELECT ALL USERS';
 export const DESELECT_ALL_USERS = '[USER LIST] DESELECT ALL USERS';
@@ -37,7 +34,7 @@ export function getUserList(routeParams) {
 		dispatch({ type: SET_USER_LIST_LOADING });
 		request.then(response => {
 			dispatch({
-				type: GET_USER_LIST,
+				type: SET_USER_LIST,
 				payload: {
 					users: response.data.docs,
 					routeParams,
@@ -49,45 +46,12 @@ export function getUserList(routeParams) {
 	};
 }
 
-export function updateUserListWithPageIndex(routeParams) {
-	const request = axios.get('/api/users', {
-		params: routeParams
-	});
-
-	return dispatch => {
-		dispatch({ type: SET_USER_LIST_LOADING });
-		request.then(response =>
-			dispatch({
-				type: UPDATE_USER_LIST,
-				payload: {
-					users: response.data.docs,
-					routeParams: {
-						...routeParams,
-						page: routeParams.page
-					},
-					totalPages: response.data.totalPages
-				}
-			})
-		);
-	};
-}
-
-export function setSearchText(searchText) {
+export function setSearchRouteParams(routeParams) {
 	return dispatch => {
 		dispatch({
-			type: SET_SEARCH_TEXT,
+			type: SET_ROUTE_PARAMS,
 			payload: {
-				searchText
-			}
-		});
-	};
-}
-export function setSearchCondition(searchCondition) {
-	return dispatch => {
-		dispatch({
-			type: SET_SEARCH_CONDITION,
-			payload: {
-				searchCondition
+				routeParams
 			}
 		});
 	};
@@ -126,23 +90,6 @@ export function openUserInfoDialog(data) {
 export function closeUserInfoDialog() {
 	return {
 		type: CLOSE_USER_INFO_DIALOG
-	};
-}
-
-export function syncActivityLogsByUserId(userId) {
-	const request = axios.get(`/api/activityLog/user/${userId}`);
-
-	return dispatch => {
-		dispatch({ type: SET_USER_LIST_LOADING });
-		request.then(response => {
-			dispatch({
-				type: SET_ACTIVITY_LOGS_BY_USER_ID,
-				payload: {
-					userId,
-					activityLogs: response.data
-				}
-			});
-		});
 	};
 }
 

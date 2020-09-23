@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseUtils from '@fuse/utils';
 import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,24 +8,18 @@ import Typography from '@material-ui/core/Typography';
 import CssLinearProgress from 'app/fuse-layouts/shared-components/CssLinearProgress';
 import * as Actions from 'app/store/actions';
 
-import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
+import UserListMultiSelectMenu from './UserListMultiSelectMenu';
 import UserListTable from './UserListTable';
 
 import { getInfoFromScheme, getInfoFromClassGroup, getInfoFromProgress } from 'utils';
 
 function UserListTableWrapper() {
 	const dispatch = useDispatch();
-	// const contacts = useSelector(({ contactsApp }) => contactsApp.contacts.entities);
-	// const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
-	// const user = useSelector(({ contactsApp }) => contactsApp.user);
 	const USER_LIST = useSelector(({ userList }) => userList);
-	const currentPageIndex = USER_LIST.routeParams.page ?? 1;
+	const totalUsers = USER_LIST.totalUsers ?? 1;
 	const totalPages = USER_LIST.totalPages ?? 1;
 	const isListLoading = USER_LIST.loading;
 	const filteredData = USER_LIST.docs ?? [];
-	const { selectedUserIds } = USER_LIST;
-	const { searchText } = USER_LIST;
-	const { searchCondition } = USER_LIST;
 
 	const columns = React.useMemo(
 		() => [
@@ -36,7 +28,7 @@ function UserListTableWrapper() {
 					const selectedRowIds = selectedFlatRows.map(row => row.original.id);
 
 					return (
-						selectedFlatRows.length > 0 && <ContactsMultiSelectMenu selectedContactIds={selectedRowIds} />
+						selectedFlatRows.length > 0 && <UserListMultiSelectMenu selectedContactIds={selectedRowIds} />
 					);
 				},
 				accessor: 'photoUrl',
@@ -49,14 +41,21 @@ function UserListTableWrapper() {
 			},
 			{
 				Header: '戶名',
-				accessor: 'displayName',
+				accessor: 'memberId',
 				headerClassName: 'text-center',
 				className: 'text-center font-bold',
 				sortable: true
 			},
 			{
+				Header: '顯示名稱',
+				accessor: 'displayName',
+				headerClassName: 'text-center',
+				className: 'text-center',
+				sortable: true
+			},
+			{
 				Header: '信箱',
-				accessor: 'mail',
+				accessor: 'email',
 				headerClassName: 'text-center',
 				className: 'text-center',
 				sortable: true
@@ -145,37 +144,6 @@ function UserListTableWrapper() {
 		[dispatch]
 	);
 
-	function handlePageChange(wantedPageIndex) {
-		if (wantedPageIndex === currentPageIndex) return;
-
-		dispatch(
-			Actions.updateUserListWithPageIndex({
-				filter: searchText,
-				fields: 'displayName,email,fullName,schoolName,phone,city',
-				conditions: searchCondition,
-				page: wantedPageIndex,
-				limit: 20,
-				sort: 'updatedAt',
-				order: -1
-			})
-		);
-	}
-	function handleSortChange(newSorted) {
-		const sortDetail = newSorted[0];
-
-		dispatch(
-			Actions.getUserList({
-				filter: searchText,
-				fields: 'displayName,email,fullName,schoolName,phone,city',
-				conditions: searchCondition,
-				page: 1,
-				limit: 20,
-				sort: sortDetail.id,
-				order: sortDetail.desc ? 1 : -1
-			})
-		);
-	}
-
 	// useEffect(() => {
 	// 	function getFilteredArray(entities, _searchText) {
 	// 		const arr = Object.keys(entities).map(id => entities[id]);
@@ -205,17 +173,18 @@ function UserListTableWrapper() {
 	}
 
 	return (
-		<FuseAnimate animation="transition.slideUpIn" delay={300}>
-			<UserListTable
-				columns={columns}
-				data={filteredData}
-				onRowClick={(ev, row) => {
-					if (row) {
-						dispatch(Actions.openUserInfoDialog(row.original));
-					}
-				}}
-			/>
-		</FuseAnimate>
+		<UserListTable
+			columns={columns}
+			data={filteredData}
+			loading={isListLoading}
+			totalUsers={totalUsers}
+			totalPages={totalPages}
+			onRowClick={(ev, row) => {
+				if (row) {
+					dispatch(Actions.openUserInfoDialog(row.original));
+				}
+			}}
+		/>
 	);
 }
 

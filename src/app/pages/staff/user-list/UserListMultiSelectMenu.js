@@ -8,10 +8,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import * as Actions from 'app/store/actions';
+// import * as Actions from './store/actions';
 
-import * as Actions from './store/actions';
-
-function ContactsMultiSelectMenu(props) {
+function UserListMultiSelectMenu(props) {
 	const dispatch = useDispatch();
 	const { selectedContactIds } = props;
 
@@ -81,4 +81,4 @@ function ContactsMultiSelectMenu(props) {
 	);
 }
 
-export default ContactsMultiSelectMenu;
+export default UserListMultiSelectMenu;

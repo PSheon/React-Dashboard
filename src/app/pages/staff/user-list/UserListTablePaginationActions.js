@@ -8,7 +8,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import PropTypes from 'prop-types';
 
-const ContactsTablePaginationActions = props => {
+const UserListTablePaginationActions = props => {
 	const theme = useTheme();
 	const { count, page, rowsPerPage, onChangePage } = props;
 
@@ -54,11 +54,11 @@ const ContactsTablePaginationActions = props => {
 	);
 };
 
-ContactsTablePaginationActions.propTypes = {
+UserListTablePaginationActions.propTypes = {
 	count: PropTypes.number.isRequired,
 	onChangePage: PropTypes.func.isRequired,
 	page: PropTypes.number.isRequired,
 	rowsPerPage: PropTypes.number.isRequired
 };
 
-export default ContactsTablePaginationActions;
+export default UserListTablePaginationActions;

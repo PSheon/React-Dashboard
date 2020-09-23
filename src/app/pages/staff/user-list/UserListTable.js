@@ -1,22 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } from 'react-table';
 
-import FuseScrollbars from '@fuse/core/FuseScrollbars';
+import FuseAnimate from '@fuse/core/FuseAnimate';
 import Checkbox from '@material-ui/core/Checkbox';
 import MaUTable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableFooter from '@material-ui/core/TableFooter';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
+import LoadingIcon from 'app/fuse-layouts/shared-components/LoadingIcon';
+import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-import ContactsTablePaginationActions from './ContactsTablePaginationActions';
+import UserListTablePaginationActions from './UserListTablePaginationActions';
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
 	const defaultRef = React.useRef();
@@ -33,26 +34,25 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 	);
 });
 
-const EnhancedTable = ({ columns, data, onRowClick }) => {
-	const USER_LIST = useSelector(({ userList }) => userList);
-	console.log('USER_LIST, ', USER_LIST);
-	const currentPageIndex = USER_LIST.routeParams.page ?? 1;
-	const totalPages = USER_LIST.totalPages ?? 1;
-	const isListLoading = USER_LIST.loading;
+const EnhancedTable = ({ columns, data, loading, totalUsers, totalPages, onRowClick }) => {
+	const dispatch = useDispatch();
+	const routeParams = useSelector(({ userList }) => userList.routeParams);
 
 	const {
 		getTableProps,
 		headerGroups,
 		prepareRow,
 		page,
-		gotoPage,
+		// gotoPage,
 		setPageSize,
-		state: { pageIndex, pageSize }
+		state: { pageIndex: currentPageIndex, pageSize: currentPageSize }
 	} = useTable(
 		{
 			columns,
 			data,
-			autoResetPage: true
+			initialState: { pageSize: routeParams.limit, pageIndex: routeParams.page - 1 }, // Pass our hoisted table state
+			manualPagination: true,
+			pageCount: totalPages
 		},
 		useGlobalFilter,
 		useSortBy,
@@ -91,8 +91,9 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 		}
 	);
 
-	const handleChangePage = (event, newPage) => {
-		gotoPage(newPage);
+	const handleChangePage = (event, nextPageIndex) => {
+		// gotoPage(nextPageIndex);
+		dispatch(Actions.setSearchRouteParams({ ...routeParams, page: nextPageIndex + 1 }));
 	};
 
 	const handleChangeRowsPerPage = event => {
@@ -103,6 +104,13 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 	return (
 		<div className="flex flex-col min-h-full -mt-16 sm:mt-0">
 			<TableContainer className="flex flex-1">
+				{loading && (
+					<FuseAnimate animation="transition.slideUpIn">
+						<div className="absolute w-full h-full flex justify-center items-center">
+							<LoadingIcon height={64} width={64} />
+						</div>
+					</FuseAnimate>
+				)}
 				<MaUTable {...getTableProps()} stickyHeader>
 					<TableHead>
 						{headerGroups.map(headerGroup => (
@@ -155,7 +163,6 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 					</TableBody>
 				</MaUTable>
 			</TableContainer>
-
 			<TablePagination
 				component="div"
 				classes={{
@@ -166,18 +173,16 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 					inputProps: { 'aria-label': '每頁資料筆數' },
 					native: false
 				}}
-				rowsPerPage={5}
-				// rowsPerPage={pageSize}
-				rowsPerPageOptions={[5]}
+				rowsPerPage={currentPageSize}
+				rowsPerPageOptions={[]}
 				// rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
 				labelDisplayedRows={({ from, to, count }) => `第 ${from} 到 ${to} 筆，共 ${count} 筆`}
 				labelRowsPerPage="每頁資料數"
-				count={data.length}
-				page={pageIndex}
-				// page={currentPageIndex - 1}
+				count={totalUsers}
+				page={currentPageIndex}
 				onChangePage={handleChangePage}
 				// onChangeRowsPerPage={handleChangeRowsPerPage}
-				ActionsComponent={ContactsTablePaginationActions}
+				ActionsComponent={UserListTablePaginationActions}
 			/>
 		</div>
 	);

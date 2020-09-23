@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 
 const OPTIONS = ({ labelColor, dangerLight, strokeColor, success }) => ({
@@ -121,6 +122,9 @@ const useStyles = makeStyles(theme => ({
 const StrategyReturn = () => {
 	const theme = useTheme();
 	const classes = useStyles();
+	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+
+	const CHART_HEIGHT = mdDown ? 220 : 200;
 
 	return (
 		<div
@@ -176,7 +180,7 @@ const StrategyReturn = () => {
 					})}
 					series={SERIES}
 					type="bar"
-					height={200}
+					height={CHART_HEIGHT}
 				/>
 			</FuseAnimate>
 		</div>
