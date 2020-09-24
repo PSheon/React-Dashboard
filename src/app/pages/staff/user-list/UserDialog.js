@@ -120,7 +120,7 @@ function UserDialog(props) {
 			<AppBar position="static" elevation={1} id="draggable-dialog" className="mb-24 rounded-8">
 				<Toolbar className="flex w-full justify-between cursor-move">
 					<Typography variant="subtitle1" color="inherit">
-						{userInfoDialog.type === 'new' ? 'New Contact' : '編輯用戶'}
+						{`編輯 ${form.memberId} 資料`}
 					</Typography>
 
 					<IconButton
@@ -135,7 +135,7 @@ function UserDialog(props) {
 						<XCircle size={18} />
 					</IconButton>
 				</Toolbar>
-				<div className="flex flex-col items-center justify-center">
+				<div className="flex items-center justify-center">
 					<Avatar
 						className={clsx(classes.avatarWrapper, 'w-64 h-64 -mb-24')}
 						alt="user avatar"

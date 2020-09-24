@@ -1,4 +1,3 @@
-// TODO Dev this
 import React, { useState } from 'react';
 import { HelpCircle, Monitor, ArrowUp, Smartphone, Tablet, ArrowDown, ChevronDown } from 'react-feather';
 
@@ -23,17 +22,17 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function WidgetSettingCard(props) {
+function WidgetPaymentSettingCard(props) {
 	const classes = useStyles();
 	const theme = useTheme(props);
 
 	return (
 		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
 			<div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
-				<Typography className="h1 font-medium">系統通知</Typography>
+				<Typography className="h1 font-medium">付款設定</Typography>
 				<Tooltip
 					arrow
-					title="系統通知"
+					title="付款設定"
 					placement="top"
 					classes={{ tooltip: 'bg-grey-800 text-white p-8 font-300 text-14' }}
 				>
@@ -77,4 +76,4 @@ function WidgetSettingCard(props) {
 	);
 }
 
-export default React.memo(WidgetSettingCard);
+export default React.memo(WidgetPaymentSettingCard);

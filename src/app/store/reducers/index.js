@@ -4,6 +4,7 @@ import auth from './auth';
 import botBoard from './botBoard';
 import fuse from './fuse';
 import profile from './profile';
+import setting from './setting';
 import userList from './userList';
 
 const createReducer = asyncReducers =>
@@ -14,6 +15,7 @@ const createReducer = asyncReducers =>
 		botBoard,
 		profile,
 		userList,
+		setting,
 
 		...asyncReducers
 	});
