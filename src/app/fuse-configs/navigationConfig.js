@@ -199,11 +199,19 @@ export const STAFF_NAVIGATION = {
 	children: [
 		{
 			id: 'staff-user-list',
-			title: '會員列表',
+			title: '會員管理列表',
 			translate: 'STAFF_USER_LIST',
 			type: 'item',
 			icon: 'list_alt',
 			url: '/staff/user-list'
+		},
+		{
+			id: 'staff-commodity-list',
+			title: '商品管理列表',
+			translate: 'STAFF_COMMODITY_LIST',
+			type: 'item',
+			icon: 'list_alt',
+			url: '/staff/commodity-list'
 		},
 		{
 			id: 'staff-instance-list',

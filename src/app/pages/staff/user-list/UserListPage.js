@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import { useDeepCompareEffect } from '@fuse/hooks';
@@ -11,7 +10,7 @@ import UserListFilterPanel from './UserListFilterPanel';
 import UserListHeader from './UserListHeader';
 import UserListTableWrapper from './UserListTableWrapper';
 
-function UserList() {
+function UserListPage() {
 	const dispatch = useDispatch();
 	const routeParams = useSelector(({ userList }) => userList.routeParams);
 
@@ -45,4 +44,4 @@ function UserList() {
 	);
 }
 
-export default UserList;
+export default UserListPage;

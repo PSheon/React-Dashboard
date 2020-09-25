@@ -16,7 +16,7 @@ const UserListPageConfig = {
 	routes: [
 		{
 			path: '/staff/user-list',
-			component: React.lazy(() => import('./UserList'))
+			component: React.lazy(() => import('./UserListPage'))
 		}
 	]
 };

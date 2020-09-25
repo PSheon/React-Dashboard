@@ -103,7 +103,7 @@ const EnhancedTable = ({ columns, data, loading, totalUsers, totalPages, onRowCl
 
 	// Render the UI for your table
 	return (
-		<div className="flex flex-col min-h-full -mt-16 sm:mt-0">
+		<div className="flex flex-col min-h-full">
 			<TableContainer className="flex flex-1">
 				{loading && (
 					<FuseAnimate animation="transition.slideUpIn">

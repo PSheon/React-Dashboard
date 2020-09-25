@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
 import CssLinearProgress from 'app/fuse-layouts/shared-components/CssLinearProgress';
 import * as Actions from 'app/store/actions';
 
@@ -33,9 +34,27 @@ function UserListTableWrapper() {
 				},
 				accessor: 'photoUrl',
 				Cell: ({ row }) => {
-					return <Avatar className="mx-8" alt={row.original.displayName} src={row.original.photoUrl} />;
+					return (
+						<CssAvatarBadge
+							overlap="circle"
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'right'
+							}}
+							dotschema={row.original.active ? 'success' : 'danger'}
+							variant="dot"
+						>
+							<div className="w-48 h-48 border-4 p-2 rounded-full">
+								<Avatar
+									className="w-36 h-36"
+									alt={row.original.displayName}
+									src={row.original.photoUrl}
+								/>
+							</div>
+						</CssAvatarBadge>
+					);
 				},
-				className: 'justify-center',
+				className: 'flex justify-center',
 				width: 64,
 				sortable: false
 			},

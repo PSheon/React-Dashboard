@@ -143,7 +143,7 @@ function UserDialog(props) {
 					/>
 				</div>
 			</AppBar>
-			<DialogContent classes={{ root: 'px-24 py-12 flex flex-col md:overflow-hidden' }}>
+			<DialogContent classes={{ root: 'px-24 py-12 flex flex-col' }}>
 				<div className="flex items-center py-12">
 					<div className="min-w-48">
 						<Icon color="action">account_circle</Icon>
