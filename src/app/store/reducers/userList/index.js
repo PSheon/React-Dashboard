@@ -8,8 +8,7 @@ const initialState = {
 		filter: '',
 		fields: 'displayName,email',
 		page: 1,
-		// limit: 20,
-		limit: 2,
+		limit: 20,
 		conditions: {},
 		sort: 'createdAt',
 		order: -1
@@ -50,7 +49,7 @@ const userListReducer = (state = initialState, action) => {
 				totalUsers
 			};
 		}
-		case Actions.SET_ROUTE_PARAMS: {
+		case Actions.SET_USER_LIST_ROUTE_PARAMS: {
 			return {
 				...state,
 				routeParams: {
@@ -154,7 +153,7 @@ const userListReducer = (state = initialState, action) => {
 				docs: newdocs
 			};
 		}
-		case Actions.TOGGLE_FILTER_PANEL: {
+		case Actions.TOGGLE_USER_LIST_FILTER_PANEL: {
 			return {
 				...state,
 				filterPanel: {

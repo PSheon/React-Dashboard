@@ -1,4 +1,4 @@
-import CommodityListPageConfig from './commodity-list/CommodityListPageConfig';
+// import CommodityListPageConfig from './commodity-list/CommodityListPageConfig';
 import InstanceListPageConfig from './instance-list/InstanceListPageConfig';
 import MaintenancePageConfig from './maintenance/MaintenancePageConfig';
 import OrderListPageConfig from './order-list/OrderListPageConfig';
@@ -9,8 +9,8 @@ const staffConfigs = [
 	UserListPageConfig,
 	InstanceListPageConfig,
 	OrderListPageConfig,
-	MaintenancePageConfig,
-	CommodityListPageConfig
+	MaintenancePageConfig
+	// CommodityListPageConfig
 ];
 
 export default staffConfigs;

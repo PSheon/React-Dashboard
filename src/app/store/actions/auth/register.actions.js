@@ -2,10 +2,10 @@
 import jwtService from 'app/services/jwtService';
 import * as ProfileActions from 'app/store/actions/profile';
 
-export const SET_REGISTER_LOADING = 'SET_REGISTER_LOADING';
-export const REGISTER_ERROR = 'REGISTER_ERROR';
-export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-export const RESET_REGISTER_ALERT = 'RESET_REGISTER_ALERT';
+export const SET_REGISTER_LOADING = '[AUTH] SET REGISTER LOADING';
+export const REGISTER_ERROR = '[AUTH] REGISTER ERROR';
+export const REGISTER_SUCCESS = '[AUTH] REGISTER SUCCESS';
+export const RESET_REGISTER_ALERT = '[AUTH] RESET REGISTER ALERT';
 
 const ERROR_TABLE = {
 	DUPLICATE_KEY: {

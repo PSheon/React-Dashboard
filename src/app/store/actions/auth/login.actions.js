@@ -4,10 +4,10 @@ import jwtService from 'app/services/jwtService';
 import * as ProfileActions from 'app/store/actions/profile';
 import axios from 'axios';
 
-export const SET_LOGIN_LOADING = 'SET_LOGIN_LOADING';
-export const LOGIN_ERROR = 'LOGIN_ERROR';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const RESET_LOGIN_ALERT = 'RESET_LOGIN_ALERT';
+export const SET_LOGIN_LOADING = '[AUTH] SET LOGIN LOADING';
+export const LOGIN_ERROR = '[AUTH] LOGIN ERROR';
+export const LOGIN_SUCCESS = '[AUTH] LOGIN SUCCESS';
+export const RESET_LOGIN_ALERT = '[AUTH] RESET LOGIN ALERT';
 
 const ERROR_TABLE = {
 	USER_DOES_NOT_EXIST: {
@@ -50,8 +50,8 @@ export function submitLogin({ email, password }) {
 		// TODO return demo
 		jwtService
 			.signInWithEmailAndPassword(email, password)
-			.then(user => {
-				dispatch(ProfileActions.setUserData(user));
+			.then(userData => {
+				dispatch(ProfileActions.setUserData(userData));
 				return dispatch({
 					type: LOGIN_SUCCESS
 				});
@@ -60,7 +60,7 @@ export function submitLogin({ email, password }) {
 				// FIXME
 				return dispatch({
 					type: LOGIN_ERROR,
-					payload: { error: ERROR_TABLE[error?.errors[0]?.msg] }
+					payload: { error: ERROR_TABLE[error.msg ?? error?.errors[0]?.msg] }
 				});
 			});
 	};

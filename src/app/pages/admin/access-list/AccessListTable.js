@@ -18,7 +18,7 @@ import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-import UserListTablePaginationActions from './UserListTablePaginationActions';
+import AccessListTablePaginationActions from './AccessListTablePaginationActions';
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
 	const defaultRef = React.useRef();
@@ -35,9 +35,9 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
 	);
 });
 
-const EnhancedTable = ({ columns, data, loading, totalUsers, totalPages, onRowClick }) => {
+const EnhancedTable = ({ columns, data, loading, totalAccesses, totalPages, onRowClick }) => {
 	const dispatch = useDispatch();
-	const routeParams = useSelector(({ userList }) => userList.routeParams);
+	const routeParams = useSelector(({ accessList }) => accessList.routeParams);
 
 	const {
 		getTableProps,
@@ -94,7 +94,7 @@ const EnhancedTable = ({ columns, data, loading, totalUsers, totalPages, onRowCl
 
 	const handleChangePage = (event, nextPageIndex) => {
 		// gotoPage(nextPageIndex);
-		dispatch(Actions.setUserListSearchRouteParams({ ...routeParams, page: nextPageIndex + 1 }));
+		dispatch(Actions.setAccessListSearchRouteParams({ ...routeParams, page: nextPageIndex + 1 }));
 	};
 
 	const handleChangeRowsPerPage = event => {
@@ -179,11 +179,11 @@ const EnhancedTable = ({ columns, data, loading, totalUsers, totalPages, onRowCl
 				// rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
 				labelDisplayedRows={({ from, to, count }) => `第 ${from} 到 ${to} 筆，共 ${count} 筆`}
 				labelRowsPerPage="每頁資料數"
-				count={totalUsers}
+				count={totalAccesses}
 				page={currentPageIndex}
 				onChangePage={handleChangePage}
 				// onChangeRowsPerPage={handleChangeRowsPerPage}
-				ActionsComponent={UserListTablePaginationActions}
+				ActionsComponent={AccessListTablePaginationActions}
 			/>
 		</div>
 	);

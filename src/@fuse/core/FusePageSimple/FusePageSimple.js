@@ -11,7 +11,7 @@ import FusePageSimpleSidebar from './FusePageSimpleSidebar';
 
 const headerHeight = 120;
 const toolbarHeight = 64;
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles(theme => ({
 	root: {

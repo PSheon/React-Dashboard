@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import moment from 'moment/moment';
+import moment from 'moment';
 
 import * as Actions from './store/actions';
 

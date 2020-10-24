@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import accessList from './accessList';
 import auth from './auth';
 import botBoard from './botBoard';
 import fuse from './fuse';
@@ -15,6 +16,7 @@ const createReducer = asyncReducers =>
 		botBoard,
 		profile,
 		userList,
+		accessList,
 		setting,
 
 		...asyncReducers

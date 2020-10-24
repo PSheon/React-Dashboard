@@ -185,6 +185,13 @@ export const ADMIN_NAVIGATION = {
 		// 	url: '/admin/staff-list'
 		// },
 		{
+			id: 'admin-access-list',
+			title: '操作記錄列表',
+			type: 'item',
+			icon: 'list_alt',
+			url: '/admin/access-list'
+		},
+		{
 			type: 'divider',
 			id: 'divider-admin'
 		}

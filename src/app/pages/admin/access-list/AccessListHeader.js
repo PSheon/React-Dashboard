@@ -51,10 +51,10 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function UserListHeader(props) {
+function AccessListHeader(props) {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const searchText = useSelector(({ userList }) => userList.routeParams.filter);
+	const searchText = useSelector(({ accessList }) => accessList.routeParams.filter);
 	const theme = useTheme();
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -66,7 +66,7 @@ function UserListHeader(props) {
 			setIsLocalSearchingLoading(false);
 			setLocalSearchText(newSearchText);
 			dispatch(
-				Actions.setUserListSearchRouteParams({
+				Actions.setAccessListSearchRouteParams({
 					filter: newSearchText,
 					page: 1
 				})
@@ -81,21 +81,24 @@ function UserListHeader(props) {
 			<FuseAnimate animation="transition.slideUpIn">
 				<Breadcrumbs
 					classes={{ padding: 'p-16' }}
-					breadCrumbTitle="用戶列表"
-					breadCrumbs={[{ title: '網站管理' }, { title: '用戶列表', isActive: true }]}
+					breadCrumbTitle="操作紀錄"
+					breadCrumbs={[{ title: '網站管理' }, { title: '操作紀錄', isActive: true }]}
 				/>
 			</FuseAnimate>
 
-			<div className="w-full flex flex-1 items-center justify-between px-8 sm:px-12">
+			<div className="w-full flex flex-1 items-center justify-between">
 				{smUp && (
-					<Typography className="h2 font-semibold mr-24 whitespace-no-wrap" color="textSecondary">
-						尋找用戶
+					<Typography
+						className="h2 font-semibold pl-8 sm:pl-12 pr-24 whitespace-no-wra"
+						color="textSecondary"
+					>
+						尋找操作紀錄
 					</Typography>
 				)}
 
 				<FuseAnimate animation="transition.slideLeftIn" delay={300}>
 					<Paper
-						className="flex p-4 items-center w-full max-w-512 h-48 py-12 px-8 rounded-8 hover:shadow-xl"
+						className="flex p-4 items-center w-full max-w-440 h-48 py-12 px-8 rounded-8 hover:shadow-xl"
 						elevation={1}
 					>
 						{islocalSearchLoading ? (
@@ -105,13 +108,13 @@ function UserListHeader(props) {
 						)}
 
 						<Input
-							placeholder="尋找用戶"
+							placeholder="尋找操作紀錄"
 							className="flex flex-1 mx-8"
 							disableUnderline
 							fullWidth
 							defaultValue={searchText || localSearchText}
 							inputProps={{
-								'aria-label': '尋找用戶'
+								'aria-label': '尋找操作紀錄'
 							}}
 							onChange={event => {
 								setIsLocalSearchingLoading(true);
@@ -122,7 +125,7 @@ function UserListHeader(props) {
 						{!smUp && (
 							<IconButton
 								key="filter"
-								aria-label="篩選用戶"
+								aria-label="篩選操作紀錄"
 								className={clsx(classes.filterWrapper, 'w-36 h-36 mr-0 sm:mr-4')}
 								color="inherit"
 								size="small"
@@ -149,7 +152,7 @@ function UserListHeader(props) {
 								props.pageLayout.current.toggleRightSidebar();
 							}}
 						>
-							篩選用戶
+							篩選操作紀錄
 						</Button>
 					</FuseAnimate>
 				)}
@@ -158,4 +161,4 @@ function UserListHeader(props) {
 	);
 }
 
-export default UserListHeader;
+export default AccessListHeader;

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const SET_USER_LIST_LOADING = '[USER LIST] SET USER LIST LOADING';
 export const SET_USER_LIST = '[USER LIST] SET USER LIST';
-export const SET_ROUTE_PARAMS = '[USER LIST] SET ROUTE PARAMS';
+export const SET_USER_LIST_ROUTE_PARAMS = '[USER LIST] SET ROUTE PARAMS';
 export const TOGGLE_IN_SELECTED_USERS = '[USER LIST] TOGGLE IN SELECTED USERS';
 export const SELECT_ALL_USERS = '[USER LIST] SELECT ALL USERS';
 export const DESELECT_ALL_USERS = '[USER LIST] DESELECT ALL USERS';
@@ -11,7 +11,7 @@ export const OPEN_USER_INFO_DIALOG = '[USER LIST] OPEN USER INFO DIALOG';
 export const CLOSE_USER_INFO_DIALOG = '[USER LIST] CLOSE USER INFO DIALOG';
 export const UPDATE_USER_PERMISSION = '[USER LIST] UPDATE USER PERMISSION';
 export const UPDATE_USER_ACTIVE = '[USER LIST] UPDATE USER ACTIVE';
-export const TOGGLE_FILTER_PANEL = '[USER LIST] TOGGLE FILTER PANEL';
+export const TOGGLE_USER_LIST_FILTER_PANEL = '[USER LIST] TOGGLE FILTER PANEL';
 export const DELETE_USER = '[USER LIST] DELETE USER';
 
 export function getUserList(routeParams) {
@@ -46,10 +46,10 @@ export function getUserList(routeParams) {
 	};
 }
 
-export function setSearchRouteParams(routeParams) {
+export function setUserListSearchRouteParams(routeParams) {
 	return dispatch => {
 		dispatch({
-			type: SET_ROUTE_PARAMS,
+			type: SET_USER_LIST_ROUTE_PARAMS,
 			payload: {
 				routeParams
 			}
@@ -223,6 +223,6 @@ export function deactiveUsers(userIds) {
 
 export function toggleFilterPanel() {
 	return {
-		type: TOGGLE_FILTER_PANEL
+		type: TOGGLE_USER_LIST_FILTER_PANEL
 	};
 }

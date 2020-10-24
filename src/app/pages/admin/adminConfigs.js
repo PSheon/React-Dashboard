@@ -1,3 +1,4 @@
+import AccessListPageConfig from './access-list/AccessListPageConfig';
 import DashboardPageConfig from './dashboard/DashboardPageConfig';
 import MaintenancePageConfig from './maintenance/MaintenancePageConfig';
 import SettingsPageConfig from './settings/SettingsPageConfig';
@@ -8,7 +9,8 @@ const adminConfigs = [
 	DashboardPageConfig,
 	SettingsPageConfig,
 	StaffListPageConfig,
-	MaintenancePageConfig
+	MaintenancePageConfig,
+	AccessListPageConfig
 ];
 
 export default adminConfigs;
