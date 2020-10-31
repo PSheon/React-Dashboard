@@ -209,7 +209,7 @@ export const STAFF_NAVIGATION = {
 			title: '會員管理列表',
 			translate: 'STAFF_USER_LIST',
 			type: 'item',
-			icon: 'list_alt',
+			icon: 'group',
 			url: '/staff/user-list'
 		},
 		{
@@ -217,7 +217,7 @@ export const STAFF_NAVIGATION = {
 			title: '商品管理列表',
 			translate: 'STAFF_COMMODITY_LIST',
 			type: 'item',
-			icon: 'list_alt',
+			icon: 'storefront',
 			url: '/staff/commodity-list'
 		},
 		{
@@ -225,7 +225,7 @@ export const STAFF_NAVIGATION = {
 			title: '運行實體列表',
 			translate: 'STAFF_INSTANCE_LIST',
 			type: 'item',
-			icon: 'list_alt',
+			icon: 'playlist_add_check_rounded',
 			url: '/staff/instance-list'
 		},
 		// {

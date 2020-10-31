@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Avatar from '@material-ui/core/Avatar';
@@ -6,7 +6,6 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
-import CssLinearProgress from 'app/fuse-layouts/shared-components/CssLinearProgress';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import moment from 'moment';
@@ -14,8 +13,6 @@ import UAParse from 'ua-parser-js';
 
 import AccessListMultiSelectMenu from './AccessListMultiSelectMenu';
 import AccessListTable from './AccessListTable';
-
-import { getInfoFromScheme, getInfoFromClassGroup, getInfoFromProgress } from 'utils';
 
 const getMethodColor = method => {
 	switch (method.toUpperCase()) {
@@ -32,6 +29,34 @@ const getMethodColor = method => {
 		default:
 			return 'text-teal-500';
 	}
+};
+
+const renderBrowserInfo = INFO => {
+	if (!INFO.os.name && !INFO.os.version && !INFO.browser.name && !INFO.browser.version) {
+		return <Typography>未知瀏覽器</Typography>;
+	}
+	return (
+		<div className="flex flex-col">
+			{INFO.device.type && (
+				<Typography>
+					<span>{INFO.device.type}</span>
+					<span className="text-14 text-grey-400">{` - v${INFO.device.vendor}`}</span>
+				</Typography>
+			)}
+			{INFO.os.name && (
+				<Typography>
+					<span>{INFO.os.name}</span>
+					<span className="text-14 text-grey-400">{` - v${INFO.os.version}`}</span>
+				</Typography>
+			)}
+			{INFO.browser.name && (
+				<Typography>
+					<span>{INFO.browser.name}</span>
+					<span className="text-14 text-grey-400">{` - v${INFO.browser.version}`}</span>
+				</Typography>
+			)}
+		</div>
+	);
 };
 
 function AccessListTableWrapper() {
@@ -103,14 +128,14 @@ function AccessListTableWrapper() {
 					);
 				},
 				headerClassName: 'text-center',
-				className: 'text-center font-bold',
+				className: 'text-left font-bold',
 				sortable: true
 			},
 			{
 				Header: '路徑',
 				accessor: 'pathname',
 				headerClassName: 'text-center',
-				className: 'text-center font-bold',
+				className: 'text-left font-bold',
 				sortable: true
 			},
 			{
@@ -132,22 +157,27 @@ function AccessListTableWrapper() {
 				accessor: 'browser',
 				Cell: ({ row }) => {
 					const INFO = UAParse(row.original.browser);
-					return (
-						<Typography>{`${INFO.browser.name} ${INFO.browser.version} - ${INFO.os.name} ${INFO.os.version}`}</Typography>
-					);
+					return renderBrowserInfo(INFO);
 				},
 				headerClassName: 'text-center',
-				className: 'text-center',
+				className: 'text-left',
 				sortable: false
 			},
 			{
 				Header: '時間',
 				accessor: 'createAt',
 				Cell: ({ row }) => {
-					return <Typography>{moment(row.original.createdAt).format('YYYY/MM/DD, a h:mm:ss')}</Typography>;
+					return (
+						<div className="flex flex-col">
+							<Typography>{moment(row.original.createdAt).fromNow()}</Typography>
+							<Typography className="text-grey-400">
+								{moment(row.original.createdAt).format('YYYY/MM/DD, a h:mm:ss')}
+							</Typography>
+						</div>
+					);
 				},
 				headerClassName: 'text-center',
-				className: 'text-center',
+				className: 'text-right',
 				sortable: true
 			},
 			// {
@@ -179,7 +209,7 @@ function AccessListTableWrapper() {
 				width: 128,
 				sortable: false,
 				Cell: ({ row }) => (
-					<>
+					<div className="flex">
 						{/* <IconButton
 							onClick={ev => {
 								ev.stopPropagation();
@@ -192,6 +222,9 @@ function AccessListTableWrapper() {
 								<Icon>star_border</Icon>
 							)}
 						</IconButton> */}
+						<IconButton>
+							<Icon>error_outline_rounded</Icon>
+						</IconButton>
 						<IconButton
 							onClick={ev => {
 								ev.stopPropagation();
@@ -200,7 +233,7 @@ function AccessListTableWrapper() {
 						>
 							<Icon>delete</Icon>
 						</IconButton>
-					</>
+					</div>
 				)
 			}
 		],
