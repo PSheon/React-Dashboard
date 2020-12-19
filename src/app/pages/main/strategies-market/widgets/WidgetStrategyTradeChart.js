@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
 		flex: 2,
-		margin: '2rem',
 		borderRadius: '.8rem',
 		transitionProperty: 'box-shadow, border-color',
 		transitionDuration: theme.transitions.duration.short,

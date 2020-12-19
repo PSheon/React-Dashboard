@@ -108,7 +108,6 @@ const SERIES = [
 const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
-		margin: '2rem',
 		borderRadius: '.8rem',
 		transitionProperty: 'box-shadow, border-color',
 		transitionDuration: theme.transitions.duration.short,
@@ -128,7 +127,7 @@ const WidgetCommodityPriceHistory = props => {
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24')}>
+		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24 mt-20')}>
 			<FuseAnimate delay={100}>
 				<div className="container relative px-24 pt-20 sm:pt-16 flex flex-row justify-between items-center">
 					<Typography className="h1 font-medium" color="textPrimary">

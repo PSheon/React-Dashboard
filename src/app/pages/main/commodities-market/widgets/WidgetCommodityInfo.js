@@ -13,7 +13,6 @@ import clsx from 'clsx';
 const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
-		margin: '2rem',
 		borderRadius: '.8rem',
 		transitionProperty: 'box-shadow, border-color',
 		transitionDuration: theme.transitions.duration.short,
@@ -29,7 +28,7 @@ const WidgetCommodityInfo = props => {
 	const [isWatch, setIsWatch] = useState(false);
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-16 mb-12 sm:mx-24')}>
+		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24 mt-20 mb-12')}>
 			<div className="px-16 py-12 flex flex-col sm:flex-row justify-between">
 				<div className="flex justify-start items-center">
 					<CssAvatarBadge

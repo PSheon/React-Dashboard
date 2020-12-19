@@ -289,7 +289,6 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		background: theme.palette.background.paper,
 		flex: 2,
-		margin: '2rem',
 		borderRadius: '.8rem',
 		transitionProperty: 'box-shadow, border-color',
 		transitionDuration: theme.transitions.duration.short,
@@ -306,7 +305,7 @@ function WidgetStrategyTradeHistory(props) {
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 
 	return (
-		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24 mb-24')}>
+		<div className={clsx(classes.root, 'rounded-8 mx-16 sm:mx-24 mt-20 mb-24')}>
 			<FuseAnimate delay={100}>
 				<Paper className="w-full rounded-8 shadow-1">
 					<div className="flex items-center justify-between px-24 h-64 border-b-1">

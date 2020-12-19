@@ -3,7 +3,7 @@ import * as Actions from 'app/store/actions/auth';
 const initialState = {
 	loading: false,
 	success: false,
-	error: {
+	errors: {
 		global: null,
 		email: null,
 		password: null
@@ -30,14 +30,14 @@ const login = (state = initialState, action) => {
 				...state,
 				loading: false,
 				success: false,
-				error: action.payload.error
+				errors: action.payload.errors
 			};
 		}
 		case Actions.RESET_LOGIN_ALERT: {
 			return {
 				...state,
 				loading: false,
-				error: {
+				errors: {
 					global: null,
 					email: null,
 					password: null

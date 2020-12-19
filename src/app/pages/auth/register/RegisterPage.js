@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meh, Smile, Mail, Eye, EyeOff } from 'react-feather';
+import { Meh, Smile, Mail, Eye, EyeOff, XCircle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -11,11 +11,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grow from '@material-ui/core/Grow';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
+import Alert from '@material-ui/lab/Alert';
 import AUTH_BG from 'app/assets/images/auth/background.jpg';
 import LOGO from 'app/assets/images/logo/new-logo.svg';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
@@ -90,12 +92,12 @@ function RegisterPage() {
 					<Card
 						className={clsx(
 							classes.leftSection,
-							'flex flex-col w-full max-w-sm items-center justify-center'
+							'flex flex-col w-full max-w-sm items-center justify-center overflow-y-scroll'
 						)}
 						square
 						elevation={0}
 					>
-						<CardContent className="flex flex-col items-center justify-center w-full py-48 max-w-360">
+						<CardContent className="flex flex-col items-center justify-center w-full py-36 max-w-360">
 							<FuseAnimate animation="transition.slideUpIn" delay={300}>
 								<div className="flex items-center mb-24 sm:mb-48">
 									<img className="logo-icon w-48" src={LOGO} alt="logo" />
@@ -114,13 +116,38 @@ function RegisterPage() {
 								</div>
 							</FuseAnimate>
 
+							{/* Alert */}
+							{!!REGISTER_STATE.errors.global && (
+								<Grow in={!!REGISTER_STATE.errors.global}>
+									<Alert
+										className="w-full flex items-center mb-24 rounded-16"
+										severity="error"
+										action={
+											<IconButton
+												aria-label="close"
+												className="p-12 mr-4"
+												color="inherit"
+												size="small"
+												onClick={() => {
+													dispatch(AuthActions.resetLoginAlert());
+												}}
+											>
+												<XCircle size={18} />
+											</IconButton>
+										}
+									>
+										{REGISTER_STATE.errors.global}
+									</Alert>
+								</Grow>
+							)}
+
 							<form
 								name="registerForm"
 								className="flex flex-col justify-center w-full"
 								onSubmit={handleSubmit}
 							>
 								<CssTextField
-									className="mb-0 sm:mb-16"
+									className="mb-0 sm:mb-12"
 									label="會員 ID"
 									autoFocus
 									type="memberId"
@@ -160,7 +187,7 @@ function RegisterPage() {
 								/>
 
 								<CssTextField
-									className="mb-0 sm:mb-16"
+									className="mb-0 sm:mb-12"
 									label="信箱"
 									type="email"
 									name="email"
@@ -193,7 +220,7 @@ function RegisterPage() {
 								/>
 
 								<CssTextField
-									className="mb-0 sm:mb-16"
+									className="mb-0 sm:mb-12"
 									label="密碼"
 									type="password"
 									name="password"
@@ -231,7 +258,7 @@ function RegisterPage() {
 								/>
 
 								<CssTextField
-									className="mb-0 sm:mb-16"
+									className="mb-0"
 									label="確認密碼"
 									type="password"
 									name="passwordConfirm"
@@ -291,7 +318,7 @@ function RegisterPage() {
 								</Button>
 							</form>
 
-							<div className="flex flex-col items-center justify-center pb-0 pt-24 sm:pt-32 sm:pb-24">
+							<div className="flex flex-col items-center justify-center pb-0 pt-24 sm:pt-32">
 								<span className="font-medium">已有帳號？</span>
 								<Link className="font-medium focus:font-black" to="/auth/login">
 									登入

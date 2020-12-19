@@ -129,8 +129,8 @@ function UserDialog(props) {
 						className="p-12 mr-0 sm:mr-4"
 						color="inherit"
 						size="small"
-						// TODO fix close bug
 						onClick={closeComposeDialog}
+						onTouchEnd={closeComposeDialog}
 					>
 						<XCircle size={18} />
 					</IconButton>

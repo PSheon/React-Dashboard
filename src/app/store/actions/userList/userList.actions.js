@@ -221,7 +221,7 @@ export function deactiveUsers(userIds) {
 	};
 }
 
-export function toggleFilterPanel() {
+export function toggleUserListFilterPanel() {
 	return {
 		type: TOGGLE_USER_LIST_FILTER_PANEL
 	};

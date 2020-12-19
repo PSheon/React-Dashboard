@@ -3,7 +3,7 @@ import * as Actions from 'app/store/actions/auth';
 const initialState = {
 	loading: false,
 	success: false,
-	error: {
+	errors: {
 		global: null,
 		memberId: null,
 		email: null,
@@ -30,14 +30,14 @@ const register = (state = initialState, action) => {
 			return {
 				success: false,
 				loading: false,
-				error: action.payload.error
+				errors: action.payload.errors
 			};
 		}
 		case Actions.RESET_REGISTER_ALERT: {
 			return {
 				...state,
 				loading: false,
-				error: {
+				errors: {
 					global: null,
 					memberId: null,
 					email: null,

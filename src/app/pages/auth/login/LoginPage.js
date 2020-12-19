@@ -74,8 +74,8 @@ function LoginPage() {
 	const [showPassword, setShowPassword] = useState(false);
 
 	const { form, handleChange } = useForm({
-		email: 'demo@1788.app',
-		password: '!@demo1788',
+		email: 'pauljiang61020@gmail.com',
+		password: '!@Admin123456',
 		remember: true
 	});
 
@@ -100,14 +100,14 @@ function LoginPage() {
 					<Card
 						className={clsx(
 							classes.leftSection,
-							'flex flex-col w-full max-w-sm items-center justify-center'
+							'flex flex-col w-full max-w-sm items-center justify-center overflow-y-scroll'
 						)}
 						square
 						elevation={0}
 					>
-						<CardContent className="flex flex-col items-center justify-center w-full px-24 py-48 max-w-360">
+						<CardContent className="flex flex-col items-center justify-center w-full px-24 py-36 max-w-360">
 							<FuseAnimate animation="transition.slideUpIn" delay={300}>
-								<div className="flex items-center mb-24 sm:mb-36">
+								<div className="flex items-center mb-24 sm:mb-48">
 									<img className="logo-icon w-48" src={LOGO} alt="logo" />
 									<div className="border-l-1 mx-4 w-4 h-40" />
 									<div>
@@ -123,7 +123,6 @@ function LoginPage() {
 									</div>
 								</div>
 							</FuseAnimate>
-
 							<div className="w-full flex flex-col justify-around items-center mb-8">
 								<Button
 									variant="contained"
@@ -168,16 +167,14 @@ function LoginPage() {
 									/>
 								</Button>
 							</div>
-
 							<div className="w-full mt-8 mb-16 flex items-center justify-center">
 								<Divider className="w-full max-w-96" />
 								<span className="mx-8 font-bold">或者</span>
 								<Divider className="w-full max-w-96" />
 							</div>
-
 							{/* Alert */}
-							{!!LOGIN_STATE.error.global && (
-								<Grow in={!!LOGIN_STATE.error.global}>
+							{!!LOGIN_STATE.errors.global && (
+								<Grow in={!!LOGIN_STATE.errors.global}>
 									<Alert
 										className="w-full flex items-center mb-24 rounded-16"
 										severity="error"
@@ -195,18 +192,17 @@ function LoginPage() {
 											</IconButton>
 										}
 									>
-										{LOGIN_STATE.error.global}
+										{LOGIN_STATE.errors.global}
 									</Alert>
 								</Grow>
 							)}
-
 							<form
 								name="loginForm"
 								className="flex flex-col justify-center w-full"
 								onSubmit={handleSubmit}
 							>
 								<CssTextField
-									className="mb-0 sm:mb-16"
+									className="mb-0 sm:mb-12"
 									label="信箱"
 									autoFocus
 									type="email"
@@ -240,7 +236,7 @@ function LoginPage() {
 								/>
 
 								<CssTextField
-									className="mb-0 sm:mb-16"
+									className="mb-0 sm:mb-12"
 									label="密碼"
 									type="password"
 									name="password"
@@ -311,7 +307,7 @@ function LoginPage() {
 								</Button>
 							</form>
 
-							<div className="flex flex-col items-center justify-center pt-32 pb-24">
+							<div className="flex flex-col items-center justify-center pb-0 pt-24 sm:pt-32">
 								<span className="font-medium">尚未擁有帳號？</span>
 								<Link className="font-medium" to="/auth/register">
 									加入會員

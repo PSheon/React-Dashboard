@@ -47,20 +47,25 @@ export function submitLogin({ email, password }) {
 		// 	type: LOGIN_SUCCESS
 		// });
 
-		// TODO return demo
+		// FIXME return demo
 		jwtService
 			.signInWithEmailAndPassword(email, password)
 			.then(userData => {
+				/* @ANCHOR */
 				dispatch(ProfileActions.setUserData(userData));
-				return dispatch({
+				// setTimeout(() => {
+				// 	dispatch(ProfileActions.setUserData(userData));
+				// }, 1500);
+				dispatch({
 					type: LOGIN_SUCCESS
 				});
 			})
 			.catch(error => {
 				// FIXME
+				console.log('error, ', error.errors);
 				return dispatch({
 					type: LOGIN_ERROR,
-					payload: { error: ERROR_TABLE[error.msg ?? error?.errors[0]?.msg] }
+					payload: { errors: ERROR_TABLE[error.errors[0]?.msg] }
 				});
 			});
 	};

@@ -123,7 +123,8 @@ class JwtService extends FuseUtils.EventEmitter {
 		}
 	};
 
-	logout = () => {
+	logout = async () => {
+		await axios.post('/auth/logout');
 		this.setSession(null);
 	};
 

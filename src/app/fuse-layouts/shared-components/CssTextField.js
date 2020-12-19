@@ -33,7 +33,7 @@ const CssTextFieldOld = withStyles({
 				}
 			},
 			'& legend': {
-				fontSize: '1.4rem'
+				fontSize: '1.2rem'
 			},
 			'& fieldset': {
 				borderColor: '#262c49'

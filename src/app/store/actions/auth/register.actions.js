@@ -8,7 +8,7 @@ export const REGISTER_SUCCESS = '[AUTH] REGISTER SUCCESS';
 export const RESET_REGISTER_ALERT = '[AUTH] RESET REGISTER ALERT';
 
 const ERROR_TABLE = {
-	DUPLICATE_KEY: {
+	MEMBER_ID_ALREADY_EXISTS: {
 		global: '使用者ID已經存在'
 	},
 	EMAIL_ALREADY_EXISTS: {
@@ -36,7 +36,7 @@ export function submitRegister({ memberId, email, password }) {
 			.catch(error => {
 				return dispatch({
 					type: REGISTER_ERROR,
-					payload: { error: ERROR_TABLE[error.msg] }
+					payload: { errors: ERROR_TABLE[error.errors[0]?.msg] }
 				});
 			});
 	};
