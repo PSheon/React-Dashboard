@@ -1,12 +1,32 @@
 import React from 'react';
+import { DollarSign, Moon, Bell } from 'react-feather';
+
 import Divider from '@material-ui/core/Divider';
 import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { User, Mail } from 'react-feather';
-
+import MenuItem from '@material-ui/core/MenuItem';
+import Switch from '@material-ui/core/Switch';
+import Typography from '@material-ui/core/Typography';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
-import DotLoader from 'app/fuse-layouts/shared-components/DotLoader';
+
+const currencies = [
+	{
+		value: 'USD',
+		label: '美金 $'
+	},
+	{
+		value: 'EUR',
+		label: '歐元 €'
+	},
+	{
+		value: 'BTC',
+		label: '比特幣 ฿'
+	},
+	{
+		value: 'TWD',
+		label: '新台幣 $'
+	}
+];
 
 const SettingsCard = () => {
 	return (
@@ -14,7 +34,7 @@ const SettingsCard = () => {
 			<div className="w-full p-24 mb-20 flex flex-col justify-center items-center bg-bgPaper rounded-8">
 				{/* Title */}
 				<div className="w-full flex justify-between items-start text-center">
-					<Typography className="h2">未完成</Typography>
+					<Typography className="h2">網站設定</Typography>
 
 					<Typography color="textSecondary">Please check back later.</Typography>
 				</div>
@@ -24,45 +44,45 @@ const SettingsCard = () => {
 				{/* Detail */}
 				<div className="w-full flex flex-col justify-center items-center text-center mt-12 mb-20">
 					<CssTextField
-						label="您的顯示名稱"
+						select
+						label="主要貨幣"
 						className="bg-bgDefault rounded-8 mb-20"
 						InputProps={{
 							inputProps: {
-								'aria-label': '您的顯示名稱'
+								'aria-label': '主要貨幣'
 							},
-							endAdornment: (
-								<InputAdornment position="end" classes={{ root: 'p-12' }}>
-									<User size={18} />
+							startAdornment: (
+								<InputAdornment position="start" classes={{ root: 'p-12' }}>
+									<DollarSign size={18} />
 								</InputAdornment>
 							)
 						}}
 						variant="outlined"
 						fullWidth
-					/>
+					>
+						{currencies.map(option => (
+							<MenuItem key={option.value} value={option.value}>
+								{option.label}
+							</MenuItem>
+						))}
+					</CssTextField>
 
-					<CssTextField
-						label="您的信箱"
-						className="bg-bgDefault rounded-8 mb-20"
-						InputProps={{
-							inputProps: {
-								'aria-label': '您的信箱'
-							},
-							endAdornment: (
-								<InputAdornment position="end" classes={{ root: 'p-12' }}>
-									<Mail size={18} />
-								</InputAdornment>
-							)
-						}}
-						variant="outlined"
-						fullWidth
-					/>
-
-					<div className="w-full flex justify-center items-center mt-12 mb-16 pl-12 pr-24">
-						<div className="flex-1">
-							<Typography className="h3 text-left">信箱驗證狀態</Typography>
+					<div className="w-full flex justify-center items-center mt-12 mb-16 px-12">
+						<div className="flex-1 flex justify-start items-center">
+							<Moon size={16} />
+							<Typography className="h3 pl-12 text-left">深色主題</Typography>
 						</div>
-						<div className="flex-1">
-							<DotLoader className="ml-auto" width={16} height={16} colorSchema="secondary" />
+						<div className="flex-1 flex justify-end">
+							<Switch checked />
+						</div>
+					</div>
+					<div className="w-full flex justify-center items-center mt-12 mb-16 px-12">
+						<div className="flex-1 flex justify-start items-center">
+							<Bell size={16} />
+							<Typography className="h3 pl-12 text-left">網站通知</Typography>
+						</div>
+						<div className="flex-1 flex justify-end">
+							<Switch checked />
 						</div>
 					</div>
 				</div>

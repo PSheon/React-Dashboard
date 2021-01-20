@@ -1,10 +1,12 @@
-import _ from '@lodash';
+import React from 'react';
+
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { withFormsy } from 'formsy-react';
-import React from 'react';
+
+import _ from '@lodash';
 
 function CheckboxFormsy(props) {
 	const importedProps = _.pick(props, [

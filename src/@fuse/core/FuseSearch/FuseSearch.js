@@ -1,10 +1,14 @@
+import React, { useEffect, useReducer, useRef } from 'react';
+import Autosuggest from 'react-autosuggest';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import FuseUtils from '@fuse/utils';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import ListSubheader from '@material-ui/core/ListSubheader';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
@@ -15,11 +19,8 @@ import Typography from '@material-ui/core/Typography';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import clsx from 'clsx';
+
 import _ from '@lodash';
-import React, { useEffect, useReducer, useRef } from 'react';
-import Autosuggest from 'react-autosuggest';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 function renderInputComponent(inputProps) {
 	const { variant, classes, inputRef = () => {}, ref, ...other } = inputProps;
@@ -223,7 +224,7 @@ function reducer(state, action) {
 }
 
 function FuseSearch(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const navigation = useSelector(({ fuse }) => fuse.navigation);
 
 	const [state, dispatch] = useReducer(reducer, initialState);

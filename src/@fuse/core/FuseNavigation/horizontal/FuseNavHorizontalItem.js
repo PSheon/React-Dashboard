@@ -1,3 +1,8 @@
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
 import Icon from '@material-ui/core/Icon';
@@ -6,10 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
 import FuseNavBadge from '../FuseNavBadge';
 
 const useStyles = makeStyles(theme => ({
@@ -36,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalItem(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 
 	const classes = useStyles(props);
 	const { item } = props;

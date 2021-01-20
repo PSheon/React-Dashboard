@@ -1,11 +1,20 @@
 // import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
+
 // import * as Actions from 'app/store/actions';
 import * as UserActions from './user.actions';
 
 export const SET_LOGIN_LOADING = 'SET_LOGIN_LOADING';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const RESET_LOGIN_ALERT = 'RESET_LOGIN_ALERT';
+
+const ERROR_TABLE = {
+	USER_DOES_NOT_EXIST: {
+		global: '使用者不存在'
+	},
+	UNKNOWN_ERROR: { global: '出現未知錯誤' }
+};
 
 export function submitLogin({ email, password }) {
 	return dispatch => {
@@ -21,12 +30,17 @@ export function submitLogin({ email, password }) {
 				});
 			})
 			.catch(error => {
-				console.log('error, ', error);
 				return dispatch({
 					type: LOGIN_ERROR,
-					payload: error
+					payload: { error: ERROR_TABLE[error.msg] }
 				});
 			});
+	};
+}
+
+export function resetLoginAlert() {
+	return dispatch => {
+		dispatch({ type: RESET_LOGIN_ALERT });
 	};
 }
 

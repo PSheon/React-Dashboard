@@ -1,10 +1,12 @@
+import jwtService from 'app/services/jwtService';
+import * as FuseActions from 'app/store/actions/fuse';
+import * as MessageActions from 'app/store/actions/fuse/message.actions';
+
 import history from '@history';
 import _ from '@lodash';
+
 // import auth0Service from 'app/services/auth0Service';
 // import firebaseService from 'app/services/firebaseService';
-import jwtService from 'app/services/jwtService';
-import * as MessageActions from 'app/store/actions/fuse/message.actions';
-import * as FuseActions from 'app/store/actions/fuse';
 // import firebase from 'firebase/app';
 
 export const SET_USER_DATA = '[USER] SET DATA';

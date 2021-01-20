@@ -41,6 +41,36 @@
 		"react/forbid-prop-types": "off",
 		"react/require-default-props": "off",
 		"react/default-props-match-prop-types": "off",
-		"react/no-unused-prop-types": "off"
+		"react/no-unused-prop-types": "off",
+		"import/order": [
+			"error",
+			{
+				"pathGroups": [
+					{
+						"pattern": "react*",
+						"group": "builtin",
+						"position": "before"
+					},
+					{
+						"pattern": "@fuse/**",
+						"group": "external"
+					},
+					{
+						"pattern": "@material**/**",
+						"group": "external"
+					},
+					{
+						"pattern": "app/**",
+						"group": "external"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["react"],
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		]
 	}
 }

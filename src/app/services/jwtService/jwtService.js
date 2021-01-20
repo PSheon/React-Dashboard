@@ -17,7 +17,7 @@ class JwtService extends FuseUtils.EventEmitter {
 			},
 			err => {
 				return new Promise((resolve, reject) => {
-					if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
+					if (err?.response?.status === 401 && err?.config && !err?.config?.__isRetryRequest) {
 						// if you ever get an unauthorized response, logout the user
 						this.emit('onAutoLogout', 'Invalid access_token');
 						this.setSession(null);
@@ -57,7 +57,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
-					reject(error.response.data);
+					reject(error?.response?.data ?? { msg: 'UNKNOWN_ERROR' });
 				});
 		});
 	};
@@ -76,7 +76,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
-					reject(error.response.data);
+					reject(error?.response?.data ?? { msg: 'UNKNOWN_ERROR' });
 				});
 		});
 	};
@@ -98,6 +98,7 @@ class JwtService extends FuseUtils.EventEmitter {
 					}
 				})
 				.catch(error => {
+					this.emit('onAutoLogout', 'network error');
 					this.logout();
 					Promise.reject();
 				});
@@ -113,14 +114,17 @@ class JwtService extends FuseUtils.EventEmitter {
 	setSession = access_token => {
 		if (access_token) {
 			localStorage.setItem('jwt_access_token', access_token);
+			axios.defaults.withCredentials = true;
 			axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
 		} else {
 			localStorage.removeItem('jwt_access_token');
+			delete axios.defaults.withCredentials;
 			delete axios.defaults.headers.common.Authorization;
 		}
 	};
 
-	logout = () => {
+	logout = async () => {
+		await axios.post('/auth/logout');
 		this.setSession(null);
 	};
 
@@ -131,7 +135,6 @@ class JwtService extends FuseUtils.EventEmitter {
 		const decoded = jwtDecode(access_token);
 		const currentTime = Date.now() / 1000;
 		if (decoded.exp < currentTime) {
-			console.warn('access token expired');
 			return false;
 		}
 

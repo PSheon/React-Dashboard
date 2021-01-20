@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import humanizeDuration from 'humanize-duration';
-import UAParser from 'ua-parser-js';
-import moment from 'moment';
-import Skeleton from '@material-ui/lab/Skeleton';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import IconButton from '@material-ui/core/IconButton';
-import Divider from '@material-ui/core/Divider';
-import Button from '@material-ui/core/Button';
-import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
 import { Smartphone, Monitor, ArrowDown } from 'react-feather';
+import { useSelector } from 'react-redux';
+
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Grow from '@material-ui/core/Grow';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Skeleton from '@material-ui/lab/Skeleton';
+import clsx from 'clsx';
+import moment from 'moment';
+import UAParser from 'ua-parser-js';
 
 const COLUMNS = [
 	{
@@ -44,21 +44,25 @@ const COLUMNS = [
 ];
 
 const renderActionIcon = action => {
-	switch (action) {
-		case 'login':
-			return <div className="text-14 bg-blue text-white inline text-11 font-500 px-8 py-4 rounded-8">登入</div>;
-		case 'refresh':
-			return (
-				<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">更新憑證</div>
-			);
-		case 'change-password':
-		default:
-			return (
-				<div className="text-14 bg-warning text-white inline text-11 font-500 px-8 py-4 rounded-8">
-					更換密碼
-				</div>
-			);
-	}
+	const ACTION_TABLE = {
+		'/auth/login': (
+			<div className="text-14 bg-blue text-white inline text-11 font-500 px-8 py-4 rounded-8">登入</div>
+		),
+		'/auth/access-token': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">更新憑證</div>
+		),
+		'/auth/reset-password': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">更新密碼</div>
+		),
+		'/auth/forgot-password': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">發起更新</div>
+		),
+		'/api/users': (
+			<div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">使用 API</div>
+		),
+		default: <div className="text-14 bg-green text-white inline text-11 font-500 px-8 py-4 rounded-8">查詢</div>
+	};
+	return ACTION_TABLE[action] || ACTION_TABLE.default;
 };
 
 const renderUADetail = UAInfo => {
@@ -98,7 +102,7 @@ const AccessHistoryCard = () => {
 	const smUp = useMediaQuery(theme.breakpoints.up('sm'));
 	const [tableExtend, setTableExtend] = useState(false);
 
-	const ACCESS_HISTORY = useSelector(({ me }) => me.accessHistory);
+	const ACCESS_HISTORY = useSelector(({ profile }) => profile.accessHistory);
 
 	return (
 		<Grow in>
@@ -130,9 +134,9 @@ const AccessHistoryCard = () => {
 						<Paper className="w-full rounded-8 shadow-none border-none table-responsive">
 							{ACCESS_HISTORY.loading ? (
 								<>
-									<Skeleton animation="wave" className="h-36 rounded-8" />
-									<Skeleton animation="wave" className="h-36 rounded-8" />
-									<Skeleton animation="wave" className="h-36 rounded-8" />
+									<Skeleton animation="wave" className="h-64 rounded-8" />
+									<Skeleton animation="wave" className="h-64 rounded-8" />
+									<Skeleton animation="wave" className="h-64 rounded-8" />
 								</>
 							) : (
 								<Table className="w-full min-w-full">
@@ -146,7 +150,7 @@ const AccessHistoryCard = () => {
 										</TableRow>
 									</TableHead>
 									<TableBody>
-										{ACCESS_HISTORY.docs.slice(0, tableExtend ? -1 : 5).map(doc => (
+										{ACCESS_HISTORY.data.slice(0, tableExtend ? -1 : 5).map(doc => (
 											<TableRow
 												key={doc._id}
 												hover
@@ -169,12 +173,7 @@ const AccessHistoryCard = () => {
 												</TableCell>
 												<TableCell component="th" scope="row">
 													<Typography className={classes.createdAtCell}>
-														{humanizeDuration(moment(doc.createdAt).diff(moment()), {
-															largest: 2,
-															language: 'zh_TW',
-															round: true
-														})}{' '}
-														前
+														{moment(doc.createdAt).fromNow()}
 													</Typography>
 												</TableCell>
 											</TableRow>

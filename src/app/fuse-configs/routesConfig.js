@@ -1,9 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+
 import FuseUtils from '@fuse/utils';
+import adminConfigs from 'app/pages/admin/adminConfigs';
 import authConfigs from 'app/pages/auth/authConfigs';
 import mainConfigs from 'app/pages/main/mainConfigs';
-import adminConfigs from 'app/pages/admin/adminConfigs';
 import staffConfigs from 'app/pages/staff/staffConfigs';
 
 const routeConfigs = [...authConfigs, ...mainConfigs, ...adminConfigs, ...staffConfigs];

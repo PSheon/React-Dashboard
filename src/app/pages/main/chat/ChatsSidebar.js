@@ -1,3 +1,6 @@
+import React, { useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import FuseUtils from '@fuse/utils';
@@ -14,8 +17,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import React, { useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import ContactListItem from './ContactListItem';
 import StatusIcon from './StatusIcon';
 import * as Actions from './store/actions';

@@ -4,7 +4,7 @@ const initialState = {
 	loading: false,
 	success: false,
 	error: {
-		global: false,
+		global: null,
 		memberId: null,
 		email: null,
 		password: null
@@ -30,7 +30,19 @@ const register = (state = initialState, action) => {
 			return {
 				success: false,
 				loading: false,
-				error: action.payload
+				error: action.payload.error
+			};
+		}
+		case Actions.RESET_REGISTER_ALERT: {
+			return {
+				...state,
+				loading: false,
+				error: {
+					global: null,
+					memberId: null,
+					email: null,
+					password: null
+				}
 			};
 		}
 		default: {

@@ -1,11 +1,13 @@
+import React, { createRef, useCallback, useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import MobileDetect from 'mobile-detect';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PropTypes from 'prop-types';
-import React, { createRef, useCallback, useEffect, useRef } from 'react';
-import { connect } from 'react-redux';
+
 import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
 
 const md = new MobileDetect(window.navigator.userAgent);
@@ -46,7 +48,7 @@ const FuseScrollbars = React.forwardRef((props, ref) => {
 			}
 		});
 		// eslint-disable-next-line
-    }, [ref]);
+	}, [ref]);
 
 	const unHookUpEvents = useCallback(() => {
 		handlerByEvent.current.forEach((value, key) => {

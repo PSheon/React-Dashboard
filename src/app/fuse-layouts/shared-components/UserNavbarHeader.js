@@ -1,10 +1,11 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
-import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -37,8 +38,8 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function UserNavbarHeader(props) {
-	const user = useSelector(({ auth }) => auth.user);
+function UserNavbarHeader() {
+	const me = useSelector(({ profile }) => profile.me.data);
 	const foldedOpen = useSelector(({ fuse }) => fuse.navbar.foldedOpen);
 
 	// TODO
@@ -53,23 +54,19 @@ function UserNavbarHeader(props) {
 			classes={{ root: classes.root }}
 			className={clsx(
 				foldedOpen && 'sm:rounded-b-8',
-				'user relative flex flex-col items-center justify-center pt-24 pb-64 mb-32 z-0 rounded-b-0 sm:rounded-none'
+				'user relative flex flex-col items-center justify-center pt-24 pb-64 mb-32 z-0 rounded-b-8'
 			)}
 		>
 			<Typography className="username text-16 whitespace-no-wrap font-bold" color="inherit">
-				{user.data.displayName}
+				{me.memberId}
 			</Typography>
 			<Typography className="email text-13 mt-8 opacity-50 whitespace-no-wrap font-semibold" color="inherit">
-				{user.data.email}
+				{me.email}
 			</Typography>
 			<Avatar
 				className={clsx(classes.avatar, 'avatar')}
 				alt="user photo"
-				src={
-					user.data.photoURL && user.data.photoURL !== ''
-						? user.data.photoURL
-						: 'assets/images/avatars/profile.jpg'
-				}
+				src={me.photoURL && me.photoURL !== '' ? me.photoURL : 'assets/images/avatars/profile.jpg'}
 			/>
 		</AppBar>
 	);

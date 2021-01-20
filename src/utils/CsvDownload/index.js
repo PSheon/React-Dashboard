@@ -3,11 +3,11 @@ import React from 'react';
 import csvDownload from './json-to-csv-export';
 
 export const CsvDownload = props => {
-  const { data, filename, ...others } = props;
+	const { data, filename, ...others } = props;
 
-  return (
-    <button onClick={() => csvDownload(data, filename)} {...others}>
-      {props.children || 'Download Data'}
-    </button>
-  );
+	return (
+		<button onClick={() => csvDownload(data, filename)} {...others}>
+			{props.children || 'Download Data'}
+		</button>
+	);
 };

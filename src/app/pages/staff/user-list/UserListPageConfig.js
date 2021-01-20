@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { authRoles } from 'app/auth';
 
 const UserListPageConfig = {
@@ -15,7 +16,7 @@ const UserListPageConfig = {
 	routes: [
 		{
 			path: '/staff/user-list',
-			component: React.lazy(() => import('./UserList'))
+			component: React.lazy(() => import('./UserListPage'))
 		}
 	]
 };

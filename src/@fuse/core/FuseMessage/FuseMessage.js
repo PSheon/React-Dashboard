@@ -1,4 +1,7 @@
 import React from 'react';
+import { XCircle, Bell } from 'react-feather';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { amber, blue, green } from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,8 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { XCircle, Bell } from 'react-feather';
 
 const useStyles = makeStyles(theme => ({
 	root: {},

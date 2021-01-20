@@ -1,16 +1,19 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import { authRoles } from 'app/auth';
+
 const NotifyPageConfig = {
 	settings: {
 		layout: {
 			config: {}
 		}
 	},
+	auth: authRoles.trial,
 	routes: [
 		{
 			path: '/notify',
-			component: () => <Redirect to="/coming-soon" />
+			component: () => <Redirect to="/admin/maintenance" />
 		}
 	]
 };

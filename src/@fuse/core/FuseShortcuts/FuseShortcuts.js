@@ -1,25 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Package } from 'react-feather';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseUtils from '@fuse/utils';
 import { amber } from '@material-ui/core/colors';
 import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
-import * as UserActions from 'app/auth/store/actions';
-import clsx from 'clsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { Package } from 'react-feather';
-
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
+import * as ProfileActions from 'app/store/actions/profile';
+import clsx from 'clsx';
 
 const useStyles = makeStyles({
 	root: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 
 function FuseShortcuts(props) {
 	const dispatch = useDispatch();
-	const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
+	const shortcuts = useSelector(({ profile }) => profile.shortcuts.data);
 	const navigationData = useSelector(({ fuse }) => fuse.navigation);
 
 	const classes = useStyles(props);
@@ -81,7 +81,7 @@ function FuseShortcuts(props) {
 	function toggleInShortcuts(id) {
 		let newShortcuts = [...shortcuts];
 		newShortcuts = newShortcuts.includes(id) ? newShortcuts.filter(_id => id !== _id) : [...newShortcuts, id];
-		dispatch(UserActions.updateUserShortcuts(newShortcuts));
+		dispatch(ProfileActions.updateUserShortcuts(newShortcuts));
 	}
 
 	function ShortcutMenuItem({ item, onToggle }) {

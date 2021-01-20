@@ -1,17 +1,25 @@
 import React from 'react';
+import { Edit, User, Mail, Smartphone } from 'react-feather';
 import { useSelector } from 'react-redux';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
-import Typography from '@material-ui/core/Typography';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { Edit, User, Mail, Smartphone } from 'react-feather';
-
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import decorLeft from 'app/assets/images/profile/decore-left.png';
+import decorRight from 'app/assets/images/profile/decore-right.png';
 import CssTextField from 'app/fuse-layouts/shared-components/CssTextField';
-import DotLoader from 'app/fuse-layouts/shared-components/DotLoader';
+import DotChart from 'app/fuse-layouts/shared-components/DotChart';
+import clsx from 'clsx';
+
+import AvatarCrop from './AvatarCrop';
 
 const useStyles = makeStyles(theme => ({
+	reactBadge: {
+		backgroundColor: theme.palette.background.paper,
+		color: '#61DAFB'
+	},
 	editButton: {
 		background: theme.palette.primaryGradient
 	}
@@ -20,27 +28,24 @@ const useStyles = makeStyles(theme => ({
 const ProfileCard = () => {
 	const classes = useStyles();
 	// TODO 改 redux 中 auth、profile 位置
-	const USER_DATA = useSelector(({ me }) => me.profile.data);
-	console.log('USER_DATA, ', USER_DATA);
+	const ME_DATA = useSelector(({ profile }) => profile.me.data);
 
 	return (
 		<Grow in>
 			<div className="w-full md:w-2/5 flex justify-center sm:pr-12 mb-20">
-				<div className="w-full p-24 flex flex-col justify-center items-center bg-bgPaper rounded-8">
-					<img
-						className="w-full h-216 -mx-24 -mt-24 object-center object-cover"
-						alt="使用者頭像"
-						src="assets/images/logos/fuse.svg"
-						title="使用者頭像"
-					/>
+				<div className="w-full p-24 flex flex-col justify-center items-center bg-bgPaper rounded-8 relative">
+					<img src={decorLeft} alt="card-img-left" className="absolute w-2/5 top-0 left-0" />
+					<img src={decorRight} alt="card-img-right" className="absolute w-2/5 top-0 right-0" />
+
+					<AvatarCrop />
 
 					{/* Title */}
 					<div className="w-full mt-20 flex justify-between items-start text-center">
 						<Typography className="h2 mb-16">我的資訊</Typography>
 
-						{USER_DATA.email && (
+						{ME_DATA.email && (
 							<Typography color="textSecondary" className="mb-40">
-								{USER_DATA.email}
+								{ME_DATA.email}
 							</Typography>
 						)}
 					</div>
@@ -54,7 +59,7 @@ const ProfileCard = () => {
 								inputProps: {
 									'aria-label': '我的顯示名稱'
 								},
-								defaultValue: USER_DATA.displayName,
+								defaultValue: ME_DATA.displayName,
 								endAdornment: (
 									<InputAdornment position="end" classes={{ root: 'p-12' }}>
 										<User size={18} />
@@ -66,14 +71,13 @@ const ProfileCard = () => {
 						/>
 
 						<CssTextField
-							label="我的信箱"
+							label="我的備用信箱"
 							className="bg-bgDefault rounded-8 mb-20"
 							InputProps={{
 								inputProps: {
-									'aria-label': '我的信箱'
+									'aria-label': '我的備用信箱'
 								},
-								readOnly: true,
-								defaultValue: USER_DATA.email,
+								defaultValue: ME_DATA.secondary_email,
 								endAdornment: (
 									<InputAdornment position="end" classes={{ root: 'p-12' }}>
 										<Mail size={18} />
@@ -91,7 +95,7 @@ const ProfileCard = () => {
 								inputProps: {
 									'aria-label': '我的手機'
 								},
-								defaultValue: USER_DATA.phone,
+								defaultValue: ME_DATA.phone,
 								endAdornment: (
 									<InputAdornment position="end" classes={{ root: 'p-12' }}>
 										<Smartphone size={18} />
@@ -107,10 +111,10 @@ const ProfileCard = () => {
 								<Typography className="h3 text-left">信箱驗證狀態</Typography>
 							</div>
 							<div className="flex-1">
-								{USER_DATA.verified ? (
-									<DotLoader className="ml-auto" width={16} height={16} colorSchema="green" />
+								{ME_DATA.verified ? (
+									<DotChart className="ml-auto" width={16} height={16} colorSchema="green" />
 								) : (
-									<DotLoader className="ml-auto" width={16} height={16} colorSchema="warning" />
+									<DotChart className="ml-auto" width={16} height={16} colorSchema="warning" />
 								)}
 							</div>
 						</div>

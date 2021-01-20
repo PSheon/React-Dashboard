@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+
+import { authRoles } from 'app/auth';
 
 const ReferralsPageConfig = {
 	settings: {
@@ -7,10 +8,11 @@ const ReferralsPageConfig = {
 			config: {}
 		}
 	},
+	auth: authRoles.trial,
 	routes: [
 		{
 			path: '/referrals',
-			component: () => <Redirect to="/coming-soon" />
+			component: React.lazy(() => import('./ReferralsPage'))
 		}
 	]
 };

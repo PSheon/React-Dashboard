@@ -1,11 +1,12 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
-import Hidden from '@material-ui/core/Hidden';
+import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Icon from '@material-ui/core/Icon';
-import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
-import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -17,16 +18,15 @@ import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import * as Actions from './store/actions/index';
 import reducer from './store/reducers';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: 280,
-		height: 'calc(100% - 1.6rem)',
-		margin: '1.2rem .4rem 1.2rem 0',
+		height: 'calc(100% - 1.8rem)',
+		margin: '1.2rem 0 .6rem 0',
 		borderRadius: '.8rem'
 	}
 }));
@@ -76,20 +76,18 @@ function QuickPanel(props) {
 						</Typography>
 					</div>
 
-					<Hidden mdDown>
-						<NavbarFoldedToggleButton className="w-40 h-40 p-0" />
-					</Hidden>
-
-					<Hidden lgUp>
-						<NavbarMobileToggleButton className="w-40 h-40 p-0">
-							<Icon>close</Icon>
-						</NavbarMobileToggleButton>
-					</Hidden>
+					<IconButton
+						className="w-40 h-40 p-0"
+						onClick={ev => dispatch(Actions.toggleQuickPanel())}
+						color="inherit"
+					>
+						<Icon>close</Icon>
+					</IconButton>
 				</AppBar>
 
 				<FuseScrollbars option={{ suppressScrollX: true }}>
-					<ListSubheader component="div" className="bg-grey">
-						Today
+					<ListSubheader component="div" className="bg-primary">
+						近期公告
 					</ListSubheader>
 					<div className="mb-0 py-16 px-24">
 						<Typography className="mb-12 text-32" color="textSecondary">

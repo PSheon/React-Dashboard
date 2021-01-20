@@ -1,11 +1,13 @@
 import React from 'react';
 
+import LOGO from 'app/assets/images/logo/new-logo.svg';
+
 function FuseSplashScreen() {
 	return (
 		<div id="fuse-splash-screen">
 			<div className="center">
 				<div className="logo">
-					<img width="128" src="assets/images/logos/fuse.svg" alt="logo" />
+					<img width="128" src={LOGO} alt="logo" />
 				</div>
 				<div className="spinner-wrapper">
 					<div className="spinner">

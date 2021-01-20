@@ -1,12 +1,14 @@
 // TODO Dev this
-import Card from '@material-ui/core/Card';
-import Tooltip from '@material-ui/core/Tooltip';
-import { useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
 import { HelpCircle } from 'react-feather';
+
 import { useInterval } from '@fuse/hooks';
+import Card from '@material-ui/core/Card';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
 
 const OPTIONS = ({ success, strokeColor }) => ({
 	chart: {
@@ -64,19 +66,29 @@ const OPTIONS = ({ success, strokeColor }) => ({
 	}
 });
 
-// const SERIES = [82]];
+const useStyles = makeStyles(theme => ({
+	root: {
+		transitionProperty: 'box-shadow, border-color',
+		transitionDuration: theme.transitions.duration.short,
+		transitionTimingFunction: theme.transitions.easing.easeInOut,
+		'&:hover': {
+			boxShadow: theme.shadows[6]
+		}
+	}
+}));
 
 function WidgetFundingRatio(props) {
+	const classes = useStyles();
 	const theme = useTheme(props);
 	const [usageRatio, setUsageRatio] = useState(82);
 
-	useInterval(() => {
-		setUsageRatio(Math.floor(Math.random() * 99) + 1);
-	}, 1500);
+	// useInterval(() => {
+	// 	setUsageRatio(Math.floor(Math.random() * 99) + 1);
+	// }, 1500);
 
 	return (
-		<Card className="w-full rounded-8 shadow-none">
-			<div className="pt-16 px-20 flex justify-between items-center">
+		<Card className={clsx(classes.root, 'w-full rounded-8 shadow-none')}>
+			<div className="px-24 pt-20 sm:pt-16 flex justify-between items-center">
 				<Typography className="h1 font-medium">成功掛單比率</Typography>
 				<Tooltip
 					arrow

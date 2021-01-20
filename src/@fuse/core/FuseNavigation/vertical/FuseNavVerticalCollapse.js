@@ -1,3 +1,8 @@
+import React, { useEffect, useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
 import Collapse from '@material-ui/core/Collapse';
@@ -8,10 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
 import FuseNavBadge from '../FuseNavBadge';
 import FuseNavItem from '../FuseNavItem';
 
@@ -70,7 +72,7 @@ function isUrlInChildren(parent, url) {
 }
 
 function FuseNavVerticalCollapse(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
 	const { item, nestedLevel } = props;
 	const classes = useStyles({

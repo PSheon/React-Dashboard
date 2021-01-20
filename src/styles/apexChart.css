@@ -58,7 +58,7 @@
 	fill: #262c49 !important;
 }
 .apexcharts-canvas .apexcharts-inner rect {
-	fill: #10163a;
+	/* fill: #10163a; */
 }
 .apexcharts-canvas .apexcharts-pie-series path {
 	stroke: #262c49;

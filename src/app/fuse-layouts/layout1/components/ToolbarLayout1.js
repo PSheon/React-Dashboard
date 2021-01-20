@@ -1,9 +1,11 @@
-import clsx from 'clsx';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import FuseSearch from '@fuse/core/FuseSearch';
 import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
-import { Link } from 'react-router-dom';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -11,8 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import clsx from 'clsx';
+
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
 const useStyles = makeStyles(theme => ({
@@ -48,10 +50,10 @@ function ToolbarLayout1(props) {
 							<NavbarMobileToggleButton className="w-48 h-48 py-0 mx-8" />
 
 							<Link
-								to="/"
+								to="/dashboard"
 								role="button"
 								components={Typography}
-								className="text-16 font-medium"
+								className="text-14 font-medium sm:text-16"
 								color="textPrimary"
 							>
 								借貸平台

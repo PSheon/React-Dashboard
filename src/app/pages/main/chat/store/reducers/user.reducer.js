@@ -1,4 +1,5 @@
 import _ from 'lodash';
+
 import * as Actions from '../actions';
 
 const userReducer = (state = null, action) => {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+
+import { authRoles } from 'app/auth';
 
 const PaymentPageConfig = {
 	settings: {
@@ -7,10 +8,11 @@ const PaymentPageConfig = {
 			config: {}
 		}
 	},
+	auth: authRoles.trial,
 	routes: [
 		{
 			path: '/payment',
-			component: () => <Redirect to="/coming-soon" />
+			component: React.lazy(() => import('./PaymentPage'))
 		}
 	]
 };

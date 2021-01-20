@@ -1,3 +1,6 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 import FuseSearch from '@fuse/core/FuseSearch';
 import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,8 +11,7 @@ import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
-import React from 'react';
-import { useSelector } from 'react-redux';
+
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
 const useStyles = makeStyles(theme => ({

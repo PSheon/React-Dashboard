@@ -1,12 +1,17 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Typography from '@material-ui/core/Typography';
+
+import Header from '../sections/Header';
 
 function Error500Page() {
 	return (
 		<div className="flex flex-col flex-1 items-center justify-center py-16 px-24">
-			<div className="max-w-512 text-center">
+			<Header />
+
+			<div className="max-w-512 text-center mt-36">
 				<FuseAnimate animation="transition.expandIn" delay={100}>
 					<Typography variant="h1" color="inherit" className="font-medium mb-16">
 						500

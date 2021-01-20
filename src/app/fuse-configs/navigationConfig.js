@@ -1,65 +1,43 @@
 // import { authRoles } from 'app/auth';
 import i18next from 'i18next';
-import ar from './navigation-i18n/ar';
-import en from './navigation-i18n/en';
-import tr from './navigation-i18n/tr';
 
+import en from './navigation-i18n/en';
+import tw from './navigation-i18n/tw';
+
+i18next.addResourceBundle('tw', 'navigation', tw);
 i18next.addResourceBundle('en', 'navigation', en);
-i18next.addResourceBundle('tr', 'navigation', tr);
-i18next.addResourceBundle('ar', 'navigation', ar);
 
 const navigationConfig = [
 	{
-		id: 'application',
-		title: '自動借貸',
-		translate: 'APPLICATION',
+		id: 'trading',
+		title: '投資交易',
+		translate: 'TRADING',
 		type: 'group',
 		children: [
 			{
 				id: 'dashboard',
-				title: '主控版',
+				title: '我的投資',
 				translate: 'DASHBOARD',
 				type: 'item',
-				icon: 'dashboard',
+				icon: 'pie_chart',
 				exact: true,
 				url: '/dashboard'
 			},
 			{
-				id: 'bots-setting',
-				title: '機器人設置',
-				translate: 'BOTS_SETTING',
+				id: 'follow-trade-bots-board',
+				title: '策略跟投',
+				translate: 'FOLLOW_TRADE_BOTS_BOARD',
 				type: 'item',
 				icon: 'tune',
-				url: '/bot-setting'
+				url: '/follow-trade-bots-board'
 			},
 			{
-				id: 'market',
-				title: '借貸市場',
-				translate: 'MARKET',
+				id: 'lending-bots-board',
+				title: '智能借貸',
+				translate: 'LENDING_BOTS_BOARD',
 				type: 'item',
-				icon: 'euro_symbol',
-				url: '/market'
-			},
-			{
-				id: 'leader-board',
-				title: '資金排行榜',
-				translate: 'LEADERBOARD',
-				type: 'item',
-				icon: 'bar_chart',
-				url: '/leaderboard'
-			},
-			{
-				id: 'referrals',
-				title: '好友推薦',
-				translate: 'REFERRAL',
-				type: 'item',
-				icon: 'email',
-				url: '/referrals',
-				badge: {
-					title: 25,
-					bg: '#F44336',
-					fg: '#FFFFFF'
-				}
+				icon: 'tune',
+				url: '/lending-bots-board'
 			}
 		]
 	},
@@ -68,8 +46,45 @@ const navigationConfig = [
 		id: 'divider-1'
 	},
 	{
+		id: 'market',
+		title: '投資市場',
+		translate: 'MARKET',
+		type: 'group',
+		children: [
+			{
+				id: 'commodities-market',
+				title: '交易市場',
+				translate: 'COMMODITIES_MARKET',
+				type: 'item',
+				icon: 'monetization_on',
+				url: '/commodities-market'
+			},
+			{
+				id: 'strategies-market',
+				title: '策略市場',
+				translate: 'STRATEGIES_MARKET',
+				type: 'item',
+				icon: 'stars',
+				url: '/strategies-market'
+			},
+			{
+				id: 'leader-board',
+				title: '投資風雲榜',
+				translate: 'LEADERBOARD',
+				type: 'item',
+				icon: 'bar_chart',
+				url: '/leaderboard'
+			}
+		]
+	},
+	{
+		type: 'divider',
+		id: 'divider-2'
+	},
+	{
 		id: 'personal',
 		title: '個人頁面',
+		translate: 'PERSONAL',
 		type: 'group',
 		children: [
 			{
@@ -82,6 +97,19 @@ const navigationConfig = [
 				badge: {
 					title: 3,
 					bg: 'rgb(255, 111, 0)',
+					fg: '#FFFFFF'
+				}
+			},
+			{
+				id: 'referrals',
+				title: '好友推薦',
+				translate: 'REFERRAL',
+				type: 'item',
+				icon: 'group_add',
+				url: '/referrals',
+				badge: {
+					title: 25,
+					bg: '#F44336',
 					fg: '#FFFFFF'
 				}
 			},
@@ -115,11 +143,12 @@ const navigationConfig = [
 	},
 	{
 		type: 'divider',
-		id: 'divider-2'
+		id: 'divider-3'
 	},
 	{
 		id: 'logout',
 		title: '登出',
+		translate: 'LOG_OUT',
 		type: 'item',
 		icon: 'exit_to_app',
 		url: '/logout'
@@ -129,22 +158,38 @@ const navigationConfig = [
 export const ADMIN_NAVIGATION = {
 	id: 'admin-navigation',
 	title: '網站設定',
-	// translate: 'ADMIN_NAVIGATION',
+	translate: 'ADMIN_NAVIGATION',
 	type: 'group',
 	children: [
 		{
 			id: 'admin-dashboard',
 			title: '網站主控版',
+			translate: 'ADMIN_DASHBOARD',
 			type: 'item',
 			icon: 'chrome_reader_mode',
 			url: '/admin/dashboard'
 		},
 		{
-			id: 'admin-staff-list',
-			title: '員工列表',
+			id: 'admin-settings',
+			title: '網站設定',
+			translate: 'ADMIN_SETTINGS',
+			type: 'item',
+			icon: 'settings',
+			url: '/admin/settings'
+		},
+		// {
+		// 	id: 'admin-staff-list',
+		// 	title: '員工列表',
+		// 	type: 'item',
+		// 	icon: 'list_alt',
+		// 	url: '/admin/staff-list'
+		// },
+		{
+			id: 'admin-access-list',
+			title: '操作記錄列表',
 			type: 'item',
 			icon: 'list_alt',
-			url: '/admin/staff-list'
+			url: '/admin/access-list'
 		},
 		{
 			type: 'divider',
@@ -156,23 +201,40 @@ export const ADMIN_NAVIGATION = {
 export const STAFF_NAVIGATION = {
 	id: 'staff-navigation',
 	title: '網站管理',
-	// translate: 'STAFF_NAVIGATION',
+	translate: 'STAFF_NAVIGATION',
 	type: 'group',
 	children: [
 		{
 			id: 'staff-user-list',
-			title: '會員列表',
+			title: '會員管理列表',
+			translate: 'STAFF_USER_LIST',
 			type: 'item',
-			icon: 'list_alt',
+			icon: 'group',
 			url: '/staff/user-list'
 		},
 		{
-			id: 'staff-bot-list',
-			title: '運行實體列表',
+			id: 'staff-commodity-list',
+			title: '商品管理列表',
+			translate: 'STAFF_COMMODITY_LIST',
 			type: 'item',
-			icon: 'list_alt',
-			url: '/staff/bot-list'
+			icon: 'storefront',
+			url: '/staff/commodity-list'
 		},
+		{
+			id: 'staff-instance-list',
+			title: '運行實體列表',
+			translate: 'STAFF_INSTANCE_LIST',
+			type: 'item',
+			icon: 'playlist_add_check_rounded',
+			url: '/staff/instance-list'
+		},
+		// {
+		// 	id: 'staff-order-list',
+		// 	title: '訂單列表',
+		// 	type: 'item',
+		// 	icon: 'list_alt',
+		// 	url: '/staff/order-list'
+		// },
 		{
 			type: 'divider',
 			id: 'divider-staff'

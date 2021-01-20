@@ -1,3 +1,6 @@
+import React from 'react';
+import Select from 'react-select';
+
 import Chip from '@material-ui/core/Chip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
@@ -6,8 +9,6 @@ import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
-import Select from 'react-select';
 import Creatable from 'react-select/creatable';
 
 const useStyles = makeStyles(theme => ({

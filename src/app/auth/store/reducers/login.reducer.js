@@ -4,7 +4,7 @@ const initialState = {
 	loading: false,
 	success: false,
 	error: {
-		global: false,
+		global: null,
 		email: null,
 		password: null
 	}
@@ -27,9 +27,21 @@ const login = (state = initialState, action) => {
 		}
 		case Actions.LOGIN_ERROR: {
 			return {
+				...state,
 				loading: false,
 				success: false,
-				error: action.payload
+				error: action.payload.error
+			};
+		}
+		case Actions.RESET_LOGIN_ALERT: {
+			return {
+				...state,
+				loading: false,
+				error: {
+					global: null,
+					email: null,
+					password: null
+				}
 			};
 		}
 		default: {

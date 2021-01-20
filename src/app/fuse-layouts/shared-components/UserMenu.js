@@ -1,49 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+
 import Avatar from '@material-ui/core/Avatar';
+import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import Badge from '@material-ui/core/Badge';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import CssAvatarBadge from 'app/fuse-layouts/shared-components/CssAvatarBadge';
+import * as authActions from 'app/store/actions/auth';
+import clsx from 'clsx';
 
-import * as authActions from 'app/auth/store/actions';
 import { roleConverter } from 'utils';
-
-const AvatarBadge = withStyles(theme => ({
-	badge: {
-		backgroundColor: '#44b700',
-		color: '#44b700',
-		boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-		'&::after': {
-			position: 'absolute',
-			top: 0,
-			left: 0,
-			width: '100%',
-			height: '100%',
-			borderRadius: '50%',
-			animation: '$ripple 1.2s infinite ease-in-out',
-			border: '1px solid currentColor',
-			content: '""'
-		}
-	},
-	'@keyframes ripple': {
-		'0%': {
-			transform: 'scale(.8)',
-			opacity: 1
-		},
-		'100%': {
-			transform: 'scale(2.4)',
-			opacity: 0
-		}
-	}
-}))(Badge);
 
 const useStyles = makeStyles(theme => ({
 	menuItemWrapper: {
@@ -64,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 function UserMenu(props) {
 	const classes = useStyles(props);
 	const dispatch = useDispatch();
-	const user = useSelector(({ auth }) => auth.user);
+	const PROFILE = useSelector(({ profile }) => profile);
 
 	const [userMenu, setUserMenu] = useState(null);
 
@@ -81,31 +54,32 @@ function UserMenu(props) {
 			<Button className="h-48 rounded-32 mr-4 sm:mr-8 pr-8 p-0" onClick={userMenuClick}>
 				<div className="hidden sm:flex flex-col mx-12 items-end">
 					<Typography component="span" className="normal-case font-600 flex">
-						{user.data.displayName}
+						{PROFILE.me.data.displayName}
 					</Typography>
 					<Typography className="text-11 capitalize" color="textSecondary">
-						{roleConverter(user.role.toString())}
+						{roleConverter(PROFILE.role.data.toString())}
 					</Typography>
 				</div>
 
-				<AvatarBadge
+				<CssAvatarBadge
 					overlap="circle"
 					anchorOrigin={{
 						vertical: 'bottom',
 						horizontal: 'right'
 					}}
+					dotschema="danger"
 					variant="dot"
 				>
 					<div className="border-4 p-2 rounded-full">
-						{user.data.photoURL ? (
-							<Avatar className="w-36 h-36" alt="user photo" src={user.data.photoURL} />
+						{PROFILE.me.data.photoURL ? (
+							<Avatar className="w-36 h-36" alt="user photo" src={PROFILE.me.data.photoURL} />
 						) : (
-							<Avatar className="w-36 h-36">{user.data.displayName[0]}</Avatar>
+							<Avatar className="w-36 h-36">{PROFILE.me.data.displayName[0]}</Avatar>
 						)}
 					</div>
-				</AvatarBadge>
+				</CssAvatarBadge>
 
-				<Icon className="text-16 hidden sm:flex ml-8" variant="action">
+				<Icon className="text-16 hidden sm:flex ml-8 font-bold" variant="action">
 					keyboard_arrow_down
 				</Icon>
 			</Button>
@@ -128,7 +102,7 @@ function UserMenu(props) {
 					}
 				}
 			>
-				{!user.role || user.role.length === 0 ? (
+				{!PROFILE.role.data || PROFILE.role.data.length === 0 ? (
 					<>
 						<MenuItem
 							component={Link}

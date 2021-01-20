@@ -10,9 +10,9 @@ const LandingPageConfig = {
 				toolbar: {
 					display: false
 				},
-				footer: {
-					display: false
-				},
+				// footer: {
+				// 	display: false
+				// },
 				leftSidePanel: {
 					display: false
 				},

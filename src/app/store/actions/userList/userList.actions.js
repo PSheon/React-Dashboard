@@ -1,13 +1,9 @@
+import * as FuseActions from 'app/store/actions/fuse';
 import axios from 'axios';
 
-import * as FuseActions from 'app/store/actions/fuse';
-
-export const SET_ACTIVITY_LOGS_BY_USER_ID = '[USER LIST] SET USER ACTIVITY LOGS BY USER ID';
 export const SET_USER_LIST_LOADING = '[USER LIST] SET USER LIST LOADING';
-export const GET_USER_LIST = '[USER LIST] GET USER LIST';
-export const UPDATE_USER_LIST = '[USER LIST] UPDATE USER LIST';
-export const SET_SEARCH_TEXT = '[USER LIST] SET SEARCH TEXT';
-export const SET_SEARCH_CONDITION = '[USER LIST] SET SEARCH CONDITION';
+export const SET_USER_LIST = '[USER LIST] SET USER LIST';
+export const SET_USER_LIST_ROUTE_PARAMS = '[USER LIST] SET ROUTE PARAMS';
 export const TOGGLE_IN_SELECTED_USERS = '[USER LIST] TOGGLE IN SELECTED USERS';
 export const SELECT_ALL_USERS = '[USER LIST] SELECT ALL USERS';
 export const DESELECT_ALL_USERS = '[USER LIST] DESELECT ALL USERS';
@@ -15,7 +11,7 @@ export const OPEN_USER_INFO_DIALOG = '[USER LIST] OPEN USER INFO DIALOG';
 export const CLOSE_USER_INFO_DIALOG = '[USER LIST] CLOSE USER INFO DIALOG';
 export const UPDATE_USER_PERMISSION = '[USER LIST] UPDATE USER PERMISSION';
 export const UPDATE_USER_ACTIVE = '[USER LIST] UPDATE USER ACTIVE';
-export const TOGGLE_FILTER_PANEL = '[USER LIST] TOGGLE FILTER PANEL';
+export const TOGGLE_USER_LIST_FILTER_PANEL = '[USER LIST] TOGGLE FILTER PANEL';
 export const DELETE_USER = '[USER LIST] DELETE USER';
 
 export function getUserList(routeParams) {
@@ -37,9 +33,8 @@ export function getUserList(routeParams) {
 	return dispatch => {
 		dispatch({ type: SET_USER_LIST_LOADING });
 		request.then(response => {
-			console.log('response, ', response);
 			dispatch({
-				type: GET_USER_LIST,
+				type: SET_USER_LIST,
 				payload: {
 					users: response.data.docs,
 					routeParams,
@@ -51,45 +46,12 @@ export function getUserList(routeParams) {
 	};
 }
 
-export function updateUserListWithPageIndex(routeParams) {
-	const request = axios.get('/api/users', {
-		params: routeParams
-	});
-
-	return dispatch => {
-		dispatch({ type: SET_USER_LIST_LOADING });
-		request.then(response =>
-			dispatch({
-				type: UPDATE_USER_LIST,
-				payload: {
-					users: response.data.docs,
-					routeParams: {
-						...routeParams,
-						page: routeParams.page
-					},
-					totalPages: response.data.totalPages
-				}
-			})
-		);
-	};
-}
-
-export function setSearchText(searchText) {
+export function setUserListSearchRouteParams(routeParams) {
 	return dispatch => {
 		dispatch({
-			type: SET_SEARCH_TEXT,
+			type: SET_USER_LIST_ROUTE_PARAMS,
 			payload: {
-				searchText
-			}
-		});
-	};
-}
-export function setSearchCondition(searchCondition) {
-	return dispatch => {
-		dispatch({
-			type: SET_SEARCH_CONDITION,
-			payload: {
-				searchCondition
+				routeParams
 			}
 		});
 	};
@@ -128,23 +90,6 @@ export function openUserInfoDialog(data) {
 export function closeUserInfoDialog() {
 	return {
 		type: CLOSE_USER_INFO_DIALOG
-	};
-}
-
-export function syncActivityLogsByUserId(userId) {
-	const request = axios.get(`/api/activityLog/user/${userId}`);
-
-	return dispatch => {
-		dispatch({ type: SET_USER_LIST_LOADING });
-		request.then(response => {
-			dispatch({
-				type: SET_ACTIVITY_LOGS_BY_USER_ID,
-				payload: {
-					userId,
-					activityLogs: response.data
-				}
-			});
-		});
 	};
 }
 
@@ -207,7 +152,7 @@ export function toggleUserActivation({ userId, email, active }) {
 			});
 			dispatch({
 				type: FuseActions.SHOW_MESSAGE,
-				options: { message: `更新成功` }
+				payload: { options: { message: `更新成功` } }
 			});
 			dispatch({
 				type: FuseActions.CLOSE_DIALOG
@@ -241,7 +186,7 @@ export function deleteUser({ userId }) {
 				});
 				dispatch({
 					type: FuseActions.SHOW_MESSAGE,
-					options: { message: `已刪除使用者` }
+					payload: { options: { message: `已刪除使用者` } }
 				});
 				dispatch({
 					type: FuseActions.CLOSE_DIALOG
@@ -250,7 +195,7 @@ export function deleteUser({ userId }) {
 			.catch(err => {
 				dispatch({
 					type: FuseActions.SHOW_MESSAGE,
-					options: { message: `刪除使用者時出現錯誤` }
+					payload: { options: { message: `刪除使用者時出現錯誤` } }
 				});
 			});
 	};
@@ -276,8 +221,8 @@ export function deactiveUsers(userIds) {
 	};
 }
 
-export function toggleFilterPanel() {
+export function toggleUserListFilterPanel() {
 	return {
-		type: TOGGLE_FILTER_PANEL
+		type: TOGGLE_USER_LIST_FILTER_PANEL
 	};
 }

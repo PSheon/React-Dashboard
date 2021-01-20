@@ -1,3 +1,6 @@
+import React, { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Avatar from '@material-ui/core/Avatar';
@@ -6,8 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import * as Actions from './store/actions';
 
 const useStyles = makeStyles(theme => ({

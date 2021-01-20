@@ -1,28 +1,27 @@
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+
 import Button from '@material-ui/core/Button';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
-
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import * as Actions from 'app/store/actions';
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import clsx from 'clsx';
 
 const languages = [
+	{
+		id: 'tw',
+		title: '繁體中文',
+		flag: 'tw'
+	},
 	{
 		id: 'en',
 		title: 'English',
 		flag: 'us'
-	},
-	{
-		id: 'tr',
-		title: 'Turkish',
-		flag: 'tr'
 	},
 	{
 		id: 'ar',

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import chat from './chat.reducer';
 import contacts from './contacts.reducer';
 import state from './state.reducer';

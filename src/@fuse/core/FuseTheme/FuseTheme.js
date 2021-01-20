@@ -1,6 +1,7 @@
-import { ThemeProvider } from '@material-ui/core/styles';
 import React, { useEffect, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import { ThemeProvider } from '@material-ui/core/styles';
 
 const useEnhancedEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 

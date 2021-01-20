@@ -23,6 +23,7 @@ module.exports = {
 			warning: '#FF9F43',
 			danger: '#EA5455',
 			success: '#28C76F',
+			lightGray: 'rgba(255, 255, 255, .12)',
 			grey: {
 				50: '#FAFAFA',
 				100: '#F5F5F5',
@@ -411,16 +412,20 @@ module.exports = {
 			'208': '20.8rem',
 			'216': '21.6rem',
 			'224': '22.4rem',
+			'240': '24rem',
 			'256': '25.6rem',
 			'288': '28.8rem',
 			'320': '32rem',
+			'340': '34rem',
 			'360': '36rem',
 			'384': '38.4rem',
 			'400': '40rem',
+			'440': '44rem',
 			'512': '51.2rem',
 			'640': '64rem'
 		},
 		backgroundColor: theme => theme('colors'),
+		backgroundOpacity: theme => theme('opacity'),
 		backgroundPosition: {
 			bottom: 'bottom',
 			center: 'center',
@@ -441,6 +446,7 @@ module.exports = {
 			...theme('colors'),
 			default: theme('colors.gray.300', 'currentColor')
 		}),
+		borderOpacity: theme => theme('opacity'),
 		borderRadius: {
 			none: '0',
 			sm: '.2rem',
@@ -648,7 +654,15 @@ module.exports = {
 			snug: '1.375',
 			normal: '1.5',
 			relaxed: '1.625',
-			loose: '2'
+			loose: '2',
+			'3': '1.2rem',
+			'4': '1.6rem',
+			'5': '2rem',
+			'6': '2.4rem',
+			'7': '2.8rem',
+			'8': '3.2rem',
+			'9': '3.6rem',
+			'10': '4rem'
 		},
 		listStyleType: {
 			none: 'none',
@@ -728,6 +742,11 @@ module.exports = {
 		},
 		padding: theme => theme('spacing'),
 		placeholderColor: theme => theme('colors'),
+		placeholderOpacity: theme => theme('opacity'),
+		space: (theme, { negative }) => ({
+			...theme('spacing'),
+			...negative(theme('spacing'))
+		}),
 		stroke: {
 			current: 'currentColor'
 		},
@@ -737,6 +756,7 @@ module.exports = {
 			'2': '2'
 		},
 		textColor: theme => theme('colors'),
+		textOpacity: theme => theme('opacity'),
 		width: theme => ({
 			auto: 'auto',
 			...theme('spacing'),
@@ -755,6 +775,10 @@ module.exports = {
 			'3/6': '50%',
 			'4/6': '66.666667%',
 			'5/6': '83.333333%',
+			'2/7': '28.571428%',
+			'3/7': '42.857142%',
+			'4/7': '57.142857%',
+			'5/7': '71.428571%',
 			'1/12': '8.333333%',
 			'2/12': '16.666667%',
 			'3/12': '25%',
@@ -970,13 +994,17 @@ module.exports = {
 		backgroundSize: ['responsive'],
 		borderCollapse: ['responsive'],
 		borderColor: ['responsive', 'hover', 'focus'],
+		borderOpacity: ['responsive', 'hover', 'focus'],
 		borderRadius: ['responsive'],
 		borderStyle: ['responsive'],
-		borderWidth: ['responsive'],
+		borderWidth: ['responsive', 'hover', 'focus'],
 		boxShadow: ['responsive', 'hover', 'focus'],
 		boxSizing: ['responsive'],
 		cursor: ['responsive'],
 		display: ['responsive', 'hover', 'focus'],
+		divideColor: ['responsive'],
+		divideOpacity: ['responsive'],
+		divideWidth: ['responsive'],
 		fill: ['responsive'],
 		flex: ['responsive'],
 		flexDirection: ['responsive'],
@@ -1004,20 +1032,23 @@ module.exports = {
 		minWidth: ['responsive'],
 		objectFit: ['responsive'],
 		objectPosition: ['responsive'],
-		opacity: ['responsive'],
+		opacity: ['responsive', 'hover', 'focus'],
 		order: ['responsive'],
 		outline: ['responsive', 'focus'],
 		overflow: ['responsive'],
 		padding: ['responsive', 'hover', 'direction'],
 		placeholderColor: ['responsive', 'focus'],
+		placeholderOpacity: ['responsive', 'focus'],
 		pointerEvents: ['responsive'],
 		position: ['responsive'],
 		resize: ['responsive'],
+		space: ['responsive'],
 		stroke: ['responsive'],
 		strokeWidth: ['responsive'],
 		tableLayout: ['responsive'],
 		textAlign: ['responsive', 'direction'],
 		textColor: ['responsive', 'hover', 'focus'],
+		textOpacity: ['responsive', 'hover', 'focus'],
 		textDecoration: ['responsive', 'hover', 'focus'],
 		textTransform: ['responsive'],
 		userSelect: ['responsive'],
@@ -1045,7 +1076,8 @@ module.exports = {
 		skew: ['responsive', 'hover', 'focus'],
 		transitionProperty: ['responsive'],
 		transitionTimingFunction: ['responsive'],
-		transitionDuration: ['responsive']
+		transitionDuration: ['responsive'],
+		transitionDelay: ['responsive']
 	},
 	corePlugins: {},
 	plugins: [require('tailwindcss-dir')()]

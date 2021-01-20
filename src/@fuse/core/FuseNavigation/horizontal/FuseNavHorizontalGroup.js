@@ -1,3 +1,10 @@
+import React, { useState, useMemo } from 'react';
+import * as ReactDOM from 'react-dom';
+import { useTranslation } from 'react-i18next';
+import { Manager, Popper, Reference } from 'react-popper';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { useDebounce } from '@fuse/hooks';
 import FuseUtils from '@fuse/utils';
@@ -10,12 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useState, useMemo } from 'react';
-import * as ReactDOM from 'react-dom';
-import { useTranslation } from 'react-i18next';
-import { Manager, Popper, Reference } from 'react-popper';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
 import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
@@ -52,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalGroup(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 
 	const classes = useStyles(props);
 	const [opened, setOpened] = useState(false);

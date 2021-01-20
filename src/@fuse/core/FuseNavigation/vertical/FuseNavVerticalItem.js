@@ -1,17 +1,19 @@
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 import FuseNavBadge from '../FuseNavBadge';
 
 const useStyles = makeStyles(theme => ({
@@ -51,7 +53,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavVerticalItem(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
+	const userRole = useSelector(({ profile }) => profile.role.data);
 	const dispatch = useDispatch();
 
 	const theme = useTheme();

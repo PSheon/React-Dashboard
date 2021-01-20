@@ -1,8 +1,9 @@
 import { fuseDark, gray, red, orange, yellow, green, teal, blue, indigo, purple, pink } from '@fuse/colors';
-import _ from '@lodash';
 import { lightBlue } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 import qs from 'qs';
+
+import _ from '@lodash';
 
 /**
  * SETTINGS DEFAULTS

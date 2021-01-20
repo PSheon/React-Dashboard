@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
-import auth from 'app/auth/store/reducers';
-import me from './me';
+
+import accessList from './accessList';
+import auth from './auth';
+import botBoard from './botBoard';
+import commodityList from './commodityList';
 import fuse from './fuse';
+import profile from './profile';
+import setting from './setting';
 import userList from './userList';
 
 const createReducer = asyncReducers =>
@@ -9,8 +14,12 @@ const createReducer = asyncReducers =>
 		auth,
 		fuse,
 
-		me,
+		botBoard,
+		profile,
 		userList,
+		commodityList,
+		accessList,
+		setting,
 
 		...asyncReducers
 	});

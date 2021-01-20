@@ -1,9 +1,12 @@
+import React from 'react';
+
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React from 'react';
+
+import FuseNavItem, { registerComponent } from './FuseNavItem';
 import FuseNavHorizontalCollapse from './horizontal/FuseNavHorizontalCollapse';
 import FuseNavHorizontalGroup from './horizontal/FuseNavHorizontalGroup';
 import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
@@ -12,7 +15,6 @@ import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
 import FuseNavVerticalLink from './vertical/FuseNavVerticalLink';
-import FuseNavItem, { registerComponent } from './FuseNavItem';
 
 /*
 Register Fuse Navigation Components

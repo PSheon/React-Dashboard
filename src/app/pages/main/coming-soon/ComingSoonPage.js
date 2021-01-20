@@ -1,3 +1,5 @@
+import React from 'react';
+
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseCountdown from '@fuse/core/FuseCountdown';
 import { useForm } from '@fuse/hooks';
@@ -9,8 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 // import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import LOGO from 'app/assets/images/logo/new-logo.svg';
 import clsx from 'clsx';
-import React from 'react';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -41,7 +43,7 @@ function ComingSoonPage() {
 				<FuseAnimate animation="transition.expandIn">
 					<Card className="w-full max-w-384">
 						<CardContent className="flex flex-col items-center justify-center p-32 text-center">
-							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
+							<img className="w-128 m-32" src={LOGO} alt="logo" />
 
 							<Typography variant="subtitle1" className="mb-16">
 								Hey! Thank you for checking out our app.

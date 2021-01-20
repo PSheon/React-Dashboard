@@ -1,7 +1,9 @@
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+
 import * as Actions from './store/actions/state.actions';
 
 const ChatPanelToggleButton = props => {
